@@ -21,7 +21,7 @@ Download zip file from this page. Unpack and open `Lineups creator.exe`
 
 `Import` or CTRL+O opens .json schemes (Restart before input) \
 `Save` or CTRL+S creates .json schemes \
-`Export` or CTRL+SHIFT+S creates .png/.jpeg files \
+`Export` or CTRL+SHIFT+S creates .png/.jpeg files 
 
 <br>
 
