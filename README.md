@@ -69,3 +69,6 @@ Slot editor features.
 - `Vehicle text` contains text that will be shown on the image.
 - `Linked icon` combobox contains link to every icon in the game.
 - `Background` combobox contains every background image in the game.
+- Image preview
+
+> NOTE: Im using Windows Forms, so there is no true transparency. Preview can look bad.
