@@ -19,9 +19,9 @@ Download zip file from this page. Unpack and open `Lineups creator.exe`
 #### Import | Save | Export
 ![image](https://github.com/Gaz1zPr0g/wt-lineup-creator/assets/81079946/ac0c3ffd-70f3-45bf-afb4-e5fe75f25806)
 
-`Import` opens .json schemes \
-`Save` creates .json schemes \
-`Export` creates .png/.jpeg files \
+`Import` or CTRL+O opens .json schemes \
+`Save` or CTRL+S creates .json schemes \
+`Export` or CTRL+SHIFT+S creates .png/.jpeg files \
 
 <br>
 
