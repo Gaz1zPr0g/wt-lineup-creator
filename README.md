@@ -8,7 +8,7 @@ If you`ve ever organized events in War Thunder with special lineups, you know ho
 ### Installation
 
 CLick [Download](https://github.com/Gaz1zPr0g/wt-lineup-creator/archive/refs/heads/main.zip) and install program manually \
-OR you can download [installer](https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/43783cbe27280ca4521fb0ee401fd8f4c0dfb037/config/Setup.zip) and install it automatically.
+OR you can download [installer](https://github.com/Gaz1zPr0g/wt-lineup-creator/tree/399b4e01666f9ac8477e5f6e0bac5bec227007f7/config) and install it automatically.
 
 <br>
 
