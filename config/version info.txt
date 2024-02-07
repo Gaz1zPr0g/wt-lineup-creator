@@ -1,7 +1,7 @@
-version 1.0.1.0
+version 1.0.1.1
 
 Added .msi installer and auto update system.
-
+Small bug fixes
 Added new shortcuts:
  - Ctrl+Shift+T - reload tanks table
  - Ctrl+Shift+P - reload planes table
