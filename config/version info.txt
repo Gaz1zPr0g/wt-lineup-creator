@@ -1,4 +1,4 @@
-version 1.0.1.1
+version 1.0.1.2
 
 Added .msi installer and auto update system.
 Small bug fixes
