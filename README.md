@@ -7,7 +7,7 @@ If you`ve ever organized events in War Thunder with special lineups, you know ho
 
 ### Installation
 
-CLick [Download](https://github.com/Gaz1zPr0g/wt-lineup-creator/archive/refs/heads/main.zip) and install program manually \
+Click [Download](https://github.com/Gaz1zPr0g/wt-lineup-creator/archive/refs/heads/main.zip) and install program manually \
 OR you can download [installer](https://github.com/Gaz1zPr0g/wt-lineup-creator/tree/399b4e01666f9ac8477e5f6e0bac5bec227007f7/config) and install it automatically.
 
 <br>
@@ -18,7 +18,7 @@ OR you can download [installer](https://github.com/Gaz1zPr0g/wt-lineup-creator/t
 
 ![image](https://github.com/Gaz1zPr0g/wt-lineup-creator/assets/81079946/ac0c3ffd-70f3-45bf-afb4-e5fe75f25806)
 
-`Import` or CTRL+O opens .json schemes (Restart before input) \
+`Import` or CTRL+O opens .json schemes \
 `Import` or CTRL+O opens .json schemes \
 `Save` or CTRL+S creates .json schemes \
 `Export` or CTRL+SHIFT+S creates .png/.jpeg files 
