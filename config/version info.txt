@@ -1,10 +1,4 @@
-version 1.0.1.2
+version 1.0.1.3
 
-Added .msi installer and auto update system.
-Small bug fixes
-Added new shortcuts:
- - Ctrl+Shift+T - reload tanks table
- - Ctrl+Shift+P - reload planes table
- - Ctrl+Shift+H - reload helicopters table
- - Ctrl+Shift+C - reload coastal fleet table
- - Ctrl+Shift+B - reload bluewater fleet table
+- Added Object 292
+- Small bug fixes
