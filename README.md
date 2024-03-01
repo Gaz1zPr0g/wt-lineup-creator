@@ -1,6 +1,7 @@
-# Lineup creator for War Thunder
+# Test branch for Lineup creator for War Thunder
 If you`ve ever organized events in War Thunder with special lineups, you know how hard vehicle lineup creation is. The main task of this program is to help you with vehicle lineup creation.
 > NOTE: This program downloads images from the [official War Thunder wiki](https://wiki.warthunder.com/Main_Page), so stay connected!
+> NOTE: This is public testing version of the program. There may be some bugs!
 <br>
 
 ---
