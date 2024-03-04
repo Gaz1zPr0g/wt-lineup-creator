@@ -30,9 +30,6 @@ namespace Lineups_creator
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lineup_creator));
-            this.importButton = new System.Windows.Forms.Button();
-            this.saveScheme = new System.Windows.Forms.Button();
-            this.countryCombo = new System.Windows.Forms.ComboBox();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.BluewaterPanel = new System.Windows.Forms.Panel();
             this.AddColumnBluewater = new System.Windows.Forms.Button();
@@ -59,13 +56,28 @@ namespace Lineups_creator
             this.AddRowTanks1 = new System.Windows.Forms.Button();
             this.AddColumnTanks = new System.Windows.Forms.Button();
             this.tanksLable = new System.Windows.Forms.Label();
-            this.exportButton = new System.Windows.Forms.Button();
-            this.reportButton = new System.Windows.Forms.Button();
-            this.supportButton = new System.Windows.Forms.Button();
-            this.flagPanel = new System.Windows.Forms.Button();
+            this.flagButton = new System.Windows.Forms.Button();
             this.copyrights = new System.Windows.Forms.Label();
-            this.ModeInfo = new System.Windows.Forms.Label();
-            this.StatusLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileItemList = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveScheme = new System.Windows.Forms.ToolStripMenuItem();
+            this.importButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.reportButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.supportButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportSettings_itemList = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehicleTipesOrderButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBoxPos1 = new System.Windows.Forms.ToolStripComboBox();
+            this.comboBoxPos2 = new System.Windows.Forms.ToolStripComboBox();
+            this.comboBoxPos3 = new System.Windows.Forms.ToolStripComboBox();
+            this.comboBoxPos4 = new System.Windows.Forms.ToolStripComboBox();
+            this.comboBoxPos5 = new System.Windows.Forms.ToolStripComboBox();
+            this.backgroundColorText = new System.Windows.Forms.ToolStripTextBox();
+            this.countryCombo = new System.Windows.Forms.ToolStripComboBox();
+            this.flagLockedButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.modeInfoButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.StatusLabel = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel.SuspendLayout();
             this.BluewaterPanel.SuspendLayout();
             this.BluewaterTable.SuspendLayout();
@@ -77,58 +89,8 @@ namespace Lineups_creator
             this.PlanesTable.SuspendLayout();
             this.TanksPanel.SuspendLayout();
             this.TanksTable.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // importButton
-            // 
-            this.importButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.importButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.importButton.ForeColor = System.Drawing.Color.White;
-            this.importButton.Location = new System.Drawing.Point(12, 12);
-            this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(120, 48);
-            this.importButton.TabIndex = 0;
-            this.importButton.Text = "IMPORT";
-            this.importButton.UseVisualStyleBackColor = true;
-            this.importButton.Click += new System.EventHandler(this.importButton_Click);
-            // 
-            // saveScheme
-            // 
-            this.saveScheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveScheme.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveScheme.ForeColor = System.Drawing.Color.White;
-            this.saveScheme.Location = new System.Drawing.Point(138, 12);
-            this.saveScheme.Name = "saveScheme";
-            this.saveScheme.Size = new System.Drawing.Size(120, 48);
-            this.saveScheme.TabIndex = 1;
-            this.saveScheme.Text = "SAVE";
-            this.saveScheme.UseVisualStyleBackColor = true;
-            this.saveScheme.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // countryCombo
-            // 
-            this.countryCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.countryCombo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.countryCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.countryCombo.ForeColor = System.Drawing.Color.White;
-            this.countryCombo.FormattingEnabled = true;
-            this.countryCombo.Items.AddRange(new object[] {
-            "USA",
-            "Germany",
-            "USSR",
-            "Great Britain",
-            "Japan",
-            "China",
-            "Italy",
-            "France",
-            "Sweden",
-            "Israel"});
-            this.countryCombo.Location = new System.Drawing.Point(952, 39);
-            this.countryCombo.Name = "countryCombo";
-            this.countryCombo.Size = new System.Drawing.Size(120, 21);
-            this.countryCombo.TabIndex = 2;
-            this.countryCombo.Text = "Country";
-            this.countryCombo.SelectedIndexChanged += new System.EventHandler(this.countryCombo_SelectedIndexChanged);
             // 
             // MainPanel
             // 
@@ -143,9 +105,9 @@ namespace Lineups_creator
             this.MainPanel.Controls.Add(this.HelicoptersPanel);
             this.MainPanel.Controls.Add(this.PlanesPanel);
             this.MainPanel.Controls.Add(this.TanksPanel);
-            this.MainPanel.Location = new System.Drawing.Point(12, 69);
+            this.MainPanel.Location = new System.Drawing.Point(12, 59);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1060, 600);
+            this.MainPanel.Size = new System.Drawing.Size(1060, 610);
             this.MainPanel.TabIndex = 3;
             // 
             // BluewaterPanel
@@ -479,57 +441,17 @@ namespace Lineups_creator
             this.tanksLable.Text = "Tanks";
             this.tanksLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // exportButton
+            // flagButton
             // 
-            this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exportButton.Location = new System.Drawing.Point(264, 12);
-            this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(120, 48);
-            this.exportButton.TabIndex = 5;
-            this.exportButton.Text = "EXPORT";
-            this.exportButton.UseVisualStyleBackColor = true;
-            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
-            // 
-            // reportButton
-            // 
-            this.reportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportButton.Font = new System.Drawing.Font("Verdana", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.reportButton.Location = new System.Drawing.Point(952, 12);
-            this.reportButton.Name = "reportButton";
-            this.reportButton.Size = new System.Drawing.Size(60, 27);
-            this.reportButton.TabIndex = 7;
-            this.reportButton.Text = "Report";
-            this.reportButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.reportButton.UseVisualStyleBackColor = true;
-            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
-            // 
-            // supportButton
-            // 
-            this.supportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.supportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.supportButton.Font = new System.Drawing.Font("Verdana", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.supportButton.Location = new System.Drawing.Point(1012, 12);
-            this.supportButton.Name = "supportButton";
-            this.supportButton.Size = new System.Drawing.Size(60, 27);
-            this.supportButton.TabIndex = 8;
-            this.supportButton.Text = "Support";
-            this.supportButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.supportButton.UseVisualStyleBackColor = true;
-            this.supportButton.Click += new System.EventHandler(this.supportButton_Click);
-            // 
-            // flagPanel
-            // 
-            this.flagPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.flagPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flagPanel.Location = new System.Drawing.Point(862, 12);
-            this.flagPanel.Name = "flagPanel";
-            this.flagPanel.Size = new System.Drawing.Size(87, 48);
-            this.flagPanel.TabIndex = 9;
-            this.flagPanel.Text = "flag";
-            this.flagPanel.UseVisualStyleBackColor = true;
-            this.flagPanel.Click += new System.EventHandler(this.flagPanel_Click);
+            this.flagButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flagButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.flagButton.Location = new System.Drawing.Point(985, 5);
+            this.flagButton.Name = "flagButton";
+            this.flagButton.Size = new System.Drawing.Size(87, 48);
+            this.flagButton.TabIndex = 9;
+            this.flagButton.Text = "flag";
+            this.flagButton.UseVisualStyleBackColor = true;
+            this.flagButton.Click += new System.EventHandler(this.flagButton_Click);
             // 
             // copyrights
             // 
@@ -539,28 +461,226 @@ namespace Lineups_creator
             this.copyrights.Name = "copyrights";
             this.copyrights.Size = new System.Drawing.Size(179, 13);
             this.copyrights.TabIndex = 10;
-            this.copyrights.Text = "RailGunToaster 2024 v.1.0.1.4";
+            this.copyrights.Text = "RailGunToaster 2024 v.1.0.2.0";
             // 
-            // ModeInfo
+            // menuStrip1
             // 
-            this.ModeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ModeInfo.AutoSize = true;
-            this.ModeInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.ModeInfo.Location = new System.Drawing.Point(0, 669);
-            this.ModeInfo.Name = "ModeInfo";
-            this.ModeInfo.Size = new System.Drawing.Size(64, 13);
-            this.ModeInfo.TabIndex = 11;
-            this.ModeInfo.Text = "Edit mode";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileItemList,
+            this.exportSettings_itemList,
+            this.countryCombo,
+            this.flagLockedButton,
+            this.modeInfoButton,
+            this.StatusLabel});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.ShowItemToolTips = true;
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 27);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileItemList
+            // 
+            this.fileItemList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveScheme,
+            this.importButton,
+            this.exportButton,
+            this.toolStripSeparator1,
+            this.reportButton,
+            this.supportButton});
+            this.fileItemList.ForeColor = System.Drawing.Color.Black;
+            this.fileItemList.Name = "fileItemList";
+            this.fileItemList.Size = new System.Drawing.Size(37, 23);
+            this.fileItemList.Text = "File";
+            // 
+            // saveScheme
+            // 
+            this.saveScheme.Name = "saveScheme";
+            this.saveScheme.Size = new System.Drawing.Size(188, 22);
+            this.saveScheme.Text = "Save (Ctrl+S)";
+            this.saveScheme.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // importButton
+            // 
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(188, 22);
+            this.importButton.Text = "Open (Ctrl+O)";
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            // 
+            // exportButton
+            // 
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(188, 22);
+            this.exportButton.Text = "Save as (Ctrl+Shift+S)";
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(185, 6);
+            // 
+            // reportButton
+            // 
+            this.reportButton.Name = "reportButton";
+            this.reportButton.Size = new System.Drawing.Size(188, 22);
+            this.reportButton.Text = "Report bug";
+            // 
+            // supportButton
+            // 
+            this.supportButton.Name = "supportButton";
+            this.supportButton.Size = new System.Drawing.Size(188, 22);
+            this.supportButton.Text = "Support";
+            this.supportButton.Click += new System.EventHandler(this.supportButton_Click);
+            // 
+            // exportSettings_itemList
+            // 
+            this.exportSettings_itemList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vehicleTipesOrderButton,
+            this.backgroundColorText});
+            this.exportSettings_itemList.ForeColor = System.Drawing.Color.Black;
+            this.exportSettings_itemList.Name = "exportSettings_itemList";
+            this.exportSettings_itemList.Size = new System.Drawing.Size(97, 23);
+            this.exportSettings_itemList.Text = "Export settings";
+            // 
+            // vehicleTipesOrderButton
+            // 
+            this.vehicleTipesOrderButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comboBoxPos1,
+            this.comboBoxPos2,
+            this.comboBoxPos3,
+            this.comboBoxPos4,
+            this.comboBoxPos5});
+            this.vehicleTipesOrderButton.Name = "vehicleTipesOrderButton";
+            this.vehicleTipesOrderButton.Size = new System.Drawing.Size(173, 22);
+            this.vehicleTipesOrderButton.Text = "Vehicle types order";
+            this.vehicleTipesOrderButton.ToolTipText = "Allows changing vehicle types order on generated image\r\n";
+            // 
+            // comboBoxPos1
+            // 
+            this.comboBoxPos1.Items.AddRange(new object[] {
+            "Tanks",
+            "Planes",
+            "Helicopters",
+            "Coastal fleet",
+            "Bluewater fleet",
+            "none"});
+            this.comboBoxPos1.Name = "comboBoxPos1";
+            this.comboBoxPos1.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxPos1.Text = "Tanks";
+            this.comboBoxPos1.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos1_SelectedIndexChanged);
+            // 
+            // comboBoxPos2
+            // 
+            this.comboBoxPos2.Items.AddRange(new object[] {
+            "Tanks",
+            "Planes",
+            "Helicopters",
+            "Coastal fleet",
+            "Bluewater fleet",
+            "none"});
+            this.comboBoxPos2.Name = "comboBoxPos2";
+            this.comboBoxPos2.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxPos2.Text = "Planes";
+            this.comboBoxPos2.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos2_SelectedIndexChanged);
+            // 
+            // comboBoxPos3
+            // 
+            this.comboBoxPos3.Items.AddRange(new object[] {
+            "Tanks",
+            "Planes",
+            "Helicopters",
+            "Coastal fleet",
+            "Bluewater fleet",
+            "none"});
+            this.comboBoxPos3.Name = "comboBoxPos3";
+            this.comboBoxPos3.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxPos3.Text = "Helicopters";
+            this.comboBoxPos3.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos3_SelectedIndexChanged);
+            // 
+            // comboBoxPos4
+            // 
+            this.comboBoxPos4.Items.AddRange(new object[] {
+            "Tanks",
+            "Planes",
+            "Helicopters",
+            "Coastal fleet",
+            "Bluewater fleet",
+            "none"});
+            this.comboBoxPos4.Name = "comboBoxPos4";
+            this.comboBoxPos4.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxPos4.Text = "Coastal fleet";
+            this.comboBoxPos4.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos4_SelectedIndexChanged);
+            // 
+            // comboBoxPos5
+            // 
+            this.comboBoxPos5.Items.AddRange(new object[] {
+            "Tanks",
+            "Planes",
+            "Helicopters",
+            "Coastal fleet",
+            "Bluewater fleet",
+            "none"});
+            this.comboBoxPos5.Name = "comboBoxPos5";
+            this.comboBoxPos5.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxPos5.Text = "Bluewater fleet";
+            this.comboBoxPos5.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos5_SelectedIndexChanged);
+            // 
+            // backgroundColorText
+            // 
+            this.backgroundColorText.AutoToolTip = true;
+            this.backgroundColorText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.backgroundColorText.Name = "backgroundColorText";
+            this.backgroundColorText.Size = new System.Drawing.Size(100, 16);
+            this.backgroundColorText.Text = "Background color";
+            this.backgroundColorText.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.backgroundColorText.ToolTipText = "Changes background color for the image.\r\nUse RGB or HEX color codes:\r\nFor RGB - R" +
+    ", B, G\r\nFor HEX - #hexcol";
+            this.backgroundColorText.TextChanged += new System.EventHandler(this.backgroundColorText_TextChanged);
+            // 
+            // countryCombo
+            // 
+            this.countryCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.countryCombo.Items.AddRange(new object[] {
+            "USA",
+            "Germany",
+            "USSR",
+            "Great Britain",
+            "Japan",
+            "China",
+            "Italy",
+            "France",
+            "Sweden",
+            "Israel"});
+            this.countryCombo.Name = "countryCombo";
+            this.countryCombo.Size = new System.Drawing.Size(121, 23);
+            this.countryCombo.Text = "Country";
+            this.countryCombo.SelectedIndexChanged += new System.EventHandler(this.countryCombo_SelectedIndexChanged);
+            // 
+            // flagLockedButton
+            // 
+            this.flagLockedButton.ForeColor = System.Drawing.Color.Black;
+            this.flagLockedButton.Name = "flagLockedButton";
+            this.flagLockedButton.Size = new System.Drawing.Size(93, 23);
+            this.flagLockedButton.Text = "Flag unlocked";
+            this.flagLockedButton.ToolTipText = "determines whether the flag will change when the country is selected.";
+            this.flagLockedButton.Click += new System.EventHandler(this.flagLockedButton_Click);
+            // 
+            // modeInfoButton
+            // 
+            this.modeInfoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.modeInfoButton.Name = "modeInfoButton";
+            this.modeInfoButton.Size = new System.Drawing.Size(73, 23);
+            this.modeInfoButton.Text = "Edit mode";
+            this.modeInfoButton.ToolTipText = "There are two modes:\r\n- Edit mode allows adding data to cells\r\n- Delete mode allo" +
+    "ws you delete data from a cell";
+            this.modeInfoButton.Click += new System.EventHandler(this.modeInfoButton_Click);
             // 
             // StatusLabel
             // 
-            this.StatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Location = new System.Drawing.Point(100, 669);
             this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(21, 13);
-            this.StatusLabel.TabIndex = 12;
+            this.StatusLabel.Size = new System.Drawing.Size(32, 23);
             this.StatusLabel.Text = "ok";
+            this.StatusLabel.ToolTipText = "Status";
             // 
             // Lineup_creator
             // 
@@ -568,17 +688,10 @@ namespace Lineups_creator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(1084, 681);
-            this.Controls.Add(this.StatusLabel);
-            this.Controls.Add(this.ModeInfo);
+            this.Controls.Add(this.flagButton);
             this.Controls.Add(this.copyrights);
-            this.Controls.Add(this.flagPanel);
-            this.Controls.Add(this.supportButton);
-            this.Controls.Add(this.reportButton);
-            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.MainPanel);
-            this.Controls.Add(this.countryCombo);
-            this.Controls.Add(this.saveScheme);
-            this.Controls.Add(this.importButton);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -602,16 +715,14 @@ namespace Lineups_creator
             this.TanksPanel.ResumeLayout(false);
             this.TanksPanel.PerformLayout();
             this.TanksTable.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button importButton;
-        private System.Windows.Forms.Button saveScheme;
-        private System.Windows.Forms.ComboBox countryCombo;
         private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Panel TanksPanel;
         private System.Windows.Forms.TableLayoutPanel TanksTable;
@@ -638,13 +749,28 @@ namespace Lineups_creator
         private System.Windows.Forms.Button AddRowBluewater;
         private System.Windows.Forms.Label bluewaterlabel;
         private System.Windows.Forms.Button AddColumnBluewater;
-        private System.Windows.Forms.Button exportButton;
-        private System.Windows.Forms.Button reportButton;
-        private System.Windows.Forms.Button supportButton;
-        private System.Windows.Forms.Button flagPanel;
+        private System.Windows.Forms.Button flagButton;
         private System.Windows.Forms.Label copyrights;
-        private System.Windows.Forms.Label ModeInfo;
-        private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileItemList;
+        private System.Windows.Forms.ToolStripMenuItem saveScheme;
+        private System.Windows.Forms.ToolStripMenuItem importButton;
+        private System.Windows.Forms.ToolStripMenuItem exportButton;
+        private System.Windows.Forms.ToolStripMenuItem exportSettings_itemList;
+        private System.Windows.Forms.ToolStripMenuItem vehicleTipesOrderButton;
+        private System.Windows.Forms.ToolStripComboBox countryCombo;
+        private System.Windows.Forms.ToolStripMenuItem flagLockedButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem modeInfoButton;
+        private System.Windows.Forms.ToolStripMenuItem StatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem reportButton;
+        private System.Windows.Forms.ToolStripMenuItem supportButton;
+        private System.Windows.Forms.ToolStripTextBox backgroundColorText;
+        private System.Windows.Forms.ToolStripComboBox comboBoxPos1;
+        private System.Windows.Forms.ToolStripComboBox comboBoxPos2;
+        private System.Windows.Forms.ToolStripComboBox comboBoxPos3;
+        private System.Windows.Forms.ToolStripComboBox comboBoxPos4;
+        private System.Windows.Forms.ToolStripComboBox comboBoxPos5;
     }
 }
 

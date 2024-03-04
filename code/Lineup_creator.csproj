@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6FC22B67-F024-45E7-A399-CEB9A60F7D3C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lineup_creator</RootNamespace>
+    <RootNamespace>Lineups_creator</RootNamespace>
     <AssemblyName>Lineup creator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -56,23 +56,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IconsDictionary.cs" />
-    <Compile Include="MainScreen.cs">
+    <Compile Include="Forms\FlagEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainScreen.Designer.cs">
+    <Compile Include="Forms\FlagEditor.Designer.cs">
+      <DependentUpon>FlagEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\IconsDictionary.cs" />
+    <Compile Include="Forms\MainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Scripts\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Templates.cs" />
-    <Compile Include="VehicleScreen.cs">
+    <Compile Include="Scripts\Templates.cs" />
+    <Compile Include="Forms\VehicleScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VehicleScreen.Designer.cs">
+    <Compile Include="Forms\VehicleScreen.Designer.cs">
       <DependentUpon>VehicleScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MainScreen.resx">
+    <EmbeddedResource Include="Forms\FlagEditor.resx">
+      <DependentUpon>FlagEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -85,7 +94,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="VehicleScreen.resx">
+    <EmbeddedResource Include="Forms\VehicleScreen.resx">
       <DependentUpon>VehicleScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

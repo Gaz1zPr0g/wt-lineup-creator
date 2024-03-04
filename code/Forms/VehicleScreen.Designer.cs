@@ -49,6 +49,8 @@ namespace Lineups_creator
             // 
             // VehicleText
             // 
+            this.VehicleText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.VehicleText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.VehicleText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.VehicleText.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -63,6 +65,8 @@ namespace Lineups_creator
             // 
             // LinkCombobox
             // 
+            this.LinkCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LinkCombobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.LinkCombobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LinkCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -92,6 +96,8 @@ namespace Lineups_creator
             // 
             // BackgroundCombobox
             // 
+            this.BackgroundCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BackgroundCombobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BackgroundCombobox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackgroundCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -110,6 +116,8 @@ namespace Lineups_creator
             // 
             // VehicleName
             // 
+            this.VehicleName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.VehicleName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.VehicleName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VehicleName.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -166,7 +174,6 @@ namespace Lineups_creator
             this.Controls.Add(this.PrevievPanel);
             this.Controls.Add(this.LinkCombobox);
             this.Controls.Add(this.VehicleText);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "VehicleScreen";
             this.Text = "vehicle";
             this.PrevievPanel.ResumeLayout(false);

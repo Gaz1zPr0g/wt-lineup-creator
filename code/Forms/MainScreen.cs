@@ -4,7 +4,6 @@ using System.IO.Compression;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using Newtonsoft;
 using Newtonsoft.Json;
 using System.Net;
 
@@ -13,6 +12,9 @@ namespace Lineups_creator
 
     public partial class Lineup_creator : Form
     {
+
+        bool isTest = false;
+
         string country;
         string dir = Directory.GetCurrentDirectory();
         string[] flagsURL =
@@ -29,7 +31,7 @@ namespace Lineups_creator
             "https://wiki.warthunder.com/images/thumb/f/f9/Israel_flag.png/130px-Israel_flag.png"
         };
         bool deleteMode = false;
-        bool customFlagUsed = false;
+        bool flagLocked = false;
         Timer timer;
         ArraySizes arrSizes = new ArraySizes();
         VehicleData[,] tanksData;
@@ -37,6 +39,10 @@ namespace Lineups_creator
         VehicleData[,] helicoptersData;
         VehicleData[,] coastalFleetData;
         VehicleData[,] bluewaterFleetData;
+        int[] generatorIndexes = { 0, 1, 2, 3, 4 };
+
+        Color imageBackgroundColor = Color.FromArgb(36, 46, 51);
+        Color waterMarkColor = Color.FromArgb(46, 56, 61);
 
         public Lineup_creator()
         {
@@ -47,7 +53,7 @@ namespace Lineups_creator
             WebClient webClient = new WebClient();
             var client = new WebClient();
 
-            if (!webClient.DownloadString("https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/main/config/version%20info.txt").Contains("version 1.0.1.4"))
+            if (!isTest && !webClient.DownloadString("https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/299cc7f8f13984485b561ad7b510e77b4ef1764c/config/version-info.txt").Contains("version 1.0.2.0"))
             {
                 DialogResult dialogResult = MessageBox.Show(text:"New version is available! Do you want to install it?", caption:"Version info", buttons:MessageBoxButtons.YesNo);
 
@@ -114,6 +120,11 @@ namespace Lineups_creator
                 image.Dispose();
             }
 
+            comboBoxPos1.SelectedItem = 0;
+            comboBoxPos2.SelectedItem = 1;
+            comboBoxPos3.SelectedItem = 2;
+            comboBoxPos4.SelectedItem = 3;
+            comboBoxPos5.SelectedItem = 4;
         }
 
         // Imports
@@ -596,7 +607,7 @@ namespace Lineups_creator
                     {
                         for (y = 0; y < bitmap.Height; y++)
                         {
-                            bitmap.SetPixel(x, y, Color.FromArgb(36, 46, 51));
+                            bitmap.SetPixel(x, y, imageBackgroundColor);
                         }
                     }
 
@@ -604,7 +615,7 @@ namespace Lineups_creator
                     {
                         using (Font backgroundFont = new Font("Verdana", 8, new FontStyle()))
                         {
-                            graphics.DrawString("https://github.com/Gaz1zPr0g/wt-lineup-creator", backgroundFont, new SolidBrush(Color.FromArgb(255, 43, 53, 58)), 5, 5);
+                            graphics.DrawString("https://github.com/Gaz1zPr0g/wt-lineup-creator", backgroundFont, new SolidBrush(waterMarkColor), 5, 5);
                         }
                     }
 
@@ -627,125 +638,125 @@ namespace Lineups_creator
                                 graphics.DrawImage(flag, bitmap.Width - flag.Width - 5, 5, flag.Width, flag.Height);
                                 flag.Dispose();
                             }
-
-                            if (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1)
+                            
+                            for (int index = 0; index < 5; index++)
                             {
-                                x += 5; y += 10;
-                                graphics.DrawString("Tanks", textFont, Brushes.White, x, y);
-                                y += 19;
-                                graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                y += 5;
-                                for (int i = 0; i < arrSizes.tanks.Item1; i++)
+                                if (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1 && generatorIndexes[index] == 0)
                                 {
-                                    for (int j = 0; j < arrSizes.tanks.Item2; j++)
+                                    x += 5; y += 10;
+                                    graphics.DrawString("Tanks", textFont, Brushes.White, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.tanks.Item1; i++)
                                     {
-                                        if (tanksData[i, j].name != null)
+                                        for (int j = 0; j < arrSizes.tanks.Item2; j++)
                                         {
-                                            Image im = Image.FromFile(tanksData[i, j].buttonImage);
-                                            graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                            im.Dispose();
+                                            if (tanksData[i, j].name != null)
+                                            {
+                                                Image im = Image.FromFile(tanksData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
                                         }
-                                        x += 124;
+                                        x = 5;
+                                        y += 52;
                                     }
-                                    x = 5;
-                                    y += 52;
                                 }
-                            }
+                                if (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1 && generatorIndexes[index] == 3)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString("Coastal Fleet", textFont, Brushes.White, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
+                                        {
+                                            if (coastalFleetData[i, j].name != null)
+                                            {
+                                                Image im = Image.FromFile(coastalFleetData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
+                                if (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1 && generatorIndexes[index] == 4)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString("Bluewater fleet", textFont, Brushes.White, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
+                                        {
+                                            if (bluewaterFleetData[i, j].name != null)
+                                            {
+                                                Image im = Image.FromFile(bluewaterFleetData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
+                                if (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1 && generatorIndexes[index] == 1)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString("Planes", textFont, Brushes.White, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.planes.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.planes.Item2; j++)
+                                        {
+                                            if (planesData[i, j].name != null)
+                                            {
+                                                Image im = Image.FromFile(planesData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
+                                if (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1 && generatorIndexes[index] == 2)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString("Helicopters", textFont, Brushes.White, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.helis.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.helis.Item2; j++)
+                                        {
+                                            if (helicoptersData[i, j].name != null)
+                                            {
+                                                Image im = Image.FromFile(helicoptersData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
 
-                            if (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1)
-                            {
-                                x = 5; y += 10;
-                                graphics.DrawString("Coastal Fleet", textFont, Brushes.White, x, y);
-                                y += 19;
-                                graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                y += 5;
-                                for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
-                                {
-                                    for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
-                                    {
-                                        if (coastalFleetData[i, j].name != null)
-                                        {
-                                            Image im = Image.FromFile(coastalFleetData[i, j].buttonImage);
-                                            graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                            im.Dispose();
-                                        }
-                                        x += 124;
-                                    }
-                                    x = 5;
-                                    y += 52;
-                                }
-                            }
-
-                            if (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1)
-                            {
-                                x = 5; y += 10;
-                                graphics.DrawString("Bluewater fleet", textFont, Brushes.White, x, y);
-                                y += 19;
-                                graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                y += 5;
-                                for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
-                                {
-                                    for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
-                                    {
-                                        if (bluewaterFleetData[i, j].name != null)
-                                        {
-                                            Image im = Image.FromFile(bluewaterFleetData[i, j].buttonImage);
-                                            graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                            im.Dispose();
-                                        }
-                                        x += 124;
-                                    }
-                                    x = 5;
-                                    y += 52;
-                                }
-                            }
-
-                            if (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1)
-                            {
-                                x = 5; y += 10;
-                                graphics.DrawString("Planes", textFont, Brushes.White, x, y);
-                                y += 19;
-                                graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                y += 5;
-                                for (int i = 0; i < arrSizes.planes.Item1; i++)
-                                {
-                                    for (int j = 0; j < arrSizes.planes.Item2; j++)
-                                    {
-                                        if (planesData[i, j].name != null)
-                                        {
-                                            Image im = Image.FromFile(planesData[i, j].buttonImage);
-                                            graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                            im.Dispose();
-                                        }
-                                        x += 124;
-                                    }
-                                    x = 5;
-                                    y += 52;
-                                }
-                            }
-
-                            if (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1)
-                            {
-                                x = 5; y += 10;
-                                graphics.DrawString("Helicopters", textFont, Brushes.White, x, y);
-                                y += 19;
-                                graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                y += 5;
-                                for (int i = 0; i < arrSizes.helis.Item1; i++)
-                                {
-                                    for (int j = 0; j < arrSizes.helis.Item2; j++)
-                                    {
-                                        if (helicoptersData[i, j].name != null)
-                                        {
-                                            Image im = Image.FromFile(helicoptersData[i, j].buttonImage);
-                                            graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                            im.Dispose();
-                                        }
-                                        x += 124;
-                                    }
-                                    x = 5;
-                                    y += 52;
-                                }
                             }
 
                         }
@@ -779,7 +790,128 @@ namespace Lineups_creator
             }
 
         }
-        
+
+        // Menu buttons
+        private void flagLockedButton_Click(object sender, EventArgs e)
+        {
+            flagLocked = !(flagLockedButton.Text == "Flag locked");
+            flagLockedButton.Text = flagLocked ? "Flag locked" : "Flag unlocked";
+        }
+        private void modeInfoButton_Click(object sender, EventArgs e)
+        {
+            if (deleteMode)
+            {
+                deleteMode = false;
+                modeInfoButton.Text = "Edit mode";
+                modeInfoButton.ForeColor = Color.FromArgb(0, 192, 0);
+            }
+            else
+            {
+                deleteMode = true;
+                modeInfoButton.Text = "Delete mode";
+                modeInfoButton.ForeColor = Color.FromArgb(192, 0, 0);
+            }
+        }
+        private void reportButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Gaz1zPr0g/wt-lineup-creator/issues");
+        }
+        private void supportButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://boosty.to/railguntoaster");
+        }
+        private void countryCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            country = countryCombo.SelectedItem.ToString();
+            if (!flagLocked)
+            {
+                DownloadFlag(flagsURL[countryCombo.SelectedIndex]);
+            }
+
+        }
+        private void backgroundColorText_TextChanged(object sender, EventArgs e)
+        {
+            string text = backgroundColorText.Text;
+
+            if (text.Contains("#"))
+            {
+                try
+                {
+                    imageBackgroundColor = ColorTranslator.FromHtml(text);
+                    backgroundColorText.BackColor = imageBackgroundColor;
+                    byte redInd = Convert.ToByte(imageBackgroundColor.R + 10);
+                    byte greenInd = Convert.ToByte(imageBackgroundColor.G + 10);
+                    byte blueInd = Convert.ToByte(imageBackgroundColor.B + 10);
+                    waterMarkColor = Color.FromArgb(redInd, greenInd, blueInd);
+                }
+                catch
+                {
+
+                }
+            }
+            else
+            {
+                try
+                {
+                    text.Replace(',', ' ');
+                    string[] textSplit = text.Split(',');
+                    byte redInd = Convert.ToByte(textSplit[0]);
+                    byte greenInd = Convert.ToByte(textSplit[1]);
+                    byte blueInd = Convert.ToByte(textSplit[2]);
+                    imageBackgroundColor = Color.FromArgb(redInd, greenInd, blueInd);
+                    backgroundColorText.BackColor = imageBackgroundColor;
+                    redInd += 10; greenInd += 10; blueInd += 10;
+                    waterMarkColor = Color.FromArgb(redInd, greenInd, blueInd);
+                }
+                catch
+                {
+
+                }
+
+            }
+
+        }
+
+        // Generator queue
+        private void changeIfindexOccuped(int index)
+        {
+            int occupedIndex = generatorIndexes[index];
+            for (int i = 0; i < 5; i++)
+            {
+                if (i != index && generatorIndexes[i] == occupedIndex)
+                {
+                    ToolStripComboBox cb = (ToolStripComboBox)vehicleTipesOrderButton.DropDownItems[i];
+                    cb.SelectedIndex = 5;
+                }
+            }
+        }
+
+        private void comboBoxPos1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            generatorIndexes[0] = comboBoxPos1.SelectedIndex;
+            changeIfindexOccuped(0);
+        }
+        private void comboBoxPos2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            generatorIndexes[1] = comboBoxPos2.SelectedIndex;
+            changeIfindexOccuped(1);
+        }
+        private void comboBoxPos3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            generatorIndexes[2] = comboBoxPos3.SelectedIndex;
+            changeIfindexOccuped(2);
+        }
+        private void comboBoxPos4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            generatorIndexes[3] = comboBoxPos4.SelectedIndex;
+            changeIfindexOccuped(3);
+        }
+        private void comboBoxPos5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            generatorIndexes[4] = comboBoxPos5.SelectedIndex;
+            changeIfindexOccuped(4);
+        }
+
         // tanks id = 0
         private void AddColumnTanks_Click(object sender, EventArgs e)
         {
@@ -1403,73 +1535,17 @@ namespace Lineups_creator
             }
         }
 
-
-        public void ChangeData(VehicleData senderData, int type, int row, int column)
-        {
-            switch (type)
-            {
-                case 0:
-                    tanksData[row, column] = senderData;
-                    break;
-                case 1:
-                    planesData[row, column] = senderData;
-                    break;
-                case 2:
-                    helicoptersData[row, column] = senderData;
-                    break;
-                case 3:
-                    coastalFleetData[row, column] = senderData;
-                    break;
-                case 4:
-                    bluewaterFleetData[row, column] = senderData;
-                    break;
-            }
-        }
+        
 
         // Special buttons
-        private void reportButton_Click(object sender, EventArgs e)
+        
+        private void flagButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/Gaz1zPr0g/wt-lineup-creator/issues");
-        }
-        private void supportButton_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://boosty.to/railguntoaster");
-        }
-        private void flagPanel_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Jpeg files |*.jpeg|PNG files |*.png";
-            openFileDialog.Title = "Open flag";
-            openFileDialog.ShowDialog();
+            FlagEditor flagEditor = new FlagEditor(dir, this);
 
-            if (openFileDialog.FileName != "")
-            {
-                Image flagtocopy = Image.FromFile(openFileDialog.FileName);
-
-                Image flag = new Bitmap(flagtocopy);
-                flagtocopy.Dispose();
-
-                float ratio = flag.Height / 48f;
-                int width = Convert.ToInt32(flag.Width / ratio);
-                flag = new Bitmap(flag, new Size(width, 48));
-                flag.Save(@"temp\flag.png", System.Drawing.Imaging.ImageFormat.Png);
-
-                flagPanel.Size = new Size(width, 48);
-                flagPanel.Location = new Point(reportButton.Location.X - 3 - width, flagPanel.Location.Y);
-                flagPanel.Text = "";
-                flagPanel.BackgroundImage = flag;
-                customFlagUsed = true;
-            }
+            flagEditor.Show();
         }
-        private void countryCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            country = countryCombo.SelectedItem.ToString();
-            if (!customFlagUsed)
-            {
-                DownloadFlag(flagsURL[countryCombo.SelectedIndex]);
-            }
-            
-        }
+        
         private void DownloadFlag(string link)
         {
             WebClient wc = new WebClient();
@@ -1484,12 +1560,12 @@ namespace Lineups_creator
             int width = Convert.ToInt32(flag.Width / ratio);
             flag = new Bitmap(flag, new Size(width, 48));
             flag.Save(@"temp\flag.png", System.Drawing.Imaging.ImageFormat.Png);
+            flag.Dispose();
 
-            flagPanel.Size = new Size(width, 48);
-            flagPanel.Location = new Point(reportButton.Location.X - 3 - width, flagPanel.Location.Y);
-            flagPanel.Text = "";
-            flagPanel.BackgroundImage = flag;
+            OpenFlag();
+
         }
+        
 
         // shortcuts
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -1509,18 +1585,18 @@ namespace Lineups_creator
             } else if (keyData == Keys.D)
             {
                 deleteMode = true;
-                ModeInfo.Text = "Delete mode";
-                ModeInfo.ForeColor = Color.FromArgb(192, 0, 0);
+                modeInfoButton.Text = "Delete mode";
+                modeInfoButton.ForeColor = Color.FromArgb(192, 0, 0);
                 return true;
             } else if (keyData == Keys.E)
             {
                 deleteMode = false;
-                ModeInfo.Text = "Edit mode";
-                ModeInfo.ForeColor = Color.FromArgb(0, 192, 0);
+                modeInfoButton.Text = "Edit mode";
+                modeInfoButton.ForeColor = Color.FromArgb(0, 192, 0);
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.T))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Tanks table will be regenerated", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: "Tanks table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1536,7 +1612,7 @@ namespace Lineups_creator
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.P))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Planes table will be regenerated", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: "Planes table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1552,7 +1628,7 @@ namespace Lineups_creator
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.H))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Helicopters table will be regenerated", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: "Helicopters table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1568,7 +1644,7 @@ namespace Lineups_creator
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.C))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Coastal fleet table will be regenerated", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: "Coastal fleet table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1584,7 +1660,7 @@ namespace Lineups_creator
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.B))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Bluewater fleet table will be regenerated", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: "Bluewater fleet table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1611,6 +1687,62 @@ namespace Lineups_creator
             StatusLabel.ForeColor = Color.White;
         }
 
+        // public funcs
+        public void OpenFlag()
+        {
+            try
+            {
+                Image flagtocopy = Image.FromFile(@"temp\flag.png");
+                Image flag = new Bitmap(flagtocopy);
+                flagtocopy.Dispose();
+                int width = flag.Width;
+                flagButton.Size = new Size(width, 48);
+                flagButton.Location = new Point(1072 - width, flagButton.Location.Y);
+                flagButton.Text = "";
+                flagButton.BackgroundImage = flag;
+
+            }
+            catch
+            {
+                StatusLabel.Text = "No flag image";
+                StatusLabel.ForeColor = Color.FromArgb(192, 0, 0);
+                timer = new Timer { Interval = 5000 };
+                timer.Tick += TimerTick;
+                timer.Enabled = true;
+            }
+
+        }
+        public void StatusChange(string message, Color color)
+        {
+            StatusLabel.Text = message;
+            StatusLabel.ForeColor = color;
+            timer = new Timer { Interval = 5000 };
+            timer.Tick += TimerTick;
+            timer.Enabled = true;
+        }
+
+        // changes data in cell from vehicle screen
+        public void ChangeData(VehicleData senderData, int type, int row, int column)
+        {
+            switch (type)
+            {
+                case 0:
+                    tanksData[row, column] = senderData;
+                    break;
+                case 1:
+                    planesData[row, column] = senderData;
+                    break;
+                case 2:
+                    helicoptersData[row, column] = senderData;
+                    break;
+                case 3:
+                    coastalFleetData[row, column] = senderData;
+                    break;
+                case 4:
+                    bluewaterFleetData[row, column] = senderData;
+                    break;
+            }
+        }
     }
 
     public class VehicleData
