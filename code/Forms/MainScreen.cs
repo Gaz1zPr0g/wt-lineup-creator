@@ -53,7 +53,7 @@ namespace Lineups_creator
             WebClient webClient = new WebClient();
             var client = new WebClient();
 
-            if (!isTest && !webClient.DownloadString("https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/299cc7f8f13984485b561ad7b510e77b4ef1764c/config/version-info.txt").Contains("version 1.0.2.0"))
+            if (!isTest && !webClient.DownloadString("https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/source-code/config/version-info.txt").Contains("version 1.0.2.0"))
             {
                 DialogResult dialogResult = MessageBox.Show(text:"New version is available! Do you want to install it?", caption:"Version info", buttons:MessageBoxButtons.YesNo);
 
