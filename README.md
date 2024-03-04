@@ -13,23 +13,17 @@ Click [Download](https://github.com/Gaz1zPr0g/wt-lineup-creator/archive/refs/hea
 
 ## How to use
 
-#### Import | Save | Export
-
-![image](https://github.com/Gaz1zPr0g/wt-lineup-creator/assets/81079946/ac0c3ffd-70f3-45bf-afb4-e5fe75f25806)
-
-`Import` or CTRL+O opens .json schemes \
-`Import` or CTRL+O opens .json schemes \
-`Save` or CTRL+S creates .json schemes \
-`Export` or CTRL+SHIFT+S creates .png/.jpeg files 
+`File->Open` or CTRL+O opens .json saves \
+`File->Save` or CTRL+S creates .json schemes \
+`File->Save as..` or CTRL+SHIFT+S creates .png/.jpeg files 
 
 <br>
 
 #### Countries and flags
 
-![image](https://github.com/Gaz1zPr0g/wt-lineup-creator/assets/81079946/7205fadc-5d9a-499b-a3aa-107b6a67273f)
-
-`flag` button allows you to add your own flag \
-`Country` combobox selects templates and automatically adds a country flag. 
+`flag` button allows you to add your own flag. Download by link or open in file explorer \
+`Country` combobox selects templates and automatically adds a country flag (if flag is unlocked). \
+`flag locked` or `flag unlocked` button determines whether the flag will change when the country is selected.
 > NOTE: There's no hard connection between table content and country, so you can create lineups with vehicles from different tech trees.
 
 <br>
@@ -67,7 +61,7 @@ The program can be run in 2 modes
 1. Edit mode (to turn on press E) allows editing slots
 2. Delete mode (to turn on press D) allows deleting slots data
    
-The current mode is shown at the bottom left corner.
+The current mode is shown at the menu.
 
 <br>
 
