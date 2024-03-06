@@ -30,6 +30,7 @@ namespace Lineups_creator
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleScreen));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.VehicleText = new System.Windows.Forms.TextBox();
             this.LinkCombobox = new System.Windows.Forms.ComboBox();
@@ -174,6 +175,7 @@ namespace Lineups_creator
             this.Controls.Add(this.PrevievPanel);
             this.Controls.Add(this.LinkCombobox);
             this.Controls.Add(this.VehicleText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VehicleScreen";
             this.Text = "vehicle";
             this.PrevievPanel.ResumeLayout(false);

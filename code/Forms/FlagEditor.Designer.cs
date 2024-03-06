@@ -29,6 +29,7 @@ namespace Lineups_creator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlagEditor));
             this.flagPreviewPanel = new System.Windows.Forms.Panel();
             this.radioPanel = new System.Windows.Forms.Panel();
             this.fileButton = new System.Windows.Forms.RadioButton();
@@ -187,6 +188,7 @@ namespace Lineups_creator
             this.Controls.Add(this.radioPanel);
             this.Controls.Add(this.flagPreviewPanel);
             this.Font = new System.Drawing.Font("Verdana", 10F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FlagEditor";
             this.Text = "FlagEditor";

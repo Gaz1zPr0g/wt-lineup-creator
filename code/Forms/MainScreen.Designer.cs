@@ -459,9 +459,9 @@ namespace Lineups_creator
             this.copyrights.AutoSize = true;
             this.copyrights.Location = new System.Drawing.Point(907, 669);
             this.copyrights.Name = "copyrights";
-            this.copyrights.Size = new System.Drawing.Size(179, 13);
+            this.copyrights.Size = new System.Drawing.Size(168, 13);
             this.copyrights.TabIndex = 10;
-            this.copyrights.Text = "RailGunToaster 2024 v.1.0.2.0";
+            this.copyrights.Text = "RailGunToaster 2024 v.1.2.1";
             // 
             // menuStrip1
             // 
@@ -629,6 +629,7 @@ namespace Lineups_creator
             // 
             this.backgroundColorText.AutoToolTip = true;
             this.backgroundColorText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.backgroundColorText.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.backgroundColorText.Name = "backgroundColorText";
             this.backgroundColorText.Size = new System.Drawing.Size(100, 16);
             this.backgroundColorText.Text = "Background color";

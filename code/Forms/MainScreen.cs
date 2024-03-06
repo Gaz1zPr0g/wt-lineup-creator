@@ -53,7 +53,7 @@ namespace Lineups_creator
             WebClient webClient = new WebClient();
             var client = new WebClient();
 
-            if (!isTest && !webClient.DownloadString("https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/source-code/config/version-info.txt").Contains("version 1.0.2.0"))
+            if (!isTest && !webClient.DownloadString("https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/source-code/config/version-info.txt").Contains("version 1.2.1"))
             {
                 DialogResult dialogResult = MessageBox.Show(text:"New version is available! Do you want to install it?", caption:"Version info", buttons:MessageBoxButtons.YesNo);
 
@@ -1697,7 +1697,7 @@ namespace Lineups_creator
                 flagtocopy.Dispose();
                 int width = flag.Width;
                 flagButton.Size = new Size(width, 48);
-                flagButton.Location = new Point(1072 - width, flagButton.Location.Y);
+                flagButton.Location = new Point(Size.Width - width - 28, flagButton.Location.Y);
                 flagButton.Text = "";
                 flagButton.BackgroundImage = flag;
 
