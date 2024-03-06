@@ -461,7 +461,7 @@ namespace Lineups_creator
             this.copyrights.Name = "copyrights";
             this.copyrights.Size = new System.Drawing.Size(168, 13);
             this.copyrights.TabIndex = 10;
-            this.copyrights.Text = "RailGunToaster 2024 v.1.2.1";
+            this.copyrights.Text = "RailGunToaster 2024 v.1.2.2";
             // 
             // menuStrip1
             // 
