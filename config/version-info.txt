@@ -1,4 +1,7 @@
-version 1.2.2
+version 1.3.0
 
-New versioning system.
-Small bug fixes.
+Alpha strike update vehicles added.
+New UI and table view reworked.
+Russian language support
+
+
