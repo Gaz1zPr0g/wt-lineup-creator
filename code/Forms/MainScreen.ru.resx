@@ -117,227 +117,180 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;linkPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;radioPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;downloadButton.Name" xml:space="preserve">
-    <value>downloadButton</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="radioPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="linkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;fileButton.Name" xml:space="preserve">
-    <value>fileButton</value>
+  <data name="ResizeBluewater.Text" xml:space="preserve">
+    <value>Добавить</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="linkPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 100</value>
+  <data name="bluewaterlabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 23</value>
   </data>
-  <data name="downloadButton.Text" xml:space="preserve">
-    <value>Download</value>
+  <data name="bluewaterlabel.Text" xml:space="preserve">
+    <value>Большой флот</value>
   </data>
-  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 285</value>
+  <data name="ResizeCoastalFleet.Text" xml:space="preserve">
+    <value>Добавить</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="fileButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+  <data name="coastalfleetlabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 23</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FlagEditor</value>
+  <data name="coastalfleetlabel.Text" xml:space="preserve">
+    <value>Малый флот</value>
   </data>
-  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ResizeHeli.Text" xml:space="preserve">
+    <value>Добавить</value>
   </data>
-  <data name="linkButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 33</value>
+  <data name="helicopterslabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 23</value>
   </data>
-  <data name="&gt;&gt;linkPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="helicopterslabel.Text" xml:space="preserve">
+    <value>Вертолёты</value>
   </data>
-  <data name="fileButton.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
+  <data name="ResizePlanes.Text" xml:space="preserve">
+    <value>Добавить</value>
   </data>
-  <data name="flagPreviewPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="PlanesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 23</value>
   </data>
-  <data name="fileButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="PlanesLabel.Text" xml:space="preserve">
+    <value>Самолёты</value>
   </data>
-  <data name="saveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="ResizeTanks.Text" xml:space="preserve">
+    <value>Добавить</value>
   </data>
-  <data name="&gt;&gt;fileButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tanksLable.Text" xml:space="preserve">
+    <value>Танки</value>
   </data>
-  <data name="linkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 2</value>
+  <data name="flagButton.Text" xml:space="preserve">
+    <value>Флаг</value>
   </data>
-  <data name="fileButton.Text" xml:space="preserve">
-    <value>File</value>
+  <data name="fileItemList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 23</value>
   </data>
-  <data name="&gt;&gt;openButton.Parent" xml:space="preserve">
-    <value>filePanel</value>
+  <data name="fileItemList.Text" xml:space="preserve">
+    <value>Файл</value>
   </data>
-  <data name="linkBox.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
+  <data name="saveScheme.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
   </data>
-  <data name="&gt;&gt;radioPanel.Name" xml:space="preserve">
-    <value>radioPanel</value>
+  <data name="saveScheme.Text" xml:space="preserve">
+    <value>Сохранить (Ctrl+S)</value>
   </data>
-  <data name="&gt;&gt;flagPreviewPanel.Name" xml:space="preserve">
-    <value>flagPreviewPanel</value>
+  <data name="importButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
   </data>
-  <data name="&gt;&gt;flagPreviewPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="importButton.Text" xml:space="preserve">
+    <value>Открыть (Ctrl+O)</value>
   </data>
-  <data name="downloadButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 35</value>
+  <data name="exportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
   </data>
-  <data name="saveButton.Text" xml:space="preserve">
-    <value>SAVE</value>
+  <data name="exportButton.Text" xml:space="preserve">
+    <value>Экспорт (Ctrl+Shift+S)</value>
   </data>
-  <data name="downloadButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 6</value>
   </data>
-  <data name="&gt;&gt;filePanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="reportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
   </data>
-  <data name="linkButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+  <data name="reportButton.Text" xml:space="preserve">
+    <value>Сообщить об ошибке</value>
   </data>
-  <data name="flagPreviewPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 96</value>
+  <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
   </data>
-  <data name="&gt;&gt;downloadButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="supportButton.Text" xml:space="preserve">
+    <value>Поддержать монетой</value>
   </data>
-  <data name="fileButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 33</value>
+  <data name="languageCombo.Text" xml:space="preserve">
+    <value>Язык</value>
   </data>
-  <data name="&gt;&gt;fileButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
+  <data name="exportSettings_itemList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 23</value>
   </data>
-  <data name="&gt;&gt;radioPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="exportSettings_itemList.Text" xml:space="preserve">
+    <value>Параметры экспорта</value>
   </data>
-  <data name="&gt;&gt;filePanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="vehicleTipesOrderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
   </data>
-  <data name="&gt;&gt;openButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="vehicleTipesOrderButton.Text" xml:space="preserve">
+    <value>Порядок типов техники</value>
   </data>
-  <data name="&gt;&gt;downloadButton.Parent" xml:space="preserve">
-    <value>linkPanel</value>
+  <data name="vehicleTipesOrderButton.ToolTipText" xml:space="preserve">
+    <value>Позволяет менять порядок типов техники на картинке
+
+</value>
   </data>
-  <data name="&gt;&gt;linkButton.Name" xml:space="preserve">
-    <value>linkButton</value>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 6</value>
   </data>
-  <data name="saveButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="backgroundColorText.Text" xml:space="preserve">
+    <value>Цвет фона</value>
   </data>
-  <data name="downloadButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="backgroundColorText.ToolTipText" xml:space="preserve">
+    <value>Меняет цвет фона картинки
+Используйте следующие шаблоны RGB или HEX
+Для RGB - R, B, G
+Для HEX - #hexcol</value>
   </data>
-  <data name="fileButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="decorTextButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
   </data>
-  <data name="downloadButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 48</value>
+  <data name="countryCombo.Items" xml:space="preserve">
+    <value>США</value>
   </data>
-  <data name="linkButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="countryCombo.Items1" xml:space="preserve">
+    <value>Германия</value>
   </data>
-  <data name="&gt;&gt;fileButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="countryCombo.Items2" xml:space="preserve">
+    <value>СССР</value>
   </data>
-  <data name="openButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 35</value>
+  <data name="countryCombo.Items3" xml:space="preserve">
+    <value>Британия</value>
   </data>
-  <data name="fileButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+  <data name="countryCombo.Items4" xml:space="preserve">
+    <value>Япония</value>
   </data>
-  <data name="filePanel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="countryCombo.Items5" xml:space="preserve">
+    <value>Китай</value>
   </data>
-  <data name="&gt;&gt;linkBox.Parent" xml:space="preserve">
-    <value>linkPanel</value>
+  <data name="countryCombo.Items6" xml:space="preserve">
+    <value>Италия</value>
   </data>
-  <data name="&gt;&gt;downloadButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="countryCombo.Items7" xml:space="preserve">
+    <value>Франция</value>
   </data>
-  <data name="radioPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="countryCombo.Items8" xml:space="preserve">
+    <value>Швеция</value>
   </data>
-  <data name="linkButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="countryCombo.Items9" xml:space="preserve">
+    <value>Израиль</value>
   </data>
-  <data name="openButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="countryCombo.Text" xml:space="preserve">
+    <value>Страна</value>
   </data>
-  <data name="linkPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="flagLockedButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 23</value>
   </data>
-  <data name="fileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 10</value>
+  <data name="flagLockedButton.Text" xml:space="preserve">
+    <value>Флаг разблокирован</value>
   </data>
-  <data name="&gt;&gt;linkBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="flagLockedButton.ToolTipText" xml:space="preserve">
+    <value>Определяет, будет ли меняться флаг при смене страны</value>
   </data>
-  <data name="&gt;&gt;linkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="modeInfoButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 23</value>
   </data>
-  <data name="openButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="modeInfoButton.Text" xml:space="preserve">
+    <value>Редактирование</value>
   </data>
-  <data name="linkBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="modeInfoButton.ToolTipText" xml:space="preserve">
+    <value>Редактирование - изменение данных в клетке
+Удаление - удаление данных из клетки</value>
   </data>
-  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 34</value>
-  </data>
-  <data name="&gt;&gt;openButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="radioPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 115</value>
-  </data>
-  <data name="&gt;&gt;linkButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="openButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 48</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 10pt</value>
-  </data>
-  <data name="&gt;&gt;linkButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="linkBox.Text" xml:space="preserve">
-    <value>Link to the image (.png / .jpeg)</value>
-  </data>
-  <data name="linkButton.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="flagPreviewPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 16</value>
-  </data>
-  <data name="openButton.Text" xml:space="preserve">
-    <value>LOAD</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
-    <value>saveButton</value>
+  <data name="StatusLabel.ToolTipText" xml:space="preserve">
+    <value>Статус</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -626,115 +579,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABwAAAAAAAAAM=
 </value>
   </data>
-  <data name="linkPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 175</value>
-  </data>
-  <data name="&gt;&gt;openButton.Name" xml:space="preserve">
-    <value>openButton</value>
-  </data>
-  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="linkButton.Text" xml:space="preserve">
-    <value>Link</value>
-  </data>
-  <data name="linkButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 10</value>
-  </data>
-  <data name="linkButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="flagPreviewPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="linkButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;linkPanel.Name" xml:space="preserve">
-    <value>linkPanel</value>
-  </data>
-  <data name="flagPreviewPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="filePanel.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="linkPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="downloadButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;linkBox.Name" xml:space="preserve">
-    <value>linkBox</value>
-  </data>
-  <data name="fileButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="filePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 100</value>
-  </data>
-  <data name="&gt;&gt;filePanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="filePanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 175</value>
-  </data>
-  <data name="linkButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;flagPreviewPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;radioPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;linkPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>FlagEditor</value>
+    <value>Lineups creator</value>
   </data>
-  <data name="&gt;&gt;filePanel.Name" xml:space="preserve">
-    <value>filePanel</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>272, 346</value>
-  </data>
-  <data name="&gt;&gt;linkButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="linkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 24</value>
-  </data>
-  <data name="radioPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 51</value>
-  </data>
-  <data name="flagPreviewPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;flagPreviewPanel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="filePanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="fileButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

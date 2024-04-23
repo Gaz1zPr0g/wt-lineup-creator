@@ -117,13 +117,1053 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MainPanel.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="MainPanel.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
+    <value>10, 0</value>
+  </data>
+  <data name="BluewaterPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="BluewaterTable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="BluewaterTable.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="BluewaterTable.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ResizeBluewater.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ResizeBluewater.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ResizeBluewater.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="ResizeBluewater.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ResizeBluewater.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;ResizeBluewater.Name" xml:space="preserve">
+    <value>ResizeBluewater</value>
+  </data>
+  <data name="&gt;&gt;ResizeBluewater.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ResizeBluewater.Parent" xml:space="preserve">
+    <value>BluewaterTable</value>
+  </data>
+  <data name="&gt;&gt;ResizeBluewater.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BluewaterTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 36</value>
+  </data>
+  <data name="BluewaterTable.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="BluewaterTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 54</value>
+  </data>
+  <data name="BluewaterTable.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BluewaterTable.Name" xml:space="preserve">
+    <value>BluewaterTable</value>
+  </data>
+  <data name="&gt;&gt;BluewaterTable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BluewaterTable.Parent" xml:space="preserve">
+    <value>BluewaterPanel</value>
+  </data>
+  <data name="&gt;&gt;BluewaterTable.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BluewaterTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeBluewater" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="bluewaterlabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="bluewaterlabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="bluewaterlabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="bluewaterlabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>445, 0</value>
+  </data>
+  <data name="bluewaterlabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 23</value>
+  </data>
+  <data name="bluewaterlabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="bluewaterlabel.Text" xml:space="preserve">
+    <value>Bluewater fleet</value>
+  </data>
+  <data name="&gt;&gt;bluewaterlabel.Name" xml:space="preserve">
+    <value>bluewaterlabel</value>
+  </data>
+  <data name="&gt;&gt;bluewaterlabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bluewaterlabel.Parent" xml:space="preserve">
+    <value>BluewaterPanel</value>
+  </data>
+  <data name="&gt;&gt;bluewaterlabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BluewaterPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1850</value>
+  </data>
+  <data name="BluewaterPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1030, 500</value>
+  </data>
+  <data name="BluewaterPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;BluewaterPanel.Name" xml:space="preserve">
+    <value>BluewaterPanel</value>
+  </data>
+  <data name="&gt;&gt;BluewaterPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BluewaterPanel.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;BluewaterPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CoastalfleetPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="CoastalfleetPanel.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CoastalfleetTable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CoastalfleetTable.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="CoastalfleetTable.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ResizeCoastalFleet.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ResizeCoastalFleet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ResizeCoastalFleet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="ResizeCoastalFleet.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ResizeCoastalFleet.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;ResizeCoastalFleet.Name" xml:space="preserve">
+    <value>ResizeCoastalFleet</value>
+  </data>
+  <data name="&gt;&gt;ResizeCoastalFleet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ResizeCoastalFleet.Parent" xml:space="preserve">
+    <value>CoastalfleetTable</value>
+  </data>
+  <data name="&gt;&gt;ResizeCoastalFleet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CoastalfleetTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 36</value>
+  </data>
+  <data name="CoastalfleetTable.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="CoastalfleetTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 54</value>
+  </data>
+  <data name="CoastalfleetTable.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;CoastalfleetTable.Name" xml:space="preserve">
+    <value>CoastalfleetTable</value>
+  </data>
+  <data name="&gt;&gt;CoastalfleetTable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CoastalfleetTable.Parent" xml:space="preserve">
+    <value>CoastalfleetPanel</value>
+  </data>
+  <data name="&gt;&gt;CoastalfleetTable.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CoastalfleetTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeCoastalFleet" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="coastalfleetlabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="coastalfleetlabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="coastalfleetlabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="coastalfleetlabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>455, 0</value>
+  </data>
+  <data name="coastalfleetlabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="coastalfleetlabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="coastalfleetlabel.Text" xml:space="preserve">
+    <value>Coastal fleet</value>
+  </data>
+  <data name="&gt;&gt;coastalfleetlabel.Name" xml:space="preserve">
+    <value>coastalfleetlabel</value>
+  </data>
+  <data name="&gt;&gt;coastalfleetlabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;coastalfleetlabel.Parent" xml:space="preserve">
+    <value>CoastalfleetPanel</value>
+  </data>
+  <data name="&gt;&gt;coastalfleetlabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CoastalfleetPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1340</value>
+  </data>
+  <data name="CoastalfleetPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1030, 500</value>
+  </data>
+  <data name="CoastalfleetPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;CoastalfleetPanel.Name" xml:space="preserve">
+    <value>CoastalfleetPanel</value>
+  </data>
+  <data name="&gt;&gt;CoastalfleetPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CoastalfleetPanel.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;CoastalfleetPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="HelicoptersPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="HelicoptersPanel.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="HeliTable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="HeliTable.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="HeliTable.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ResizeHeli.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ResizeHeli.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ResizeHeli.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="ResizeHeli.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ResizeHeli.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;ResizeHeli.Name" xml:space="preserve">
+    <value>ResizeHeli</value>
+  </data>
+  <data name="&gt;&gt;ResizeHeli.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ResizeHeli.Parent" xml:space="preserve">
+    <value>HeliTable</value>
+  </data>
+  <data name="&gt;&gt;ResizeHeli.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="HeliTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 36</value>
+  </data>
+  <data name="HeliTable.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="HeliTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 54</value>
+  </data>
+  <data name="HeliTable.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;HeliTable.Name" xml:space="preserve">
+    <value>HeliTable</value>
+  </data>
+  <data name="&gt;&gt;HeliTable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HeliTable.Parent" xml:space="preserve">
+    <value>HelicoptersPanel</value>
+  </data>
+  <data name="&gt;&gt;HeliTable.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="HeliTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeHeli" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="helicopterslabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="helicopterslabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="helicopterslabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="helicopterslabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>461, 0</value>
+  </data>
+  <data name="helicopterslabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 23</value>
+  </data>
+  <data name="helicopterslabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="helicopterslabel.Text" xml:space="preserve">
+    <value>Helicopters</value>
+  </data>
+  <data name="helicopterslabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;helicopterslabel.Name" xml:space="preserve">
+    <value>helicopterslabel</value>
+  </data>
+  <data name="&gt;&gt;helicopterslabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;helicopterslabel.Parent" xml:space="preserve">
+    <value>HelicoptersPanel</value>
+  </data>
+  <data name="&gt;&gt;helicopterslabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="HelicoptersPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1030</value>
+  </data>
+  <data name="HelicoptersPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1030, 300</value>
+  </data>
+  <data name="HelicoptersPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;HelicoptersPanel.Name" xml:space="preserve">
+    <value>HelicoptersPanel</value>
+  </data>
+  <data name="&gt;&gt;HelicoptersPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelicoptersPanel.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;HelicoptersPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="PlanesPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="PlanesPanel.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PlanesTable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PlanesTable.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="PlanesTable.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ResizePlanes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ResizePlanes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ResizePlanes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="ResizePlanes.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ResizePlanes.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;ResizePlanes.Name" xml:space="preserve">
+    <value>ResizePlanes</value>
+  </data>
+  <data name="&gt;&gt;ResizePlanes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ResizePlanes.Parent" xml:space="preserve">
+    <value>PlanesTable</value>
+  </data>
+  <data name="&gt;&gt;ResizePlanes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PlanesTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 36</value>
+  </data>
+  <data name="PlanesTable.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="PlanesTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 54</value>
+  </data>
+  <data name="PlanesTable.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PlanesTable.Name" xml:space="preserve">
+    <value>PlanesTable</value>
+  </data>
+  <data name="&gt;&gt;PlanesTable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PlanesTable.Parent" xml:space="preserve">
+    <value>PlanesPanel</value>
+  </data>
+  <data name="&gt;&gt;PlanesTable.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PlanesTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizePlanes" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="PlanesLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="PlanesLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PlanesLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="PlanesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>480, 0</value>
+  </data>
+  <data name="PlanesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 23</value>
+  </data>
+  <data name="PlanesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="PlanesLabel.Text" xml:space="preserve">
+    <value>Planes</value>
+  </data>
+  <data name="PlanesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;PlanesLabel.Name" xml:space="preserve">
+    <value>PlanesLabel</value>
+  </data>
+  <data name="&gt;&gt;PlanesLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PlanesLabel.Parent" xml:space="preserve">
+    <value>PlanesPanel</value>
+  </data>
+  <data name="&gt;&gt;PlanesLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PlanesPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 520</value>
+  </data>
+  <data name="PlanesPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1030, 500</value>
+  </data>
+  <data name="PlanesPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PlanesPanel.Name" xml:space="preserve">
+    <value>PlanesPanel</value>
+  </data>
+  <data name="&gt;&gt;PlanesPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PlanesPanel.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;PlanesPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TanksPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="TanksPanel.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TanksPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="TanksTable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TanksTable.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="TanksTable.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ResizeTanks.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="ResizeTanks.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ResizeTanks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ResizeTanks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="ResizeTanks.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ResizeTanks.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;ResizeTanks.Name" xml:space="preserve">
+    <value>ResizeTanks</value>
+  </data>
+  <data name="&gt;&gt;ResizeTanks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ResizeTanks.Parent" xml:space="preserve">
+    <value>TanksTable</value>
+  </data>
+  <data name="&gt;&gt;ResizeTanks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TanksTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 36</value>
+  </data>
+  <data name="TanksTable.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TanksTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 54</value>
+  </data>
+  <data name="TanksTable.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TanksTable.Name" xml:space="preserve">
+    <value>TanksTable</value>
+  </data>
+  <data name="&gt;&gt;TanksTable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TanksTable.Parent" xml:space="preserve">
+    <value>TanksPanel</value>
+  </data>
+  <data name="&gt;&gt;TanksTable.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TanksTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeTanks" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tanksLable.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tanksLable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tanksLable.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 15pt</value>
+  </data>
+  <data name="tanksLable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>485, 0</value>
+  </data>
+  <data name="tanksLable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 23</value>
+  </data>
+  <data name="tanksLable.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tanksLable.Text" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="tanksLable.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;tanksLable.Name" xml:space="preserve">
+    <value>tanksLable</value>
+  </data>
+  <data name="&gt;&gt;tanksLable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tanksLable.Parent" xml:space="preserve">
+    <value>TanksPanel</value>
+  </data>
+  <data name="&gt;&gt;tanksLable.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TanksPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 10</value>
+  </data>
+  <data name="TanksPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1030, 500</value>
+  </data>
+  <data name="TanksPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TanksPanel.Name" xml:space="preserve">
+    <value>TanksPanel</value>
+  </data>
+  <data name="&gt;&gt;TanksPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TanksPanel.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;TanksPanel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="MainPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 59</value>
+  </data>
+  <data name="MainPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1060, 610</value>
+  </data>
+  <data name="MainPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Name" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="flagButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="flagButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="flagButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>985, 5</value>
+  </data>
+  <data name="flagButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 48</value>
+  </data>
+  <data name="flagButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="flagButton.Text" xml:space="preserve">
+    <value>flag</value>
+  </data>
+  <data name="&gt;&gt;flagButton.Name" xml:space="preserve">
+    <value>flagButton</value>
+  </data>
+  <data name="&gt;&gt;flagButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flagButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;flagButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="copyrights.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="copyrights.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="copyrights.Location" type="System.Drawing.Point, System.Drawing">
+    <value>907, 669</value>
+  </data>
+  <data name="copyrights.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 13</value>
+  </data>
+  <data name="copyrights.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="copyrights.Text" xml:space="preserve">
+    <value>RailGunToaster 2024 v.1.4.0</value>
+  </data>
+  <data name="&gt;&gt;copyrights.Name" xml:space="preserve">
+    <value>copyrights</value>
+  </data>
+  <data name="&gt;&gt;copyrights.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;copyrights.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;copyrights.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>22, 12</value>
+  </metadata>
+  <data name="saveScheme.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="saveScheme.Text" xml:space="preserve">
+    <value>Save (Ctrl+S)</value>
+  </data>
+  <data name="importButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="importButton.Text" xml:space="preserve">
+    <value>Open (Ctrl+O)</value>
+  </data>
+  <data name="exportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="exportButton.Text" xml:space="preserve">
+    <value>Export (Ctrl+Shift+S)</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 6</value>
+  </data>
+  <data name="reportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="reportButton.Text" xml:space="preserve">
+    <value>Report bug</value>
+  </data>
+  <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="supportButton.Text" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="languageCombo.Items" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="languageCombo.Items1" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="languageCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="languageCombo.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="fileItemList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 23</value>
+  </data>
+  <data name="fileItemList.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="comboBoxPos1.Items" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="comboBoxPos1.Items1" xml:space="preserve">
+    <value>Planes</value>
+  </data>
+  <data name="comboBoxPos1.Items2" xml:space="preserve">
+    <value>Helicopters</value>
+  </data>
+  <data name="comboBoxPos1.Items3" xml:space="preserve">
+    <value>Coastal fleet</value>
+  </data>
+  <data name="comboBoxPos1.Items4" xml:space="preserve">
+    <value>Bluewater fleet</value>
+  </data>
+  <data name="comboBoxPos1.Items5" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="comboBoxPos1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="comboBoxPos1.Text" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="comboBoxPos2.Items" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="comboBoxPos2.Items1" xml:space="preserve">
+    <value>Planes</value>
+  </data>
+  <data name="comboBoxPos2.Items2" xml:space="preserve">
+    <value>Helicopters</value>
+  </data>
+  <data name="comboBoxPos2.Items3" xml:space="preserve">
+    <value>Coastal fleet</value>
+  </data>
+  <data name="comboBoxPos2.Items4" xml:space="preserve">
+    <value>Bluewater fleet</value>
+  </data>
+  <data name="comboBoxPos2.Items5" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="comboBoxPos2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="comboBoxPos2.Text" xml:space="preserve">
+    <value>Planes</value>
+  </data>
+  <data name="comboBoxPos3.Items" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="comboBoxPos3.Items1" xml:space="preserve">
+    <value>Planes</value>
+  </data>
+  <data name="comboBoxPos3.Items2" xml:space="preserve">
+    <value>Helicopters</value>
+  </data>
+  <data name="comboBoxPos3.Items3" xml:space="preserve">
+    <value>Coastal fleet</value>
+  </data>
+  <data name="comboBoxPos3.Items4" xml:space="preserve">
+    <value>Bluewater fleet</value>
+  </data>
+  <data name="comboBoxPos3.Items5" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="comboBoxPos3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="comboBoxPos3.Text" xml:space="preserve">
+    <value>Helicopters</value>
+  </data>
+  <data name="comboBoxPos4.Items" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="comboBoxPos4.Items1" xml:space="preserve">
+    <value>Planes</value>
+  </data>
+  <data name="comboBoxPos4.Items2" xml:space="preserve">
+    <value>Helicopters</value>
+  </data>
+  <data name="comboBoxPos4.Items3" xml:space="preserve">
+    <value>Coastal fleet</value>
+  </data>
+  <data name="comboBoxPos4.Items4" xml:space="preserve">
+    <value>Bluewater fleet</value>
+  </data>
+  <data name="comboBoxPos4.Items5" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="comboBoxPos4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="comboBoxPos4.Text" xml:space="preserve">
+    <value>Coastal fleet</value>
+  </data>
+  <data name="comboBoxPos5.Items" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="comboBoxPos5.Items1" xml:space="preserve">
+    <value>Planes</value>
+  </data>
+  <data name="comboBoxPos5.Items2" xml:space="preserve">
+    <value>Helicopters</value>
+  </data>
+  <data name="comboBoxPos5.Items3" xml:space="preserve">
+    <value>Coastal fleet</value>
+  </data>
+  <data name="comboBoxPos5.Items4" xml:space="preserve">
+    <value>Bluewater fleet</value>
+  </data>
+  <data name="comboBoxPos5.Items5" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="comboBoxPos5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="comboBoxPos5.Text" xml:space="preserve">
+    <value>Bluewater fleet</value>
+  </data>
+  <data name="vehicleTipesOrderButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="vehicleTipesOrderButton.Text" xml:space="preserve">
+    <value>Vehicle types order</value>
+  </data>
+  <data name="vehicleTipesOrderButton.ToolTipText" xml:space="preserve">
+    <value>Allows changing vehicle types order on generated image
+</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 6</value>
+  </data>
+  <data name="backgroundColorText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
+  </data>
+  <data name="backgroundColorText.Text" xml:space="preserve">
+    <value>Background color</value>
+  </data>
+  <data name="backgroundColorText.TextBoxTextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="backgroundColorText.ToolTipText" xml:space="preserve">
+    <value>Changes background color for the image.
+Use RGB or HEX color codes:
+For RGB - R, B, G
+For HEX - #hexcol</value>
+  </data>
+  <data name="decorTextTextbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="decorTextTextbox.Text" xml:space="preserve">
+    <value>◊</value>
+  </data>
+  <data name="decorTextButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="decorTextButton.Text" xml:space="preserve">
+    <value>Decor on</value>
+  </data>
+  <data name="exportSettings_itemList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 23</value>
+  </data>
+  <data name="exportSettings_itemList.Text" xml:space="preserve">
+    <value>Export settings</value>
+  </data>
+  <data name="countryCombo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="countryCombo.Items" xml:space="preserve">
+    <value>USA</value>
+  </data>
+  <data name="countryCombo.Items1" xml:space="preserve">
+    <value>Germany</value>
+  </data>
+  <data name="countryCombo.Items2" xml:space="preserve">
+    <value>USSR</value>
+  </data>
+  <data name="countryCombo.Items3" xml:space="preserve">
+    <value>Great Britain</value>
+  </data>
+  <data name="countryCombo.Items4" xml:space="preserve">
+    <value>Japan</value>
+  </data>
+  <data name="countryCombo.Items5" xml:space="preserve">
+    <value>China</value>
+  </data>
+  <data name="countryCombo.Items6" xml:space="preserve">
+    <value>Italy</value>
+  </data>
+  <data name="countryCombo.Items7" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="countryCombo.Items8" xml:space="preserve">
+    <value>Sweden</value>
+  </data>
+  <data name="countryCombo.Items9" xml:space="preserve">
+    <value>Israel</value>
+  </data>
+  <data name="countryCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="countryCombo.Text" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="flagLockedButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 23</value>
+  </data>
+  <data name="flagLockedButton.Text" xml:space="preserve">
+    <value>Flag unlocked</value>
+  </data>
+  <data name="flagLockedButton.ToolTipText" xml:space="preserve">
+    <value>determines whether the flag will change when the country is selected.</value>
+  </data>
+  <data name="modeInfoButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 23</value>
+  </data>
+  <data name="modeInfoButton.Text" xml:space="preserve">
+    <value>Edit mode</value>
+  </data>
+  <data name="modeInfoButton.ToolTipText" xml:space="preserve">
+    <value>There are two modes:
+- Edit mode allows adding data to cells
+- Delete mode allows you delete data from a cell</value>
+  </data>
+  <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 23</value>
+  </data>
+  <data name="StatusLabel.Text" xml:space="preserve">
+    <value>ok</value>
+  </data>
+  <data name="StatusLabel.ToolTipText" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1084, 27</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>44</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1084, 681</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAQEAAAAEAIAAoQgAAFgAAACgAAABAAAAAgAAAAAEAIAAAAAAAAEAAAOVMAADlTAAAAAAAAAAA
@@ -410,5 +1450,155 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABwAAAAAAAAAM=
 </value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Lineup creator</value>
+  </data>
+  <data name="&gt;&gt;fileItemList.Name" xml:space="preserve">
+    <value>fileItemList</value>
+  </data>
+  <data name="&gt;&gt;fileItemList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveScheme.Name" xml:space="preserve">
+    <value>saveScheme</value>
+  </data>
+  <data name="&gt;&gt;saveScheme.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;importButton.Name" xml:space="preserve">
+    <value>importButton</value>
+  </data>
+  <data name="&gt;&gt;importButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exportButton.Name" xml:space="preserve">
+    <value>exportButton</value>
+  </data>
+  <data name="&gt;&gt;exportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;reportButton.Name" xml:space="preserve">
+    <value>reportButton</value>
+  </data>
+  <data name="&gt;&gt;reportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;supportButton.Name" xml:space="preserve">
+    <value>supportButton</value>
+  </data>
+  <data name="&gt;&gt;supportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;languageCombo.Name" xml:space="preserve">
+    <value>languageCombo</value>
+  </data>
+  <data name="&gt;&gt;languageCombo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exportSettings_itemList.Name" xml:space="preserve">
+    <value>exportSettings_itemList</value>
+  </data>
+  <data name="&gt;&gt;exportSettings_itemList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;vehicleTipesOrderButton.Name" xml:space="preserve">
+    <value>vehicleTipesOrderButton</value>
+  </data>
+  <data name="&gt;&gt;vehicleTipesOrderButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos1.Name" xml:space="preserve">
+    <value>comboBoxPos1</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos2.Name" xml:space="preserve">
+    <value>comboBoxPos2</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos3.Name" xml:space="preserve">
+    <value>comboBoxPos3</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos4.Name" xml:space="preserve">
+    <value>comboBoxPos4</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos5.Name" xml:space="preserve">
+    <value>comboBoxPos5</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;backgroundColorText.Name" xml:space="preserve">
+    <value>backgroundColorText</value>
+  </data>
+  <data name="&gt;&gt;backgroundColorText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;decorTextButton.Name" xml:space="preserve">
+    <value>decorTextButton</value>
+  </data>
+  <data name="&gt;&gt;decorTextButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;decorTextTextbox.Name" xml:space="preserve">
+    <value>decorTextTextbox</value>
+  </data>
+  <data name="&gt;&gt;decorTextTextbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;countryCombo.Name" xml:space="preserve">
+    <value>countryCombo</value>
+  </data>
+  <data name="&gt;&gt;countryCombo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flagLockedButton.Name" xml:space="preserve">
+    <value>flagLockedButton</value>
+  </data>
+  <data name="&gt;&gt;flagLockedButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;modeInfoButton.Name" xml:space="preserve">
+    <value>modeInfoButton</value>
+  </data>
+  <data name="&gt;&gt;modeInfoButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;StatusLabel.Name" xml:space="preserve">
+    <value>StatusLabel</value>
+  </data>
+  <data name="&gt;&gt;StatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Lineup_creator</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

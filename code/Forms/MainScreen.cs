@@ -12,10 +12,8 @@ namespace Lineups_creator
 
     public partial class Lineup_creator : Form
     {
-
         bool isTest = false;
-
-        string country;
+        int country = -1;
         string dir = Directory.GetCurrentDirectory();
         string[] flagsURL =
         {
@@ -32,6 +30,8 @@ namespace Lineups_creator
         };
         bool deleteMode = false;
         bool flagLocked = false;
+        bool drawDecor = true;
+        string decorText = "◊";
         Timer timer;
         ArraySizes arrSizes = new ArraySizes();
         VehicleData[,] tanksData;
@@ -46,16 +46,20 @@ namespace Lineups_creator
 
         public Lineup_creator()
         {
-            
+            if (!String.IsNullOrEmpty(Properties.Settings.Default.Language))
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+                System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+            }
+
             InitializeComponent();
 
             Directory.CreateDirectory($@"{dir}\config");
             WebClient webClient = new WebClient();
             var client = new WebClient();
-
-            if (!isTest && !webClient.DownloadString("https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/source-code/config/version-info.txt").Contains("version 1.2.2"))
+            if (!isTest && !webClient.DownloadString("https://github.com/Gaz1zPr0g/wt-lineup-creator/blob/source-code/config/version-info.txt").Contains("version 1.3.7"))
             {
-                DialogResult dialogResult = MessageBox.Show(text:"New version is available! Do you want to install it?", caption:"Version info", buttons:MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show(text:res.LocalisationRes.newVersion, caption:"Version info", buttons:MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -138,8 +142,6 @@ namespace Lineups_creator
             openFileDialog.ShowDialog();
 
 
-
-
             if (openFileDialog.FileName != "")
             {
                 StatusLabel.Text = "Opening file";
@@ -171,9 +173,8 @@ namespace Lineups_creator
                             VehicleData vd = JsonConvert.DeserializeObject<VehicleData>(line);
                             string imageFile = vd.buttonImage.Substring(5);
                             imageFile = imageFile.Substring(0, imageFile.IndexOf('.'));
-                            string[] rowColType = imageFile.Split('-');
-                            int row = Convert.ToInt32(rowColType[0]);
-                            int col = Convert.ToInt32(rowColType[1]);
+                            int row = vd.pos[0]; int col = vd.pos[1];
+                            vd.buttonImage = $@"temp\{row}-{col}-{vd.type}.png";
                             switch (vd.type)
                             {
                                 case 0:
@@ -204,8 +205,7 @@ namespace Lineups_creator
                         {
                             TanksTable.Controls.Clear();
                             TanksTable.RowCount = arrSizes.tanks.Item1 + 1; TanksTable.ColumnCount = arrSizes.tanks.Item2 + 1;
-                            TanksTable.Controls.Add(AddRowTanks1, 0, maxTrow[0]);
-                            AddColumnTanks.Location = new Point(135 + 126 * (arrSizes.tanks.Item2 - 1), 39);
+                            TanksTable.Controls.Add(ResizeTanks, 0, maxTrow[0]);
                             for (int row = 0; row < arrSizes.tanks.Item1; row++)
                             {
                                 for (int col = 0; col < arrSizes.tanks.Item2; col++)
@@ -217,16 +217,16 @@ namespace Lineups_creator
                                     }
                                     if (col != 0 && row == 0)
                                     {
-                                        Button newAddRow = new Button()
+                                        Button newResize = new Button()
                                         {
                                             Width = 120,
-                                            Height = 48,
-                                            Text = "Add row",
+                                            Height = 48, 
+                                            Text = res.LocalisationRes.resize,
                                             Margin = new Padding(3, 3, 3, 3),
                                             FlatStyle = FlatStyle.Flat,
                                         };
-                                        newAddRow.Click += AddRowTanks_Click;
-                                        TanksTable.Controls.Add(newAddRow, col, maxTrow[col]);
+                                        newResize.MouseUp += ResizeTanks_MouseUp;
+                                        TanksTable.Controls.Add(newResize, col, maxTrow[col]);
                                     }
                                     if (row < maxTrow[col])
                                     {
@@ -240,8 +240,7 @@ namespace Lineups_creator
                         {
                             PlanesTable.Controls.Clear();
                             PlanesTable.RowCount = arrSizes.planes.Item1 + 1; PlanesTable.ColumnCount = arrSizes.planes.Item2 + 1;
-                            PlanesTable.Controls.Add(AddRowPlanes1, 0, maxProw[0]);
-                            AddColumnPlanes.Location = new Point(135 + 126 * (arrSizes.planes.Item2 - 1), 39);
+                            PlanesTable.Controls.Add(ResizePlanes, 0, maxProw[0]);
                             for (int row = 0; row < arrSizes.planes.Item1; row++)
                             {
                                 for (int col = 0; col < arrSizes.planes.Item2; col++)
@@ -252,16 +251,16 @@ namespace Lineups_creator
                                     }
                                     if (col != 0 && row == 0)
                                     {
-                                        Button newAddRow = new Button()
+                                        Button newResize = new Button()
                                         {
                                             Width = 120,
                                             Height = 48,
-                                            Text = "Add row",
+                                            Text = res.LocalisationRes.resize,
                                             Margin = new Padding(3, 3, 3, 3),
                                             FlatStyle = FlatStyle.Flat,
                                         };
-                                        newAddRow.Click += AddRowPlanes_Click;
-                                        PlanesTable.Controls.Add(newAddRow, col, maxProw[col]);
+                                        newResize.MouseUp += ResizePlanes_MouseUp;
+                                        PlanesTable.Controls.Add(newResize, col, maxProw[col]);
                                     }
                                     if (row < maxProw[col])
                                     {
@@ -275,8 +274,7 @@ namespace Lineups_creator
                         {
                             HeliTable.Controls.Clear();
                             HeliTable.RowCount = arrSizes.helis.Item1 + 1; HeliTable.ColumnCount = arrSizes.helis.Item2 + 1;
-                            HeliTable.Controls.Add(AddRowHeli, 0, maxHrow[0]);
-                            AddColumnHeli.Location = new Point(135 + 126 * (arrSizes.helis.Item2 - 1), 39);
+                            HeliTable.Controls.Add(ResizeHeli, 0, maxHrow[0]);
                             for (int row = 0; row < arrSizes.helis.Item1; row++)
                             {
                                 for (int col = 0; col < arrSizes.helis.Item2; col++)
@@ -287,16 +285,16 @@ namespace Lineups_creator
                                     }
                                     if (col != 0 && row == 0)
                                     {
-                                        Button newAddRow = new Button()
+                                        Button newResize = new Button()
                                                 {
                                                     Width = 120,
                                                     Height = 48,
-                                                    Text = "Add row",
+                                                    Text = res.LocalisationRes.resize,
                                                     Margin = new Padding(3, 3, 3, 3),
                                                     FlatStyle = FlatStyle.Flat,
                                                 };
-                                        newAddRow.Click += AddRowHeli_Click;
-                                        HeliTable.Controls.Add(newAddRow, col, maxHrow[col]);
+                                        newResize.MouseUp += ResizeHeli_MouseUp;
+                                        HeliTable.Controls.Add(newResize, col, maxHrow[col]);
                                     }
                                     if (row < maxHrow[col])
                                     {
@@ -310,8 +308,7 @@ namespace Lineups_creator
                         {
                             CoastalfleetTable.Controls.Clear();
                             CoastalfleetTable.RowCount = arrSizes.coastalFleet.Item1 + 1; CoastalfleetTable.ColumnCount = arrSizes.coastalFleet.Item2 + 1;
-                            CoastalfleetTable.Controls.Add(AddRowCoastalFleet, 0, maxCrow[0]);
-                            AddColumnCoastalFleet.Location = new Point(135 + 126 * (arrSizes.coastalFleet.Item2 - 1), 39);
+                            CoastalfleetTable.Controls.Add(ResizeCoastalFleet, 0, maxCrow[0]);
                             for (int row = 0; row < arrSizes.coastalFleet.Item1; row++)
                             {
                                 for (int col = 0; col < arrSizes.coastalFleet.Item2; col++)
@@ -322,16 +319,16 @@ namespace Lineups_creator
                                     }
                                     if (col != 0 && row == 0)
                                     {
-                                        Button newAddRow = new Button()
+                                        Button newResize = new Button()
                                         {
                                             Width = 120,
                                             Height = 48,
-                                            Text = "Add row",
+                                            Text = res.LocalisationRes.resize,
                                             Margin = new Padding(3, 3, 3, 3),
                                             FlatStyle = FlatStyle.Flat,
                                         };
-                                        newAddRow.Click += AddRowCoastalFleet_Click;
-                                        CoastalfleetTable.Controls.Add(newAddRow, col, maxCrow[col]);
+                                        newResize.MouseUp += ResizeCoastalFleet_MouseUp;
+                                        CoastalfleetTable.Controls.Add(newResize, col, maxCrow[col]);
                                     }
                                     if (row < maxCrow[col])
                                     {
@@ -345,8 +342,7 @@ namespace Lineups_creator
                         {
                             BluewaterTable.Controls.Clear();
                             BluewaterTable.RowCount = arrSizes.bluewaterFleet.Item1 + 1; BluewaterTable.ColumnCount = arrSizes.bluewaterFleet.Item2 + 1;
-                            BluewaterTable.Controls.Add(AddRowBluewater, 0, maxBrow[0]);
-                            AddColumnBluewater.Location = new Point(135 + 126 * (arrSizes.bluewaterFleet.Item2 - 1), 39);
+                            BluewaterTable.Controls.Add(ResizeBluewater, 0, maxBrow[0]);
                             for (int row = 0; row < arrSizes.bluewaterFleet.Item1; row++)
                             {
                                 for (int col = 0; col < arrSizes.bluewaterFleet.Item2; col++)
@@ -357,16 +353,16 @@ namespace Lineups_creator
                                     }
                                     if (col != 0 && row == 0)
                                     {
-                                        Button newAddRow = new Button()
+                                        Button newResize = new Button()
                                         {
                                             Width = 120,
                                             Height = 48,
-                                            Text = "Add row",
+                                            Text = res.LocalisationRes.resize,
                                             Margin = new Padding(3, 3, 3, 3),
                                             FlatStyle = FlatStyle.Flat,
                                         };
-                                        newAddRow.Click += AddRowBluewaterFleet_Click;
-                                        BluewaterTable.Controls.Add(newAddRow, col, maxBrow[col]);
+                                        newResize.MouseUp += ResizeBluewater_MouseUp;
+                                        BluewaterTable.Controls.Add(newResize, col, maxBrow[col]);
                                     }
                                     if (row < maxBrow[col])
                                     {
@@ -503,55 +499,86 @@ namespace Lineups_creator
                     sw.WriteLine(output);
                     if (tanksData != null)
                     {
-                        foreach (VehicleData vd in tanksData)
+                        for (int row = 0; row < arrSizes.tanks.Item1; row++)
                         {
-                            if (vd.name != null)
+                            for (int col = 0; col < arrSizes.tanks.Item2; col++)
                             {
-                                output = JsonConvert.SerializeObject(vd);
-                                sw.WriteLine(output);
-                            }                  
+                                if (tanksData[row, col] != null && tanksData[row, col].name != null)
+                                {
+                                        tanksData[row, col].pos = new int[] { row, col };
+                                        output = JsonConvert.SerializeObject(tanksData[row, col]);
+                                        sw.WriteLine(output);
+                                }
+                                
+                            }
                         }
                     }
                     if (planesData != null)
                     {
+                        for (int row = 0; row < arrSizes.planes.Item1; row++)
+                        {
+                            for (int col = 0; col < arrSizes.planes.Item2; col++)
+                            {
+                                if (planesData[row, col] != null && planesData[row, col].name != null)
+                                {
+                                    planesData[row, col].pos = new int[] { row, col };
+                                    output = JsonConvert.SerializeObject(planesData[row, col]);
+                                    sw.WriteLine(output);
+                                }
+                            }
+                        }
+
                         foreach(VehicleData vd in planesData)
                         {
-                            if (vd.name != null)
+                            if (vd != null)
                             {
-                                output = JsonConvert.SerializeObject(vd);
-                                sw.WriteLine(output);
+                                if (vd.name != null)
+                                {
+                                    output = JsonConvert.SerializeObject(vd);
+                                    sw.WriteLine(output);
+                                }
                             }
+                            
                         }
                     }
                     if (helicoptersData != null)
                     {
-                        foreach(VehicleData vd in helicoptersData)
+                        for (int row = 0; row < arrSizes.helis.Item1; row++)
                         {
-                            if (vd.name != null)
+                            for (int col = 0; col < arrSizes.helis.Item2; col++)
                             {
-                                output = JsonConvert.SerializeObject(vd);
-                                sw.WriteLine(output);
+                                if (helicoptersData[row, col] != null && helicoptersData[row, col].name != null)
+                                {
+                                    helicoptersData[row, col].pos = new int[] { row, col };
+                                    output = JsonConvert.SerializeObject(helicoptersData[row, col]);
+                                    sw.WriteLine(output);
+                                }
                             }
                         }
                     }
                     if (coastalFleetData != null)
                     {
-                        foreach(VehicleData vd in coastalFleetData)
+                        for (int row = 0; row < arrSizes.coastalFleet.Item1; row++)
                         {
-                            if (vd.name != null)
+                            for (int col = 0; col < arrSizes.coastalFleet.Item2; col++)
                             {
-                                output = JsonConvert.SerializeObject(vd);
-                                sw.WriteLine(output);
+                                if (coastalFleetData[row, col] != null && coastalFleetData[row, col].name != null)
+                                {
+                                    coastalFleetData[row, col].pos = new int[] { row, col };
+                                    output = JsonConvert.SerializeObject(coastalFleetData[row, col]);
+                                    sw.WriteLine(output);
+                                }
                             }
                         }
                     }
                     if (bluewaterFleetData != null)
                     {
-                        foreach (VehicleData vd in bluewaterFleetData)
+                        for (int row = 0; row < arrSizes.bluewaterFleet.Item1; row++)
                         {
-                            if (vd.name != null)
+                            for (int col = 0; col < arrSizes.bluewaterFleet.Item2; col++)
                             {
-                                output = JsonConvert.SerializeObject(vd);
+                                bluewaterFleetData[row, col].pos = new int[] { row, col };
+                                output = JsonConvert.SerializeObject(bluewaterFleetData[row, col]);
                                 sw.WriteLine(output);
                             }
                         }
@@ -616,6 +643,25 @@ namespace Lineups_creator
                         using (Font backgroundFont = new Font("Verdana", 8, new FontStyle()))
                         {
                             graphics.DrawString("https://github.com/Gaz1zPr0g/wt-lineup-creator", backgroundFont, new SolidBrush(waterMarkColor), 5, 5);
+                            if (drawDecor)
+                            {
+                                for (y = 0; y < bitmap.Height; y += 8)
+                                {
+                                    if (y < 16)
+                                    {
+                                        x = y == 0 ? 288 : 280;
+                                    }
+                                    else
+                                    {
+                                        x = y % 16 == 0 ? 0 : 8;
+                                    }
+                                    while (x < bitmap.Width)
+                                    {
+                                        graphics.DrawString(decorText, backgroundFont, new SolidBrush(waterMarkColor), x, y);
+                                        x += decorText.Length*4 + 16;
+                                    }
+                                }
+                            }
                         }
                     }
 
@@ -644,7 +690,7 @@ namespace Lineups_creator
                                 if (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1 && generatorIndexes[index] == 0)
                                 {
                                     x += 5; y += 10;
-                                    graphics.DrawString("Tanks", textFont, Brushes.White, x, y);
+                                    graphics.DrawString(res.LocalisationRes.tanks, textFont, Brushes.White, x, y);
                                     y += 19;
                                     graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
                                     y += 5;
@@ -664,56 +710,10 @@ namespace Lineups_creator
                                         y += 52;
                                     }
                                 }
-                                if (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1 && generatorIndexes[index] == 3)
+                                else if (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1 && generatorIndexes[index] == 1)
                                 {
                                     x = 5; y += 10;
-                                    graphics.DrawString("Coastal Fleet", textFont, Brushes.White, x, y);
-                                    y += 19;
-                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                    y += 5;
-                                    for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
-                                    {
-                                        for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
-                                        {
-                                            if (coastalFleetData[i, j].name != null)
-                                            {
-                                                Image im = Image.FromFile(coastalFleetData[i, j].buttonImage);
-                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                                im.Dispose();
-                                            }
-                                            x += 124;
-                                        }
-                                        x = 5;
-                                        y += 52;
-                                    }
-                                }
-                                if (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1 && generatorIndexes[index] == 4)
-                                {
-                                    x = 5; y += 10;
-                                    graphics.DrawString("Bluewater fleet", textFont, Brushes.White, x, y);
-                                    y += 19;
-                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                    y += 5;
-                                    for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
-                                    {
-                                        for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
-                                        {
-                                            if (bluewaterFleetData[i, j].name != null)
-                                            {
-                                                Image im = Image.FromFile(bluewaterFleetData[i, j].buttonImage);
-                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                                im.Dispose();
-                                            }
-                                            x += 124;
-                                        }
-                                        x = 5;
-                                        y += 52;
-                                    }
-                                }
-                                if (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1 && generatorIndexes[index] == 1)
-                                {
-                                    x = 5; y += 10;
-                                    graphics.DrawString("Planes", textFont, Brushes.White, x, y);
+                                    graphics.DrawString(res.LocalisationRes.planes, textFont, Brushes.White, x, y);
                                     y += 19;
                                     graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
                                     y += 5;
@@ -733,10 +733,10 @@ namespace Lineups_creator
                                         y += 52;
                                     }
                                 }
-                                if (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1 && generatorIndexes[index] == 2)
+                                else if (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1 && generatorIndexes[index] == 2)
                                 {
                                     x = 5; y += 10;
-                                    graphics.DrawString("Helicopters", textFont, Brushes.White, x, y);
+                                    graphics.DrawString(res.LocalisationRes.helicopters, textFont, Brushes.White, x, y);
                                     y += 19;
                                     graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
                                     y += 5;
@@ -756,7 +756,52 @@ namespace Lineups_creator
                                         y += 52;
                                     }
                                 }
-
+                                else if (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1 && generatorIndexes[index] == 3)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString(res.LocalisationRes.coastalFleet, textFont, Brushes.White, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
+                                        {
+                                            if (coastalFleetData[i, j].name != null)
+                                            {
+                                                Image im = Image.FromFile(coastalFleetData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
+                                else if (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1 && generatorIndexes[index] == 4)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString(res.LocalisationRes.bluewaterFleet, textFont, Brushes.White, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
+                                        {
+                                            if (bluewaterFleetData[i, j].name != null)
+                                            {
+                                                Image im = Image.FromFile(bluewaterFleetData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
                             }
 
                         }
@@ -794,21 +839,21 @@ namespace Lineups_creator
         // Menu buttons
         private void flagLockedButton_Click(object sender, EventArgs e)
         {
-            flagLocked = !(flagLockedButton.Text == "Flag locked");
-            flagLockedButton.Text = flagLocked ? "Flag locked" : "Flag unlocked";
+            flagLocked = !(flagLockedButton.Text == res.LocalisationRes.flagLocked);
+            flagLockedButton.Text = flagLocked ? res.LocalisationRes.flagLocked : res.LocalisationRes.flagUnlocked;
         }
         private void modeInfoButton_Click(object sender, EventArgs e)
         {
             if (deleteMode)
             {
                 deleteMode = false;
-                modeInfoButton.Text = "Edit mode";
+                modeInfoButton.Text = res.LocalisationRes.EditModeStr;
                 modeInfoButton.ForeColor = Color.FromArgb(0, 192, 0);
             }
             else
             {
                 deleteMode = true;
-                modeInfoButton.Text = "Delete mode";
+                modeInfoButton.Text = res.LocalisationRes.DeleteModeStr;
                 modeInfoButton.ForeColor = Color.FromArgb(192, 0, 0);
             }
         }
@@ -822,12 +867,17 @@ namespace Lineups_creator
         }
         private void countryCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            country = countryCombo.SelectedItem.ToString();
-            if (!flagLocked)
+            try
             {
-                DownloadFlag(flagsURL[countryCombo.SelectedIndex]);
-            }
+                country = countryCombo.SelectedIndex;
+                if (!flagLocked)
+                {
+                    DownloadFlag(flagsURL[countryCombo.SelectedIndex]);
+                }
+            } catch
+            {
 
+            }
         }
         private void backgroundColorText_TextChanged(object sender, EventArgs e)
         {
@@ -871,6 +921,15 @@ namespace Lineups_creator
             }
 
         }
+        private void decorTextButton_Click(object sender, EventArgs e)
+        {
+            drawDecor = !(decorTextButton.Text == res.LocalisationRes.decorTextOn);
+            decorTextButton.Text = drawDecor ? res.LocalisationRes.decorTextOn : res.LocalisationRes.decorTextOff;
+        }
+        private void decorTextTextbox_TextChanged(object sender, EventArgs e)
+        {
+            decorText = decorTextTextbox.Text;
+        }
 
         // Generator queue
         private void changeIfindexOccuped(int index)
@@ -913,98 +972,116 @@ namespace Lineups_creator
         }
 
         // tanks id = 0
-        private void AddColumnTanks_Click(object sender, EventArgs e)
+        private void ResizeTanks_MouseUp(object sender, MouseEventArgs me)
         {
-            TanksTable.ColumnCount++;
-
-            VehicleData[,] newTanksData = new VehicleData[TanksTable.RowCount - 1, TanksTable.ColumnCount];
-            for (int i = 0; i < arrSizes.tanks.Item1; i++)
+            if (me.Button == MouseButtons.Left)
             {
-                for (int j = 0; j < arrSizes.tanks.Item2; j++)
+                Button tank = new Button()
                 {
-                    newTanksData[i, j] = tanksData[i, j];
+                    Width = 120,
+                    Height = 48,
+                    Text = "",
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
+
+                tank.Click += TankButton_Click;
+
+                Control curButton = (Control)sender;
+
+                int rowPos = TanksTable.GetCellPosition(curButton).Row;
+                int colPos = TanksTable.GetCellPosition(curButton).Column;
+
+                if (rowPos == TanksTable.RowCount - 1)
+                {
+                    TanksTable.RowCount += 1;
+                    TanksTable.Controls.Add(curButton, colPos, TanksTable.RowCount - 1);
+                    TanksTable.Controls.Add(tank, colPos, TanksTable.RowCount - 2);
+
+                    if (tanksData != null)
+                    {
+                        VehicleData[,] newTanksDatas = new VehicleData[TanksTable.RowCount - 1, TanksTable.ColumnCount];
+                        for (int i = 0; i < arrSizes.tanks.Item1; i++)
+                        {
+                            for (int j = 0; j < arrSizes.tanks.Item2; j++)
+                            {
+                                tanksData[i, j] = tanksData[i, j] == null ? new VehicleData() { type = 0 } : tanksData[i, j];
+                                newTanksDatas[i, j] = tanksData[i, j];
+                            }
+                        }
+                        arrSizes.tanks.Item1 += 1;
+                        for (int i = 0; i < arrSizes.tanks.Item2; i++)
+                            newTanksDatas[arrSizes.tanks.Item1 - 1, i] = new VehicleData() { type = 0 };
+                        tanksData = newTanksDatas;
+                    }
+                    else
+                    {
+                        tanksData = new VehicleData[TanksTable.RowCount - 1, TanksTable.ColumnCount];
+
+                        arrSizes.tanks.Item1 = 1; arrSizes.tanks.Item2 = 1;
+                    }
+                }
+                else
+                {
+                    tanksData[rowPos, colPos] = new VehicleData() { type = 0 };
+
+                    TanksTable.Controls.Add(curButton, colPos, rowPos + 1);
+                    TanksTable.Controls.Add(tank, colPos, rowPos);
+                };
+                for (int i = 0; i < arrSizes.tanks.Item1; i++)
+                {
+                    for (int j = 0; j < arrSizes.tanks.Item2; j++)
+                    {
+                        tanksData[i, j] = tanksData[i, j] == null ? new VehicleData() { type = 0 } : tanksData[i, j];
+                    }
                 }
             }
-            arrSizes.tanks.Item2++;
-            for (int i = 0; i < arrSizes.tanks.Item1; i++)
+            else if (me.Button == MouseButtons.Right)
             {
-                newTanksData[i, arrSizes.tanks.Item2 - 1] = new VehicleData();
-            }
-            tanksData = newTanksData;
-
-
-            Button new_AddRowButton = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "Add row",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
-
-            new_AddRowButton.Click += AddRowTanks_Click;
-            TanksTable.Controls.Add(new_AddRowButton, TanksTable.ColumnCount - 1, 0);
-            AddColumnTanks.Location = new Point(AddColumnTanks.Location.X + 126, AddColumnTanks.Location.Y);
-            AddColumnTanks.Text = "+";
-        }
-        private void AddRowTanks_Click(object sender, EventArgs e)
-        {
-            Button tank = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
-
-            tank.Click += TankButton_Click;
-
-            Control curButton = (Control)sender;
-
-            int rowPos = TanksTable.GetCellPosition(curButton).Row;
-            int colPos = TanksTable.GetCellPosition(curButton).Column;
-
-            if (rowPos == TanksTable.RowCount - 1)
-            {
-                TanksTable.RowCount = TanksTable.RowCount + 1;
-                TanksTable.Controls.Add(curButton, colPos, TanksTable.RowCount - 1);
-                TanksTable.Controls.Add(tank, colPos, TanksTable.RowCount - 2);
-
-                if (tanksData != null)
+                int newCol = TanksTable.GetColumn((Control)sender) + 1;
+                TanksTable.ColumnCount++;
+                VehicleData[,] newTanksData = new VehicleData[TanksTable.RowCount - 1, TanksTable.ColumnCount];
+                arrSizes.tanks.Item2++;
+                for (int row = 0; row < arrSizes.tanks.Item1; row++)
                 {
-                    VehicleData[,] newTanksData = new VehicleData[TanksTable.RowCount - 1, TanksTable.ColumnCount];
-                    for (int i = 0; i < arrSizes.tanks.Item1; i++)
+                    for (int col = 0; col < arrSizes.tanks.Item2; col++)
                     {
-                        for (int j = 0; j < arrSizes.tanks.Item2; j++)
+                        if (col < newCol)
                         {
-                            tanksData[i, j] = tanksData[i, j] == null ? new VehicleData() { type = 0 } : tanksData[i, j];
-                            newTanksData[i, j] = tanksData[i, j];
+                            newTanksData[row, col] = tanksData[row, col];
+                        }
+                        else if (col == newCol)
+                        {
+                            newTanksData[row, col] = new VehicleData() { type = 0 };
+                        }
+                        else
+                        {
+                            newTanksData[row, col] = tanksData[row, col - 1];
                         }
                     }
-                    arrSizes.tanks.Item1 += 1;
-                    for (int i = 0; i < arrSizes.tanks.Item2; i++)
-                        newTanksData[arrSizes.tanks.Item1 - 1, i] = new VehicleData() { type = 0 };
-                    tanksData = newTanksData;
-                } else
-                {
-                    tanksData = new VehicleData[TanksTable.RowCount - 1, TanksTable.ColumnCount];
-                    
-                    arrSizes.tanks.Item1 = 1; arrSizes.tanks.Item2 = 1;
                 }
-            } else
-            {
-                tanksData[rowPos, colPos] = new VehicleData() { type = 0 };
-                
-                TanksTable.Controls.Add(curButton, colPos, rowPos + 1);
-                TanksTable.Controls.Add(tank, colPos, rowPos);
-            };
-            for (int i = 0; i < arrSizes.tanks.Item1; i++)
-            {
-                for (int j = 0; j < arrSizes.tanks.Item2; j++)
+                tanksData = newTanksData;
+
+                for (int col = TanksTable.ColumnCount; col >= newCol; col--)
                 {
-                    tanksData[i, j] = tanksData[i, j] == null ? new VehicleData() { type = 0 } : tanksData[i, j];
+                    for (int row = 0; row < TanksTable.RowCount; row++)
+                    {
+                        if (TanksTable.GetControlFromPosition(col, row) != null)
+                            TanksTable.Controls.Add(TanksTable.GetControlFromPosition(col, row), col + 1, row);
+                    }
                 }
+
+                Button newResizeButton = new Button()
+                {
+                    Width = 120,
+                    Height = 48,
+                    Text = res.LocalisationRes.resize,
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
+
+                newResizeButton.MouseUp += ResizeTanks_MouseUp;
+                TanksTable.Controls.Add(newResizeButton, newCol, 0);
             }
         }
         private void TankButton_Click(object sender, EventArgs ae)
@@ -1019,7 +1096,7 @@ namespace Lineups_creator
                 tanksData[row, col] = new VehicleData() { type = 0 };
                 curButton.BackgroundImage = base.BackgroundImage;
                 curButton.BackColor = Color.FromArgb(31, 31, 31);
-            }else {
+            } else {
                 VehicleScreen vehicleScreen;
                 if (tanksData[row, col].name != null)
                 {
@@ -1036,91 +1113,109 @@ namespace Lineups_creator
         }
 
         // planes id = 1
-        private void AddColumnPlanes_Click(object sender, EventArgs e)
+        private void ResizePlanes_MouseUp(object sender, MouseEventArgs me)
         {
-            PlanesTable.ColumnCount++;
-
-            VehicleData[,] newPlanesData = new VehicleData[PlanesTable.RowCount - 1, PlanesTable.ColumnCount];
-            for (int i = 0; i < arrSizes.planes.Item1; i++)
+            if (me.Button == MouseButtons.Left)
             {
-                for (int j = 0; j < arrSizes.planes.Item2; j++)
+                Button plane = new Button()
                 {
-                    newPlanesData[i, j] = planesData[i, j];
-                }
-            }
-            arrSizes.planes.Item2++;
-            for (int i = 0; i < arrSizes.planes.Item1; i++)
-            {
-                newPlanesData[i, arrSizes.planes.Item2 - 1] = new VehicleData();
-            }
-            planesData = newPlanesData;
-            Button new_AddRowButton = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "Add row",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
+                    Width = 120,
+                    Height = 48,
+                    Text = "",
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
 
-            new_AddRowButton.Click += AddRowPlanes_Click;
-            PlanesTable.Controls.Add(new_AddRowButton, PlanesTable.ColumnCount - 1, 0);
-            AddColumnPlanes.Location = new Point(AddColumnPlanes.Location.X + 126, AddColumnPlanes.Location.Y);
-            AddColumnPlanes.Text = "+";
+                plane.Click += PlaneButton_Click;
 
-        }
-        private void AddRowPlanes_Click(object sender, EventArgs e)
-        {
-            Button plane = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
+                Control curButton = (Control)sender;
 
-            plane.Click += PlaneButton_Click;
+                int rowPos = PlanesTable.GetCellPosition(curButton).Row;
+                int colPos = PlanesTable.GetCellPosition(curButton).Column;
 
-            Control curButton = (Control)sender;
-
-            int rowPos = PlanesTable.GetCellPosition(curButton).Row;
-            int colPos = PlanesTable.GetCellPosition(curButton).Column;
-
-            if (rowPos == PlanesTable.RowCount - 1)
-            {
-                PlanesTable.RowCount++;
-                PlanesTable.Controls.Add(curButton, colPos, PlanesTable.RowCount - 1);
-                PlanesTable.Controls.Add(plane, colPos, PlanesTable.RowCount - 2);
-
-                if (planesData != null)
+                if (rowPos == PlanesTable.RowCount - 1)
                 {
-                    VehicleData[,] newPlanesData = new VehicleData[PlanesTable.RowCount - 1, PlanesTable.ColumnCount];
-                    for (int i = 0; i < arrSizes.planes.Item1; i++)
+                    PlanesTable.RowCount++;
+                    PlanesTable.Controls.Add(curButton, colPos, PlanesTable.RowCount - 1);
+                    PlanesTable.Controls.Add(plane, colPos, PlanesTable.RowCount - 2);
+
+                    if (planesData != null)
                     {
-                        for (int j = 0; j < arrSizes.planes.Item2; j++)
+                        VehicleData[,] newPlanesData = new VehicleData[PlanesTable.RowCount - 1, PlanesTable.ColumnCount];
+                        for (int i = 0; i < arrSizes.planes.Item1; i++)
                         {
-                            newPlanesData[i, j] = planesData[i, j];
+                            for (int j = 0; j < arrSizes.planes.Item2; j++)
+                            {
+                                newPlanesData[i, j] = planesData[i, j];
+                            }
                         }
+                        arrSizes.planes.Item1 += 1;
+                        for (int i = 0; i < arrSizes.planes.Item2; i++)
+                            newPlanesData[arrSizes.planes.Item1 - 1, i] = new VehicleData() { type = 1 };
+                        planesData = newPlanesData;
                     }
-                    arrSizes.planes.Item1 += 1;
-                    for (int i = 0; i < arrSizes.planes.Item2; i++)
-                        newPlanesData[arrSizes.planes.Item1- 1, i] = new VehicleData() { type = 1 };
-                    planesData = newPlanesData;
+                    else
+                    {
+                        planesData = new VehicleData[PlanesTable.RowCount - 1, PlanesTable.ColumnCount];
+                        planesData[0, 0] = new VehicleData() { type = 1 };
+                        arrSizes.planes.Item1 = 1; arrSizes.planes.Item2 = 1;
+                    }
                 }
                 else
                 {
-                    planesData = new VehicleData[PlanesTable.RowCount - 1, PlanesTable.ColumnCount];
-                    planesData[0, 0] = new VehicleData() { type = 1 };
-                    arrSizes.planes.Item1 = 1; arrSizes.planes.Item2 = 1;
-                }
-            }
-            else
+                    planesData[rowPos, colPos] = new VehicleData() { type = 1 };
+                    PlanesTable.Controls.Add(curButton, colPos, rowPos + 1);
+                    PlanesTable.Controls.Add(plane, colPos, rowPos);
+                };
+                
+            } 
+            else if (me.Button == MouseButtons.Right)
             {
-                planesData[rowPos, colPos] = new VehicleData() { type = 1 };
-                PlanesTable.Controls.Add(curButton, colPos, rowPos + 1);
-                PlanesTable.Controls.Add(plane, colPos, rowPos);
-            };
+                int newCol = PlanesTable.GetColumn((Control)sender) + 1;
+                PlanesTable.ColumnCount++;
+                VehicleData[,] newPlanesData = new VehicleData[PlanesTable.RowCount - 1, PlanesTable.ColumnCount];
+                arrSizes.planes.Item2++;
+                for (int row = 0; row < arrSizes.planes.Item1; row++)
+                {
+                    for (int col = 0; col < arrSizes.planes.Item2; col++)
+                    {
+                        if (col < newCol)
+                        {
+                            newPlanesData[row, col] = planesData[row, col];
+                        }
+                        else if (col == newCol)
+                        {
+                            newPlanesData[row, col] = new VehicleData() { type = 1 };
+                        }
+                        else
+                        {
+                            newPlanesData[row, col] = planesData[row, col - 1];
+                        }
+                    }
+                }
+                planesData = newPlanesData;
+
+                for (int col = PlanesTable.ColumnCount; col >= newCol; col--)
+                {
+                    for (int row = 0; row < PlanesTable.RowCount; row++)
+                    {
+                        if (PlanesTable.GetControlFromPosition(col, row) != null)
+                            PlanesTable.Controls.Add(PlanesTable.GetControlFromPosition(col, row), col + 1, row);
+                    }
+                }
+
+                Button newResizeButton = new Button()
+                {
+                    Width = 120,
+                    Height = 48,
+                    Text = res.LocalisationRes.resize,
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
+
+                newResizeButton.MouseUp += ResizePlanes_MouseUp;
+                PlanesTable.Controls.Add(newResizeButton, newCol, 0);
+            }
             for (int i = 0; i < arrSizes.planes.Item1; i++)
             {
                 for (int j = 0; j < arrSizes.planes.Item2; j++)
@@ -1159,98 +1254,113 @@ namespace Lineups_creator
         }
 
         // helicopters id = 2
-        private void AddColumnHeli_Click(object sender, EventArgs e)
+        private void ResizeHeli_MouseUp(object sender, MouseEventArgs me)
         {
-            HeliTable.ColumnCount++;
-
-            VehicleData[,] newHeliData = new VehicleData[HeliTable.RowCount - 1, HeliTable.ColumnCount];
-            for (int i = 0; i < arrSizes.helis.Item1; i++)
+            if (me.Button == MouseButtons.Left)
             {
-                for (int j = 0; j < arrSizes.helis.Item2; j++)
+                Button heli = new Button()
                 {
-                    newHeliData[i, j] = helicoptersData[i, j];
-                }
-            }
-            arrSizes.helis.Item2++;
-            for (int i = 0; i < arrSizes.helis.Item1; i++)
-            {
-                newHeliData[i, arrSizes.helis.Item2 - 1] = new VehicleData();
-            }
-            helicoptersData = newHeliData;
+                    Width = 120,
+                    Height = 48,
+                    Text = "",
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
 
+                heli.Click += HeliButton_Click;
 
-            Button new_AddRowButton = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "Add row",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
+                Control curButton = (Control)sender;
 
-            new_AddRowButton.Click += AddRowHeli_Click;
-            HeliTable.Controls.Add(new_AddRowButton, HeliTable.ColumnCount - 1, 0);
-            AddColumnHeli.Location = new Point(AddColumnHeli.Location.X + 126, AddColumnHeli.Location.Y);
-            AddColumnHeli.Text = "+";
-        }
-        private void AddRowHeli_Click(object sender, EventArgs e)
-        {
-            Button heli = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
+                int rowPos = HeliTable.GetCellPosition(curButton).Row;
+                int colPos = HeliTable.GetCellPosition(curButton).Column;
 
-            heli.Click += HeliButton_Click;
-
-            Control curButton = (Control)sender;
-
-            int rowPos = HeliTable.GetCellPosition(curButton).Row;
-            int colPos = HeliTable.GetCellPosition(curButton).Column;
-
-            if (rowPos == HeliTable.RowCount - 1)
-            {
-                HeliTable.RowCount++;
-                HeliTable.Controls.Add(curButton, colPos, HeliTable.RowCount - 1);
-                HeliTable.Controls.Add(heli, colPos, HeliTable.RowCount - 2);
-
-                if (helicoptersData != null)
+                if (rowPos == HeliTable.RowCount - 1)
                 {
-                    VehicleData[,] newHeliData = new VehicleData[HeliTable.RowCount - 1, HeliTable.ColumnCount];
-                    for (int i = 0; i < arrSizes.helis.Item1; i++)
+                    HeliTable.RowCount++;
+                    HeliTable.Controls.Add(curButton, colPos, HeliTable.RowCount - 1);
+                    HeliTable.Controls.Add(heli, colPos, HeliTable.RowCount - 2);
+
+                    if (helicoptersData != null)
                     {
-                        for (int j = 0; j < arrSizes.helis.Item2; j++)
+                        VehicleData[,] newHeliData = new VehicleData[HeliTable.RowCount - 1, HeliTable.ColumnCount];
+                        for (int i = 0; i < arrSizes.helis.Item1; i++)
                         {
-                            newHeliData[i, j] = helicoptersData[i, j];
+                            for (int j = 0; j < arrSizes.helis.Item2; j++)
+                            {
+                                newHeliData[i, j] = helicoptersData[i, j];
+                            }
                         }
+                        arrSizes.helis.Item1 += 1;
+                        for (int i = 0; i < arrSizes.helis.Item2; i++)
+                            newHeliData[arrSizes.helis.Item1 - 1, i] = new VehicleData() { type = 2 };
+                        helicoptersData = newHeliData;
                     }
-                    arrSizes.helis.Item1 += 1;
-                    for (int i = 0; i < arrSizes.helis.Item2; i++)
-                        newHeliData[arrSizes.helis.Item1- 1, i] = new VehicleData() { type = 2 };
-                    helicoptersData = newHeliData;
+                    else
+                    {
+                        helicoptersData = new VehicleData[HeliTable.RowCount - 1, HeliTable.ColumnCount];
+                        helicoptersData[0, 0] = new VehicleData() { type = 2 };
+                        arrSizes.helis.Item1 = 1; arrSizes.helis.Item2 = 1;
+                    }
                 }
                 else
                 {
-                    helicoptersData = new VehicleData[HeliTable.RowCount - 1, HeliTable.ColumnCount];
-                    helicoptersData[0, 0] = new VehicleData() { type = 2 };
-                    arrSizes.helis.Item1 = 1; arrSizes.helis.Item2 = 1;
-                }
-            }
-            else
-            {
-                helicoptersData[rowPos, colPos] = new VehicleData() { type = 2 };
-                HeliTable.Controls.Add(curButton, colPos, rowPos + 1);
-                HeliTable.Controls.Add(heli, colPos, rowPos);
-            };
-            for (int i = 0; i < arrSizes.helis.Item1; i++)
-            {
-                for (int j = 0; j < arrSizes.helis.Item2; j++)
+                    helicoptersData[rowPos, colPos] = new VehicleData() { type = 2 };
+                    HeliTable.Controls.Add(curButton, colPos, rowPos + 1);
+                    HeliTable.Controls.Add(heli, colPos, rowPos);
+                };
+                for (int i = 0; i < arrSizes.helis.Item1; i++)
                 {
-                    helicoptersData[i, j] = helicoptersData[i, j] == null ? new VehicleData() { type = 2 } : helicoptersData[i, j];
+                    for (int j = 0; j < arrSizes.helis.Item2; j++)
+                    {
+                        helicoptersData[i, j] = helicoptersData[i, j] == null ? new VehicleData() { type = 2 } : helicoptersData[i, j];
+                    }
                 }
+            } 
+            else if (me.Button == MouseButtons.Right)
+            {
+                int newCol = HeliTable.GetColumn((Control)sender) + 1;
+                HeliTable.ColumnCount++;
+                VehicleData[,] newHelisData = new VehicleData[HeliTable.RowCount - 1, HeliTable.ColumnCount];
+                arrSizes.helis.Item2++;
+                for (int row = 0; row < arrSizes.helis.Item1; row++)
+                {
+                    for (int col = 0; col < arrSizes.helis.Item2; col++)
+                    {
+                        if (col < newCol)
+                        {
+                            newHelisData[row, col] = helicoptersData[row, col];
+                        }
+                        else if (col == newCol)
+                        {
+                            newHelisData[row, col] = new VehicleData() { type = 2 };
+                        }
+                        else
+                        {
+                            newHelisData[row, col] = helicoptersData[row, col - 1];
+                        }
+                    }
+                }
+                helicoptersData = newHelisData;
+                for (int col = HeliTable.ColumnCount; col >= newCol; col--)
+                {
+                    for (int row = 0; row < HeliTable.RowCount; row++)
+                    {
+                        if (HeliTable.GetControlFromPosition(col, row) != null)
+                            HeliTable.Controls.Add(HeliTable.GetControlFromPosition(col, row), col + 1, row);
+                    }
+                }
+
+                Button newResizeButton = new Button()
+                {
+                    Width = 120,
+                    Height = 48,
+                    Text = res.LocalisationRes.resize,
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
+
+                newResizeButton.MouseUp += ResizeHeli_MouseUp;
+                HeliTable.Controls.Add(newResizeButton, newCol, 0);
             }
         }
         private void HeliButton_Click(object sender, EventArgs e)
@@ -1277,106 +1387,122 @@ namespace Lineups_creator
             else
             {
                 
-                helicoptersData[row, col] = new VehicleData();
+                helicoptersData[row, col] = new VehicleData() { type = 2 };
                 curButton.BackgroundImage = base.BackgroundImage;
                 curButton.BackColor = Color.FromArgb(31, 31, 31);
             }
         }
 
         // coastal fleet id = 3
-        private void AddColumnCoastalFleet_Click(object sender, EventArgs e)
+        private void ResizeCoastalFleet_MouseUp(object sender, MouseEventArgs me)
         {
-            CoastalfleetTable.ColumnCount++;
-
-            VehicleData[,] newCoastalData = new VehicleData[CoastalfleetTable.RowCount - 1, CoastalfleetTable.ColumnCount];
-            for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
+            if (me.Button == MouseButtons.Left)
             {
-                for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
+                Button ship = new Button()
                 {
-                    newCoastalData[i, j] = coastalFleetData[i, j];
-                }
-            }
-            arrSizes.coastalFleet.Item2++;
-            for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
-            {
-                newCoastalData[i, arrSizes.coastalFleet.Item2 - 1] = new VehicleData();
-            }
-            coastalFleetData = newCoastalData;
+                    Width = 120,
+                    Height = 48,
+                    Text = "",
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
 
+                ship.Click += CoastalButton_Click;
 
-            Button new_AddRowButton = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "Add row",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
+                Control curButton = (Control)sender;
 
-            new_AddRowButton.Click += AddRowCoastalFleet_Click;
-            CoastalfleetTable.Controls.Add(new_AddRowButton, CoastalfleetTable.ColumnCount - 1, 0);
-            AddColumnCoastalFleet.Location = new Point(AddColumnCoastalFleet.Location.X + 126, AddColumnCoastalFleet.Location.Y);
-            AddColumnCoastalFleet.Text = "+";
-        }
-        private void AddRowCoastalFleet_Click(object sender, EventArgs e)
-        {
+                int rowPos = CoastalfleetTable.GetCellPosition(curButton).Row;
+                int colPos = CoastalfleetTable.GetCellPosition(curButton).Column;
 
-            Button ship = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
-
-            ship.Click += CoastalButton_Click;
-
-            Control curButton = (Control)sender;
-
-            int rowPos = CoastalfleetTable.GetCellPosition(curButton).Row;
-            int colPos = CoastalfleetTable.GetCellPosition(curButton).Column;
-
-            if (rowPos == CoastalfleetTable.RowCount - 1)
-            {
-                CoastalfleetTable.RowCount++;
-                CoastalfleetTable.Controls.Add(curButton, colPos, CoastalfleetTable.RowCount - 1);
-                CoastalfleetTable.Controls.Add(ship, colPos, CoastalfleetTable.RowCount - 2);
-
-                if (coastalFleetData != null)
+                if (rowPos == CoastalfleetTable.RowCount - 1)
                 {
-                    VehicleData[,] newCoastalData = new VehicleData[CoastalfleetTable.RowCount - 1, CoastalfleetTable.ColumnCount];
-                    for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
+                    CoastalfleetTable.RowCount++;
+                    CoastalfleetTable.Controls.Add(curButton, colPos, CoastalfleetTable.RowCount - 1);
+                    CoastalfleetTable.Controls.Add(ship, colPos, CoastalfleetTable.RowCount - 2);
+
+                    if (coastalFleetData != null)
                     {
-                        for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
+                        VehicleData[,] newCoastalData = new VehicleData[CoastalfleetTable.RowCount - 1, CoastalfleetTable.ColumnCount];
+                        for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
                         {
-                            newCoastalData[i, j] = coastalFleetData[i, j];
+                            for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
+                            {
+                                newCoastalData[i, j] = coastalFleetData[i, j];
+                            }
                         }
+                        arrSizes.coastalFleet.Item1 += 1;
+                        for (int i = 0; i < arrSizes.coastalFleet.Item2; i++)
+                            newCoastalData[arrSizes.coastalFleet.Item1 - 1, i] = new VehicleData() { type = 3 };
+                        coastalFleetData = newCoastalData;
                     }
-                    arrSizes.coastalFleet.Item1 += 1;
-                    for (int i = 0; i < arrSizes.coastalFleet.Item2; i++)
-                        newCoastalData[arrSizes.coastalFleet.Item1- 1, i] = new VehicleData() { type = 3 };
-                    coastalFleetData = newCoastalData;
+                    else
+                    {
+                        coastalFleetData = new VehicleData[CoastalfleetTable.RowCount - 1, CoastalfleetTable.ColumnCount];
+                        coastalFleetData[0, 0] = new VehicleData() { type = 3 };
+                        arrSizes.coastalFleet.Item1 = 1; arrSizes.coastalFleet.Item2 = 1;
+                    }
                 }
                 else
                 {
-                    coastalFleetData = new VehicleData[CoastalfleetTable.RowCount - 1, CoastalfleetTable.ColumnCount];
-                    coastalFleetData[0, 0] = new VehicleData() { type = 3 };
-                    arrSizes.coastalFleet.Item1 = 1; arrSizes.coastalFleet.Item2 = 1;
+                    coastalFleetData[rowPos, colPos] = new VehicleData() { type = 3 };
+                    CoastalfleetTable.Controls.Add(curButton, colPos, rowPos + 1);
+                    CoastalfleetTable.Controls.Add(ship, colPos, rowPos);
+                };
+                for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
+                {
+                    for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
+                    {
+                        coastalFleetData[i, j] = coastalFleetData[i, j] == null ? new VehicleData() { type = 3 } : coastalFleetData[i, j];
+                    }
                 }
             }
-            else
+            else if (me.Button == MouseButtons.Right)
             {
-                coastalFleetData[rowPos, colPos] = new VehicleData() { type = 3 };
-                CoastalfleetTable.Controls.Add(curButton, colPos, rowPos + 1);
-                CoastalfleetTable.Controls.Add(ship, colPos, rowPos);
-            };
-            for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
-            {
-                for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
+                int newCol = CoastalfleetTable.GetColumn((Control)sender) + 1;
+
+                CoastalfleetTable.ColumnCount++;
+                VehicleData[,] newCoastalData = new VehicleData[CoastalfleetTable.RowCount - 1, CoastalfleetTable.ColumnCount];
+                arrSizes.coastalFleet.Item2++;
+                for (int row = 0; row < arrSizes.coastalFleet.Item1; row++)
                 {
-                    coastalFleetData[i, j] = coastalFleetData[i, j] == null ? new VehicleData() { type = 3 } : coastalFleetData[i, j];
+                    for (int col = 0; col < arrSizes.coastalFleet.Item2; col++)
+                    {
+                        if (col < newCol)
+                        {
+                            newCoastalData[row, col] = coastalFleetData[row, col];
+                        }
+                        else if (col == newCol)
+                        {
+                            newCoastalData[row, col] = new VehicleData() { type = 3 };
+                        }
+                        else
+                        {
+                            newCoastalData[row, col] = coastalFleetData[row, col - 1];
+                        }
+                    }
                 }
+                coastalFleetData = newCoastalData;
+
+                for (int col = CoastalfleetTable.ColumnCount; col >= newCol; col--)
+                {
+                    for (int row = 0; row < CoastalfleetTable.RowCount; row++)
+                    {
+                        if (CoastalfleetTable.GetControlFromPosition(col, row) != null)
+                            CoastalfleetTable.Controls.Add(CoastalfleetTable.GetControlFromPosition(col, row), col + 1, row);
+                    }
+                }
+
+                Button newResizeButton = new Button()
+                {
+                    Width = 120,
+                    Height = 48,
+                    Text = res.LocalisationRes.resize,
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
+
+                newResizeButton.MouseUp += ResizeCoastalFleet_MouseUp;
+                CoastalfleetTable.Controls.Add(newResizeButton, newCol, 0);
             }
         }
         private void CoastalButton_Click(object sender, EventArgs e)
@@ -1403,106 +1529,122 @@ namespace Lineups_creator
             else
             {
                 
-                coastalFleetData[row, col] = new VehicleData();
+                coastalFleetData[row, col] = new VehicleData() { type = 3 };
                 curButton.BackgroundImage = base.BackgroundImage;
                 curButton.BackColor = Color.FromArgb(31, 31, 31);
             }
         }
 
         // bluewater fleet id = 4
-        private void AddColumnBluewaterFleet_Click(object sender, EventArgs e)
+        private void ResizeBluewater_MouseUp(object sender, MouseEventArgs me)
         {
-            BluewaterTable.ColumnCount++;
-
-            VehicleData[,] newBluewaterData = new VehicleData[BluewaterTable.RowCount - 1, BluewaterTable.ColumnCount];
-            for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
+            if (me.Button == MouseButtons.Left)
             {
-                for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
+                Button ship = new Button()
                 {
-                    newBluewaterData[i, j] = bluewaterFleetData[i, j];
-                }
-            }
-            arrSizes.bluewaterFleet.Item2++;
-            for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
-            {
-                newBluewaterData[i, arrSizes.bluewaterFleet.Item2 - 1] = new VehicleData();
-            }
-            bluewaterFleetData = newBluewaterData;
+                    Width = 120,
+                    Height = 48,
+                    Text = "",
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
 
+                ship.Click += BluewaterButton_Click;
 
-            Button new_AddRowButton = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "Add row",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
+                Control curButton = (Control)sender;
 
-            new_AddRowButton.Click += AddRowBluewaterFleet_Click;
-            BluewaterTable.Controls.Add(new_AddRowButton, BluewaterTable.ColumnCount - 1, 0);
-            AddColumnBluewater.Location = new Point(AddColumnBluewater.Location.X + 126, AddColumnBluewater.Location.Y);
-            AddColumnBluewater.Text = "+";
-        }
-        private void AddRowBluewaterFleet_Click(object sender, EventArgs e)
-        {
+                int rowPos = BluewaterTable.GetCellPosition(curButton).Row;
+                int colPos = BluewaterTable.GetCellPosition(curButton).Column;
 
-            Button ship = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
-
-            ship.Click += BluewaterButton_Click;
-
-            Control curButton = (Control)sender;
-
-            int rowPos = BluewaterTable.GetCellPosition(curButton).Row;
-            int colPos = BluewaterTable.GetCellPosition(curButton).Column;
-
-            if (rowPos == BluewaterTable.RowCount - 1)
-            {
-                BluewaterTable.RowCount++;
-                BluewaterTable.Controls.Add(curButton, colPos, BluewaterTable.RowCount - 1);
-                BluewaterTable.Controls.Add(ship, colPos, BluewaterTable.RowCount - 2);
-
-                if (bluewaterFleetData != null)
+                if (rowPos == BluewaterTable.RowCount - 1)
                 {
-                    VehicleData[,] newBluewaterData = new VehicleData[BluewaterTable.RowCount - 1, BluewaterTable.ColumnCount];
-                    for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
+                    BluewaterTable.RowCount++;
+                    BluewaterTable.Controls.Add(curButton, colPos, BluewaterTable.RowCount - 1);
+                    BluewaterTable.Controls.Add(ship, colPos, BluewaterTable.RowCount - 2);
+
+                    if (bluewaterFleetData != null)
                     {
-                        for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
+                        VehicleData[,] newBluewaterData = new VehicleData[BluewaterTable.RowCount - 1, BluewaterTable.ColumnCount];
+                        for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
                         {
-                            newBluewaterData[i, j] = bluewaterFleetData[i, j];
+                            for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
+                            {
+                                newBluewaterData[i, j] = bluewaterFleetData[i, j];
+                            }
                         }
+                        arrSizes.bluewaterFleet.Item1 += 1;
+                        for (int i = 0; i < arrSizes.bluewaterFleet.Item2; i++)
+                            newBluewaterData[arrSizes.bluewaterFleet.Item1 - 1, i] = new VehicleData() { type = 4 };
+                        bluewaterFleetData = newBluewaterData;
                     }
-                    arrSizes.bluewaterFleet.Item1 += 1;
-                    for (int i = 0; i < arrSizes.bluewaterFleet.Item2; i++)
-                        newBluewaterData[arrSizes.bluewaterFleet.Item1- 1, i] = new VehicleData() { type = 4 };
-                    bluewaterFleetData = newBluewaterData;
+                    else
+                    {
+                        bluewaterFleetData = new VehicleData[BluewaterTable.RowCount - 1, BluewaterTable.ColumnCount];
+                        bluewaterFleetData[0, 0] = new VehicleData() { type = 4 };
+                        arrSizes.bluewaterFleet = (1, 1);
+                    }
                 }
                 else
                 {
-                    bluewaterFleetData = new VehicleData[BluewaterTable.RowCount - 1, BluewaterTable.ColumnCount];
-                    bluewaterFleetData[0, 0] = new VehicleData() { type = 4 };
-                    arrSizes.bluewaterFleet = (1, 1);
+                    bluewaterFleetData[rowPos, colPos] = new VehicleData() { type = 4 };
+                    BluewaterTable.Controls.Add(curButton, colPos, rowPos + 1);
+                    BluewaterTable.Controls.Add(ship, colPos, rowPos);
+                };
+                for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
+                {
+                    for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
+                    {
+                        bluewaterFleetData[i, j] = bluewaterFleetData[i, j] == null ? new VehicleData() { type = 4 } : bluewaterFleetData[i, j];
+                    }
                 }
             }
-            else
+            else if (me.Button == MouseButtons.Right)
             {
-                bluewaterFleetData[rowPos, colPos] = new VehicleData() { type = 4 };
-                BluewaterTable.Controls.Add(curButton, colPos, rowPos + 1);
-                BluewaterTable.Controls.Add(ship, colPos, rowPos);
-            };
-            for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
-            {
-                for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
+                int newCol = BluewaterTable.GetColumn((Control)sender) + 1;
+
+                BluewaterTable.ColumnCount++;
+                VehicleData[,] newBluewaterData = new VehicleData[BluewaterTable.RowCount - 1, BluewaterTable.ColumnCount];
+                arrSizes.bluewaterFleet.Item2++;
+                for (int row = 0; row < arrSizes.bluewaterFleet.Item1; row++)
                 {
-                    bluewaterFleetData[i, j] = bluewaterFleetData[i, j] == null ? new VehicleData() { type = 4 } : bluewaterFleetData[i, j];
+                    for (int col = 0; col < arrSizes.bluewaterFleet.Item2; col++)
+                    {
+                        if (col < newCol)
+                        {
+                            newBluewaterData[row, col] = bluewaterFleetData[row, col];
+                        }
+                        else if (col == newCol)
+                        {
+                            newBluewaterData[row, col] = new VehicleData() { type = 3 };
+                        }
+                        else
+                        {
+                            newBluewaterData[row, col] = bluewaterFleetData[row, col - 1];
+                        }
+                    }
                 }
+                bluewaterFleetData = newBluewaterData;
+
+                for (int col = BluewaterTable.ColumnCount; col >= newCol; col--)
+                {
+                    for (int row = 0; row < BluewaterTable.RowCount; row++)
+                    {
+                        if (BluewaterTable.GetControlFromPosition(col, row) != null)
+                            BluewaterTable.Controls.Add(BluewaterTable.GetControlFromPosition(col, row), col + 1, row);
+                    }
+                }
+
+                Button newResizeButton = new Button()
+                {
+                    Width = 120,
+                    Height = 48,
+                    Text = res.LocalisationRes.resize,
+                    Margin = new Padding(3, 3, 3, 3),
+                    FlatStyle = FlatStyle.Flat,
+                };
+
+                newResizeButton.MouseUp += ResizeBluewater_MouseUp;
+                BluewaterTable.Controls.Add(newResizeButton, newCol, 0);
             }
         }
         private void BluewaterButton_Click(object sender, EventArgs e)
@@ -1529,23 +1671,19 @@ namespace Lineups_creator
             else
             {
                 
-                bluewaterFleetData[row, col] = new VehicleData();
+                bluewaterFleetData[row, col] = new VehicleData() { type = 4 };
                 curButton.BackgroundImage = base.BackgroundImage;
                 curButton.BackColor = Color.FromArgb(31, 31, 31);
             }
         }
 
-        
-
         // Special buttons
-        
         private void flagButton_Click(object sender, EventArgs e)
         {
             FlagEditor flagEditor = new FlagEditor(dir, this);
 
             flagEditor.Show();
         }
-        
         private void DownloadFlag(string link)
         {
             WebClient wc = new WebClient();
@@ -1565,7 +1703,6 @@ namespace Lineups_creator
             OpenFlag();
 
         }
-        
 
         // shortcuts
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -1585,18 +1722,18 @@ namespace Lineups_creator
             } else if (keyData == Keys.D)
             {
                 deleteMode = true;
-                modeInfoButton.Text = "Delete mode";
+                modeInfoButton.Text = res.LocalisationRes.DeleteModeStr;
                 modeInfoButton.ForeColor = Color.FromArgb(192, 0, 0);
                 return true;
             } else if (keyData == Keys.E)
             {
                 deleteMode = false;
-                modeInfoButton.Text = "Edit mode";
+                modeInfoButton.Text = res.LocalisationRes.EditModeStr;
                 modeInfoButton.ForeColor = Color.FromArgb(0, 192, 0);
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.T))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Tanks table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: res.LocalisationRes.warningTanks, caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1605,14 +1742,13 @@ namespace Lineups_creator
                     arrSizes.tanks = (0, 1);
                     TanksTable.RowCount = 1; TanksTable.ColumnCount = 1;
                     TanksTable.GrowStyle = TableLayoutPanelGrowStyle.AddColumns;
-                    TanksTable.Controls.Add(AddRowTanks1, 0, 0);
+                    TanksTable.Controls.Add(ResizeTanks, 0, 0);
                     TanksTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-                    AddColumnTanks.Location = new Point(135, 39);
                 }
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.P))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Planes table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: res.LocalisationRes.warningPlanes, caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1621,14 +1757,13 @@ namespace Lineups_creator
                     arrSizes.planes = (0, 1);
                     PlanesTable.RowCount = 1; PlanesTable.ColumnCount = 1;
                     PlanesTable.GrowStyle = TableLayoutPanelGrowStyle.AddColumns;
-                    PlanesTable.Controls.Add(AddRowPlanes1, 0, 0);
+                    PlanesTable.Controls.Add(ResizePlanes, 0, 0);
                     PlanesTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-                    AddColumnPlanes.Location = new Point(135, 39);
                 }
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.H))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Helicopters table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: res.LocalisationRes.warningHelis, caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1637,14 +1772,13 @@ namespace Lineups_creator
                     arrSizes.helis = (0, 1);
                     HeliTable.RowCount = 1; HeliTable.ColumnCount = 1;
                     HeliTable.GrowStyle = TableLayoutPanelGrowStyle.AddColumns;
-                    HeliTable.Controls.Add(AddRowHeli, 0, 0);
+                    HeliTable.Controls.Add(ResizeHeli, 0, 0);
                     HeliTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-                    AddColumnHeli.Location = new Point(135, 39);
                 }
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.C))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Coastal fleet table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: res.LocalisationRes.warningCoastal, caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1653,14 +1787,13 @@ namespace Lineups_creator
                     arrSizes.coastalFleet = (0, 1);
                     CoastalfleetTable.RowCount = 1; CoastalfleetTable.ColumnCount = 1;
                     CoastalfleetTable.GrowStyle = TableLayoutPanelGrowStyle.AddColumns;
-                    CoastalfleetTable.Controls.Add(AddRowCoastalFleet, 0, 0);
+                    CoastalfleetTable.Controls.Add(ResizeCoastalFleet, 0, 0);
                     CoastalfleetTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-                    AddColumnCoastalFleet.Location = new Point(135, 39);
                 }
                 return true;
             } else if (keyData == (Keys.Control | Keys.Shift | Keys.B))
             {
-                DialogResult dialogResult = MessageBox.Show(text: "Bluewater fleet table content will be deleted", caption: "Warning", buttons: MessageBoxButtons.OKCancel);
+                DialogResult dialogResult = MessageBox.Show(text: res.LocalisationRes.warningBluewater, caption: "Warning", buttons: MessageBoxButtons.OKCancel);
 
                 if (dialogResult == DialogResult.OK)
                 {
@@ -1669,11 +1802,10 @@ namespace Lineups_creator
                     arrSizes.bluewaterFleet = (0, 1);
                     BluewaterTable.RowCount = 1; BluewaterTable.ColumnCount = 1;
                     BluewaterTable.GrowStyle = TableLayoutPanelGrowStyle.AddColumns;
-                    BluewaterTable.Controls.Add(AddRowBluewater, 0, 0);
+                    BluewaterTable.Controls.Add(ResizeBluewater, 0, 0);
                     BluewaterTable.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-                    AddColumnBluewater.Location = new Point(135, 39);
 
-                    Console.WriteLine(BluewaterTable.GetPositionFromControl(AddRowBluewater));
+                    Console.WriteLine(BluewaterTable.GetPositionFromControl(ResizeBluewater));
 
                 }
                 return true;
@@ -1743,6 +1875,28 @@ namespace Lineups_creator
                     break;
             }
         }
+
+
+        private void Lineup_creator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (languageCombo.SelectedIndex == 0)
+            {
+                Properties.Settings.Default.Language = "en";
+            } else
+            {
+                Properties.Settings.Default.Language = "ru";
+            }
+            
+            Properties.Settings.Default.Save();
+        }
+
+        private void Lineup_creator_Load(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(Properties.Settings.Default.Language))
+            {
+                languageCombo.SelectedItem = Properties.Settings.Default.Language;
+            }
+        }
     }
 
     public class VehicleData
@@ -1752,6 +1906,7 @@ namespace Lineups_creator
         public string imageLink;
         public int backgroudType = 0; // 0 - standart, 1 - premium, 2 - squadron
         public string buttonImage;
+        public int[] pos = new int[2]; // row, col
 
         public VehicleData() { }
 

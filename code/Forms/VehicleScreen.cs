@@ -14,6 +14,20 @@ namespace Lineups_creator
         private VehicleData senderData = new VehicleData();
         private string text;
         private string name;
+        private string[] countries =
+        {
+            "USA", 
+            "Germany", 
+            "USSR",
+            "Great Britain",
+            "Japan",
+            "China",
+            "Italy",
+            "France",
+            "Sweden",
+            "Israel"
+        };
+
         private string country;
         private int backgroundImage;
         private int type;
@@ -28,11 +42,12 @@ namespace Lineups_creator
             Image.FromFile(@"config\SQUAD.png")
         };
 
-        public VehicleScreen(string country, int type, int senderrow, int sendercolumn, Control sender, Lineup_creator linc)
+        public VehicleScreen(int countryID, int type, int senderrow, int sendercolumn, Control sender, Lineup_creator linc)
         {
             // 0 - tank | 1 - plane | 2 - heli | 3 - coastal | 4 - bluewater
             senderButton = sender;
-            this.country = country;
+            if (countryID != -1)
+                country = countries[countryID];
             this.type = type;
             row = senderrow;
             column = sendercolumn;
@@ -52,9 +67,10 @@ namespace Lineups_creator
             }
         }
 
-        public VehicleScreen(string country, int type, int senderrow, int sendercolumn, Control sender, VehicleData data, Lineup_creator linc)
+        public VehicleScreen(int countryID, int type, int senderrow, int sendercolumn, Control sender, VehicleData data, Lineup_creator linc)
         {
-            this.country = country;
+            if (countryID != -1)
+                country = countries[countryID];
             this.type = type;
             row = senderrow;
             column = sendercolumn;
@@ -87,7 +103,6 @@ namespace Lineups_creator
         private void BackgroundCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string backgroundChoice = BackgroundCombobox.SelectedItem.ToString();
-
             switch(backgroundChoice)
             {
                 case "Own (blue)":
@@ -160,28 +175,32 @@ namespace Lineups_creator
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            
-            lc.ChangeData(senderData, type, row, column);
-
-            Bitmap bitmap = new Bitmap(backgrounds[backgroundImage]);
-
-            using (Graphics graphics = Graphics.FromImage(bitmap))
+            try
             {
-                using (Font verdanaFont = new Font("Verdana", 10, new FontStyle()))
+                lc.ChangeData(senderData, type, row, column);
+
+                Bitmap bitmap = new Bitmap(backgrounds[backgroundImage]);
+
+                using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
-                    Image icon = iconPanel.BackgroundImage;
-                    graphics.DrawImage(icon, 5, 5, icon.Width, icon.Height);
+                    using (Font verdanaFont = new Font("Verdana", 10, new FontStyle()))
+                    {
+                        Image icon = iconPanel.BackgroundImage;
+                        graphics.DrawImage(icon, 5, 5, icon.Width, icon.Height);
 
-                    var format = new StringFormat() { Alignment = StringAlignment.Far };
-                    var rect = new RectangleF(5, 5, 110, 38);
+                        var format = new StringFormat() { Alignment = StringAlignment.Far };
+                        var rect = new RectangleF(5, 5, 110, 38);
 
-                    graphics.DrawString(text, verdanaFont, Brushes.White, rect, format);
+                        graphics.DrawString(text, verdanaFont, Brushes.White, rect, format);
+                    }
                 }
+                bitmap.Save($@"temp\{row}-{column}-{type}.png", System.Drawing.Imaging.ImageFormat.Png);
+                senderData.buttonImage = $@"temp\{row}-{column}-{type}.png";
+                senderData.pos = new int[] { row, column };
+                senderButton.BackgroundImage = bitmap;
+            } catch {
+
             }
-            bitmap.Save($@"temp\{row}-{column}-{type}.png", System.Drawing.Imaging.ImageFormat.Png);
-            senderData.buttonImage = $@"temp\{row}-{column}-{type}.png";
-            senderButton.BackgroundImage = bitmap;
-            
         }
 
         private void LinkCombobox_SelectedIndexChanged(object sender, EventArgs e)
