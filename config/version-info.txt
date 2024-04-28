@@ -1,5 +1,3 @@
-version 1.3.7
+version 1.3.8
 
-- multiple character background text added
-- "fake" vehicles removed from templates
-- special symbols added to USA, Germany and USSR vehicles
+- deleted fake data in RU version
