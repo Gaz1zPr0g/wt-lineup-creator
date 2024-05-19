@@ -1,6 +1,6 @@
-version 1.4.0
-
-- empty slots are posible to create now
-- custom icon backgrounds can be added
-- menu bar changed
-- status bar doesn`t disapear now
+version 1.5.0
+new feature:
+- units data can be exported to the mission .blk file
+bug fixes:
+- table cells dublicating
+- separated M4 and promo M4, LVT and LVT trb, P-36 and P-36 rb
