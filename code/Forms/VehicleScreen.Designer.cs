@@ -40,13 +40,17 @@ namespace Lineups_creator
             this.SaveButton = new System.Windows.Forms.Button();
             this.PrevievPanel = new System.Windows.Forms.Panel();
             this.iconPanel = new System.Windows.Forms.Panel();
+            this.WTIDCombobox = new System.Windows.Forms.ComboBox();
+            this.unitsNumberInput = new System.Windows.Forms.NumericUpDown();
+            this.numberOfUnitsLabel = new System.Windows.Forms.Label();
             this.PrevievPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsNumberInput)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
             // 
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // VehicleText
             // 
@@ -80,10 +84,6 @@ namespace Lineups_creator
             this.BackgroundCombobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BackgroundCombobox.ForeColor = System.Drawing.Color.White;
             this.BackgroundCombobox.FormattingEnabled = true;
-            this.BackgroundCombobox.Items.AddRange(new object[] {
-            resources.GetString("BackgroundCombobox.Items"),
-            resources.GetString("BackgroundCombobox.Items1"),
-            resources.GetString("BackgroundCombobox.Items2")});
             this.BackgroundCombobox.Name = "BackgroundCombobox";
             this.BackgroundCombobox.SelectedIndexChanged += new System.EventHandler(this.BackgroundCombobox_SelectedIndexChanged);
             // 
@@ -106,23 +106,50 @@ namespace Lineups_creator
             // 
             // PrevievPanel
             // 
-            resources.ApplyResources(this.PrevievPanel, "PrevievPanel");
             this.PrevievPanel.BackColor = System.Drawing.Color.Black;
             this.PrevievPanel.Controls.Add(this.VehicleTextLable);
             this.PrevievPanel.Controls.Add(this.iconPanel);
+            resources.ApplyResources(this.PrevievPanel, "PrevievPanel");
             this.PrevievPanel.Name = "PrevievPanel";
             // 
             // iconPanel
             // 
-            resources.ApplyResources(this.iconPanel, "iconPanel");
             this.iconPanel.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.iconPanel, "iconPanel");
             this.iconPanel.Name = "iconPanel";
+            // 
+            // WTIDCombobox
+            // 
+            resources.ApplyResources(this.WTIDCombobox, "WTIDCombobox");
+            this.WTIDCombobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.WTIDCombobox.ForeColor = System.Drawing.Color.White;
+            this.WTIDCombobox.FormattingEnabled = true;
+            this.WTIDCombobox.Name = "WTIDCombobox";
+            this.WTIDCombobox.SelectedIndexChanged += new System.EventHandler(this.WTIDCombobox_SelectedIndexChanged);
+            // 
+            // unitsNumberInput
+            // 
+            resources.ApplyResources(this.unitsNumberInput, "unitsNumberInput");
+            this.unitsNumberInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.unitsNumberInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.unitsNumberInput.ForeColor = System.Drawing.Color.White;
+            this.unitsNumberInput.Name = "unitsNumberInput";
+            this.unitsNumberInput.ValueChanged += new System.EventHandler(this.unitsNumberInput_ValueChanged);
+            // 
+            // numberOfUnitsLabel
+            // 
+            resources.ApplyResources(this.numberOfUnitsLabel, "numberOfUnitsLabel");
+            this.numberOfUnitsLabel.ForeColor = System.Drawing.Color.White;
+            this.numberOfUnitsLabel.Name = "numberOfUnitsLabel";
             // 
             // VehicleScreen
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.Controls.Add(this.numberOfUnitsLabel);
+            this.Controls.Add(this.unitsNumberInput);
+            this.Controls.Add(this.WTIDCombobox);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.VehicleName);
             this.Controls.Add(this.BackgroundCombobox);
@@ -131,6 +158,7 @@ namespace Lineups_creator
             this.Controls.Add(this.VehicleText);
             this.Name = "VehicleScreen";
             this.PrevievPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.unitsNumberInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,5 +174,8 @@ namespace Lineups_creator
         private System.Windows.Forms.Label VehicleTextLable;
         private System.Windows.Forms.Panel PrevievPanel;
         private System.Windows.Forms.Panel iconPanel;
+        private System.Windows.Forms.ComboBox WTIDCombobox;
+        private System.Windows.Forms.NumericUpDown unitsNumberInput;
+        private System.Windows.Forms.Label numberOfUnitsLabel;
     }
 }

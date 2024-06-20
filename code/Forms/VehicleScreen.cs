@@ -29,18 +29,10 @@ namespace Lineups_creator
         };
 
         private string country;
-        private int backgroundImage;
+        private int backgroundindex;
         private int type;
         private int row;
         private int column;
-
-
-        Image[] backgrounds =
-        {
-            Image.FromFile(@"config\OWN.png"),
-            Image.FromFile(@"config\PREMIUM.png"),
-            Image.FromFile(@"config\SQUAD.png")
-        };
 
         public VehicleScreen(int countryID, int type, int senderrow, int sendercolumn, Control sender, Lineup_creator linc)
         {
@@ -52,17 +44,25 @@ namespace Lineups_creator
             row = senderrow;
             column = sendercolumn;
             lc = linc;
-            senderData = new VehicleData("BT-5", type, "https://encyclopedia.warthunder.com/i/slots/ussr_bt_5.png", 0);
-
+            senderData = new VehicleData("N/A", type, "N/A", 0, "N/A", 0);
 
             templates = new Templates(country);
             InitializeComponent();
+
+            foreach (string path in linc.backgroundImagesPaths)
+            {
+                BackgroundCombobox.Items.Add(path.Substring(7));
+            }
+
+
             foreach (string name in templates.GetDataByCountry(country).Keys)
             {
-                if (templates.GetDataByCountry(country)[name].type == type)
+                VehicleData fillData = templates.GetDataByCountry(country)[name];
+                if (fillData.type == type)
                 {
                     VehicleName.Items.Add(name);
                     LinkCombobox.Items.Add(name);
+                    WTIDCombobox.Items.Add(fillData.wtID);
                 }
             }
         }
@@ -78,76 +78,76 @@ namespace Lineups_creator
             senderData = data;
             name = senderData.name;
             text = senderData.name;
-            backgroundImage = senderData.backgroudType;
+            backgroundindex = senderData.backgroudType;
             lc = linc;
-
+            
             templates = new Templates(country);
             InitializeComponent();
             foreach (string name in templates.GetDataByCountry(country).Keys)
             {
-                if (templates.GetDataByCountry(country)[name].type == type)
+                VehicleData fillData = templates.GetDataByCountry(country)[name];
+                if (fillData.type == type)
                 {
                     VehicleName.Items.Add(name);
                     LinkCombobox.Items.Add(name);
+                    WTIDCombobox.Items.Add(fillData.wtID);
                 }
             }
-            
             ChangeBackground();
             ChangeIcon(senderData.imageLink);
+            
             VehicleTextLable.Text = name;
             VehicleName.SelectedItem = name;
-
+            LinkCombobox.SelectedItem = senderData.name;
+            unitsNumberInput.Value = senderData.numberOfUnits;
+            WTIDCombobox.SelectedItem = senderData.wtID;
         }
 
 
         private void BackgroundCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string backgroundChoice = BackgroundCombobox.SelectedItem.ToString();
-            switch(backgroundChoice)
-            {
-                case "Own (blue)":
-                    backgroundImage = 0;
-                    break;
-                case "Premium (golden)":
-                    backgroundImage = 1;
-                    break;
-                case "Squadron (green)":
-                    backgroundImage = 2;
-                    break;
-            }
-
+            backgroundindex = BackgroundCombobox.SelectedIndex;
             ChangeBackground();
         }
 
-
         private void ChangeBackground()
         {
-            senderData.backgroudType = backgroundImage;
-            PrevievPanel.BackgroundImage = backgrounds[backgroundImage];
+            senderData.backgroudType = backgroundindex;
+
+            Image backgroundToCopy = Image.FromFile(lc.backgroundImagesPaths[backgroundindex]);
+
+            Image background = new Bitmap(backgroundToCopy);
+            backgroundToCopy.Dispose();
+
+            PrevievPanel.BackgroundImage = background;
         }
 
         private void ChangeIcon(string link)
         {
-            WebClient webClient = new WebClient();
+            if (link != "N/A")
+            {
+                WebClient webClient = new WebClient();
+
+                webClient.DownloadFile(link, $@"temp\icon{row}-{column}-{type}.bmp");
+                webClient.Dispose();
+
+                Image icontocopy = Image.FromFile($@"temp\icon{row}-{column}-{type}.bmp");
+
+                Image icon = new Bitmap(icontocopy);
+                icontocopy.Dispose();
+
+                FileInfo file = new FileInfo($@"temp\icon{row}-{column}-{type}.bmp");
+                file.Delete();
+
+                float ratio = icon.Height / 42f;
+                int width = Convert.ToInt32(icon.Width / ratio);
+                icon = new Bitmap(icon, new Size(width, 42));
+
+                iconPanel.BackgroundImage = icon;
+
+                senderData.imageLink = link;
+            }
             
-            webClient.DownloadFile(link, $@"temp\icon{row}-{column}-{type}.bmp");
-            webClient.Dispose();
-
-            Image icontocopy = Image.FromFile($@"temp\icon{row}-{column}-{type}.bmp");
-
-            Image icon = new Bitmap(icontocopy);
-            icontocopy.Dispose();
-
-            FileInfo file = new FileInfo($@"temp\icon{row}-{column}-{type}.bmp");
-            file.Delete();
-
-            float ratio = icon.Height / 42f;
-            int width = Convert.ToInt32(icon.Width / ratio);
-            icon = new Bitmap(icon, new Size(width, 42));
-
-            iconPanel.BackgroundImage = icon;
-
-            senderData.imageLink = link;
         }
 
         private void VehicleName_SelectedIndexChanged(object sender, EventArgs e)
@@ -157,12 +157,16 @@ namespace Lineups_creator
             {
                 VehicleData data = templates.GetDataByCountry(country)[key];
                 VehicleText.Text = data.name;
-                name = country + data.name;
 
-                LinkCombobox.SelectedItem = data;
+                LinkCombobox.SelectedItem = data.name;
+                WTIDCombobox.SelectedItem = data.wtID;
+                backgroundindex = data.backgroudType;
                 ChangeIcon(data.imageLink);
-                backgroundImage = data.backgroudType;
                 ChangeBackground();
+
+                senderData = data;
+
+
             }
         }
 
@@ -175,18 +179,29 @@ namespace Lineups_creator
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            Save_data();
+        }
+
+        private void Save_data()
+        {
             try
             {
-                lc.ChangeData(senderData, type, row, column);
-
-                Bitmap bitmap = new Bitmap(backgrounds[backgroundImage]);
+                Image background = Image.FromFile(lc.backgroundImagesPaths[backgroundindex]);
+                Bitmap bitmap = new Bitmap(background);
 
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
                     using (Font verdanaFont = new Font("Verdana", 10, new FontStyle()))
                     {
                         Image icon = iconPanel.BackgroundImage;
-                        graphics.DrawImage(icon, 5, 5, icon.Width, icon.Height);
+                        if (icon == null)
+                        {
+                            senderData.imageLink = "N/A";
+                        }
+                        else
+                        {
+                            graphics.DrawImage(icon, 5, 5, icon.Width, icon.Height);
+                        }
 
                         var format = new StringFormat() { Alignment = StringAlignment.Far };
                         var rect = new RectangleF(5, 5, 110, 38);
@@ -198,14 +213,44 @@ namespace Lineups_creator
                 senderData.buttonImage = $@"temp\{row}-{column}-{type}.png";
                 senderData.pos = new int[] { row, column };
                 senderButton.BackgroundImage = bitmap;
-            } catch {
+                lc.ChangeData(senderData, type, row, column);
+
+            }
+            catch
+            {
 
             }
         }
 
+
         private void LinkCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeIcon(templates.GetLinkByName(country, LinkCombobox.SelectedItem.ToString()));
+        }
+
+        private void WTIDCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            senderData.wtID = WTIDCombobox.SelectedItem.ToString();
+        }
+
+        private void unitsNumberInput_ValueChanged(object sender, EventArgs e)
+        {
+            senderData.numberOfUnits = Convert.ToInt32(unitsNumberInput.Value);
+        }
+
+        // shotcuts
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Enter | Keys.Control))
+            {
+                Save_data();
+                Close();
+            }
+            else if (keyData == Keys.Escape)
+            {
+                Close();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

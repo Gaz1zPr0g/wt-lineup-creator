@@ -117,98 +117,377 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="VehicleText.Text" xml:space="preserve">
-    <value>Vehicle text</value>
-  </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>359, 179</value>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 4</value>
   </data>
-  <data name="&gt;&gt;VehicleTextLable.Name" xml:space="preserve">
-    <value>VehicleTextLable</value>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
   </data>
-  <data name="&gt;&gt;iconPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="LinkCombobox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10pt</value>
-  </data>
-  <data name="&gt;&gt;BackgroundCombobox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;VehicleName.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="iconPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="BackgroundCombobox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10pt</value>
-  </data>
-  <data name="&gt;&gt;PrevievPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LinkCombobox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;PrevievPanel.Name" xml:space="preserve">
-    <value>PrevievPanel</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>VehicleScreen</value>
-  </data>
-  <data name="VehicleTextLable.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopRight</value>
-  </data>
   <data name="VehicleText.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="SaveButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10pt</value>
-  </data>
-  <data name="PrevievPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="BackgroundCombobox.Text" xml:space="preserve">
-    <value>Background</value>
-  </data>
-  <data name="iconPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="&gt;&gt;LinkCombobox.Name" xml:space="preserve">
-    <value>LinkCombobox</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="VehicleName.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="BackgroundCombobox.Items2" xml:space="preserve">
-    <value>Squadron (green)</value>
-  </data>
-  <data name="LinkCombobox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="VehicleText.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 10pt</value>
   </data>
-  <data name="BackgroundCombobox.Items1" xml:space="preserve">
-    <value>Premium (golden)</value>
+  <data name="VehicleText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 42</value>
   </data>
-  <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="VehicleText.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="VehicleText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 66</value>
+  </data>
+  <data name="VehicleText.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="VehicleText.Text" xml:space="preserve">
+    <value>Text on the image</value>
+  </data>
+  <data name="&gt;&gt;VehicleText.Name" xml:space="preserve">
+    <value>VehicleText</value>
+  </data>
+  <data name="&gt;&gt;VehicleText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VehicleText.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;VehicleText.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="LinkCombobox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="LinkCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="LinkCombobox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 10pt</value>
+  </data>
+  <data name="LinkCombobox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 113</value>
+  </data>
+  <data name="LinkCombobox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 24</value>
+  </data>
+  <data name="LinkCombobox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="LinkCombobox.Text" xml:space="preserve">
+    <value>Linked icon</value>
+  </data>
+  <data name="&gt;&gt;LinkCombobox.Name" xml:space="preserve">
+    <value>LinkCombobox</value>
+  </data>
+  <data name="&gt;&gt;LinkCombobox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LinkCombobox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LinkCombobox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="VehicleTextLable.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="VehicleTextLable.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 10pt</value>
+  </data>
+  <data name="VehicleTextLable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 1</value>
+  </data>
+  <data name="VehicleTextLable.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>No</value>
+  </data>
+  <data name="VehicleTextLable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 47</value>
   </data>
   <data name="VehicleTextLable.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="VehicleTextLable.Text" xml:space="preserve">
+    <value>text</value>
+  </data>
+  <data name="VehicleTextLable.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;VehicleTextLable.Name" xml:space="preserve">
+    <value>VehicleTextLable</value>
+  </data>
+  <data name="&gt;&gt;VehicleTextLable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VehicleTextLable.Parent" xml:space="preserve">
+    <value>PrevievPanel</value>
+  </data>
+  <data name="&gt;&gt;VehicleTextLable.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BackgroundCombobox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="BackgroundCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="BackgroundCombobox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 9.75pt</value>
+  </data>
+  <data name="BackgroundCombobox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 143</value>
+  </data>
+  <data name="BackgroundCombobox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 24</value>
+  </data>
+  <data name="BackgroundCombobox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="BackgroundCombobox.Text" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="&gt;&gt;BackgroundCombobox.Name" xml:space="preserve">
+    <value>BackgroundCombobox</value>
+  </data>
+  <data name="&gt;&gt;BackgroundCombobox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackgroundCombobox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BackgroundCombobox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="VehicleName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="VehicleName.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="VehicleName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 10pt</value>
+  </data>
+  <data name="VehicleName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>138, 12</value>
+  </data>
+  <data name="VehicleName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 24</value>
+  </data>
+  <data name="VehicleName.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="VehicleName.Text" xml:space="preserve">
+    <value>Template by name</value>
+  </data>
+  <data name="&gt;&gt;VehicleName.Name" xml:space="preserve">
+    <value>VehicleName</value>
+  </data>
+  <data name="&gt;&gt;VehicleName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VehicleName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;VehicleName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="SaveButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="SaveButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="SaveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 68</value>
+  </data>
   <data name="SaveButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 40</value>
   </data>
-  <data name="LinkCombobox.Text" xml:space="preserve">
-    <value>Linked icon</value>
+  <data name="SaveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="SaveButton.Text" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Name" xml:space="preserve">
+    <value>SaveButton</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Name" xml:space="preserve">
+    <value>iconPanel</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Parent" xml:space="preserve">
+    <value>PrevievPanel</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PrevievPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="PrevievPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="PrevievPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;PrevievPanel.Name" xml:space="preserve">
+    <value>PrevievPanel</value>
+  </data>
+  <data name="&gt;&gt;PrevievPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PrevievPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PrevievPanel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="iconPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="iconPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="iconPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 45</value>
+  </data>
+  <data name="iconPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Name" xml:space="preserve">
+    <value>iconPanel</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Parent" xml:space="preserve">
+    <value>PrevievPanel</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="WTIDCombobox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="WTIDCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="WTIDCombobox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 9.75pt</value>
+  </data>
+  <data name="WTIDCombobox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 173</value>
+  </data>
+  <data name="WTIDCombobox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 24</value>
+  </data>
+  <data name="WTIDCombobox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="WTIDCombobox.Text" xml:space="preserve">
+    <value>ID for CDK</value>
+  </data>
+  <data name="&gt;&gt;WTIDCombobox.Name" xml:space="preserve">
+    <value>WTIDCombobox</value>
+  </data>
+  <data name="&gt;&gt;WTIDCombobox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WTIDCombobox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;WTIDCombobox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="unitsNumberInput.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="unitsNumberInput.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 9.75pt</value>
+  </data>
+  <data name="unitsNumberInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>270, 203</value>
+  </data>
+  <data name="unitsNumberInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="unitsNumberInput.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="unitsNumberInput.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;unitsNumberInput.Name" xml:space="preserve">
+    <value>unitsNumberInput</value>
+  </data>
+  <data name="&gt;&gt;unitsNumberInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;unitsNumberInput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;unitsNumberInput.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="numberOfUnitsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="numberOfUnitsLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 9.75pt</value>
+  </data>
+  <data name="numberOfUnitsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 205</value>
+  </data>
+  <data name="numberOfUnitsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 16</value>
+  </data>
+  <data name="numberOfUnitsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="numberOfUnitsLabel.Text" xml:space="preserve">
+    <value>The number of allowed units:</value>
+  </data>
+  <data name="&gt;&gt;numberOfUnitsLabel.Name" xml:space="preserve">
+    <value>numberOfUnitsLabel</value>
+  </data>
+  <data name="&gt;&gt;numberOfUnitsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numberOfUnitsLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;numberOfUnitsLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>359, 235</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -497,196 +776,13 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABwAAAAAAAAAM=
 </value>
   </data>
-  <data name="VehicleTextLable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 47</value>
-  </data>
-  <data name="VehicleTextLable.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>No</value>
-  </data>
-  <data name="&gt;&gt;VehicleText.Name" xml:space="preserve">
-    <value>VehicleText</value>
-  </data>
-  <data name="VehicleName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="SaveButton.Text" xml:space="preserve">
-    <value>SAVE</value>
-  </data>
-  <data name="VehicleTextLable.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 10pt</value>
-  </data>
-  <data name="&gt;&gt;VehicleText.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="VehicleTextLable.Text" xml:space="preserve">
-    <value>Vehicle text</value>
-  </data>
-  <data name="LinkCombobox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 113</value>
-  </data>
-  <data name="SaveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 68</value>
-  </data>
-  <data name="BackgroundCombobox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 24</value>
-  </data>
-  <data name="LinkCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;VehicleTextLable.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="VehicleTextLable.Location" type="System.Drawing.Point, System.Drawing">
-    <value>46, 1</value>
-  </data>
-  <data name="&gt;&gt;LinkCombobox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="VehicleText.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="BackgroundCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;VehicleName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="iconPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 45</value>
-  </data>
-  <data name="VehicleName.Text" xml:space="preserve">
-    <value>Vehicle name</value>
-  </data>
-  <data name="BackgroundCombobox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;iconPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LinkCombobox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;iconPanel.Name" xml:space="preserve">
-    <value>iconPanel</value>
-  </data>
-  <data name="&gt;&gt;SaveButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BackgroundCombobox.Items" xml:space="preserve">
-    <value>Own (blue)</value>
-  </data>
-  <data name="&gt;&gt;LinkCombobox.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="SaveButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;PrevievPanel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="BackgroundCombobox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 143</value>
-  </data>
-  <data name="&gt;&gt;BackgroundCombobox.Name" xml:space="preserve">
-    <value>BackgroundCombobox</value>
-  </data>
-  <data name="&gt;&gt;VehicleTextLable.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="PrevievPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 48</value>
-  </data>
-  <data name="&gt;&gt;VehicleText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;BackgroundCombobox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SaveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="PrevievPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="BackgroundCombobox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>vehicle</value>
+    <value>Vehicle data</value>
   </data>
-  <data name="LinkCombobox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 24</value>
-  </data>
-  <data name="&gt;&gt;iconPanel.Parent" xml:space="preserve">
-    <value>PrevievPanel</value>
-  </data>
-  <data name="VehicleTextLable.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="&gt;&gt;VehicleTextLable.Parent" xml:space="preserve">
-    <value>PrevievPanel</value>
-  </data>
-  <data name="VehicleName.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;PrevievPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="iconPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
-    <value>contextMenuStrip1</value>
-  </data>
-  <data name="&gt;&gt;VehicleName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SaveButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SaveButton.Name" xml:space="preserve">
-    <value>SaveButton</value>
-  </data>
-  <data name="&gt;&gt;VehicleName.Name" xml:space="preserve">
-    <value>VehicleName</value>
-  </data>
-  <data name="VehicleText.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="VehicleText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 66</value>
-  </data>
-  <data name="VehicleName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 10pt</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>VehicleScreen</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="VehicleText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 42</value>
-  </data>
-  <data name="VehicleName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 24</value>
-  </data>
-  <data name="VehicleName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 12</value>
-  </data>
-  <data name="&gt;&gt;VehicleText.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 4</value>
-  </data>
-  <data name="&gt;&gt;BackgroundCombobox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

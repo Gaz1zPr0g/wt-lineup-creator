@@ -163,53 +163,35 @@
   <data name="flagButton.Text" xml:space="preserve">
     <value>Флаг</value>
   </data>
-  <data name="fileItemList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 23</value>
-  </data>
-  <data name="fileItemList.Text" xml:space="preserve">
-    <value>Файл</value>
-  </data>
   <data name="saveScheme.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="saveScheme.Text" xml:space="preserve">
     <value>Сохранить (Ctrl+S)</value>
   </data>
   <data name="importButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="importButton.Text" xml:space="preserve">
     <value>Открыть (Ctrl+O)</value>
   </data>
   <data name="exportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
+    <value>195, 22</value>
   </data>
   <data name="exportButton.Text" xml:space="preserve">
     <value>Экспорт (Ctrl+Shift+S)</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 6</value>
-  </data>
-  <data name="reportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
-  </data>
-  <data name="reportButton.Text" xml:space="preserve">
-    <value>Сообщить об ошибке</value>
-  </data>
-  <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
-  </data>
-  <data name="supportButton.Text" xml:space="preserve">
-    <value>Поддержать монетой</value>
+    <value>192, 6</value>
   </data>
   <data name="languageCombo.Text" xml:space="preserve">
     <value>Язык</value>
   </data>
-  <data name="exportSettings_itemList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 23</value>
+  <data name="fileItemList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 23</value>
   </data>
-  <data name="exportSettings_itemList.Text" xml:space="preserve">
-    <value>Параметры экспорта</value>
+  <data name="fileItemList.Text" xml:space="preserve">
+    <value>Файл</value>
   </data>
   <data name="vehicleTipesOrderButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
@@ -236,6 +218,12 @@
   </data>
   <data name="decorTextButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
+  </data>
+  <data name="exportSettings_itemList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 23</value>
+  </data>
+  <data name="exportSettings_itemList.Text" xml:space="preserve">
+    <value>Параметры экспорта</value>
   </data>
   <data name="countryCombo.Items" xml:space="preserve">
     <value>США</value>
@@ -288,6 +276,24 @@
   <data name="modeInfoButton.ToolTipText" xml:space="preserve">
     <value>Редактирование - изменение данных в клетке
 Удаление - удаление данных из клетки</value>
+  </data>
+  <data name="reportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="reportButton.Text" xml:space="preserve">
+    <value>Сообщить об ошибке</value>
+  </data>
+  <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="supportButton.Text" xml:space="preserve">
+    <value>Поддержать монетой</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 23</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>Помощь</value>
   </data>
   <data name="StatusLabel.ToolTipText" xml:space="preserve">
     <value>Статус</value>

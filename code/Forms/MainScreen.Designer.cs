@@ -59,8 +59,6 @@ namespace Lineups_creator
             this.importButton = new System.Windows.Forms.ToolStripMenuItem();
             this.exportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.reportButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.supportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.languageCombo = new System.Windows.Forms.ToolStripComboBox();
             this.exportSettings_itemList = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleTipesOrderButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +74,9 @@ namespace Lineups_creator
             this.countryCombo = new System.Windows.Forms.ToolStripComboBox();
             this.flagLockedButton = new System.Windows.Forms.ToolStripMenuItem();
             this.modeInfoButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.supportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusLabel = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel.SuspendLayout();
             this.BluewaterPanel.SuspendLayout();
@@ -254,6 +255,7 @@ namespace Lineups_creator
             this.countryCombo,
             this.flagLockedButton,
             this.modeInfoButton,
+            this.toolStripMenuItem1,
             this.StatusLabel});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
@@ -266,8 +268,6 @@ namespace Lineups_creator
             this.importButton,
             this.exportButton,
             this.toolStripSeparator1,
-            this.reportButton,
-            this.supportButton,
             this.languageCombo});
             this.fileItemList.ForeColor = System.Drawing.Color.Black;
             this.fileItemList.Name = "fileItemList";
@@ -296,17 +296,6 @@ namespace Lineups_creator
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
-            // reportButton
-            // 
-            this.reportButton.Name = "reportButton";
-            resources.ApplyResources(this.reportButton, "reportButton");
-            // 
-            // supportButton
-            // 
-            this.supportButton.Name = "supportButton";
-            resources.ApplyResources(this.supportButton, "supportButton");
-            this.supportButton.Click += new System.EventHandler(this.supportButton_Click);
-            // 
             // languageCombo
             // 
             this.languageCombo.Items.AddRange(new object[] {
@@ -314,6 +303,7 @@ namespace Lineups_creator
             resources.GetString("languageCombo.Items1")});
             this.languageCombo.Name = "languageCombo";
             resources.ApplyResources(this.languageCombo, "languageCombo");
+            this.languageCombo.SelectedIndexChanged += new System.EventHandler(this.languageCombo_SelectedIndexChanged);
             // 
             // exportSettings_itemList
             // 
@@ -411,8 +401,8 @@ namespace Lineups_creator
             // 
             this.backgroundColorText.AutoToolTip = true;
             this.backgroundColorText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.backgroundColorText.Name = "backgroundColorText";
             resources.ApplyResources(this.backgroundColorText, "backgroundColorText");
+            this.backgroundColorText.Name = "backgroundColorText";
             this.backgroundColorText.TextChanged += new System.EventHandler(this.backgroundColorText_TextChanged);
             // 
             // decorTextButton
@@ -425,8 +415,8 @@ namespace Lineups_creator
             // 
             // decorTextTextbox
             // 
-            this.decorTextTextbox.Name = "decorTextTextbox";
             resources.ApplyResources(this.decorTextTextbox, "decorTextTextbox");
+            this.decorTextTextbox.Name = "decorTextTextbox";
             this.decorTextTextbox.TextChanged += new System.EventHandler(this.decorTextTextbox_TextChanged);
             // 
             // countryCombo
@@ -459,6 +449,27 @@ namespace Lineups_creator
             this.modeInfoButton.Name = "modeInfoButton";
             resources.ApplyResources(this.modeInfoButton, "modeInfoButton");
             this.modeInfoButton.Click += new System.EventHandler(this.modeInfoButton_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reportButton,
+            this.supportButton});
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            // 
+            // reportButton
+            // 
+            this.reportButton.Name = "reportButton";
+            resources.ApplyResources(this.reportButton, "reportButton");
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
+            // supportButton
+            // 
+            this.supportButton.Name = "supportButton";
+            resources.ApplyResources(this.supportButton, "supportButton");
+            this.supportButton.Click += new System.EventHandler(this.supportButton_Click);
             // 
             // StatusLabel
             // 
@@ -539,8 +550,6 @@ namespace Lineups_creator
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem modeInfoButton;
         private System.Windows.Forms.ToolStripMenuItem StatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem reportButton;
-        private System.Windows.Forms.ToolStripMenuItem supportButton;
         private System.Windows.Forms.ToolStripTextBox backgroundColorText;
         private System.Windows.Forms.ToolStripComboBox comboBoxPos1;
         private System.Windows.Forms.ToolStripComboBox comboBoxPos2;
@@ -551,6 +560,9 @@ namespace Lineups_creator
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem decorTextButton;
         private System.Windows.Forms.ToolStripTextBox decorTextTextbox;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem reportButton;
+        private System.Windows.Forms.ToolStripMenuItem supportButton;
     }
 }
 
