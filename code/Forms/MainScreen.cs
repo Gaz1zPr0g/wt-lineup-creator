@@ -68,22 +68,23 @@ namespace Lineups_creator
 
             StreamReader sr = new StreamReader(@"temp\version.txt");
             var newVersionstr = sr.ReadLine();
+            var verData = sr.ReadToEnd();
+            sr.Close();
             sr.Dispose();
 
-            var currentVersion = Application.ProductVersion.ToString();
             var newVersion = newVersionstr;
+            var currentVersion = Application.ProductVersion.ToString();
             newVersion = newVersion.Replace(".", "");
             currentVersion = currentVersion.Replace(".", "");
 
             if (Convert.ToInt32(newVersion) > Convert.ToInt32(currentVersion))
             {
-                DialogResult dialogResult = MessageBox.Show(text: $"{newVersionstr}\n{res.LocalisationRes.newVersion}", caption: "Version info", buttons: MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show(text: $"{newVersionstr}\n{verData}\n{res.LocalisationRes.newVersion}", caption: "New version avalibale", buttons: MessageBoxButtons.YesNo);
 
                 if (dialogResult == DialogResult.Yes)
                 {
                     webClient.DownloadFile(new Uri("https://www.dropbox.com/scl/fi/qqx1fbvl1pz0ync68icii/Setup.zip?rlkey=oy297ynt9xvu1t9vi7zyydgbb&st=6g62t2zh&dl=1"), @"temp\Setup.zip");
                     webClient.Dispose();
-                    
 
                     ZipFile.ExtractToDirectory(@"temp\Setup.zip", @"temp\");
                     File.Delete(@"temp\Setup.zip");
