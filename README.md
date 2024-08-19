@@ -19,7 +19,6 @@ Later on, the program will update automatically.
 ## Settings
 You can change background color, decoration string/symbol, add your own flag, add empty cells to describe something, change order of tables and more.
 
-To learn more visit [wiki]()
 
 ---
 ## FAQ
