@@ -1012,9 +1012,6 @@
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 6</value>
   </data>
-  <data name="backgroundColorText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
   <data name="backgroundColorText.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 16</value>
   </data>
@@ -1029,9 +1026,6 @@
 Use RGB or HEX color codes:
 For RGB - R, B, G
 For HEX - #hexcol</value>
-  </data>
-  <data name="decorTextTextbox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
   </data>
   <data name="decorTextTextbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
@@ -1110,17 +1104,125 @@ For HEX - #hexcol</value>
 - Edit mode allows adding data to cells
 - Delete mode allows you delete data from a cell</value>
   </data>
+  <data name="HelpEditingControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpEditingControls.Text" xml:space="preserve">
+    <value>-EDITING-</value>
+  </data>
+  <data name="HelpEditModeKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpEditModeKey.Text" xml:space="preserve">
+    <value>[E] - Edit mode</value>
+  </data>
+  <data name="HelpDeleteModeKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpDeleteModeKey.Text" xml:space="preserve">
+    <value>[D] - Delete mode</value>
+  </data>
+  <data name="HelpFileControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpFileControls.Text" xml:space="preserve">
+    <value>-FILE-</value>
+  </data>
+  <data name="HelpSaveKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpSaveKey.Text" xml:space="preserve">
+    <value>[CTRL+S] - Save</value>
+  </data>
+  <data name="HelpSaveAsKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpSaveAsKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+S] - Save as</value>
+  </data>
+  <data name="HelpOpenKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpOpenKey.Text" xml:space="preserve">
+    <value>[CTRL+O] - Open</value>
+  </data>
+  <data name="HelpTablesControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpTablesControls.Text" xml:space="preserve">
+    <value>-TABLES-</value>
+  </data>
+  <data name="HelpCleartanksKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpCleartanksKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+T] - Clear tanks table</value>
+  </data>
+  <data name="HelpClearPlanesKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpClearPlanesKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+P] - Clear planes table</value>
+  </data>
+  <data name="HelpClearHeliKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpClearHeliKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+H] - Clear helicopter table</value>
+  </data>
+  <data name="HelpClearCoastalKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpClearCoastalKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+C] - Clear coastal fleet table</value>
+  </data>
+  <data name="HelpClearBluewaterKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpClearBluewaterKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+B] - Clear bluewater fleet table</value>
+  </data>
+  <data name="HelpVTEControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpVTEControls.Text" xml:space="preserve">
+    <value>-VEHICLE TILE EDIT-</value>
+  </data>
+  <data name="HelpVESavenCloseKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpVESavenCloseKey.Text" xml:space="preserve">
+    <value>[CTRL+ENTER] - Save and close vehicle editor</value>
+  </data>
+  <data name="HelpVECloseKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="HelpVECloseKey.Text" xml:space="preserve">
+    <value>[ESC] - Close vehicle editor without saving</value>
+  </data>
+  <data name="HelpControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="HelpControls.Text" xml:space="preserve">
+    <value>Shortcut keys</value>
+  </data>
   <data name="reportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="reportButton.Text" xml:space="preserve">
     <value>Report bug</value>
   </data>
+  <data name="HelpGitHubPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="HelpGitHubPage.Text" xml:space="preserve">
+    <value>GitHub page</value>
+  </data>
   <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="supportButton.Text" xml:space="preserve">
-    <value>Support</value>
+    <value>Support project</value>
   </data>
   <data name="toolStripMenuItem1.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Help</value>
@@ -1598,10 +1700,118 @@ For HEX - #hexcol</value>
   <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;HelpControls.Name" xml:space="preserve">
+    <value>HelpControls</value>
+  </data>
+  <data name="&gt;&gt;HelpControls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpEditingControls.Name" xml:space="preserve">
+    <value>HelpEditingControls</value>
+  </data>
+  <data name="&gt;&gt;HelpEditingControls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpEditModeKey.Name" xml:space="preserve">
+    <value>HelpEditModeKey</value>
+  </data>
+  <data name="&gt;&gt;HelpEditModeKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpDeleteModeKey.Name" xml:space="preserve">
+    <value>HelpDeleteModeKey</value>
+  </data>
+  <data name="&gt;&gt;HelpDeleteModeKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpFileControls.Name" xml:space="preserve">
+    <value>HelpFileControls</value>
+  </data>
+  <data name="&gt;&gt;HelpFileControls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpSaveKey.Name" xml:space="preserve">
+    <value>HelpSaveKey</value>
+  </data>
+  <data name="&gt;&gt;HelpSaveKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpSaveAsKey.Name" xml:space="preserve">
+    <value>HelpSaveAsKey</value>
+  </data>
+  <data name="&gt;&gt;HelpSaveAsKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpOpenKey.Name" xml:space="preserve">
+    <value>HelpOpenKey</value>
+  </data>
+  <data name="&gt;&gt;HelpOpenKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpTablesControls.Name" xml:space="preserve">
+    <value>HelpTablesControls</value>
+  </data>
+  <data name="&gt;&gt;HelpTablesControls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpCleartanksKey.Name" xml:space="preserve">
+    <value>HelpCleartanksKey</value>
+  </data>
+  <data name="&gt;&gt;HelpCleartanksKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpClearPlanesKey.Name" xml:space="preserve">
+    <value>HelpClearPlanesKey</value>
+  </data>
+  <data name="&gt;&gt;HelpClearPlanesKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpClearHeliKey.Name" xml:space="preserve">
+    <value>HelpClearHeliKey</value>
+  </data>
+  <data name="&gt;&gt;HelpClearHeliKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpClearCoastalKey.Name" xml:space="preserve">
+    <value>HelpClearCoastalKey</value>
+  </data>
+  <data name="&gt;&gt;HelpClearCoastalKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpClearBluewaterKey.Name" xml:space="preserve">
+    <value>HelpClearBluewaterKey</value>
+  </data>
+  <data name="&gt;&gt;HelpClearBluewaterKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpVTEControls.Name" xml:space="preserve">
+    <value>HelpVTEControls</value>
+  </data>
+  <data name="&gt;&gt;HelpVTEControls.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpVESavenCloseKey.Name" xml:space="preserve">
+    <value>HelpVESavenCloseKey</value>
+  </data>
+  <data name="&gt;&gt;HelpVESavenCloseKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpVECloseKey.Name" xml:space="preserve">
+    <value>HelpVECloseKey</value>
+  </data>
+  <data name="&gt;&gt;HelpVECloseKey.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;reportButton.Name" xml:space="preserve">
     <value>reportButton</value>
   </data>
   <data name="&gt;&gt;reportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HelpGitHubPage.Name" xml:space="preserve">
+    <value>HelpGitHubPage</value>
+  </data>
+  <data name="&gt;&gt;HelpGitHubPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;supportButton.Name" xml:space="preserve">

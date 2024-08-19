@@ -75,7 +75,25 @@ namespace Lineups_creator
             this.flagLockedButton = new System.Windows.Forms.ToolStripMenuItem();
             this.modeInfoButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpControls = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpEditingControls = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpEditModeKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpDeleteModeKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpFileControls = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpSaveKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpSaveAsKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpOpenKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpTablesControls = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpCleartanksKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpClearPlanesKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpClearHeliKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpClearCoastalKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpClearBluewaterKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpVTEControls = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpVESavenCloseKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpVECloseKey = new System.Windows.Forms.ToolStripMenuItem();
             this.reportButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpGitHubPage = new System.Windows.Forms.ToolStripMenuItem();
             this.supportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusLabel = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel.SuspendLayout();
@@ -401,8 +419,8 @@ namespace Lineups_creator
             // 
             this.backgroundColorText.AutoToolTip = true;
             this.backgroundColorText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.backgroundColorText, "backgroundColorText");
             this.backgroundColorText.Name = "backgroundColorText";
+            resources.ApplyResources(this.backgroundColorText, "backgroundColorText");
             this.backgroundColorText.TextChanged += new System.EventHandler(this.backgroundColorText_TextChanged);
             // 
             // decorTextButton
@@ -415,8 +433,8 @@ namespace Lineups_creator
             // 
             // decorTextTextbox
             // 
-            resources.ApplyResources(this.decorTextTextbox, "decorTextTextbox");
             this.decorTextTextbox.Name = "decorTextTextbox";
+            resources.ApplyResources(this.decorTextTextbox, "decorTextTextbox");
             this.decorTextTextbox.TextChanged += new System.EventHandler(this.decorTextTextbox_TextChanged);
             // 
             // countryCombo
@@ -453,17 +471,127 @@ namespace Lineups_creator
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.HelpControls,
             this.reportButton,
+            this.HelpGitHubPage,
             this.supportButton});
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            // 
+            // HelpControls
+            // 
+            this.HelpControls.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.HelpEditingControls,
+            this.HelpEditModeKey,
+            this.HelpDeleteModeKey,
+            this.HelpFileControls,
+            this.HelpSaveKey,
+            this.HelpSaveAsKey,
+            this.HelpOpenKey,
+            this.HelpTablesControls,
+            this.HelpCleartanksKey,
+            this.HelpClearPlanesKey,
+            this.HelpClearHeliKey,
+            this.HelpClearCoastalKey,
+            this.HelpClearBluewaterKey,
+            this.HelpVTEControls,
+            this.HelpVESavenCloseKey,
+            this.HelpVECloseKey});
+            this.HelpControls.Name = "HelpControls";
+            resources.ApplyResources(this.HelpControls, "HelpControls");
+            // 
+            // HelpEditingControls
+            // 
+            this.HelpEditingControls.Name = "HelpEditingControls";
+            resources.ApplyResources(this.HelpEditingControls, "HelpEditingControls");
+            // 
+            // HelpEditModeKey
+            // 
+            this.HelpEditModeKey.Name = "HelpEditModeKey";
+            resources.ApplyResources(this.HelpEditModeKey, "HelpEditModeKey");
+            // 
+            // HelpDeleteModeKey
+            // 
+            this.HelpDeleteModeKey.Name = "HelpDeleteModeKey";
+            resources.ApplyResources(this.HelpDeleteModeKey, "HelpDeleteModeKey");
+            // 
+            // HelpFileControls
+            // 
+            this.HelpFileControls.Name = "HelpFileControls";
+            resources.ApplyResources(this.HelpFileControls, "HelpFileControls");
+            // 
+            // HelpSaveKey
+            // 
+            this.HelpSaveKey.Name = "HelpSaveKey";
+            resources.ApplyResources(this.HelpSaveKey, "HelpSaveKey");
+            // 
+            // HelpSaveAsKey
+            // 
+            this.HelpSaveAsKey.Name = "HelpSaveAsKey";
+            resources.ApplyResources(this.HelpSaveAsKey, "HelpSaveAsKey");
+            // 
+            // HelpOpenKey
+            // 
+            this.HelpOpenKey.Name = "HelpOpenKey";
+            resources.ApplyResources(this.HelpOpenKey, "HelpOpenKey");
+            // 
+            // HelpTablesControls
+            // 
+            this.HelpTablesControls.Name = "HelpTablesControls";
+            resources.ApplyResources(this.HelpTablesControls, "HelpTablesControls");
+            // 
+            // HelpCleartanksKey
+            // 
+            this.HelpCleartanksKey.Name = "HelpCleartanksKey";
+            resources.ApplyResources(this.HelpCleartanksKey, "HelpCleartanksKey");
+            // 
+            // HelpClearPlanesKey
+            // 
+            this.HelpClearPlanesKey.Name = "HelpClearPlanesKey";
+            resources.ApplyResources(this.HelpClearPlanesKey, "HelpClearPlanesKey");
+            // 
+            // HelpClearHeliKey
+            // 
+            this.HelpClearHeliKey.Name = "HelpClearHeliKey";
+            resources.ApplyResources(this.HelpClearHeliKey, "HelpClearHeliKey");
+            // 
+            // HelpClearCoastalKey
+            // 
+            this.HelpClearCoastalKey.Name = "HelpClearCoastalKey";
+            resources.ApplyResources(this.HelpClearCoastalKey, "HelpClearCoastalKey");
+            // 
+            // HelpClearBluewaterKey
+            // 
+            this.HelpClearBluewaterKey.Name = "HelpClearBluewaterKey";
+            resources.ApplyResources(this.HelpClearBluewaterKey, "HelpClearBluewaterKey");
+            // 
+            // HelpVTEControls
+            // 
+            this.HelpVTEControls.Name = "HelpVTEControls";
+            resources.ApplyResources(this.HelpVTEControls, "HelpVTEControls");
+            // 
+            // HelpVESavenCloseKey
+            // 
+            this.HelpVESavenCloseKey.Name = "HelpVESavenCloseKey";
+            resources.ApplyResources(this.HelpVESavenCloseKey, "HelpVESavenCloseKey");
+            // 
+            // HelpVECloseKey
+            // 
+            this.HelpVECloseKey.Name = "HelpVECloseKey";
+            resources.ApplyResources(this.HelpVECloseKey, "HelpVECloseKey");
             // 
             // reportButton
             // 
             this.reportButton.Name = "reportButton";
             resources.ApplyResources(this.reportButton, "reportButton");
             this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
+            // HelpGitHubPage
+            // 
+            this.HelpGitHubPage.Name = "HelpGitHubPage";
+            resources.ApplyResources(this.HelpGitHubPage, "HelpGitHubPage");
+            this.HelpGitHubPage.Click += new System.EventHandler(this.HelpGitHubPage_Click);
             // 
             // supportButton
             // 
@@ -563,6 +691,24 @@ namespace Lineups_creator
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem reportButton;
         private System.Windows.Forms.ToolStripMenuItem supportButton;
+        private System.Windows.Forms.ToolStripMenuItem HelpControls;
+        private System.Windows.Forms.ToolStripMenuItem HelpGitHubPage;
+        private System.Windows.Forms.ToolStripMenuItem HelpEditModeKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpDeleteModeKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpSaveKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpSaveAsKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpCleartanksKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpClearPlanesKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpClearHeliKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpClearCoastalKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpClearBluewaterKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpEditingControls;
+        private System.Windows.Forms.ToolStripMenuItem HelpFileControls;
+        private System.Windows.Forms.ToolStripMenuItem HelpOpenKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpTablesControls;
+        private System.Windows.Forms.ToolStripMenuItem HelpVTEControls;
+        private System.Windows.Forms.ToolStripMenuItem HelpVESavenCloseKey;
+        private System.Windows.Forms.ToolStripMenuItem HelpVECloseKey;
     }
 }
 

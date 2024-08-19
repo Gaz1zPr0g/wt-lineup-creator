@@ -4,6 +4,7 @@ using System.IO.Compression;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Threading;
 using Newtonsoft.Json;
 using System.Net;
 
@@ -31,7 +32,7 @@ namespace Lineups_creator
         bool flagLocked = false;
         bool drawDecor = true;
         string decorText = "◊";
-        Timer timer;
+        System.Windows.Forms.Timer timer;
         ArraySizes arrSizes = new ArraySizes();
         VehicleData[,] tanksData;
         VehicleData[,] planesData;
@@ -173,276 +174,258 @@ namespace Lineups_creator
             comboBoxPos5.SelectedItem = 4;
         }
 
-
-        // cell size 120x48
-
-
         // Imports
         private void importButton_Click(object sender, EventArgs e)
         {
-            
+            StatusChange("Importing", Color.FromArgb(204, 142, 23));
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "JSON file |*.json";
             openFileDialog.Title = "Open scheme";
             openFileDialog.InitialDirectory = $@"{dir}\saves";
             openFileDialog.ShowDialog();
 
+            string filename = openFileDialog.FileName;
 
-            if (openFileDialog.FileName != "")
+            if (filename != "")
             {
-                StatusLabel.Text = "Opening file";
-                StatusLabel.ForeColor = Color.FromArgb(239, 170, 58);
-
-
-
                 try
                 {
-                    using (StreamReader sr = new StreamReader(openFileDialog.FileName))
+                    if (File.Exists(filename))
                     {
-                        string sizeline = sr.ReadLine();
-                        arrSizes = JsonConvert.DeserializeObject<ArraySizes>(sizeline);
-
-                        tanksData = new VehicleData[arrSizes.tanks.Item1, arrSizes.tanks.Item2];
-                        planesData = new VehicleData[arrSizes.planes.Item1, arrSizes.planes.Item2];
-                        helicoptersData = new VehicleData[arrSizes.helis.Item1, arrSizes.helis.Item2];
-                        coastalFleetData = new VehicleData[arrSizes.coastalFleet.Item1, arrSizes.coastalFleet.Item2];
-                        bluewaterFleetData = new VehicleData[arrSizes.bluewaterFleet.Item1, arrSizes.bluewaterFleet.Item2];
-
-                        int[] maxTrow = new int[arrSizes.tanks.Item2];
-                        int[] maxProw = new int[arrSizes.planes.Item2];
-                        int[] maxHrow = new int[arrSizes.helis.Item2];
-                        int[] maxCrow = new int[arrSizes.coastalFleet.Item2];
-                        int[] maxBrow = new int[arrSizes.bluewaterFleet.Item2];
-                        string line;
-                        while ((line = sr.ReadLine()) != null)
+                        using (StreamReader sr = new StreamReader(filename))
                         {
-                            VehicleData vd = JsonConvert.DeserializeObject<VehicleData>(line);
-                            string imageFile = vd.buttonImage.Substring(5);
-                            imageFile = imageFile.Substring(0, imageFile.IndexOf('.'));
-                            int row = vd.pos[0]; int col = vd.pos[1];
-                            vd.buttonImage = $@"temp\{row}-{col}-{vd.type}.png";
-                            switch (vd.type)
+                            string sizeline = sr.ReadLine();
+                            arrSizes = JsonConvert.DeserializeObject<ArraySizes>(sizeline);
+
+                            tanksData = new VehicleData[arrSizes.tanks.Item1, arrSizes.tanks.Item2];
+                            planesData = new VehicleData[arrSizes.planes.Item1, arrSizes.planes.Item2];
+                            helicoptersData = new VehicleData[arrSizes.helis.Item1, arrSizes.helis.Item2];
+                            coastalFleetData = new VehicleData[arrSizes.coastalFleet.Item1, arrSizes.coastalFleet.Item2];
+                            bluewaterFleetData = new VehicleData[arrSizes.bluewaterFleet.Item1, arrSizes.bluewaterFleet.Item2];
+
+                            int[] maxTrow = new int[arrSizes.tanks.Item2];
+                            int[] maxProw = new int[arrSizes.planes.Item2];
+                            int[] maxHrow = new int[arrSizes.helis.Item2];
+                            int[] maxCrow = new int[arrSizes.coastalFleet.Item2];
+                            int[] maxBrow = new int[arrSizes.bluewaterFleet.Item2];
+
+                            string line;
+                            while ((line = sr.ReadLine()) != null)
                             {
-                                case 0:
-                                    tanksData[row, col] = vd;
-                                    maxTrow[col] = Math.Max(maxTrow[col], row + 1);
-                                    break;
-                                case 1:
-                                    planesData[row, col] = vd;
-                                    maxProw[col] = Math.Max(maxProw[col], row + 1);
-                                    break;
-                                case 2:
-                                    helicoptersData[row, col] = vd;
-                                    maxHrow[col] = Math.Max(maxHrow[col], row + 1);
-                                    break;
-                                case 3:
-                                    coastalFleetData[row, col] = vd;
-                                    maxCrow[col] = Math.Max(maxHrow[col], row + 1);
-                                    break;
-                                case 4:
-                                    bluewaterFleetData[row, col] = vd;
-                                    maxBrow[col] = Math.Max(maxBrow[col], row + 1);
-                                    break;
+                                VehicleData vd = JsonConvert.DeserializeObject<VehicleData>(line);
+                                string imageFile = vd.buttonImage.Substring(5);
+                                imageFile = imageFile.Substring(0, imageFile.IndexOf('.'));
+                                int row = vd.pos[0]; int col = vd.pos[1];
+                                vd.buttonImage = $@"temp\{row}-{col}-{vd.type}.png";
+                                switch (vd.type)
+                                {
+                                    case 0:
+                                        tanksData[row, col] = vd;
+                                        maxTrow[col] = Math.Max(maxTrow[col], row + 1);
+                                        break;
+                                    case 1:
+                                        planesData[row, col] = vd;
+                                        maxProw[col] = Math.Max(maxProw[col], row + 1);
+                                        break;
+                                    case 2:
+                                        helicoptersData[row, col] = vd;
+                                        maxHrow[col] = Math.Max(maxHrow[col], row + 1);
+                                        break;
+                                    case 3:
+                                        coastalFleetData[row, col] = vd;
+                                        maxCrow[col] = Math.Max(maxHrow[col], row + 1);
+                                        break;
+                                    case 4:
+                                        bluewaterFleetData[row, col] = vd;
+                                        maxBrow[col] = Math.Max(maxBrow[col], row + 1);
+                                        break;
+                                }
+                            }
+                            sr.Close();
+
+                            if (arrSizes.tanks.Item1 > 0 && arrSizes.tanks.Item2 > 0)
+                            {
+                                TanksTable.Controls.Clear();
+                                TanksTable.RowCount = arrSizes.tanks.Item1 + 1; TanksTable.ColumnCount = arrSizes.tanks.Item2 + 1;
+                                TanksTable.Controls.Add(ResizeTanks, 0, maxTrow[0]);
+                                for (int row = 0; row < arrSizes.tanks.Item1; row++)
+                                {
+                                    for (int col = 0; col < arrSizes.tanks.Item2; col++)
+                                    {
+
+                                        if (tanksData[row, col] == null)
+                                        {
+                                            tanksData[row, col] = new VehicleData() { type = 0 };
+                                        }
+                                        if (col != 0 && row == 0)
+                                        {
+                                            Button newResize = new Button()
+                                            {
+                                                Width = 120,
+                                                Height = 48,
+                                                Text = res.LocalisationRes.resize,
+                                                Margin = new Padding(3, 3, 3, 3),
+                                                FlatStyle = FlatStyle.Flat,
+                                            };
+                                            newResize.MouseUp += ResizeTanks_MouseUp;
+                                            TanksTable.Controls.Add(newResize, col, maxTrow[col]);
+                                        }
+                                        if (row < maxTrow[col])
+                                        {
+                                            Create_Button(row, col, 0, TanksTable, tanksData[row, col]);
+                                        }
+                                    }
+                                }
+                            };
+
+                            if (arrSizes.planes.Item1 > 0 && arrSizes.planes.Item2 > 0)
+                            {
+                                PlanesTable.Controls.Clear();
+                                PlanesTable.RowCount = arrSizes.planes.Item1 + 1; PlanesTable.ColumnCount = arrSizes.planes.Item2 + 1;
+                                PlanesTable.Controls.Add(ResizePlanes, 0, maxProw[0]);
+                                for (int row = 0; row < arrSizes.planes.Item1; row++)
+                                {
+                                    for (int col = 0; col < arrSizes.planes.Item2; col++)
+                                    {
+                                        if (planesData[row, col] == null)
+                                        {
+                                            planesData[row, col] = new VehicleData() { type = 1 };
+                                        }
+                                        if (col != 0 && row == 0)
+                                        {
+                                            Button newResize = new Button()
+                                            {
+                                                Width = 120,
+                                                Height = 48,
+                                                Text = res.LocalisationRes.resize,
+                                                Margin = new Padding(3, 3, 3, 3),
+                                                FlatStyle = FlatStyle.Flat,
+                                            };
+                                            newResize.MouseUp += ResizePlanes_MouseUp;
+                                            PlanesTable.Controls.Add(newResize, col, maxProw[col]);
+                                        }
+                                        if (row < maxProw[col])
+                                        {
+                                            Create_Button(row, col, 1, PlanesTable, planesData[row, col]);
+                                        }
+                                    }
+                                }
+                            };
+
+                            if (arrSizes.helis.Item1 > 0 && arrSizes.helis.Item2 > 0)
+                            {
+                                HeliTable.Controls.Clear();
+                                HeliTable.RowCount = arrSizes.helis.Item1 + 1; HeliTable.ColumnCount = arrSizes.helis.Item2 + 1;
+                                HeliTable.Controls.Add(ResizeHeli, 0, maxHrow[0]);
+                                for (int row = 0; row < arrSizes.helis.Item1; row++)
+                                {
+                                    for (int col = 0; col < arrSizes.helis.Item2; col++)
+                                    {
+                                        if (tanksData[row, col] == null)
+                                        {
+                                            tanksData[row, col] = new VehicleData() { type = 2 };
+                                        }
+                                        if (col != 0 && row == 0)
+                                        {
+                                            Button newResize = new Button()
+                                            {
+                                                Width = 120,
+                                                Height = 48,
+                                                Text = res.LocalisationRes.resize,
+                                                Margin = new Padding(3, 3, 3, 3),
+                                                FlatStyle = FlatStyle.Flat,
+                                            };
+                                            newResize.MouseUp += ResizeHeli_MouseUp;
+                                            HeliTable.Controls.Add(newResize, col, maxHrow[col]);
+                                        }
+                                        if (row < maxHrow[col])
+                                        {
+                                            Create_Button(row, col, 2, HeliTable, helicoptersData[row, col]);
+                                        }
+                                    }
+                                }
+                            };
+
+                            if (arrSizes.coastalFleet.Item1 > 0 && arrSizes.coastalFleet.Item2 > 0)
+                            {
+                                CoastalfleetTable.Controls.Clear();
+                                CoastalfleetTable.RowCount = arrSizes.coastalFleet.Item1 + 1; CoastalfleetTable.ColumnCount = arrSizes.coastalFleet.Item2 + 1;
+                                CoastalfleetTable.Controls.Add(ResizeCoastalFleet, 0, maxCrow[0]);
+                                for (int row = 0; row < arrSizes.coastalFleet.Item1; row++)
+                                {
+                                    for (int col = 0; col < arrSizes.coastalFleet.Item2; col++)
+                                    {
+                                        if (coastalFleetData[row, col] == null)
+                                        {
+                                            coastalFleetData[row, col] = new VehicleData() { type = 3 };
+                                        }
+                                        if (col != 0 && row == 0)
+                                        {
+                                            Button newResize = new Button()
+                                            {
+                                                Width = 120,
+                                                Height = 48,
+                                                Text = res.LocalisationRes.resize,
+                                                Margin = new Padding(3, 3, 3, 3),
+                                                FlatStyle = FlatStyle.Flat,
+                                            };
+                                            newResize.MouseUp += ResizeCoastalFleet_MouseUp;
+                                            CoastalfleetTable.Controls.Add(newResize, col, maxCrow[col]);
+                                        }
+                                        if (row < maxCrow[col])
+                                        {
+                                            Create_Button(row, col, 3, CoastalfleetTable, coastalFleetData[row, col]);
+                                        }
+                                    }
+                                }
+                            };
+
+                            if (arrSizes.bluewaterFleet.Item1 > 0 && arrSizes.bluewaterFleet.Item2 > 0)
+                            {
+                                BluewaterTable.Controls.Clear();
+                                BluewaterTable.RowCount = arrSizes.bluewaterFleet.Item1 + 1; BluewaterTable.ColumnCount = arrSizes.bluewaterFleet.Item2 + 1;
+                                BluewaterTable.Controls.Add(ResizeBluewater, 0, maxBrow[0]);
+                                for (int row = 0; row < arrSizes.bluewaterFleet.Item1; row++)
+                                {
+                                    for (int col = 0; col < arrSizes.bluewaterFleet.Item2; col++)
+                                    {
+                                        if (bluewaterFleetData[row, col] == null)
+                                        {
+                                            bluewaterFleetData[row, col] = new VehicleData() { type = 4 };
+                                        }
+                                        if (col != 0 && row == 0)
+                                        {
+                                            Button newResize = new Button()
+                                            {
+                                                Width = 120,
+                                                Height = 48,
+                                                Text = res.LocalisationRes.resize,
+                                                Margin = new Padding(3, 3, 3, 3),
+                                                FlatStyle = FlatStyle.Flat,
+                                            };
+                                            newResize.MouseUp += ResizeBluewater_MouseUp;
+                                            BluewaterTable.Controls.Add(newResize, col, maxBrow[col]);
+                                        }
+                                        if (row < maxBrow[col])
+                                        {
+                                            Create_Button(row, col, 4, BluewaterTable, bluewaterFleetData[row, col]);
+                                        }
+                                    }
+
+                                }
                             }
                         }
-                        sr.Close();
-
-                        if (arrSizes.tanks.Item1 > 0 && arrSizes.tanks.Item2 > 0)
-                        {
-                            TanksTable.Controls.Clear();
-                            TanksTable.RowCount = arrSizes.tanks.Item1 + 1; TanksTable.ColumnCount = arrSizes.tanks.Item2 + 1;
-                            TanksTable.Controls.Add(ResizeTanks, 0, maxTrow[0]);
-                            for (int row = 0; row < arrSizes.tanks.Item1; row++)
-                            {
-                                for (int col = 0; col < arrSizes.tanks.Item2; col++)
-                                {
-                                    
-                                    if (tanksData[row, col] == null)
-                                    {
-                                        tanksData[row, col] = new VehicleData() { type = 0 };
-                                    }
-                                    if (col != 0 && row == 0)
-                                    {
-                                        Button newResize = new Button()
-                                        {
-                                            Width = 120,
-                                            Height = 48, 
-                                            Text = res.LocalisationRes.resize,
-                                            Margin = new Padding(3, 3, 3, 3),
-                                            FlatStyle = FlatStyle.Flat,
-                                        };
-                                        newResize.MouseUp += ResizeTanks_MouseUp;
-                                        TanksTable.Controls.Add(newResize, col, maxTrow[col]);
-                                    }
-                                    if (row < maxTrow[col])
-                                    {
-                                        Create_Button(row, col, 0, TanksTable, tanksData[row, col]);
-                                    }
-                                }
-                            }
-                        };
-
-                        if (arrSizes.planes.Item1 > 0 && arrSizes.planes.Item2 > 0)
-                        {
-                            PlanesTable.Controls.Clear();
-                            PlanesTable.RowCount = arrSizes.planes.Item1 + 1; PlanesTable.ColumnCount = arrSizes.planes.Item2 + 1;
-                            PlanesTable.Controls.Add(ResizePlanes, 0, maxProw[0]);
-                            for (int row = 0; row < arrSizes.planes.Item1; row++)
-                            {
-                                for (int col = 0; col < arrSizes.planes.Item2; col++)
-                                {
-                                    if (planesData[row, col] == null)
-                                    {
-                                        planesData[row, col] = new VehicleData() { type = 1 };
-                                    }
-                                    if (col != 0 && row == 0)
-                                    {
-                                        Button newResize = new Button()
-                                        {
-                                            Width = 120,
-                                            Height = 48,
-                                            Text = res.LocalisationRes.resize,
-                                            Margin = new Padding(3, 3, 3, 3),
-                                            FlatStyle = FlatStyle.Flat,
-                                        };
-                                        newResize.MouseUp += ResizePlanes_MouseUp;
-                                        PlanesTable.Controls.Add(newResize, col, maxProw[col]);
-                                    }
-                                    if (row < maxProw[col])
-                                    {
-                                        Create_Button(row, col, 1, PlanesTable, planesData[row, col]);
-                                    }
-                                }
-                            }
-                        };
-
-                        if (arrSizes.helis.Item1 > 0 && arrSizes.helis.Item2 > 0)
-                        {
-                            HeliTable.Controls.Clear();
-                            HeliTable.RowCount = arrSizes.helis.Item1 + 1; HeliTable.ColumnCount = arrSizes.helis.Item2 + 1;
-                            HeliTable.Controls.Add(ResizeHeli, 0, maxHrow[0]);
-                            for (int row = 0; row < arrSizes.helis.Item1; row++)
-                            {
-                                for (int col = 0; col < arrSizes.helis.Item2; col++)
-                                {
-                                    if (tanksData[row, col] == null)
-                                    {
-                                        tanksData[row, col] = new VehicleData() { type = 2 };
-                                    }
-                                    if (col != 0 && row == 0)
-                                    {
-                                        Button newResize = new Button()
-                                                {
-                                                    Width = 120,
-                                                    Height = 48,
-                                                    Text = res.LocalisationRes.resize,
-                                                    Margin = new Padding(3, 3, 3, 3),
-                                                    FlatStyle = FlatStyle.Flat,
-                                                };
-                                        newResize.MouseUp += ResizeHeli_MouseUp;
-                                        HeliTable.Controls.Add(newResize, col, maxHrow[col]);
-                                    }
-                                    if (row < maxHrow[col])
-                                    {
-                                        Create_Button(row, col, 2, HeliTable, helicoptersData[row, col]);
-                                    }
-                                }
-                            }
-                        };
-
-                        if (arrSizes.coastalFleet.Item1 > 0 && arrSizes.coastalFleet.Item2 > 0)
-                        {
-                            CoastalfleetTable.Controls.Clear();
-                            CoastalfleetTable.RowCount = arrSizes.coastalFleet.Item1 + 1; CoastalfleetTable.ColumnCount = arrSizes.coastalFleet.Item2 + 1;
-                            CoastalfleetTable.Controls.Add(ResizeCoastalFleet, 0, maxCrow[0]);
-                            for (int row = 0; row < arrSizes.coastalFleet.Item1; row++)
-                            {
-                                for (int col = 0; col < arrSizes.coastalFleet.Item2; col++)
-                                {
-                                    if (coastalFleetData[row, col] == null)
-                                    {
-                                        coastalFleetData[row, col] = new VehicleData() { type = 3 };
-                                    }
-                                    if (col != 0 && row == 0)
-                                    {
-                                        Button newResize = new Button()
-                                        {
-                                            Width = 120,
-                                            Height = 48,
-                                            Text = res.LocalisationRes.resize,
-                                            Margin = new Padding(3, 3, 3, 3),
-                                            FlatStyle = FlatStyle.Flat,
-                                        };
-                                        newResize.MouseUp += ResizeCoastalFleet_MouseUp;
-                                        CoastalfleetTable.Controls.Add(newResize, col, maxCrow[col]);
-                                    }
-                                    if (row < maxCrow[col])
-                                    {
-                                        Create_Button(row, col, 3, CoastalfleetTable, coastalFleetData[row, col]);
-                                    }
-                                }
-                            }
-                        };
-
-                        if (arrSizes.bluewaterFleet.Item1 > 0 && arrSizes.bluewaterFleet.Item2 > 0)
-                        {
-                            BluewaterTable.Controls.Clear();
-                            BluewaterTable.RowCount = arrSizes.bluewaterFleet.Item1 + 1; BluewaterTable.ColumnCount = arrSizes.bluewaterFleet.Item2 + 1;
-                            BluewaterTable.Controls.Add(ResizeBluewater, 0, maxBrow[0]);
-                            for (int row = 0; row < arrSizes.bluewaterFleet.Item1; row++)
-                            {
-                                for (int col = 0; col < arrSizes.bluewaterFleet.Item2; col++)
-                                {
-                                    if (bluewaterFleetData[row, col] == null)
-                                    {
-                                        bluewaterFleetData[row, col] = new VehicleData() { type = 4 };
-                                    }
-                                    if (col != 0 && row == 0)
-                                    {
-                                        Button newResize = new Button()
-                                        {
-                                            Width = 120,
-                                            Height = 48,
-                                            Text = res.LocalisationRes.resize,
-                                            Margin = new Padding(3, 3, 3, 3),
-                                            FlatStyle = FlatStyle.Flat,
-                                        };
-                                        newResize.MouseUp += ResizeBluewater_MouseUp;
-                                        BluewaterTable.Controls.Add(newResize, col, maxBrow[col]);
-                                    }
-                                    if (row < maxBrow[col])
-                                    {
-                                        Create_Button(row, col, 4, BluewaterTable, bluewaterFleetData[row, col]);
-                                    }
-                                }
-                                
-                            }
-                        };
                     }
-
-                    StatusLabel.Text = "import complete";
-                    StatusLabel.ForeColor = Color.FromArgb(0, 192, 0);
-                    timer = new Timer { Interval = 5000 };
-                    timer.Tick += TimerTick;
-                    timer.Enabled = true;
+                    StatusChange("File imported", Color.FromArgb(0, 192, 0));
                 } catch
                 {
-                    StatusLabel.Text = "somthing went wrong!";
-                    StatusLabel.ForeColor = Color.FromArgb(192, 0, 0);
-                    timer = new Timer { Interval = 5000 };
-                    timer.Tick += TimerTick;
-                    timer.Enabled = true;
+                    StatusChange("Something went wrong", Color.FromArgb(204, 142, 23));
                 }
-            }
-            else
+                
+            } else
             {
-                StatusLabel.Text = "Wrong file name";
-                StatusLabel.ForeColor = Color.FromArgb(192, 0, 0);
-                timer = new Timer { Interval = 5000 };
-                timer.Tick += TimerTick;
-                timer.Enabled = true;
+                StatusChange("Wrong file name", Color.FromArgb(192, 0, 0));
             }
-
         }
         private void Create_Button(int row, int col, int type, TableLayoutPanel tlp, VehicleData vd)
         {
@@ -553,12 +536,15 @@ namespace Lineups_creator
 
             if (saveFileDialog1.FileName != "")
             {
+                StatusLabel.Text = "[----------]";
+                StatusLabel.ForeColor = Color.FromArgb(204, 142, 23);
                 using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
                 {
                     string output = JsonConvert.SerializeObject(arrSizes);
                     sw.WriteLine(output);
                     if (tanksData != null)
                     {
+                        StatusLabel.Text = "[█---------]";
                         for (int row = 0; row < arrSizes.tanks.Item1; row++)
                         {
                             for (int col = 0; col < arrSizes.tanks.Item2; col++)
@@ -569,12 +555,13 @@ namespace Lineups_creator
                                         output = JsonConvert.SerializeObject(tanksData[row, col]);
                                         sw.WriteLine(output);
                                 }
-                                
                             }
                         }
                     }
+                    StatusLabel.Text = "[██--------]";
                     if (planesData != null)
                     {
+                        StatusLabel.Text = "[███-------]";
                         for (int row = 0; row < arrSizes.planes.Item1; row++)
                         {
                             for (int col = 0; col < arrSizes.planes.Item2; col++)
@@ -601,8 +588,10 @@ namespace Lineups_creator
                             
                         }
                     }
+                    StatusLabel.Text = "[████------]";
                     if (helicoptersData != null)
                     {
+                        StatusLabel.Text = "[█████-----]";
                         for (int row = 0; row < arrSizes.helis.Item1; row++)
                         {
                             for (int col = 0; col < arrSizes.helis.Item2; col++)
@@ -616,8 +605,10 @@ namespace Lineups_creator
                             }
                         }
                     }
+                    StatusLabel.Text = "[██████----]";
                     if (coastalFleetData != null)
                     {
+                        StatusLabel.Text = "[███████---]";
                         for (int row = 0; row < arrSizes.coastalFleet.Item1; row++)
                         {
                             for (int col = 0; col < arrSizes.coastalFleet.Item2; col++)
@@ -631,8 +622,10 @@ namespace Lineups_creator
                             }
                         }
                     }
+                    StatusLabel.Text = "[████████--]";
                     if (bluewaterFleetData != null)
                     {
+                        StatusLabel.Text = "[█████████-]";
                         for (int row = 0; row < arrSizes.bluewaterFleet.Item1; row++)
                         {
                             for (int col = 0; col < arrSizes.bluewaterFleet.Item2; col++)
@@ -643,20 +636,13 @@ namespace Lineups_creator
                             }
                         }
                     }
+                    StatusLabel.Text = "[██████████]";
                 }
-                StatusLabel.Text = "saved";
-                StatusLabel.ForeColor = Color.FromArgb(0, 192, 0);
-                timer = new Timer { Interval = 5000 };
-                timer.Tick += TimerTick;
-                timer.Enabled = true;
+                StatusChange("Saved", Color.FromArgb(0, 192, 0));
             }
             else
             {
-                StatusLabel.Text = "Wrong file name";
-                StatusLabel.ForeColor = Color.FromArgb(192, 0, 0);
-                timer = new Timer { Interval = 5000 };
-                timer.Tick += TimerTick;
-                timer.Enabled = true;
+                StatusChange("Wrong file name", Color.FromArgb(192, 0, 0));
             }
         }
         private void exportButton_Click(object sender, EventArgs e)
@@ -675,6 +661,8 @@ namespace Lineups_creator
                 {
                     try
                     {
+                        StatusLabel.Text = "[----------]";
+                        StatusLabel.ForeColor = Color.FromArgb(204, 142, 23);
                         int tsizeX = (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.tanks.Item1 : 0;
                         int tsizeY = arrSizes.tanks.Item2 >= 1 ? 10 + 124 * arrSizes.tanks.Item2 : 0;
 
@@ -699,7 +687,7 @@ namespace Lineups_creator
                                 bitmap.SetPixel(x, y, imageBackgroundColor);
                             }
                         }
-
+                        StatusLabel.Text = "[█---------]";
                         using (Graphics graphics = Graphics.FromImage(bitmap))
                         {
                             using (Font backgroundFont = new Font("Verdana", 8, new FontStyle()))
@@ -726,7 +714,7 @@ namespace Lineups_creator
                                 }
                             }
                         }
-
+                        StatusLabel.Text = "[██--------]";
                         x = 0; y = 20;
                         using (Graphics graphics = Graphics.FromImage(bitmap))
                         {
@@ -746,6 +734,9 @@ namespace Lineups_creator
                                     graphics.DrawImage(flag, bitmap.Width - flag.Width - 5, 5, flag.Width, flag.Height);
                                     flag.Dispose();
                                 }
+                                StatusLabel.Text = "[███-------]";
+                                int progressBarTiles = 3;
+
 
                                 for (int index = 0; index < 5; index++)
                                 {
@@ -772,6 +763,8 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
+                                        progressBarTiles++;
+                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                     else if (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1 && generatorIndexes[index] == 1)
                                     {
@@ -795,6 +788,8 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
+                                        progressBarTiles++;
+                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                     else if (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1 && generatorIndexes[index] == 2)
                                     {
@@ -818,6 +813,8 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
+                                        progressBarTiles++;
+                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                     else if (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1 && generatorIndexes[index] == 3)
                                     {
@@ -841,6 +838,8 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
+                                        progressBarTiles++;
+                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                     else if (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1 && generatorIndexes[index] == 4)
                                     {
@@ -864,28 +863,23 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
+                                        progressBarTiles++;
+                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                 }
 
                             }
                         }
+                        StatusLabel.Text = "[██████████]";
                         bitmap.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
                         bitmap.Dispose();
 
-                        StatusLabel.Text = "export to png completed!";
-                        StatusLabel.ForeColor = Color.FromArgb(0, 192, 0);
-                        timer = new Timer { Interval = 5000 };
-                        timer.Tick += TimerTick;
-                        timer.Enabled = true;
+                        StatusChange("Export to png completed!", Color.FromArgb(0, 192, 0));
 
                     }
                     catch
                     {
-                        StatusLabel.Text = "somthing went wrong!";
-                        StatusLabel.ForeColor = Color.FromArgb(192, 0, 0);
-                        timer = new Timer { Interval = 5000 };
-                        timer.Tick += TimerTick;
-                        timer.Enabled = true;
+                        StatusChange("Something went wrong!", Color.FromArgb(192, 0, 0));
                     }
                 } 
                 else if (saveFileDialog.FilterIndex == 2)
@@ -898,7 +892,7 @@ namespace Lineups_creator
                         {
                             foreach (VehicleData item in tanksData)
                             {
-                                if (item.name != null && item.wtID != "N/A")
+                                if (item.name != null && item.wtID != "N/A" && item.wtID != "none")
                                 {
                                     if (item.numberOfUnits == 0)
                                     {
@@ -915,7 +909,7 @@ namespace Lineups_creator
                         {
                             foreach (VehicleData item in planesData)
                             {
-                                if (item.name != null && item.wtID != "N/A")
+                                if (item.name != null && item.wtID != "N/A" && item.wtID != "none")
                                 {
                                     if (item.numberOfUnits == 0)
                                     {
@@ -932,7 +926,7 @@ namespace Lineups_creator
                         {
                             foreach (VehicleData item in helicoptersData)
                             {
-                                if (item.name != null && item.wtID != "N/A")
+                                if (item.name != null && item.wtID != "N/A" && item.wtID != "none")
                                 {
                                     if (item.numberOfUnits == 0)
                                     {
@@ -949,7 +943,7 @@ namespace Lineups_creator
                         {
                             foreach (VehicleData item in coastalFleetData)
                             {
-                                if (item.name != null && item.wtID != "N/A")
+                                if (item.name != null && item.wtID != "N/A" && item.wtID != "none")
                                 {
                                     if (item.numberOfUnits == 0)
                                     {
@@ -966,7 +960,7 @@ namespace Lineups_creator
                         {
                             foreach (VehicleData item in bluewaterFleetData)
                             {
-                                if (item.name != null && item.wtID != "N/A")
+                                if (item.name != null && item.wtID != "N/A" && item.wtID != "none")
                                 {
                                     if (item.numberOfUnits == 0)
                                     {
@@ -986,26 +980,32 @@ namespace Lineups_creator
                         sw.WriteLine(unlimitedUnits);
                         sw.WriteLine("}");
                     }
-
-                    StatusLabel.Text = "export to txt completed!";
-                    StatusLabel.ForeColor = Color.FromArgb(0, 192, 0);
-                    timer = new Timer { Interval = 5000 };
-                    timer.Tick += TimerTick;
-                    timer.Enabled = true;
+                    StatusChange("Export to txt completed!", Color.FromArgb(0, 192, 0));
                 }
             }
             else
             {
-                StatusLabel.Text = "Wrong file name";
-                StatusLabel.ForeColor = Color.FromArgb(192, 0, 0);
-                timer = new Timer { Interval = 5000 };
-                timer.Tick += TimerTick;
-                timer.Enabled = true;
+                StatusChange("Wrong file name!", Color.FromArgb(192, 0, 0));
             }
 
         }
 
         // Menu buttons
+        private void languageCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (languageCombo.SelectedIndex == 0)
+            {
+                Properties.Settings.Default.Language = "ru";
+            }
+            else if (languageCombo.SelectedIndex == 1)
+            {
+                Properties.Settings.Default.Language = "en";
+            }
+
+            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+        }
+        // 
         private void flagLockedButton_Click(object sender, EventArgs e)
         {
             flagLocked = !(flagLockedButton.Text == res.LocalisationRes.flagLocked);
@@ -1026,14 +1026,6 @@ namespace Lineups_creator
                 modeInfoButton.ForeColor = Color.FromArgb(192, 0, 0);
             }
         }
-        private void reportButton_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/Gaz1zPr0g/wt-lineup-creator/issues");
-        }
-        private void supportButton_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://boosty.to/railguntoaster");
-        }
         private void countryCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -1048,6 +1040,7 @@ namespace Lineups_creator
 
             }
         }
+        // background menu
         private void backgroundColorText_TextChanged(object sender, EventArgs e)
         {
             string text = backgroundColorText.Text;
@@ -1113,20 +1106,19 @@ namespace Lineups_creator
         {
             decorText = decorTextTextbox.Text;
         }
-        private void languageCombo_SelectedIndexChanged(object sender, EventArgs e)
+        // HELP menu
+        private void reportButton_Click(object sender, EventArgs e)
         {
-            if (languageCombo.SelectedIndex == 0)
-            {
-                Properties.Settings.Default.Language = "ru";
-            } else if (languageCombo.SelectedIndex == 1)
-            {
-                Properties.Settings.Default.Language = "en";
-            }
-
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
-            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+            System.Diagnostics.Process.Start("https://github.com/Gaz1zPr0g/wt-lineup-creator/issues");
         }
-
+        private void supportButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://boosty.to/railguntoaster");
+        }
+        private void HelpGitHubPage_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Gaz1zPr0g/wt-lineup-creator");
+        }
         // Generator queue
         private void changeIfindexOccuped(int index)
         {
@@ -2063,14 +2055,13 @@ namespace Lineups_creator
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
         private void TimerTick(object sender, EventArgs e)
         {
             StatusLabel.Text = "ok";
             StatusLabel.ForeColor = Color.Black;
         }
 
-        // public funcs
+        // misc funcs
         public void OpenFlag()
         {
             try
@@ -2087,11 +2078,7 @@ namespace Lineups_creator
             }
             catch
             {
-                StatusLabel.Text = "No flag image";
-                StatusLabel.ForeColor = Color.FromArgb(192, 0, 0);
-                timer = new Timer { Interval = 5000 };
-                timer.Tick += TimerTick;
-                timer.Enabled = true;
+                StatusChange("Something went wrong!", Color.FromArgb(192, 0, 0));
             }
 
         }
@@ -2099,9 +2086,28 @@ namespace Lineups_creator
         {
             StatusLabel.Text = message;
             StatusLabel.ForeColor = color;
-            timer = new Timer { Interval = 5000 };
+            timer = new System.Windows.Forms.Timer { Interval = 5000 };
             timer.Tick += TimerTick;
             timer.Enabled = true;
+        }
+        private string StatusBar(int cells)
+        {
+            // all progress bars have 10 cells max
+            string bar = "[";
+            for (int i = 0; i <= cells; i++)
+            {
+                bar += '█';
+            }
+            int len = bar.Length;
+            if (len < 11)
+            {
+                for (int i = len; i < 12; i++)
+                {
+                    bar += '-';
+                }
+            }
+            bar += ']';
+            return bar;
         }
 
         // changes data in cell from vehicle screen
@@ -2148,8 +2154,6 @@ namespace Lineups_creator
                 languageCombo.SelectedItem = Properties.Settings.Default.Language;
             }
         }
-
-        
     }
 
     public class VehicleData
