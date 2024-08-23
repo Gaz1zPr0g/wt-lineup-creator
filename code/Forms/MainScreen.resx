@@ -760,7 +760,7 @@
     <value>12, 59</value>
   </data>
   <data name="MainPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1060, 610</value>
+    <value>1060, 607</value>
   </data>
   <data name="MainPanel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -814,7 +814,7 @@
     <value>True</value>
   </data>
   <data name="copyrights.Location" type="System.Drawing.Point, System.Drawing">
-    <value>907, 669</value>
+    <value>907, 668</value>
   </data>
   <data name="copyrights.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 13</value>
@@ -840,38 +840,23 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>22, 12</value>
   </metadata>
-  <data name="saveScheme.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="saveScheme.Text" xml:space="preserve">
-    <value>Save (Ctrl+S)</value>
-  </data>
   <data name="importButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
   </data>
   <data name="importButton.Text" xml:space="preserve">
     <value>Open (Ctrl+O)</value>
   </data>
+  <data name="saveScheme.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="saveScheme.Text" xml:space="preserve">
+    <value>Save (Ctrl+S)</value>
+  </data>
   <data name="exportButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
   </data>
   <data name="exportButton.Text" xml:space="preserve">
     <value>Export (Ctrl+Shift+S)</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
-  </data>
-  <data name="languageCombo.Items" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="languageCombo.Items1" xml:space="preserve">
-    <value>Русский</value>
-  </data>
-  <data name="languageCombo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
-  </data>
-  <data name="languageCombo.Text" xml:space="preserve">
-    <value>Language</value>
   </data>
   <data name="fileItemList.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 23</value>
@@ -1012,8 +997,26 @@
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 6</value>
   </data>
+  <data name="decorTextTextbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="decorTextTextbox.Text" xml:space="preserve">
+    <value>◊</value>
+  </data>
+  <data name="decorONOFF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="decorONOFF.Text" xml:space="preserve">
+    <value>ON</value>
+  </data>
+  <data name="decorTextButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="decorTextButton.Text" xml:space="preserve">
+    <value>Decor on</value>
+  </data>
   <data name="backgroundColorText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 16</value>
+    <value>100, 23</value>
   </data>
   <data name="backgroundColorText.Text" xml:space="preserve">
     <value>Background color</value>
@@ -1027,17 +1030,14 @@ Use RGB or HEX color codes:
 For RGB - R, B, G
 For HEX - #hexcol</value>
   </data>
-  <data name="decorTextTextbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
+  <data name="backgroundColorPreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
   </data>
-  <data name="decorTextTextbox.Text" xml:space="preserve">
-    <value>◊</value>
-  </data>
-  <data name="decorTextButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="цветФонаToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
-  <data name="decorTextButton.Text" xml:space="preserve">
-    <value>Decor on</value>
+  <data name="цветФонаToolStripMenuItem.Text" xml:space="preserve">
+    <value>Background color</value>
   </data>
   <data name="exportSettings_itemList.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 23</value>
@@ -1201,25 +1201,25 @@ For HEX - #hexcol</value>
     <value>[ESC] - Close vehicle editor without saving</value>
   </data>
   <data name="HelpControls.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="HelpControls.Text" xml:space="preserve">
     <value>Shortcut keys</value>
   </data>
   <data name="reportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="reportButton.Text" xml:space="preserve">
     <value>Report bug</value>
   </data>
   <data name="HelpGitHubPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="HelpGitHubPage.Text" xml:space="preserve">
-    <value>GitHub page</value>
+    <value>GitHub</value>
   </data>
   <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="supportButton.Text" xml:space="preserve">
     <value>Support project</value>
@@ -1232,6 +1232,12 @@ For HEX - #hexcol</value>
   </data>
   <data name="toolStripMenuItem1.Text" xml:space="preserve">
     <value>Help</value>
+  </data>
+  <data name="changeLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 23</value>
+  </data>
+  <data name="changeLanguage.Text" xml:space="preserve">
+    <value>Русский</value>
   </data>
   <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 23</value>
@@ -1270,7 +1276,7 @@ For HEX - #hexcol</value>
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>44</value>
+    <value>47</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 13</value>
@@ -1598,18 +1604,6 @@ For HEX - #hexcol</value>
   <data name="&gt;&gt;exportButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;languageCombo.Name" xml:space="preserve">
-    <value>languageCombo</value>
-  </data>
-  <data name="&gt;&gt;languageCombo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;exportSettings_itemList.Name" xml:space="preserve">
     <value>exportSettings_itemList</value>
   </data>
@@ -1658,12 +1652,6 @@ For HEX - #hexcol</value>
   <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;backgroundColorText.Name" xml:space="preserve">
-    <value>backgroundColorText</value>
-  </data>
-  <data name="&gt;&gt;backgroundColorText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;decorTextButton.Name" xml:space="preserve">
     <value>decorTextButton</value>
   </data>
@@ -1675,6 +1663,30 @@ For HEX - #hexcol</value>
   </data>
   <data name="&gt;&gt;decorTextTextbox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;decorONOFF.Name" xml:space="preserve">
+    <value>decorONOFF</value>
+  </data>
+  <data name="&gt;&gt;decorONOFF.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;цветФонаToolStripMenuItem.Name" xml:space="preserve">
+    <value>цветФонаToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;цветФонаToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;backgroundColorText.Name" xml:space="preserve">
+    <value>backgroundColorText</value>
+  </data>
+  <data name="&gt;&gt;backgroundColorText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;backgroundColorPreview.Name" xml:space="preserve">
+    <value>backgroundColorPreview</value>
+  </data>
+  <data name="&gt;&gt;backgroundColorPreview.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;countryCombo.Name" xml:space="preserve">
     <value>countryCombo</value>
@@ -1818,6 +1830,12 @@ For HEX - #hexcol</value>
     <value>supportButton</value>
   </data>
   <data name="&gt;&gt;supportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;changeLanguage.Name" xml:space="preserve">
+    <value>changeLanguage</value>
+  </data>
+  <data name="&gt;&gt;changeLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;StatusLabel.Name" xml:space="preserve">

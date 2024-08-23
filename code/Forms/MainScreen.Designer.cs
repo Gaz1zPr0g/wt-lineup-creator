@@ -58,8 +58,6 @@ namespace Lineups_creator
             this.saveScheme = new System.Windows.Forms.ToolStripMenuItem();
             this.importButton = new System.Windows.Forms.ToolStripMenuItem();
             this.exportButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.languageCombo = new System.Windows.Forms.ToolStripComboBox();
             this.exportSettings_itemList = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleTipesOrderButton = new System.Windows.Forms.ToolStripMenuItem();
             this.comboBoxPos1 = new System.Windows.Forms.ToolStripComboBox();
@@ -68,9 +66,12 @@ namespace Lineups_creator
             this.comboBoxPos4 = new System.Windows.Forms.ToolStripComboBox();
             this.comboBoxPos5 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.backgroundColorText = new System.Windows.Forms.ToolStripTextBox();
             this.decorTextButton = new System.Windows.Forms.ToolStripMenuItem();
             this.decorTextTextbox = new System.Windows.Forms.ToolStripTextBox();
+            this.decorONOFF = new System.Windows.Forms.ToolStripMenuItem();
+            this.цветФонаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundColorText = new System.Windows.Forms.ToolStripTextBox();
+            this.backgroundColorPreview = new System.Windows.Forms.ToolStripMenuItem();
             this.countryCombo = new System.Windows.Forms.ToolStripComboBox();
             this.flagLockedButton = new System.Windows.Forms.ToolStripMenuItem();
             this.modeInfoButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,6 +96,7 @@ namespace Lineups_creator
             this.reportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpGitHubPage = new System.Windows.Forms.ToolStripMenuItem();
             this.supportButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusLabel = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel.SuspendLayout();
             this.BluewaterPanel.SuspendLayout();
@@ -274,6 +276,7 @@ namespace Lineups_creator
             this.flagLockedButton,
             this.modeInfoButton,
             this.toolStripMenuItem1,
+            this.changeLanguage,
             this.StatusLabel});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
@@ -282,11 +285,9 @@ namespace Lineups_creator
             // fileItemList
             // 
             this.fileItemList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveScheme,
             this.importButton,
-            this.exportButton,
-            this.toolStripSeparator1,
-            this.languageCombo});
+            this.saveScheme,
+            this.exportButton});
             this.fileItemList.ForeColor = System.Drawing.Color.Black;
             this.fileItemList.Name = "fileItemList";
             resources.ApplyResources(this.fileItemList, "fileItemList");
@@ -309,27 +310,13 @@ namespace Lineups_creator
             resources.ApplyResources(this.exportButton, "exportButton");
             this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            // 
-            // languageCombo
-            // 
-            this.languageCombo.Items.AddRange(new object[] {
-            resources.GetString("languageCombo.Items"),
-            resources.GetString("languageCombo.Items1")});
-            this.languageCombo.Name = "languageCombo";
-            resources.ApplyResources(this.languageCombo, "languageCombo");
-            this.languageCombo.SelectedIndexChanged += new System.EventHandler(this.languageCombo_SelectedIndexChanged);
-            // 
             // exportSettings_itemList
             // 
             this.exportSettings_itemList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vehicleTipesOrderButton,
             this.toolStripSeparator2,
-            this.backgroundColorText,
-            this.decorTextButton});
+            this.decorTextButton,
+            this.цветФонаToolStripMenuItem});
             this.exportSettings_itemList.ForeColor = System.Drawing.Color.Black;
             this.exportSettings_itemList.Name = "exportSettings_itemList";
             resources.ApplyResources(this.exportSettings_itemList, "exportSettings_itemList");
@@ -415,27 +402,44 @@ namespace Lineups_creator
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
-            // backgroundColorText
-            // 
-            this.backgroundColorText.AutoToolTip = true;
-            this.backgroundColorText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.backgroundColorText.Name = "backgroundColorText";
-            resources.ApplyResources(this.backgroundColorText, "backgroundColorText");
-            this.backgroundColorText.TextChanged += new System.EventHandler(this.backgroundColorText_TextChanged);
-            // 
             // decorTextButton
             // 
             this.decorTextButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.decorTextTextbox});
+            this.decorTextTextbox,
+            this.decorONOFF});
             this.decorTextButton.Name = "decorTextButton";
             resources.ApplyResources(this.decorTextButton, "decorTextButton");
-            this.decorTextButton.Click += new System.EventHandler(this.decorTextButton_Click);
             // 
             // decorTextTextbox
             // 
             this.decorTextTextbox.Name = "decorTextTextbox";
             resources.ApplyResources(this.decorTextTextbox, "decorTextTextbox");
             this.decorTextTextbox.TextChanged += new System.EventHandler(this.decorTextTextbox_TextChanged);
+            // 
+            // decorONOFF
+            // 
+            this.decorONOFF.Name = "decorONOFF";
+            resources.ApplyResources(this.decorONOFF, "decorONOFF");
+            this.decorONOFF.Click += new System.EventHandler(this.decorTextButton_Click);
+            // 
+            // цветФонаToolStripMenuItem
+            // 
+            this.цветФонаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backgroundColorText,
+            this.backgroundColorPreview});
+            this.цветФонаToolStripMenuItem.Name = "цветФонаToolStripMenuItem";
+            resources.ApplyResources(this.цветФонаToolStripMenuItem, "цветФонаToolStripMenuItem");
+            // 
+            // backgroundColorText
+            // 
+            this.backgroundColorText.Name = "backgroundColorText";
+            resources.ApplyResources(this.backgroundColorText, "backgroundColorText");
+            this.backgroundColorText.TextChanged += new System.EventHandler(this.backgroundColorText_TextChanged);
+            // 
+            // backgroundColorPreview
+            // 
+            this.backgroundColorPreview.Name = "backgroundColorPreview";
+            resources.ApplyResources(this.backgroundColorPreview, "backgroundColorPreview");
             // 
             // countryCombo
             // 
@@ -599,9 +603,16 @@ namespace Lineups_creator
             resources.ApplyResources(this.supportButton, "supportButton");
             this.supportButton.Click += new System.EventHandler(this.supportButton_Click);
             // 
+            // changeLanguage
+            // 
+            this.changeLanguage.ForeColor = System.Drawing.Color.Black;
+            this.changeLanguage.Name = "changeLanguage";
+            resources.ApplyResources(this.changeLanguage, "changeLanguage");
+            this.changeLanguage.Click += new System.EventHandler(this.changeLanguage_Click);
+            // 
             // StatusLabel
             // 
-            this.StatusLabel.ForeColor = System.Drawing.Color.Black;
+            this.StatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.StatusLabel.Name = "StatusLabel";
             resources.ApplyResources(this.StatusLabel, "StatusLabel");
             // 
@@ -617,8 +628,6 @@ namespace Lineups_creator
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Lineup_creator";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Lineup_creator_FormClosing);
-            this.Load += new System.EventHandler(this.Lineup_creator_Load);
             this.MainPanel.ResumeLayout(false);
             this.BluewaterPanel.ResumeLayout(false);
             this.BluewaterPanel.PerformLayout();
@@ -675,16 +684,13 @@ namespace Lineups_creator
         private System.Windows.Forms.ToolStripMenuItem vehicleTipesOrderButton;
         private System.Windows.Forms.ToolStripComboBox countryCombo;
         private System.Windows.Forms.ToolStripMenuItem flagLockedButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem modeInfoButton;
         private System.Windows.Forms.ToolStripMenuItem StatusLabel;
-        private System.Windows.Forms.ToolStripTextBox backgroundColorText;
         private System.Windows.Forms.ToolStripComboBox comboBoxPos1;
         private System.Windows.Forms.ToolStripComboBox comboBoxPos2;
         private System.Windows.Forms.ToolStripComboBox comboBoxPos3;
         private System.Windows.Forms.ToolStripComboBox comboBoxPos4;
         private System.Windows.Forms.ToolStripComboBox comboBoxPos5;
-        private System.Windows.Forms.ToolStripComboBox languageCombo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem decorTextButton;
         private System.Windows.Forms.ToolStripTextBox decorTextTextbox;
@@ -709,6 +715,11 @@ namespace Lineups_creator
         private System.Windows.Forms.ToolStripMenuItem HelpVTEControls;
         private System.Windows.Forms.ToolStripMenuItem HelpVESavenCloseKey;
         private System.Windows.Forms.ToolStripMenuItem HelpVECloseKey;
+        private System.Windows.Forms.ToolStripMenuItem decorONOFF;
+        private System.Windows.Forms.ToolStripMenuItem цветФонаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox backgroundColorText;
+        private System.Windows.Forms.ToolStripMenuItem backgroundColorPreview;
+        private System.Windows.Forms.ToolStripMenuItem changeLanguage;
     }
 }
 

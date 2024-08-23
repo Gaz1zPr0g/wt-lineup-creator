@@ -163,6 +163,12 @@
   <data name="flagButton.Text" xml:space="preserve">
     <value>Флаг</value>
   </data>
+  <data name="fileItemList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 23</value>
+  </data>
+  <data name="fileItemList.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
   <data name="saveScheme.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 22</value>
   </data>
@@ -181,17 +187,11 @@
   <data name="exportButton.Text" xml:space="preserve">
     <value>Экспорт (Ctrl+Shift+S)</value>
   </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 6</value>
+  <data name="exportSettings_itemList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 23</value>
   </data>
-  <data name="languageCombo.Text" xml:space="preserve">
-    <value>Язык</value>
-  </data>
-  <data name="fileItemList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 23</value>
-  </data>
-  <data name="fileItemList.Text" xml:space="preserve">
-    <value>Файл</value>
+  <data name="exportSettings_itemList.Text" xml:space="preserve">
+    <value>Параметры экспорта</value>
   </data>
   <data name="vehicleTipesOrderButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
@@ -207,23 +207,24 @@
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 6</value>
   </data>
-  <data name="backgroundColorText.Text" xml:space="preserve">
-    <value>Цвет фона</value>
-  </data>
-  <data name="backgroundColorText.ToolTipText" xml:space="preserve">
-    <value>Меняет цвет фона картинки
-Используйте следующие шаблоны RGB или HEX
-Для RGB - R, B, G
-Для HEX - #hexcol</value>
-  </data>
   <data name="decorTextButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
   </data>
-  <data name="exportSettings_itemList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 23</value>
+  <data name="decorTextButton.Text" xml:space="preserve">
+    <value>Декорация фона</value>
   </data>
-  <data name="exportSettings_itemList.Text" xml:space="preserve">
-    <value>Параметры экспорта</value>
+  <data name="цветФонаToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 22</value>
+  </data>
+  <data name="цветФонаToolStripMenuItem.Text" xml:space="preserve">
+    <value>Цвет фона</value>
+  </data>
+  <data name="backgroundColorText.Text" xml:space="preserve">
+    <value>Цвет фона</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="backgroundColorText.TextBoxTextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="countryCombo.Items" xml:space="preserve">
     <value>США</value>
@@ -258,6 +259,9 @@
   <data name="countryCombo.Text" xml:space="preserve">
     <value>Страна</value>
   </data>
+  <data name="countryCombo.ToolTipText" xml:space="preserve">
+    <value>Выбор игровой нации</value>
+  </data>
   <data name="flagLockedButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 23</value>
   </data>
@@ -277,11 +281,122 @@
     <value>Редактирование - изменение данных в клетке
 Удаление - удаление данных из клетки</value>
   </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 23</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>Помощь</value>
+  </data>
+  <data name="HelpControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="HelpControls.Text" xml:space="preserve">
+    <value>Сочетания клавиш</value>
+  </data>
+  <data name="HelpEditingControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpEditingControls.Text" xml:space="preserve">
+    <value>-Изменение-</value>
+  </data>
+  <data name="HelpEditModeKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpEditModeKey.Text" xml:space="preserve">
+    <value>[E] - Редактирование</value>
+  </data>
+  <data name="HelpDeleteModeKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpDeleteModeKey.Text" xml:space="preserve">
+    <value>[D] - Удаление</value>
+  </data>
+  <data name="HelpFileControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpFileControls.Text" xml:space="preserve">
+    <value>-ФАЙЛ-</value>
+  </data>
+  <data name="HelpSaveKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpSaveKey.Text" xml:space="preserve">
+    <value>[CTRL+S] - Сохранить</value>
+  </data>
+  <data name="HelpSaveAsKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpSaveAsKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+S] - Сохранить как</value>
+  </data>
+  <data name="HelpOpenKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpOpenKey.Text" xml:space="preserve">
+    <value>[CTRL+O] - Открыть</value>
+  </data>
+  <data name="HelpTablesControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpTablesControls.Text" xml:space="preserve">
+    <value>-ТАБЛИЦЫ-</value>
+  </data>
+  <data name="HelpCleartanksKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpCleartanksKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+T] - Очистить таблицу танков</value>
+  </data>
+  <data name="HelpClearPlanesKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpClearPlanesKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+P] - Очистить таблицу самолётов</value>
+  </data>
+  <data name="HelpClearHeliKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpClearHeliKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+H] - Очистить таблицу вертолётов</value>
+  </data>
+  <data name="HelpClearCoastalKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpClearCoastalKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+C] - Очистить таблицу малого флота</value>
+  </data>
+  <data name="HelpClearBluewaterKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpClearBluewaterKey.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+B] - Очистить таблицу большого флота</value>
+  </data>
+  <data name="HelpVTEControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpVTEControls.Text" xml:space="preserve">
+    <value>-РЕДАКТОР КЛЕТОК-</value>
+  </data>
+  <data name="HelpVESavenCloseKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpVESavenCloseKey.Text" xml:space="preserve">
+    <value>[CTRL+ENTER] - Сохранить и закрыть редактор</value>
+  </data>
+  <data name="HelpVECloseKey.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 22</value>
+  </data>
+  <data name="HelpVECloseKey.Text" xml:space="preserve">
+    <value>[ESC] - Закрыть редактор без сохранения</value>
+  </data>
   <data name="reportButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 22</value>
   </data>
   <data name="reportButton.Text" xml:space="preserve">
     <value>Сообщить об ошибке</value>
+  </data>
+  <data name="HelpGitHubPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
   </data>
   <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>196, 22</value>
@@ -289,11 +404,11 @@
   <data name="supportButton.Text" xml:space="preserve">
     <value>Поддержать монетой</value>
   </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 23</value>
+  <data name="changeLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 23</value>
   </data>
-  <data name="toolStripMenuItem1.Text" xml:space="preserve">
-    <value>Помощь</value>
+  <data name="changeLanguage.Text" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="StatusLabel.ToolTipText" xml:space="preserve">
     <value>Статус</value>

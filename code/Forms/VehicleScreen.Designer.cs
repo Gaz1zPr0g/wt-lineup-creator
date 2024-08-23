@@ -43,6 +43,8 @@ namespace Lineups_creator
             this.WTIDCombobox = new System.Windows.Forms.ComboBox();
             this.unitsNumberInput = new System.Windows.Forms.NumericUpDown();
             this.numberOfUnitsLabel = new System.Windows.Forms.Label();
+            this.fontSizeLabel = new System.Windows.Forms.Label();
+            this.fontSizeInput = new System.Windows.Forms.TextBox();
             this.PrevievPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitsNumberInput)).BeginInit();
             this.SuspendLayout();
@@ -63,8 +65,8 @@ namespace Lineups_creator
             // 
             // LinkCombobox
             // 
-            resources.ApplyResources(this.LinkCombobox, "LinkCombobox");
             this.LinkCombobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            resources.ApplyResources(this.LinkCombobox, "LinkCombobox");
             this.LinkCombobox.ForeColor = System.Drawing.Color.White;
             this.LinkCombobox.FormattingEnabled = true;
             this.LinkCombobox.Name = "LinkCombobox";
@@ -80,8 +82,8 @@ namespace Lineups_creator
             // 
             // BackgroundCombobox
             // 
-            resources.ApplyResources(this.BackgroundCombobox, "BackgroundCombobox");
             this.BackgroundCombobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            resources.ApplyResources(this.BackgroundCombobox, "BackgroundCombobox");
             this.BackgroundCombobox.ForeColor = System.Drawing.Color.White;
             this.BackgroundCombobox.FormattingEnabled = true;
             this.BackgroundCombobox.Name = "BackgroundCombobox";
@@ -120,8 +122,8 @@ namespace Lineups_creator
             // 
             // WTIDCombobox
             // 
-            resources.ApplyResources(this.WTIDCombobox, "WTIDCombobox");
             this.WTIDCombobox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            resources.ApplyResources(this.WTIDCombobox, "WTIDCombobox");
             this.WTIDCombobox.ForeColor = System.Drawing.Color.White;
             this.WTIDCombobox.FormattingEnabled = true;
             this.WTIDCombobox.Name = "WTIDCombobox";
@@ -142,11 +144,28 @@ namespace Lineups_creator
             this.numberOfUnitsLabel.ForeColor = System.Drawing.Color.White;
             this.numberOfUnitsLabel.Name = "numberOfUnitsLabel";
             // 
+            // fontSizeLabel
+            // 
+            resources.ApplyResources(this.fontSizeLabel, "fontSizeLabel");
+            this.fontSizeLabel.ForeColor = System.Drawing.Color.White;
+            this.fontSizeLabel.Name = "fontSizeLabel";
+            // 
+            // fontSizeInput
+            // 
+            this.fontSizeInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.fontSizeInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.fontSizeInput, "fontSizeInput");
+            this.fontSizeInput.ForeColor = System.Drawing.Color.White;
+            this.fontSizeInput.Name = "fontSizeInput";
+            this.fontSizeInput.TextChanged += new System.EventHandler(this.fontSizeInput_TextChanged);
+            // 
             // VehicleScreen
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.Controls.Add(this.fontSizeInput);
+            this.Controls.Add(this.fontSizeLabel);
             this.Controls.Add(this.numberOfUnitsLabel);
             this.Controls.Add(this.unitsNumberInput);
             this.Controls.Add(this.WTIDCombobox);
@@ -177,5 +196,7 @@ namespace Lineups_creator
         private System.Windows.Forms.ComboBox WTIDCombobox;
         private System.Windows.Forms.NumericUpDown unitsNumberInput;
         private System.Windows.Forms.Label numberOfUnitsLabel;
+        private System.Windows.Forms.Label fontSizeLabel;
+        private System.Windows.Forms.TextBox fontSizeInput;
     }
 }

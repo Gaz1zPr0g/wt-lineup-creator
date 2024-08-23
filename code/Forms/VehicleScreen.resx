@@ -145,7 +145,7 @@
     <value>True</value>
   </data>
   <data name="VehicleText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 66</value>
+    <value>244, 66</value>
   </data>
   <data name="VehicleText.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -163,10 +163,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;VehicleText.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="LinkCombobox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>11</value>
   </data>
   <data name="LinkCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -178,7 +175,7 @@
     <value>12, 113</value>
   </data>
   <data name="LinkCombobox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 24</value>
+    <value>192, 24</value>
   </data>
   <data name="LinkCombobox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -196,7 +193,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LinkCombobox.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="VehicleTextLable.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -205,13 +202,13 @@
     <value>Verdana, 10pt</value>
   </data>
   <data name="VehicleTextLable.Location" type="System.Drawing.Point, System.Drawing">
-    <value>46, 1</value>
+    <value>48, 1</value>
   </data>
   <data name="VehicleTextLable.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
   </data>
   <data name="VehicleTextLable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 47</value>
+    <value>72, 47</value>
   </data>
   <data name="VehicleTextLable.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -234,9 +231,6 @@
   <data name="&gt;&gt;VehicleTextLable.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="BackgroundCombobox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="BackgroundCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -247,7 +241,7 @@
     <value>12, 143</value>
   </data>
   <data name="BackgroundCombobox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 24</value>
+    <value>192, 24</value>
   </data>
   <data name="BackgroundCombobox.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -265,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;BackgroundCombobox.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="VehicleName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -280,7 +274,7 @@
     <value>138, 12</value>
   </data>
   <data name="VehicleName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 24</value>
+    <value>244, 24</value>
   </data>
   <data name="VehicleName.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -298,7 +292,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;VehicleName.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="SaveButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -328,7 +322,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
+  </data>
+  <data name="iconPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="iconPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="iconPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 45</value>
+  </data>
+  <data name="iconPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;iconPanel.Name" xml:space="preserve">
     <value>iconPanel</value>
@@ -361,34 +367,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PrevievPanel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="iconPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="iconPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="iconPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 45</value>
-  </data>
-  <data name="iconPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;iconPanel.Name" xml:space="preserve">
-    <value>iconPanel</value>
-  </data>
-  <data name="&gt;&gt;iconPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;iconPanel.Parent" xml:space="preserve">
-    <value>PrevievPanel</value>
-  </data>
-  <data name="&gt;&gt;iconPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="WTIDCombobox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>9</value>
   </data>
   <data name="WTIDCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -400,7 +379,7 @@
     <value>12, 173</value>
   </data>
   <data name="WTIDCombobox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>335, 24</value>
+    <value>192, 24</value>
   </data>
   <data name="WTIDCombobox.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -418,7 +397,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;WTIDCombobox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="unitsNumberInput.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -427,10 +406,10 @@
     <value>Verdana, 9.75pt</value>
   </data>
   <data name="unitsNumberInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>270, 203</value>
+    <value>340, 114</value>
   </data>
   <data name="unitsNumberInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 23</value>
+    <value>42, 23</value>
   </data>
   <data name="unitsNumberInput.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -448,7 +427,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;unitsNumberInput.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="numberOfUnitsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -457,16 +436,19 @@
     <value>Verdana, 9.75pt</value>
   </data>
   <data name="numberOfUnitsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 205</value>
+    <value>233, 116</value>
   </data>
   <data name="numberOfUnitsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 16</value>
+    <value>101, 16</value>
   </data>
   <data name="numberOfUnitsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="numberOfUnitsLabel.Text" xml:space="preserve">
-    <value>The number of allowed units:</value>
+    <value>Allowed units:</value>
+  </data>
+  <data name="numberOfUnitsLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
   </data>
   <data name="&gt;&gt;numberOfUnitsLabel.Name" xml:space="preserve">
     <value>numberOfUnitsLabel</value>
@@ -478,6 +460,63 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;numberOfUnitsLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="fontSizeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fontSizeLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 9.75pt</value>
+  </data>
+  <data name="fontSizeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 146</value>
+  </data>
+  <data name="fontSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 16</value>
+  </data>
+  <data name="fontSizeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="fontSizeLabel.Text" xml:space="preserve">
+    <value>Font size:</value>
+  </data>
+  <data name="fontSizeLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;fontSizeLabel.Name" xml:space="preserve">
+    <value>fontSizeLabel</value>
+  </data>
+  <data name="&gt;&gt;fontSizeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fontSizeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fontSizeLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="fontSizeInput.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt</value>
+  </data>
+  <data name="fontSizeInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>326, 146</value>
+  </data>
+  <data name="fontSizeInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 21</value>
+  </data>
+  <data name="fontSizeInput.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;fontSizeInput.Name" xml:space="preserve">
+    <value>fontSizeInput</value>
+  </data>
+  <data name="&gt;&gt;fontSizeInput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fontSizeInput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fontSizeInput.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -487,7 +526,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>359, 235</value>
+    <value>394, 208</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -775,9 +814,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABwAAAAAAAAAM=
 </value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Vehicle data</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>VehicleScreen</value>

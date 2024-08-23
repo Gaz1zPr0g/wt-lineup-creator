@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.IO.Compression;
+using System.Globalization;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Threading;
 using Newtonsoft.Json;
 using System.Net;
 
@@ -32,7 +32,7 @@ namespace Lineups_creator
         bool flagLocked = false;
         bool drawDecor = true;
         string decorText = "◊";
-        System.Windows.Forms.Timer timer;
+        Timer timer;
         ArraySizes arrSizes = new ArraySizes();
         VehicleData[,] tanksData;
         VehicleData[,] planesData;
@@ -52,10 +52,9 @@ namespace Lineups_creator
         {
             if (!String.IsNullOrEmpty(Properties.Settings.Default.Language))
             {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
-                System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
             }
-
             InitializeComponent();
             copyrights.Text = $"RailGunToaster 2024 {Application.ProductVersion}";
 
@@ -64,7 +63,7 @@ namespace Lineups_creator
             WebClient webClient = new WebClient();
 
             string urlVersion = "https://www.dropbox.com/scl/fi/d2er1hozhboimxe40dsm6/version.txt?rlkey=2rdsq80onzl7iu24y8segjs7x&st=fveasz1g&dl=1";
-            webClient.DownloadFile(new System.Uri(urlVersion), $@"{dir}\temp\version.txt");
+            webClient.DownloadFile(new Uri(urlVersion), $@"{dir}\temp\version.txt");
             webClient.Dispose();
 
             StreamReader sr = new StreamReader(@"temp\version.txt");
@@ -72,6 +71,10 @@ namespace Lineups_creator
             var verData = sr.ReadToEnd();
             sr.Close();
             sr.Dispose();
+
+            FileInfo verFile = new FileInfo(@"temp\version.txt");
+            verFile.Delete();
+
 
             var newVersion = newVersionstr;
             var currentVersion = Application.ProductVersion.ToString();
@@ -661,7 +664,6 @@ namespace Lineups_creator
                 {
                     try
                     {
-                        StatusLabel.Text = "[----------]";
                         StatusLabel.ForeColor = Color.FromArgb(204, 142, 23);
                         int tsizeX = (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.tanks.Item1 : 0;
                         int tsizeY = arrSizes.tanks.Item2 >= 1 ? 10 + 124 * arrSizes.tanks.Item2 : 0;
@@ -687,7 +689,6 @@ namespace Lineups_creator
                                 bitmap.SetPixel(x, y, imageBackgroundColor);
                             }
                         }
-                        StatusLabel.Text = "[█---------]";
                         using (Graphics graphics = Graphics.FromImage(bitmap))
                         {
                             using (Font backgroundFont = new Font("Verdana", 8, new FontStyle()))
@@ -714,7 +715,6 @@ namespace Lineups_creator
                                 }
                             }
                         }
-                        StatusLabel.Text = "[██--------]";
                         x = 0; y = 20;
                         using (Graphics graphics = Graphics.FromImage(bitmap))
                         {
@@ -734,8 +734,6 @@ namespace Lineups_creator
                                     graphics.DrawImage(flag, bitmap.Width - flag.Width - 5, 5, flag.Width, flag.Height);
                                     flag.Dispose();
                                 }
-                                StatusLabel.Text = "[███-------]";
-                                int progressBarTiles = 3;
 
 
                                 for (int index = 0; index < 5; index++)
@@ -763,8 +761,6 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
-                                        progressBarTiles++;
-                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                     else if (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1 && generatorIndexes[index] == 1)
                                     {
@@ -788,8 +784,6 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
-                                        progressBarTiles++;
-                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                     else if (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1 && generatorIndexes[index] == 2)
                                     {
@@ -813,8 +807,6 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
-                                        progressBarTiles++;
-                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                     else if (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1 && generatorIndexes[index] == 3)
                                     {
@@ -838,8 +830,6 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
-                                        progressBarTiles++;
-                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                     else if (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1 && generatorIndexes[index] == 4)
                                     {
@@ -863,14 +853,11 @@ namespace Lineups_creator
                                             x = 5;
                                             y += 52;
                                         }
-                                        progressBarTiles++;
-                                        StatusLabel.Text = StatusBar(progressBarTiles);
                                     }
                                 }
 
                             }
                         }
-                        StatusLabel.Text = "[██████████]";
                         bitmap.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
                         bitmap.Dispose();
 
@@ -991,20 +978,8 @@ namespace Lineups_creator
         }
 
         // Menu buttons
-        private void languageCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (languageCombo.SelectedIndex == 0)
-            {
-                Properties.Settings.Default.Language = "ru";
-            }
-            else if (languageCombo.SelectedIndex == 1)
-            {
-                Properties.Settings.Default.Language = "en";
-            }
 
-            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
-            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
-        }
+        
         // 
         private void flagLockedButton_Click(object sender, EventArgs e)
         {
@@ -1050,18 +1025,11 @@ namespace Lineups_creator
                 try
                 {
                     imageBackgroundColor = ColorTranslator.FromHtml(text);
-                    backgroundColorText.BackColor = imageBackgroundColor;
+                    backgroundColorPreview.BackColor = imageBackgroundColor;
                     byte redInd = Convert.ToByte(imageBackgroundColor.R + 10);
                     byte greenInd = Convert.ToByte(imageBackgroundColor.G + 10);
                     byte blueInd = Convert.ToByte(imageBackgroundColor.B + 10);
                     waterMarkColor = Color.FromArgb(redInd, greenInd, blueInd);
-                    if (redInd > 127 || greenInd > 127 || blueInd > 127)
-                    {
-                        backgroundColorText.ForeColor = Color.Black;
-                    } else
-                    {
-                        backgroundColorText.ForeColor = Color.White;
-                    }
                 }
                 catch
                 {
@@ -1072,22 +1040,14 @@ namespace Lineups_creator
             {
                 try
                 {
-                    text.Replace(',', ' ');
                     string[] textSplit = text.Split(',');
-                    byte redInd = Convert.ToByte(textSplit[0] + 10);
-                    byte greenInd = Convert.ToByte(textSplit[1] + 10);
-                    byte blueInd = Convert.ToByte(textSplit[2] + 10);
+                    byte redInd = Convert.ToByte(textSplit[0]); 
+                    byte greenInd = Convert.ToByte(textSplit[1]); 
+                    byte blueInd = Convert.ToByte(textSplit[2]); 
                     imageBackgroundColor = Color.FromArgb(redInd, greenInd, blueInd);
-                    backgroundColorText.BackColor = imageBackgroundColor;
+                    backgroundColorPreview.BackColor = imageBackgroundColor;
+                    redInd += 10; greenInd += 10; blueInd += 10;
                     waterMarkColor = Color.FromArgb(redInd, greenInd, blueInd);
-                    if (redInd > 127 || greenInd > 127 || blueInd > 127)
-                    {
-                        backgroundColorText.ForeColor = Color.Black;
-                    }
-                    else
-                    {
-                        backgroundColorText.ForeColor = Color.White;
-                    }
                 }
                 catch
                 {
@@ -1099,8 +1059,8 @@ namespace Lineups_creator
         }
         private void decorTextButton_Click(object sender, EventArgs e)
         {
-            drawDecor = !(decorTextButton.Text == res.LocalisationRes.decorTextOn);
-            decorTextButton.Text = drawDecor ? res.LocalisationRes.decorTextOn : res.LocalisationRes.decorTextOff;
+            drawDecor = decorONOFF.Text == "OFF";
+            decorONOFF.Text = drawDecor ? "ON" : "OFF";
         }
         private void decorTextTextbox_TextChanged(object sender, EventArgs e)
         {
@@ -2133,25 +2093,19 @@ namespace Lineups_creator
             }
         }
 
-
-        private void Lineup_creator_FormClosing(object sender, FormClosingEventArgs e)
+        private void changeLanguage_Click(object sender, EventArgs e)
         {
-            if (languageCombo.SelectedIndex == 0)
-            {
-                Properties.Settings.Default.Language = "en";
-            } else
-            {
-                Properties.Settings.Default.Language = "ru";
-            }
-            
+            Properties.Settings.Default.Language = Properties.Settings.Default.Language == "ru" ? "en" : "ru";
             Properties.Settings.Default.Save();
-        }
 
-        private void Lineup_creator_Load(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(Properties.Settings.Default.Language))
+            DialogResult dialogResult = MessageBox.Show(text: $"Language will be changed. All the data in tables will be deleted.\nЯзык будет изменён, все данные в таблицах будут удалены.", caption: "Restart now?", buttons: MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                languageCombo.SelectedItem = Properties.Settings.Default.Language;
+                Process p = new Process();
+                p.StartInfo.FileName = "Lineup creator.exe";
+                p.Start();
+                Environment.Exit(1);
             }
         }
     }
@@ -2165,7 +2119,7 @@ namespace Lineups_creator
         public string buttonImage;
         public int[] pos = new int[2]; // row, col
         public string wtID;
-        public int numberOfUnits = 0; // - yes, 1->inf 
+        public int numberOfUnits; // 0 - infinite 
 
         public VehicleData() { }
 

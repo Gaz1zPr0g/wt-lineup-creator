@@ -27,6 +27,7 @@ namespace Lineups_creator
             "Sweden",
             "Israel"
         };
+        private float fontSize = Properties.Settings.Default.FontSize;
 
         private string country;
         private int backgroundindex;
@@ -47,8 +48,11 @@ namespace Lineups_creator
             senderData = new VehicleData("N/A", type, "N/A", 0, "N/A", 0);
 
             templates = new Templates(country);
-            InitializeComponent();
 
+            
+            Text = $"{res.LocalisationRes.tile}[{row},{column}]";
+            InitializeComponent();
+            fontSizeInput.Text = $"{fontSize}";
             foreach (string path in linc.backgroundImagesPaths)
             {
                 BackgroundCombobox.Items.Add(path.Substring(7));
@@ -76,13 +80,18 @@ namespace Lineups_creator
             column = sendercolumn;
             senderButton = sender;
             senderData = data;
+            senderData.numberOfUnits = data.numberOfUnits;
             name = senderData.name;
             text = senderData.name;
             backgroundindex = senderData.backgroudType;
             lc = linc;
             
             templates = new Templates(country);
+
+            Text = $"{res.LocalisationRes.tile}[{row},{column}]";
             InitializeComponent();
+            fontSizeInput.Text = $"{fontSize}";
+
             foreach (string name in templates.GetDataByCountry(country).Keys)
             {
                 VehicleData fillData = templates.GetDataByCountry(country)[name];
@@ -99,7 +108,7 @@ namespace Lineups_creator
             VehicleTextLable.Text = name;
             VehicleName.SelectedItem = name;
             LinkCombobox.SelectedItem = senderData.name;
-            unitsNumberInput.Value = senderData.numberOfUnits;
+            unitsNumberInput.Value = data.numberOfUnits;
             WTIDCombobox.SelectedItem = senderData.wtID;
         }
 
@@ -191,7 +200,7 @@ namespace Lineups_creator
 
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
-                    using (Font verdanaFont = new Font("Verdana", 10, new FontStyle()))
+                    using (Font verdanaFont = new Font("Verdana", fontSize, new FontStyle()))
                     {
                         Image icon = iconPanel.BackgroundImage;
                         if (icon == null)
@@ -251,6 +260,20 @@ namespace Lineups_creator
                 Close();
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void fontSizeInput_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                fontSize = float.Parse(fontSizeInput.Text);
+                Properties.Settings.Default.FontSize = fontSize;
+                Properties.Settings.Default.Save();
+            }
+            catch
+            {
+
+            }
         }
     }
 }
