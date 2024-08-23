@@ -43,3 +43,8 @@ Yes. You can look for them in the `Help` tab
 
 ### I have encountered a bug, what to do?
 Describe your problem in the [Issues](https://github.com/Gaz1zPr0g/wt-lineup-creator/issues)
+
+## Known issues.
+- Old save (v1.3 or earlier) files aren't working with newer versions. (I've updated saving system few times)
+- Tile preview text is placed weirdly and doesn't represent real position (limitations of WinForms)
+
