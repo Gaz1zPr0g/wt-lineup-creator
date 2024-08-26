@@ -55,8 +55,8 @@ namespace Lineups_creator
             this.copyrights = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileItemList = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveScheme = new System.Windows.Forms.ToolStripMenuItem();
             this.importButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveScheme = new System.Windows.Forms.ToolStripMenuItem();
             this.exportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.exportSettings_itemList = new System.Windows.Forms.ToolStripMenuItem();
             this.vehicleTipesOrderButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,6 +96,8 @@ namespace Lineups_creator
             this.reportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpGitHubPage = new System.Windows.Forms.ToolStripMenuItem();
             this.supportButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.boostyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.donationAlertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusLabel = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanel.SuspendLayout();
@@ -292,17 +294,17 @@ namespace Lineups_creator
             this.fileItemList.Name = "fileItemList";
             resources.ApplyResources(this.fileItemList, "fileItemList");
             // 
-            // saveScheme
-            // 
-            this.saveScheme.Name = "saveScheme";
-            resources.ApplyResources(this.saveScheme, "saveScheme");
-            this.saveScheme.Click += new System.EventHandler(this.saveButton_Click);
-            // 
             // importButton
             // 
             this.importButton.Name = "importButton";
             resources.ApplyResources(this.importButton, "importButton");
             this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            // 
+            // saveScheme
+            // 
+            this.saveScheme.Name = "saveScheme";
+            resources.ApplyResources(this.saveScheme, "saveScheme");
+            this.saveScheme.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // exportButton
             // 
@@ -599,9 +601,23 @@ namespace Lineups_creator
             // 
             // supportButton
             // 
+            this.supportButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.boostyToolStripMenuItem,
+            this.donationAlertsToolStripMenuItem});
             this.supportButton.Name = "supportButton";
             resources.ApplyResources(this.supportButton, "supportButton");
-            this.supportButton.Click += new System.EventHandler(this.supportButton_Click);
+            // 
+            // boostyToolStripMenuItem
+            // 
+            this.boostyToolStripMenuItem.Name = "boostyToolStripMenuItem";
+            resources.ApplyResources(this.boostyToolStripMenuItem, "boostyToolStripMenuItem");
+            this.boostyToolStripMenuItem.Click += new System.EventHandler(this.supportBoostyButton_Click);
+            // 
+            // donationAlertsToolStripMenuItem
+            // 
+            this.donationAlertsToolStripMenuItem.Name = "donationAlertsToolStripMenuItem";
+            resources.ApplyResources(this.donationAlertsToolStripMenuItem, "donationAlertsToolStripMenuItem");
+            this.donationAlertsToolStripMenuItem.Click += new System.EventHandler(this.supprotDonationAlertsButton_Click);
             // 
             // changeLanguage
             // 
@@ -720,6 +736,8 @@ namespace Lineups_creator
         private System.Windows.Forms.ToolStripTextBox backgroundColorText;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorPreview;
         private System.Windows.Forms.ToolStripMenuItem changeLanguage;
+        private System.Windows.Forms.ToolStripMenuItem boostyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem donationAlertsToolStripMenuItem;
     }
 }
 

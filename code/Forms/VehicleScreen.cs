@@ -90,7 +90,12 @@ namespace Lineups_creator
 
             Text = $"{res.LocalisationRes.tile}[{row},{column}]";
             InitializeComponent();
+            foreach (string path in linc.backgroundImagesPaths)
+            {
+                BackgroundCombobox.Items.Add(path.Substring(7));
+            }
             fontSizeInput.Text = $"{fontSize}";
+            
 
             foreach (string name in templates.GetDataByCountry(country).Keys)
             {
@@ -113,12 +118,12 @@ namespace Lineups_creator
         }
 
 
+        // Background
         private void BackgroundCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             backgroundindex = BackgroundCombobox.SelectedIndex;
             ChangeBackground();
         }
-
         private void ChangeBackground()
         {
             senderData.backgroudType = backgroundindex;
@@ -127,10 +132,11 @@ namespace Lineups_creator
 
             Image background = new Bitmap(backgroundToCopy);
             backgroundToCopy.Dispose();
-
+            BackgroundCombobox.SelectedIndex = backgroundindex;
             PrevievPanel.BackgroundImage = background;
         }
 
+        // Icon
         private void ChangeIcon(string link)
         {
             if (link != "N/A")
@@ -158,7 +164,44 @@ namespace Lineups_creator
             }
             
         }
+        private void LinkCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangeIcon(templates.GetLinkByName(country, LinkCombobox.SelectedItem.ToString()));
+        }
 
+        // Text
+        private void VehicleText_TextChanged(object sender, EventArgs e)
+        {
+            senderData.name = VehicleText.Text;
+            VehicleTextLable.Text = VehicleText.Text;
+            text = VehicleText.Text;
+        }
+        private void fontSizeInput_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                fontSize = float.Parse(fontSizeInput.Text);
+                VehicleTextLable.Font = new Font("Verdana", fontSize, new FontStyle());
+                Properties.Settings.Default.FontSize = fontSize;
+                Properties.Settings.Default.Save();
+            }
+            catch
+            {
+
+            }
+        }
+
+        // CDK
+        private void WTIDCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            senderData.wtID = WTIDCombobox.SelectedItem.ToString();
+        }
+        private void unitsNumberInput_ValueChanged(object sender, EventArgs e)
+        {
+            senderData.numberOfUnits = Convert.ToInt32(unitsNumberInput.Value);
+        }
+
+        // Template changed
         private void VehicleName_SelectedIndexChanged(object sender, EventArgs e)
         {
             string key = VehicleName.SelectedItem.ToString();
@@ -178,19 +221,12 @@ namespace Lineups_creator
 
             }
         }
-
-        private void VehicleText_TextChanged(object sender, EventArgs e)
-        {
-            senderData.name = VehicleText.Text;
-            VehicleTextLable.Text = VehicleText.Text;
-            text = VehicleText.Text;
-        }
-
+        
+        // Save
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Save_data();
         }
-
         private void Save_data()
         {
             try
@@ -231,22 +267,6 @@ namespace Lineups_creator
             }
         }
 
-
-        private void LinkCombobox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ChangeIcon(templates.GetLinkByName(country, LinkCombobox.SelectedItem.ToString()));
-        }
-
-        private void WTIDCombobox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            senderData.wtID = WTIDCombobox.SelectedItem.ToString();
-        }
-
-        private void unitsNumberInput_ValueChanged(object sender, EventArgs e)
-        {
-            senderData.numberOfUnits = Convert.ToInt32(unitsNumberInput.Value);
-        }
-
         // shotcuts
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -260,20 +280,6 @@ namespace Lineups_creator
                 Close();
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void fontSizeInput_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                fontSize = float.Parse(fontSizeInput.Text);
-                Properties.Settings.Default.FontSize = fontSize;
-                Properties.Settings.Default.Save();
-            }
-            catch
-            {
-
-            }
         }
     }
 }

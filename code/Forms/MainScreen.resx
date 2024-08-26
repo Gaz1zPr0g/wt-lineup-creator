@@ -841,22 +841,22 @@
     <value>22, 12</value>
   </metadata>
   <data name="importButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>188, 22</value>
   </data>
   <data name="importButton.Text" xml:space="preserve">
     <value>Open (Ctrl+O)</value>
   </data>
   <data name="saveScheme.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>188, 22</value>
   </data>
   <data name="saveScheme.Text" xml:space="preserve">
     <value>Save (Ctrl+S)</value>
   </data>
   <data name="exportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+    <value>188, 22</value>
   </data>
   <data name="exportButton.Text" xml:space="preserve">
-    <value>Export (Ctrl+Shift+S)</value>
+    <value>Save as (Ctrl+Shift+S)</value>
   </data>
   <data name="fileItemList.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 23</value>
@@ -985,7 +985,7 @@
     <value>Bluewater fleet</value>
   </data>
   <data name="vehicleTipesOrderButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="vehicleTipesOrderButton.Text" xml:space="preserve">
     <value>Vehicle types order</value>
@@ -995,7 +995,7 @@
 </value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="decorTextTextbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
@@ -1004,16 +1004,16 @@
     <value>◊</value>
   </data>
   <data name="decorONOFF.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="decorONOFF.Text" xml:space="preserve">
     <value>ON</value>
   </data>
   <data name="decorTextButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="decorTextButton.Text" xml:space="preserve">
-    <value>Decor on</value>
+    <value>Decorations</value>
   </data>
   <data name="backgroundColorText.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
@@ -1034,7 +1034,7 @@ For HEX - #hexcol</value>
     <value>160, 22</value>
   </data>
   <data name="цветФонаToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="цветФонаToolStripMenuItem.Text" xml:space="preserve">
     <value>Background color</value>
@@ -1201,25 +1201,37 @@ For HEX - #hexcol</value>
     <value>[ESC] - Close vehicle editor without saving</value>
   </data>
   <data name="HelpControls.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="HelpControls.Text" xml:space="preserve">
     <value>Shortcut keys</value>
   </data>
   <data name="reportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="reportButton.Text" xml:space="preserve">
     <value>Report bug</value>
   </data>
   <data name="HelpGitHubPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="HelpGitHubPage.Text" xml:space="preserve">
     <value>GitHub</value>
   </data>
+  <data name="boostyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="boostyToolStripMenuItem.Text" xml:space="preserve">
+    <value>Boosty</value>
+  </data>
+  <data name="donationAlertsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="donationAlertsToolStripMenuItem.Text" xml:space="preserve">
+    <value>DonationAlerts</value>
+  </data>
   <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="supportButton.Text" xml:space="preserve">
     <value>Support project</value>
@@ -1586,16 +1598,16 @@ For HEX - #hexcol</value>
   <data name="&gt;&gt;fileItemList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;saveScheme.Name" xml:space="preserve">
-    <value>saveScheme</value>
-  </data>
-  <data name="&gt;&gt;saveScheme.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;importButton.Name" xml:space="preserve">
     <value>importButton</value>
   </data>
   <data name="&gt;&gt;importButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveScheme.Name" xml:space="preserve">
+    <value>saveScheme</value>
+  </data>
+  <data name="&gt;&gt;saveScheme.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;exportButton.Name" xml:space="preserve">
@@ -1830,6 +1842,18 @@ For HEX - #hexcol</value>
     <value>supportButton</value>
   </data>
   <data name="&gt;&gt;supportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;boostyToolStripMenuItem.Name" xml:space="preserve">
+    <value>boostyToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;boostyToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;donationAlertsToolStripMenuItem.Name" xml:space="preserve">
+    <value>donationAlertsToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;donationAlertsToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;changeLanguage.Name" xml:space="preserve">

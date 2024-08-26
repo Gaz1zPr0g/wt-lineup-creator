@@ -117,80 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;linkPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="flagPreviewPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="&gt;&gt;radioPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;downloadButton.Name" xml:space="preserve">
-    <value>downloadButton</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="radioPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="linkBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;fileButton.Name" xml:space="preserve">
-    <value>fileButton</value>
+  <data name="flagPreviewPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="linkPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 100</value>
+  <data name="flagPreviewPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 16</value>
   </data>
-  <data name="downloadButton.Text" xml:space="preserve">
-    <value>Download</value>
+  <data name="flagPreviewPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
-  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 285</value>
+  <data name="flagPreviewPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 96</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="fileButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FlagEditor</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="linkButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 33</value>
-  </data>
-  <data name="&gt;&gt;linkPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="fileButton.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="flagPreviewPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="fileButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="saveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;fileButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="linkBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 2</value>
-  </data>
-  <data name="fileButton.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="&gt;&gt;openButton.Parent" xml:space="preserve">
-    <value>filePanel</value>
-  </data>
-  <data name="linkBox.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;radioPanel.Name" xml:space="preserve">
-    <value>radioPanel</value>
   </data>
   <data name="&gt;&gt;flagPreviewPanel.Name" xml:space="preserve">
     <value>flagPreviewPanel</value>
@@ -198,146 +144,299 @@
   <data name="&gt;&gt;flagPreviewPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="downloadButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 35</value>
+  <data name="&gt;&gt;flagPreviewPanel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="saveButton.Text" xml:space="preserve">
-    <value>SAVE</value>
+  <data name="&gt;&gt;flagPreviewPanel.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="downloadButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="radioPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;filePanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="fileButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="linkButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="fileButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fileButton.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="fileButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fileButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 10</value>
+  </data>
+  <data name="fileButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
-  </data>
-  <data name="flagPreviewPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 96</value>
-  </data>
-  <data name="&gt;&gt;downloadButton.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="fileButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>34, 33</value>
   </data>
+  <data name="fileButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="fileButton.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="fileButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;fileButton.Name" xml:space="preserve">
+    <value>fileButton</value>
+  </data>
+  <data name="&gt;&gt;fileButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;fileButton.Parent" xml:space="preserve">
     <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;fileButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="linkButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="linkButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="linkButton.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="linkButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="linkButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 10</value>
+  </data>
+  <data name="linkButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="linkButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 33</value>
+  </data>
+  <data name="linkButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="linkButton.Text" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="linkButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;linkButton.Name" xml:space="preserve">
+    <value>linkButton</value>
+  </data>
+  <data name="&gt;&gt;linkButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkButton.Parent" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;linkButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 115</value>
+  </data>
+  <data name="radioPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 51</value>
+  </data>
+  <data name="radioPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;radioPanel.Name" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;radioPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;radioPanel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;filePanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;radioPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;openButton.Type" xml:space="preserve">
+  <data name="linkPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="downloadButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="downloadButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="downloadButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 35</value>
+  </data>
+  <data name="downloadButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="downloadButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="downloadButton.Text" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="&gt;&gt;downloadButton.Name" xml:space="preserve">
+    <value>downloadButton</value>
+  </data>
+  <data name="&gt;&gt;downloadButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;downloadButton.Parent" xml:space="preserve">
     <value>linkPanel</value>
   </data>
-  <data name="&gt;&gt;linkButton.Name" xml:space="preserve">
-    <value>linkButton</value>
-  </data>
-  <data name="saveButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="downloadButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="fileButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="downloadButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 48</value>
-  </data>
-  <data name="linkButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;fileButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;downloadButton.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="openButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 35</value>
-  </data>
-  <data name="fileButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="filePanel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;linkBox.Parent" xml:space="preserve">
-    <value>linkPanel</value>
-  </data>
-  <data name="&gt;&gt;downloadButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="radioPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="linkButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="openButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="linkPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="fileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 10</value>
-  </data>
-  <data name="&gt;&gt;linkBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;linkBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="openButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
   </data>
   <data name="linkBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
-  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 34</value>
+  <data name="linkBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 2</value>
   </data>
-  <data name="&gt;&gt;openButton.ZOrder" xml:space="preserve">
+  <data name="linkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 24</value>
+  </data>
+  <data name="linkBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="radioPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 115</value>
-  </data>
-  <data name="&gt;&gt;linkButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="openButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 48</value>
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 10pt</value>
-  </data>
-  <data name="&gt;&gt;linkButton.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="linkBox.Text" xml:space="preserve">
     <value>Link to the image (.png / .jpeg)</value>
   </data>
-  <data name="linkButton.CheckAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
+  <data name="linkBox.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
   </data>
-  <data name="flagPreviewPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 16</value>
+  <data name="&gt;&gt;linkBox.Name" xml:space="preserve">
+    <value>linkBox</value>
+  </data>
+  <data name="&gt;&gt;linkBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkBox.Parent" xml:space="preserve">
+    <value>linkPanel</value>
+  </data>
+  <data name="&gt;&gt;linkBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="linkPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 175</value>
+  </data>
+  <data name="linkPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 100</value>
+  </data>
+  <data name="linkPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;linkPanel.Name" xml:space="preserve">
+    <value>linkPanel</value>
+  </data>
+  <data name="&gt;&gt;linkPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;linkPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="filePanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="openButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="openButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 35</value>
+  </data>
+  <data name="openButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="openButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="openButton.Text" xml:space="preserve">
     <value>LOAD</value>
   </data>
+  <data name="&gt;&gt;openButton.Name" xml:space="preserve">
+    <value>openButton</value>
+  </data>
+  <data name="&gt;&gt;openButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openButton.Parent" xml:space="preserve">
+    <value>filePanel</value>
+  </data>
+  <data name="&gt;&gt;openButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="filePanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 175</value>
+  </data>
+  <data name="filePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 100</value>
+  </data>
+  <data name="filePanel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="filePanel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;filePanel.Name" xml:space="preserve">
+    <value>filePanel</value>
+  </data>
+  <data name="&gt;&gt;filePanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;filePanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;filePanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="saveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="saveButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 285</value>
+  </data>
+  <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 34</value>
+  </data>
+  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="saveButton.Text" xml:space="preserve">
+    <value>SAVE</value>
+  </data>
   <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
     <value>saveButton</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>272, 346</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 10pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -626,115 +725,16 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABwAAAAAAAAAM=
 </value>
   </data>
-  <data name="linkPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 175</value>
-  </data>
-  <data name="&gt;&gt;openButton.Name" xml:space="preserve">
-    <value>openButton</value>
-  </data>
-  <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="saveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="linkButton.Text" xml:space="preserve">
-    <value>Link</value>
-  </data>
-  <data name="linkButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 10</value>
-  </data>
-  <data name="linkButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="flagPreviewPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="linkButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;linkPanel.Name" xml:space="preserve">
-    <value>linkPanel</value>
-  </data>
-  <data name="flagPreviewPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
-  </data>
-  <data name="filePanel.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="linkPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="downloadButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;linkBox.Name" xml:space="preserve">
-    <value>linkBox</value>
-  </data>
-  <data name="fileButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="filePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 100</value>
-  </data>
-  <data name="&gt;&gt;filePanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;saveButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="filePanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 175</value>
-  </data>
-  <data name="linkButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;flagPreviewPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;radioPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;linkPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FlagEditor</value>
   </data>
-  <data name="&gt;&gt;filePanel.Name" xml:space="preserve">
-    <value>filePanel</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>272, 346</value>
-  </data>
-  <data name="&gt;&gt;linkButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FlagEditor</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="linkBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 24</value>
-  </data>
-  <data name="radioPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 51</value>
-  </data>
-  <data name="flagPreviewPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;flagPreviewPanel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="filePanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="fileButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

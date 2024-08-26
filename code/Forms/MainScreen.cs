@@ -978,9 +978,6 @@ namespace Lineups_creator
         }
 
         // Menu buttons
-
-        
-        // 
         private void flagLockedButton_Click(object sender, EventArgs e)
         {
             flagLocked = !(flagLockedButton.Text == res.LocalisationRes.flagLocked);
@@ -1015,6 +1012,7 @@ namespace Lineups_creator
 
             }
         }
+
         // background menu
         private void backgroundColorText_TextChanged(object sender, EventArgs e)
         {
@@ -1066,19 +1064,25 @@ namespace Lineups_creator
         {
             decorText = decorTextTextbox.Text;
         }
+
         // HELP menu
         private void reportButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Gaz1zPr0g/wt-lineup-creator/issues");
         }
-        private void supportButton_Click(object sender, EventArgs e)
+        private void supportBoostyButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://boosty.to/railguntoaster");
+            Process.Start("https://boosty.to/railguntoaster");
+        }
+        private void supprotDonationAlertsButton_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.donationalerts.com/r/railguntoaster");
         }
         private void HelpGitHubPage_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Gaz1zPr0g/wt-lineup-creator");
         }
+
         // Generator queue
         private void changeIfindexOccuped(int index)
         {

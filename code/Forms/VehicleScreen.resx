@@ -324,18 +324,6 @@
   <data name="&gt;&gt;SaveButton.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="iconPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="iconPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="iconPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 45</value>
-  </data>
-  <data name="iconPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;iconPanel.Name" xml:space="preserve">
     <value>iconPanel</value>
   </data>
@@ -368,6 +356,30 @@
   </data>
   <data name="&gt;&gt;PrevievPanel.ZOrder" xml:space="preserve">
     <value>9</value>
+  </data>
+  <data name="iconPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="iconPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="iconPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 45</value>
+  </data>
+  <data name="iconPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Name" xml:space="preserve">
+    <value>iconPanel</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.Parent" xml:space="preserve">
+    <value>PrevievPanel</value>
+  </data>
+  <data name="&gt;&gt;iconPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="WTIDCombobox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
