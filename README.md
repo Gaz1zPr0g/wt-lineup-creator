@@ -1,50 +1,41 @@
-![topimage](https://github.com/user-attachments/assets/ee8737c4-bccf-422f-9b0c-5ff15001d6d5)
 
-# Lineups creator for Windows
+![top-eng](https://github.com/user-attachments/assets/e42d95bd-5f57-4ea3-a3bd-4f35aaea9fc1)
+
+# Lineup creator for Windows
 
 **English** | [Русский](README-ru.md)
 
----
 
-Program that creates vehicle lists for War Thunder event creators. \
-This program downloads images from [official War Thunder wiki](https://wiki.warthunder.com/Main_Page) so stay connected while using.
+Program that creates vehicle lists for War Thunder event creators. 
 
----
+> [!IMPORTANT]
+> This program downloads icons and flags from [official War Thunder wiki](https://wiki.warthunder.com/Main_Page) so stay connected while using.
+>
 
 ## Installation
 
-Use GitHub [releases](https://github.com/Gaz1zPr0g/wt-lineup-creator/releases) \
+Download latest version from GitHub [releases](https://github.com/Gaz1zPr0g/wt-lineup-creator/releases) \
 Later on, the program will update automatically.
 
-## Settings
-You can change background color, decoration string/symbol, add your own flag, add empty cells to describe something, change order of tables and more.
+## Guide
+Lineup creator can generate 5 tables for different vehicle types or one for everything. They work the same way. \ 
 
+Left click on `Add` button adds a new row, right click adds a new column.
 
----
-## FAQ
-### Why internet connection is required?
-All images (vehicle icons, vehicle background images, flags) are downloaading from [official War Thunder wiki](https://wiki.warthunder.com/Main_Page) when you select appropriate option.
+To edit cell data, choose nation, enter `Edit mode` (CTRL+E) and left click the cell. It'll open cell editor window, where you can choose pre-made cells or create one by yourself. \
+To delete cell data, enter `Delete mode` and left click the cell.
 
-### How to add new cell to a table? 
-- Left click on `Add` button adds new cell in column. 
-- Right click on `Add` button adds new empty column.
+You can change background color, decorations, decorations color to make your lineup more unique.
 
-### How to delete cells?
-There are two modes `Edit` and `Delete` (E and D keys). In `Delete` mode clock on the cell and data will be removed.
+Once you finished creating a lineup, you can save a template (CTRL+S) or export as PNG or TXT (for CDK) (CTRL+SHIFT+S)
 
-### How to add country flag to the image?
-All tech trees flags are presented in the `Country` combobox selector. Flag will be automatically downloaded and added to the image.
+> [!TIP]
+> More info - [wiki](https://github.com/Gaz1zPr0g/wt-lineup-creator/wiki)
 
-### What means `Flag locked` and `Flag unlocked`?
-If you add your flag by link or path to the file, you can block its automatic change to a game nation flag.
-
-### Is there any shortcut keys?
-Yes. You can look for them in the `Help` tab
-
-### I have encountered a bug, what to do?
-Describe your problem in the [Issues](https://github.com/Gaz1zPr0g/wt-lineup-creator/issues)
 
 ## Known issues.
-- Old save (v1.3 or earlier) files aren't working with newer versions. (I've updated saving system few times)
-- Tile preview text is placed weirdly and doesn't represent real position (limitations of WinForms)
+- Tile preview text is placed weirdly and doesn't represent its real position (limitations of WinForms)
+
+## Support
+You can support this repo by starring and sharing it.
 
