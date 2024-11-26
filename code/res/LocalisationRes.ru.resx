@@ -162,6 +162,9 @@
   <data name="warningHelis" xml:space="preserve">
     <value>Таблица с данными вертолётов будет безвозвратно удалена</value>
   </data>
+  <data name="warningMixed" xml:space="preserve">
+    <value>Таблица с данными всех типов будет безвозвратно удалена</value>
+  </data>
   <data name="warningPlanes" xml:space="preserve">
     <value>Таблица с данными самолётов будет безвозвратно удалена</value>
   </data>

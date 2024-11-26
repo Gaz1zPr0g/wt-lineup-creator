@@ -79,6 +79,7 @@ namespace Lineups_creator
             this.VehicleTextLable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VehicleTextLable.ForeColor = System.Drawing.Color.White;
             this.VehicleTextLable.Name = "VehicleTextLable";
+            this.VehicleTextLable.UseCompatibleTextRendering = true;
             // 
             // BackgroundCombobox
             // 
@@ -96,6 +97,7 @@ namespace Lineups_creator
             this.VehicleName.ForeColor = System.Drawing.Color.White;
             this.VehicleName.FormattingEnabled = true;
             this.VehicleName.Name = "VehicleName";
+            this.VehicleName.Sorted = true;
             this.VehicleName.SelectedIndexChanged += new System.EventHandler(this.VehicleName_SelectedIndexChanged);
             // 
             // SaveButton

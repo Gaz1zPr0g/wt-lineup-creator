@@ -154,18 +154,21 @@
     <value>Tile</value>
   </data>
   <data name="warningBluewater" xml:space="preserve">
-    <value>Bluewater fleet table content will be deleted</value>
+    <value>Bluewater fleet table contents will be deleted</value>
   </data>
   <data name="warningCoastal" xml:space="preserve">
-    <value>Coastal fleet table content will be deleted</value>
+    <value>Coastal fleet table contents will be deleted</value>
   </data>
   <data name="warningHelis" xml:space="preserve">
-    <value>Helicopters table content will be deleted</value>
+    <value>Helicopters table contents will be deleted</value>
+  </data>
+  <data name="warningMixed" xml:space="preserve">
+    <value>Mixed table contents will be deleted</value>
   </data>
   <data name="warningPlanes" xml:space="preserve">
-    <value>Planes table content will be deleted</value>
+    <value>Planes table contents will be deleted</value>
   </data>
   <data name="warningTanks" xml:space="preserve">
-    <value>Tanks table content will be deleted</value>
+    <value>Tanks table contents will be deleted</value>
   </data>
 </root>

@@ -169,7 +169,7 @@ namespace Lineups_creator.res {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Bluewater fleet table content will be deleted.
+        ///   Ищет локализованную строку, похожую на Bluewater fleet table contents will be deleted.
         /// </summary>
         internal static string warningBluewater {
             get {
@@ -178,7 +178,7 @@ namespace Lineups_creator.res {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Coastal fleet table content will be deleted.
+        ///   Ищет локализованную строку, похожую на Coastal fleet table contents will be deleted.
         /// </summary>
         internal static string warningCoastal {
             get {
@@ -187,7 +187,7 @@ namespace Lineups_creator.res {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Helicopters table content will be deleted.
+        ///   Ищет локализованную строку, похожую на Helicopters table contents will be deleted.
         /// </summary>
         internal static string warningHelis {
             get {
@@ -196,7 +196,16 @@ namespace Lineups_creator.res {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Planes table content will be deleted.
+        ///   Ищет локализованную строку, похожую на Mixed table contents will be deleted.
+        /// </summary>
+        internal static string warningMixed {
+            get {
+                return ResourceManager.GetString("warningMixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Planes table contents will be deleted.
         /// </summary>
         internal static string warningPlanes {
             get {
@@ -205,7 +214,7 @@ namespace Lineups_creator.res {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Tanks table content will be deleted.
+        ///   Ищет локализованную строку, похожую на Tanks table contents will be deleted.
         /// </summary>
         internal static string warningTanks {
             get {

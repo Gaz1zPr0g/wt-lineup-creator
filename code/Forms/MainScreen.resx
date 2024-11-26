@@ -118,16 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MainPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="ChangeSizeTanksPanelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MainPanel.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="ChangeSizeTanksPanelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="MainPanel.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
-    <value>10, 0</value>
+  <data name="ChangeSizeTanksPanelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 7pt</value>
+  </data>
+  <data name="ChangeSizeTanksPanelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChangeSizeTanksPanelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 34</value>
+  </data>
+  <data name="ChangeSizeTanksPanelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 10</value>
+  </data>
+  <data name="ChangeSizeTanksPanelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 25</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ChangeSizeTanksPanelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ChangeSizeTanksPanelButton.Text" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeTanksPanelButton.Name" xml:space="preserve">
+    <value>ChangeSizeTanksPanelButton</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeTanksPanelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeTanksPanelButton.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeTanksPanelButton.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="BluewaterPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -143,6 +173,9 @@
   </data>
   <data name="ResizeBluewater.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="ResizeBluewater.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="ResizeBluewater.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -195,26 +228,29 @@
   <data name="BluewaterTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeBluewater" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="bluewaterlabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="bluewaterlabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="bluewaterlabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
+    <value>Verdana, 15pt</value>
+  </data>
+  <data name="bluewaterlabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="bluewaterlabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>445, 0</value>
+    <value>10, 0</value>
   </data>
   <data name="bluewaterlabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 23</value>
+    <value>166, 25</value>
   </data>
   <data name="bluewaterlabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="bluewaterlabel.Text" xml:space="preserve">
     <value>Bluewater fleet</value>
+  </data>
+  <data name="bluewaterlabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
   </data>
   <data name="&gt;&gt;bluewaterlabel.Name" xml:space="preserve">
     <value>bluewaterlabel</value>
@@ -229,10 +265,13 @@
     <value>1</value>
   </data>
   <data name="BluewaterPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 1850</value>
+    <value>3, 307</value>
+  </data>
+  <data name="BluewaterPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 10, 3, 0</value>
   </data>
   <data name="BluewaterPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1030, 500</value>
+    <value>1030, 30</value>
   </data>
   <data name="BluewaterPanel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -247,13 +286,10 @@
     <value>MainPanel</value>
   </data>
   <data name="&gt;&gt;BluewaterPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>8</value>
   </data>
   <data name="CoastalfleetPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
-  </data>
-  <data name="CoastalfleetPanel.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="CoastalfleetTable.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -266,6 +302,9 @@
   </data>
   <data name="ResizeCoastalFleet.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="ResizeCoastalFleet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="ResizeCoastalFleet.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -318,26 +357,29 @@
   <data name="CoastalfleetTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeCoastalFleet" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="coastalfleetlabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="coastalfleetlabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="coastalfleetlabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
+    <value>Verdana, 15pt</value>
+  </data>
+  <data name="coastalfleetlabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="coastalfleetlabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>455, 0</value>
+    <value>10, 0</value>
   </data>
   <data name="coastalfleetlabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
+    <value>138, 25</value>
   </data>
   <data name="coastalfleetlabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="coastalfleetlabel.Text" xml:space="preserve">
     <value>Coastal fleet</value>
+  </data>
+  <data name="coastalfleetlabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
   </data>
   <data name="&gt;&gt;coastalfleetlabel.Name" xml:space="preserve">
     <value>coastalfleetlabel</value>
@@ -352,10 +394,13 @@
     <value>1</value>
   </data>
   <data name="CoastalfleetPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 1340</value>
+    <value>3, 231</value>
+  </data>
+  <data name="CoastalfleetPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 10, 3, 0</value>
   </data>
   <data name="CoastalfleetPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1030, 500</value>
+    <value>1030, 30</value>
   </data>
   <data name="CoastalfleetPanel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -370,13 +415,10 @@
     <value>MainPanel</value>
   </data>
   <data name="&gt;&gt;CoastalfleetPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>6</value>
   </data>
   <data name="HelicoptersPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
-  </data>
-  <data name="HelicoptersPanel.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="HeliTable.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -389,6 +431,9 @@
   </data>
   <data name="ResizeHeli.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="ResizeHeli.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="ResizeHeli.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -441,20 +486,20 @@
   <data name="HeliTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeHeli" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="helicopterslabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="helicopterslabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="helicopterslabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
+    <value>Verdana, 15pt</value>
+  </data>
+  <data name="helicopterslabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="helicopterslabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>461, 0</value>
+    <value>10, 0</value>
   </data>
   <data name="helicopterslabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 23</value>
+    <value>124, 25</value>
   </data>
   <data name="helicopterslabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -463,7 +508,7 @@
     <value>Helicopters</value>
   </data>
   <data name="helicopterslabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+    <value>TopCenter</value>
   </data>
   <data name="&gt;&gt;helicopterslabel.Name" xml:space="preserve">
     <value>helicopterslabel</value>
@@ -478,10 +523,13 @@
     <value>1</value>
   </data>
   <data name="HelicoptersPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 1030</value>
+    <value>3, 155</value>
+  </data>
+  <data name="HelicoptersPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 10, 3, 0</value>
   </data>
   <data name="HelicoptersPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1030, 300</value>
+    <value>1030, 30</value>
   </data>
   <data name="HelicoptersPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -496,13 +544,13 @@
     <value>MainPanel</value>
   </data>
   <data name="&gt;&gt;HelicoptersPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="PlanesPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>Left, Right</value>
   </data>
-  <data name="PlanesPanel.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="PlanesPanel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
   <data name="PlanesTable.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -515,6 +563,9 @@
   </data>
   <data name="ResizePlanes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="ResizePlanes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="ResizePlanes.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -567,20 +618,20 @@
   <data name="PlanesTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizePlanes" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="PlanesLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="PlanesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="PlanesLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
+    <value>Verdana, 15pt</value>
+  </data>
+  <data name="PlanesLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="PlanesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>480, 0</value>
+    <value>10, 0</value>
   </data>
   <data name="PlanesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 23</value>
+    <value>77, 25</value>
   </data>
   <data name="PlanesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -589,7 +640,7 @@
     <value>Planes</value>
   </data>
   <data name="PlanesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+    <value>TopCenter</value>
   </data>
   <data name="&gt;&gt;PlanesLabel.Name" xml:space="preserve">
     <value>PlanesLabel</value>
@@ -604,10 +655,16 @@
     <value>1</value>
   </data>
   <data name="PlanesPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 520</value>
+    <value>3, 79</value>
+  </data>
+  <data name="PlanesPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 10, 3, 0</value>
+  </data>
+  <data name="PlanesPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>50, 30</value>
   </data>
   <data name="PlanesPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1030, 500</value>
+    <value>1030, 30</value>
   </data>
   <data name="PlanesPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -622,13 +679,10 @@
     <value>MainPanel</value>
   </data>
   <data name="&gt;&gt;PlanesPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="TanksPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="TanksPanel.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>Left, Right</value>
   </data>
   <data name="TanksPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
@@ -647,6 +701,9 @@
   </data>
   <data name="ResizeTanks.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="ResizeTanks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="ResizeTanks.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -699,20 +756,20 @@
   <data name="TanksTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeTanks" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="tanksLable.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
   <data name="tanksLable.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="tanksLable.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 15pt</value>
+    <value>Verdana, 15pt</value>
+  </data>
+  <data name="tanksLable.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="tanksLable.Location" type="System.Drawing.Point, System.Drawing">
-    <value>485, 0</value>
+    <value>10, 0</value>
   </data>
   <data name="tanksLable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 23</value>
+    <value>69, 25</value>
   </data>
   <data name="tanksLable.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -721,7 +778,7 @@
     <value>Tanks</value>
   </data>
   <data name="tanksLable.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+    <value>TopCenter</value>
   </data>
   <data name="&gt;&gt;tanksLable.Name" xml:space="preserve">
     <value>tanksLable</value>
@@ -736,10 +793,16 @@
     <value>1</value>
   </data>
   <data name="TanksPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 10</value>
+    <value>3, 3</value>
+  </data>
+  <data name="TanksPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 0</value>
+  </data>
+  <data name="TanksPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1030, 20</value>
   </data>
   <data name="TanksPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1030, 500</value>
+    <value>1030, 30</value>
   </data>
   <data name="TanksPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -754,34 +817,16 @@
     <value>MainPanel</value>
   </data>
   <data name="&gt;&gt;TanksPanel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="MainPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 59</value>
-  </data>
-  <data name="MainPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1060, 607</value>
-  </data>
-  <data name="MainPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;MainPanel.Name" xml:space="preserve">
-    <value>MainPanel</value>
-  </data>
-  <data name="&gt;&gt;MainPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MainPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>0</value>
   </data>
   <data name="flagButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="flagButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="flagButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="flagButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>985, 5</value>
@@ -805,13 +850,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;flagButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="copyrights.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="copyrights.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="copyrights.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="copyrights.Location" type="System.Drawing.Point, System.Drawing">
     <value>907, 668</value>
@@ -835,7 +883,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;copyrights.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>22, 12</value>
@@ -880,6 +928,9 @@
     <value>Bluewater fleet</value>
   </data>
   <data name="comboBoxPos1.Items5" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="comboBoxPos1.Items6" xml:space="preserve">
     <value>none</value>
   </data>
   <data name="comboBoxPos1.Size" type="System.Drawing.Size, System.Drawing">
@@ -904,6 +955,9 @@
     <value>Bluewater fleet</value>
   </data>
   <data name="comboBoxPos2.Items5" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="comboBoxPos2.Items6" xml:space="preserve">
     <value>none</value>
   </data>
   <data name="comboBoxPos2.Size" type="System.Drawing.Size, System.Drawing">
@@ -928,6 +982,9 @@
     <value>Bluewater fleet</value>
   </data>
   <data name="comboBoxPos3.Items5" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="comboBoxPos3.Items6" xml:space="preserve">
     <value>none</value>
   </data>
   <data name="comboBoxPos3.Size" type="System.Drawing.Size, System.Drawing">
@@ -952,6 +1009,9 @@
     <value>Bluewater fleet</value>
   </data>
   <data name="comboBoxPos4.Items5" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="comboBoxPos4.Items6" xml:space="preserve">
     <value>none</value>
   </data>
   <data name="comboBoxPos4.Size" type="System.Drawing.Size, System.Drawing">
@@ -976,6 +1036,9 @@
     <value>Bluewater fleet</value>
   </data>
   <data name="comboBoxPos5.Items5" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="comboBoxPos5.Items6" xml:space="preserve">
     <value>none</value>
   </data>
   <data name="comboBoxPos5.Size" type="System.Drawing.Size, System.Drawing">
@@ -984,8 +1047,35 @@
   <data name="comboBoxPos5.Text" xml:space="preserve">
     <value>Bluewater fleet</value>
   </data>
+  <data name="comboBoxPos6.Items" xml:space="preserve">
+    <value>Tanks</value>
+  </data>
+  <data name="comboBoxPos6.Items1" xml:space="preserve">
+    <value>Planes</value>
+  </data>
+  <data name="comboBoxPos6.Items2" xml:space="preserve">
+    <value>Helicopters</value>
+  </data>
+  <data name="comboBoxPos6.Items3" xml:space="preserve">
+    <value>Coastal fleet</value>
+  </data>
+  <data name="comboBoxPos6.Items4" xml:space="preserve">
+    <value>Bluewater fleet</value>
+  </data>
+  <data name="comboBoxPos6.Items5" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="comboBoxPos6.Items6" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="comboBoxPos6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="comboBoxPos6.Text" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
   <data name="vehicleTipesOrderButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>173, 22</value>
   </data>
   <data name="vehicleTipesOrderButton.Text" xml:space="preserve">
     <value>Vehicle types order</value>
@@ -995,7 +1085,10 @@
 </value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>170, 6</value>
+  </data>
+  <data name="decorTextTextbox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="decorTextTextbox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
@@ -1004,16 +1097,31 @@
     <value>◊</value>
   </data>
   <data name="decorONOFF.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="decorONOFF.Text" xml:space="preserve">
     <value>ON</value>
   </data>
+  <data name="DecorationColorTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="DecorationColorTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="DecorationColorTextBox.Text" xml:space="preserve">
+    <value>Decoration color</value>
+  </data>
+  <data name="DecorationColorPreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
   <data name="decorTextButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>173, 22</value>
   </data>
   <data name="decorTextButton.Text" xml:space="preserve">
     <value>Decorations</value>
+  </data>
+  <data name="backgroundColorText.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="backgroundColorText.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
@@ -1034,7 +1142,7 @@ For HEX - #hexcol</value>
     <value>160, 22</value>
   </data>
   <data name="цветФонаToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>173, 22</value>
   </data>
   <data name="цветФонаToolStripMenuItem.Text" xml:space="preserve">
     <value>Background color</value>
@@ -1114,13 +1222,13 @@ For HEX - #hexcol</value>
     <value>313, 22</value>
   </data>
   <data name="HelpEditModeKey.Text" xml:space="preserve">
-    <value>[E] - Edit mode</value>
+    <value>[CTRL+E] - Edit mode</value>
   </data>
   <data name="HelpDeleteModeKey.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 22</value>
   </data>
   <data name="HelpDeleteModeKey.Text" xml:space="preserve">
-    <value>[D] - Delete mode</value>
+    <value>[CTRL+D] - Delete mode</value>
   </data>
   <data name="HelpFileControls.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 22</value>
@@ -1182,11 +1290,17 @@ For HEX - #hexcol</value>
   <data name="HelpClearBluewaterKey.Text" xml:space="preserve">
     <value>[CTRL+SHIFT+B] - Clear bluewater fleet table</value>
   </data>
+  <data name="cTRLSHIFTMClearMixedTableToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 22</value>
+  </data>
+  <data name="cTRLSHIFTMClearMixedTableToolStripMenuItem.Text" xml:space="preserve">
+    <value>[CTRL+SHIFT+M] - Clear mixed table</value>
+  </data>
   <data name="HelpVTEControls.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 22</value>
   </data>
   <data name="HelpVTEControls.Text" xml:space="preserve">
-    <value>-VEHICLE TILE EDIT-</value>
+    <value>-VEHICLE TILE EDITOR-</value>
   </data>
   <data name="HelpVESavenCloseKey.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 22</value>
@@ -1218,23 +1332,11 @@ For HEX - #hexcol</value>
   <data name="HelpGitHubPage.Text" xml:space="preserve">
     <value>GitHub</value>
   </data>
-  <data name="boostyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="wikiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
-  <data name="boostyToolStripMenuItem.Text" xml:space="preserve">
-    <value>Boosty</value>
-  </data>
-  <data name="donationAlertsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="donationAlertsToolStripMenuItem.Text" xml:space="preserve">
-    <value>DonationAlerts</value>
-  </data>
-  <data name="supportButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="supportButton.Text" xml:space="preserve">
-    <value>Support project</value>
+  <data name="wikiToolStripMenuItem.Text" xml:space="preserve">
+    <value>Wiki</value>
   </data>
   <data name="toolStripMenuItem1.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Help</value>
@@ -1246,10 +1348,10 @@ For HEX - #hexcol</value>
     <value>Help</value>
   </data>
   <data name="changeLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 23</value>
+    <value>159, 23</value>
   </data>
   <data name="changeLanguage.Text" xml:space="preserve">
-    <value>Русский</value>
+    <value>Переключить на русский</value>
   </data>
   <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 23</value>
@@ -1282,7 +1384,454 @@ For HEX - #hexcol</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="MainPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="MainPanel.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ChangeSizePlanesPanelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ChangeSizePlanesPanelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 7pt</value>
+  </data>
+  <data name="ChangeSizePlanesPanelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChangeSizePlanesPanelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 110</value>
+  </data>
+  <data name="ChangeSizePlanesPanelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 10</value>
+  </data>
+  <data name="ChangeSizePlanesPanelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 25</value>
+  </data>
+  <data name="ChangeSizePlanesPanelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="ChangeSizePlanesPanelButton.Text" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizePlanesPanelButton.Name" xml:space="preserve">
+    <value>ChangeSizePlanesPanelButton</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizePlanesPanelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizePlanesPanelButton.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizePlanesPanelButton.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 7pt</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 186</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 10</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 25</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="ChangeSizeHelisPanelButton.Text" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeHelisPanelButton.Name" xml:space="preserve">
+    <value>ChangeSizeHelisPanelButton</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeHelisPanelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeHelisPanelButton.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeHelisPanelButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ChangeSizeCoastalPanelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ChangeSizeCoastalPanelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 7pt</value>
+  </data>
+  <data name="ChangeSizeCoastalPanelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChangeSizeCoastalPanelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 262</value>
+  </data>
+  <data name="ChangeSizeCoastalPanelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 10</value>
+  </data>
+  <data name="ChangeSizeCoastalPanelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 25</value>
+  </data>
+  <data name="ChangeSizeCoastalPanelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ChangeSizeCoastalPanelButton.Text" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeCoastalPanelButton.Name" xml:space="preserve">
+    <value>ChangeSizeCoastalPanelButton</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeCoastalPanelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeCoastalPanelButton.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeCoastalPanelButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 7pt</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 338</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 10</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 25</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="ChangeSizeBluewaterPanelButton.Text" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeBluewaterPanelButton.Name" xml:space="preserve">
+    <value>ChangeSizeBluewaterPanelButton</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeBluewaterPanelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeBluewaterPanelButton.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeBluewaterPanelButton.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="MixedTableName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="MixedTableName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 13pt</value>
+  </data>
+  <data name="MixedTableName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 0</value>
+  </data>
+  <data name="MixedTableName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="MixedTableName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1020, 29</value>
+  </data>
+  <data name="MixedTableName.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="MixedTableName.Text" xml:space="preserve">
+    <value>Mixed</value>
+  </data>
+  <data name="&gt;&gt;MixedTableName.Name" xml:space="preserve">
+    <value>MixedTableName</value>
+  </data>
+  <data name="&gt;&gt;MixedTableName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MixedTableName.Parent" xml:space="preserve">
+    <value>MixedPanel</value>
+  </data>
+  <data name="&gt;&gt;MixedTableName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="MixedTable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="MixedTable.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="MixedTable.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ResizeMixed.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ResizeMixed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ResizeMixed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ResizeMixed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="ResizeMixed.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ResizeMixed.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;ResizeMixed.Name" xml:space="preserve">
+    <value>ResizeMixed</value>
+  </data>
+  <data name="&gt;&gt;ResizeMixed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ResizeMixed.Parent" xml:space="preserve">
+    <value>MixedTable</value>
+  </data>
+  <data name="&gt;&gt;ResizeMixed.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="MixedTable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 36</value>
+  </data>
+  <data name="MixedTable.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="MixedTable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 54</value>
+  </data>
+  <data name="MixedTable.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;MixedTable.Name" xml:space="preserve">
+    <value>MixedTable</value>
+  </data>
+  <data name="&gt;&gt;MixedTable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MixedTable.Parent" xml:space="preserve">
+    <value>MixedPanel</value>
+  </data>
+  <data name="&gt;&gt;MixedTable.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MixedTable.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ResizeMixed" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="MixedPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 383</value>
+  </data>
+  <data name="MixedPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 10, 3, 0</value>
+  </data>
+  <data name="MixedPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1030, 30</value>
+  </data>
+  <data name="MixedPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;MixedPanel.Name" xml:space="preserve">
+    <value>MixedPanel</value>
+  </data>
+  <data name="&gt;&gt;MixedPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MixedPanel.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;MixedPanel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="ChangeSizeMixedPanelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ChangeSizeMixedPanelButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 7pt</value>
+  </data>
+  <data name="ChangeSizeMixedPanelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChangeSizeMixedPanelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 414</value>
+  </data>
+  <data name="ChangeSizeMixedPanelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 1, 3, 10</value>
+  </data>
+  <data name="ChangeSizeMixedPanelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 25</value>
+  </data>
+  <data name="ChangeSizeMixedPanelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="ChangeSizeMixedPanelButton.Text" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeMixedPanelButton.Name" xml:space="preserve">
+    <value>ChangeSizeMixedPanelButton</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeMixedPanelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeMixedPanelButton.Parent" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;ChangeSizeMixedPanelButton.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="MainPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="MainPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 59</value>
+  </data>
+  <data name="MainPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>50, 10</value>
+  </data>
+  <data name="MainPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1060, 592</value>
+  </data>
+  <data name="MainPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="MainPanel.WrapContents" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Name" xml:space="preserve">
+    <value>MainPanel</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MainPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="SupportLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="SupportLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SupportLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt</value>
+  </data>
+  <data name="SupportLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SupportLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 660</value>
+  </data>
+  <data name="SupportLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="SupportLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="SupportLabel.Text" xml:space="preserve">
+    <value>Support:</value>
+  </data>
+  <data name="&gt;&gt;SupportLabel.Name" xml:space="preserve">
+    <value>SupportLabel</value>
+  </data>
+  <data name="&gt;&gt;SupportLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SupportLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SupportLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DonationAlertsSupportButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="DonationAlertsSupportButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="DonationAlertsSupportButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="DonationAlertsSupportButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DonationAlertsSupportButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 653</value>
+  </data>
+  <data name="DonationAlertsSupportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 25</value>
+  </data>
+  <data name="DonationAlertsSupportButton.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;DonationAlertsSupportButton.Name" xml:space="preserve">
+    <value>DonationAlertsSupportButton</value>
+  </data>
+  <data name="&gt;&gt;DonationAlertsSupportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DonationAlertsSupportButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DonationAlertsSupportButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BoostySupportButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="BoostySupportButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="BoostySupportButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="BoostySupportButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BoostySupportButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>71, 653</value>
+  </data>
+  <data name="BoostySupportButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 25</value>
+  </data>
+  <data name="BoostySupportButton.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;BoostySupportButton.Name" xml:space="preserve">
+    <value>BoostySupportButton</value>
+  </data>
+  <data name="&gt;&gt;BoostySupportButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BoostySupportButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;BoostySupportButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1658,6 +2207,12 @@ For HEX - #hexcol</value>
   <data name="&gt;&gt;comboBoxPos5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;comboBoxPos6.Name" xml:space="preserve">
+    <value>comboBoxPos6</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPos6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
     <value>toolStripSeparator2</value>
   </data>
@@ -1680,6 +2235,18 @@ For HEX - #hexcol</value>
     <value>decorONOFF</value>
   </data>
   <data name="&gt;&gt;decorONOFF.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DecorationColorTextBox.Name" xml:space="preserve">
+    <value>DecorationColorTextBox</value>
+  </data>
+  <data name="&gt;&gt;DecorationColorTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DecorationColorPreview.Name" xml:space="preserve">
+    <value>DecorationColorPreview</value>
+  </data>
+  <data name="&gt;&gt;DecorationColorPreview.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;цветФонаToolStripMenuItem.Name" xml:space="preserve">
@@ -1808,6 +2375,12 @@ For HEX - #hexcol</value>
   <data name="&gt;&gt;HelpClearBluewaterKey.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;cTRLSHIFTMClearMixedTableToolStripMenuItem.Name" xml:space="preserve">
+    <value>cTRLSHIFTMClearMixedTableToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;cTRLSHIFTMClearMixedTableToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;HelpVTEControls.Name" xml:space="preserve">
     <value>HelpVTEControls</value>
   </data>
@@ -1838,22 +2411,10 @@ For HEX - #hexcol</value>
   <data name="&gt;&gt;HelpGitHubPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;supportButton.Name" xml:space="preserve">
-    <value>supportButton</value>
+  <data name="&gt;&gt;wikiToolStripMenuItem.Name" xml:space="preserve">
+    <value>wikiToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;supportButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;boostyToolStripMenuItem.Name" xml:space="preserve">
-    <value>boostyToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;boostyToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;donationAlertsToolStripMenuItem.Name" xml:space="preserve">
-    <value>donationAlertsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;donationAlertsToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;wikiToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;changeLanguage.Name" xml:space="preserve">

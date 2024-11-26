@@ -30,7 +30,7 @@ namespace Lineups_creator
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lineup_creator));
-            this.MainPanel = new System.Windows.Forms.Panel();
+            this.ChangeSizeTanksPanelButton = new System.Windows.Forms.Button();
             this.BluewaterPanel = new System.Windows.Forms.Panel();
             this.BluewaterTable = new System.Windows.Forms.TableLayoutPanel();
             this.ResizeBluewater = new System.Windows.Forms.Button();
@@ -65,10 +65,13 @@ namespace Lineups_creator
             this.comboBoxPos3 = new System.Windows.Forms.ToolStripComboBox();
             this.comboBoxPos4 = new System.Windows.Forms.ToolStripComboBox();
             this.comboBoxPos5 = new System.Windows.Forms.ToolStripComboBox();
+            this.comboBoxPos6 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.decorTextButton = new System.Windows.Forms.ToolStripMenuItem();
             this.decorTextTextbox = new System.Windows.Forms.ToolStripTextBox();
             this.decorONOFF = new System.Windows.Forms.ToolStripMenuItem();
+            this.DecorationColorTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.DecorationColorPreview = new System.Windows.Forms.ToolStripMenuItem();
             this.цветФонаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundColorText = new System.Windows.Forms.ToolStripTextBox();
             this.backgroundColorPreview = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,17 +93,28 @@ namespace Lineups_creator
             this.HelpClearHeliKey = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpClearCoastalKey = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpClearBluewaterKey = new System.Windows.Forms.ToolStripMenuItem();
+            this.cTRLSHIFTMClearMixedTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpVTEControls = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpVESavenCloseKey = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpVECloseKey = new System.Windows.Forms.ToolStripMenuItem();
             this.reportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpGitHubPage = new System.Windows.Forms.ToolStripMenuItem();
-            this.supportButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.boostyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.donationAlertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusLabel = new System.Windows.Forms.ToolStripMenuItem();
-            this.MainPanel.SuspendLayout();
+            this.MainPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.ChangeSizePlanesPanelButton = new System.Windows.Forms.Button();
+            this.ChangeSizeHelisPanelButton = new System.Windows.Forms.Button();
+            this.ChangeSizeCoastalPanelButton = new System.Windows.Forms.Button();
+            this.ChangeSizeBluewaterPanelButton = new System.Windows.Forms.Button();
+            this.MixedPanel = new System.Windows.Forms.Panel();
+            this.MixedTableName = new System.Windows.Forms.TextBox();
+            this.MixedTable = new System.Windows.Forms.TableLayoutPanel();
+            this.ResizeMixed = new System.Windows.Forms.Button();
+            this.ChangeSizeMixedPanelButton = new System.Windows.Forms.Button();
+            this.SupportLabel = new System.Windows.Forms.Label();
+            this.DonationAlertsSupportButton = new System.Windows.Forms.Button();
+            this.BoostySupportButton = new System.Windows.Forms.Button();
             this.BluewaterPanel.SuspendLayout();
             this.BluewaterTable.SuspendLayout();
             this.CoastalfleetPanel.SuspendLayout();
@@ -112,18 +126,17 @@ namespace Lineups_creator
             this.TanksPanel.SuspendLayout();
             this.TanksTable.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.MainPanel.SuspendLayout();
+            this.MixedPanel.SuspendLayout();
+            this.MixedTable.SuspendLayout();
             this.SuspendLayout();
             // 
-            // MainPanel
+            // ChangeSizeTanksPanelButton
             // 
-            resources.ApplyResources(this.MainPanel, "MainPanel");
-            this.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MainPanel.Controls.Add(this.BluewaterPanel);
-            this.MainPanel.Controls.Add(this.CoastalfleetPanel);
-            this.MainPanel.Controls.Add(this.HelicoptersPanel);
-            this.MainPanel.Controls.Add(this.PlanesPanel);
-            this.MainPanel.Controls.Add(this.TanksPanel);
-            this.MainPanel.Name = "MainPanel";
+            resources.ApplyResources(this.ChangeSizeTanksPanelButton, "ChangeSizeTanksPanelButton");
+            this.ChangeSizeTanksPanelButton.Name = "ChangeSizeTanksPanelButton";
+            this.ChangeSizeTanksPanelButton.UseVisualStyleBackColor = true;
+            this.ChangeSizeTanksPanelButton.Click += new System.EventHandler(this.ChangeSizeTanksPanelButton_Click);
             // 
             // BluewaterPanel
             // 
@@ -271,6 +284,7 @@ namespace Lineups_creator
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileItemList,
             this.exportSettings_itemList,
@@ -330,7 +344,8 @@ namespace Lineups_creator
             this.comboBoxPos2,
             this.comboBoxPos3,
             this.comboBoxPos4,
-            this.comboBoxPos5});
+            this.comboBoxPos5,
+            this.comboBoxPos6});
             this.vehicleTipesOrderButton.Name = "vehicleTipesOrderButton";
             resources.ApplyResources(this.vehicleTipesOrderButton, "vehicleTipesOrderButton");
             // 
@@ -342,7 +357,8 @@ namespace Lineups_creator
             resources.GetString("comboBoxPos1.Items2"),
             resources.GetString("comboBoxPos1.Items3"),
             resources.GetString("comboBoxPos1.Items4"),
-            resources.GetString("comboBoxPos1.Items5")});
+            resources.GetString("comboBoxPos1.Items5"),
+            resources.GetString("comboBoxPos1.Items6")});
             this.comboBoxPos1.Name = "comboBoxPos1";
             resources.ApplyResources(this.comboBoxPos1, "comboBoxPos1");
             this.comboBoxPos1.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos1_SelectedIndexChanged);
@@ -355,7 +371,8 @@ namespace Lineups_creator
             resources.GetString("comboBoxPos2.Items2"),
             resources.GetString("comboBoxPos2.Items3"),
             resources.GetString("comboBoxPos2.Items4"),
-            resources.GetString("comboBoxPos2.Items5")});
+            resources.GetString("comboBoxPos2.Items5"),
+            resources.GetString("comboBoxPos2.Items6")});
             this.comboBoxPos2.Name = "comboBoxPos2";
             resources.ApplyResources(this.comboBoxPos2, "comboBoxPos2");
             this.comboBoxPos2.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos2_SelectedIndexChanged);
@@ -368,7 +385,8 @@ namespace Lineups_creator
             resources.GetString("comboBoxPos3.Items2"),
             resources.GetString("comboBoxPos3.Items3"),
             resources.GetString("comboBoxPos3.Items4"),
-            resources.GetString("comboBoxPos3.Items5")});
+            resources.GetString("comboBoxPos3.Items5"),
+            resources.GetString("comboBoxPos3.Items6")});
             this.comboBoxPos3.Name = "comboBoxPos3";
             resources.ApplyResources(this.comboBoxPos3, "comboBoxPos3");
             this.comboBoxPos3.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos3_SelectedIndexChanged);
@@ -381,7 +399,8 @@ namespace Lineups_creator
             resources.GetString("comboBoxPos4.Items2"),
             resources.GetString("comboBoxPos4.Items3"),
             resources.GetString("comboBoxPos4.Items4"),
-            resources.GetString("comboBoxPos4.Items5")});
+            resources.GetString("comboBoxPos4.Items5"),
+            resources.GetString("comboBoxPos4.Items6")});
             this.comboBoxPos4.Name = "comboBoxPos4";
             resources.ApplyResources(this.comboBoxPos4, "comboBoxPos4");
             this.comboBoxPos4.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos4_SelectedIndexChanged);
@@ -394,10 +413,25 @@ namespace Lineups_creator
             resources.GetString("comboBoxPos5.Items2"),
             resources.GetString("comboBoxPos5.Items3"),
             resources.GetString("comboBoxPos5.Items4"),
-            resources.GetString("comboBoxPos5.Items5")});
+            resources.GetString("comboBoxPos5.Items5"),
+            resources.GetString("comboBoxPos5.Items6")});
             this.comboBoxPos5.Name = "comboBoxPos5";
             resources.ApplyResources(this.comboBoxPos5, "comboBoxPos5");
             this.comboBoxPos5.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos5_SelectedIndexChanged);
+            // 
+            // comboBoxPos6
+            // 
+            this.comboBoxPos6.Items.AddRange(new object[] {
+            resources.GetString("comboBoxPos6.Items"),
+            resources.GetString("comboBoxPos6.Items1"),
+            resources.GetString("comboBoxPos6.Items2"),
+            resources.GetString("comboBoxPos6.Items3"),
+            resources.GetString("comboBoxPos6.Items4"),
+            resources.GetString("comboBoxPos6.Items5"),
+            resources.GetString("comboBoxPos6.Items6")});
+            this.comboBoxPos6.Name = "comboBoxPos6";
+            resources.ApplyResources(this.comboBoxPos6, "comboBoxPos6");
+            this.comboBoxPos6.SelectedIndexChanged += new System.EventHandler(this.comboBoxPos6_SelectedIndexChanged);
             // 
             // toolStripSeparator2
             // 
@@ -408,14 +442,16 @@ namespace Lineups_creator
             // 
             this.decorTextButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.decorTextTextbox,
-            this.decorONOFF});
+            this.decorONOFF,
+            this.DecorationColorTextBox,
+            this.DecorationColorPreview});
             this.decorTextButton.Name = "decorTextButton";
             resources.ApplyResources(this.decorTextButton, "decorTextButton");
             // 
             // decorTextTextbox
             // 
-            this.decorTextTextbox.Name = "decorTextTextbox";
             resources.ApplyResources(this.decorTextTextbox, "decorTextTextbox");
+            this.decorTextTextbox.Name = "decorTextTextbox";
             this.decorTextTextbox.TextChanged += new System.EventHandler(this.decorTextTextbox_TextChanged);
             // 
             // decorONOFF
@@ -423,6 +459,17 @@ namespace Lineups_creator
             this.decorONOFF.Name = "decorONOFF";
             resources.ApplyResources(this.decorONOFF, "decorONOFF");
             this.decorONOFF.Click += new System.EventHandler(this.decorTextButton_Click);
+            // 
+            // DecorationColorTextBox
+            // 
+            resources.ApplyResources(this.DecorationColorTextBox, "DecorationColorTextBox");
+            this.DecorationColorTextBox.Name = "DecorationColorTextBox";
+            this.DecorationColorTextBox.TextChanged += new System.EventHandler(this.DecorationColorTextBox_TextChanged);
+            // 
+            // DecorationColorPreview
+            // 
+            this.DecorationColorPreview.Name = "DecorationColorPreview";
+            resources.ApplyResources(this.DecorationColorPreview, "DecorationColorPreview");
             // 
             // цветФонаToolStripMenuItem
             // 
@@ -434,8 +481,8 @@ namespace Lineups_creator
             // 
             // backgroundColorText
             // 
-            this.backgroundColorText.Name = "backgroundColorText";
             resources.ApplyResources(this.backgroundColorText, "backgroundColorText");
+            this.backgroundColorText.Name = "backgroundColorText";
             this.backgroundColorText.TextChanged += new System.EventHandler(this.backgroundColorText_TextChanged);
             // 
             // backgroundColorPreview
@@ -480,7 +527,7 @@ namespace Lineups_creator
             this.HelpControls,
             this.reportButton,
             this.HelpGitHubPage,
-            this.supportButton});
+            this.wikiToolStripMenuItem});
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
@@ -501,6 +548,7 @@ namespace Lineups_creator
             this.HelpClearHeliKey,
             this.HelpClearCoastalKey,
             this.HelpClearBluewaterKey,
+            this.cTRLSHIFTMClearMixedTableToolStripMenuItem,
             this.HelpVTEControls,
             this.HelpVESavenCloseKey,
             this.HelpVECloseKey});
@@ -572,6 +620,11 @@ namespace Lineups_creator
             this.HelpClearBluewaterKey.Name = "HelpClearBluewaterKey";
             resources.ApplyResources(this.HelpClearBluewaterKey, "HelpClearBluewaterKey");
             // 
+            // cTRLSHIFTMClearMixedTableToolStripMenuItem
+            // 
+            this.cTRLSHIFTMClearMixedTableToolStripMenuItem.Name = "cTRLSHIFTMClearMixedTableToolStripMenuItem";
+            resources.ApplyResources(this.cTRLSHIFTMClearMixedTableToolStripMenuItem, "cTRLSHIFTMClearMixedTableToolStripMenuItem");
+            // 
             // HelpVTEControls
             // 
             this.HelpVTEControls.Name = "HelpVTEControls";
@@ -599,25 +652,11 @@ namespace Lineups_creator
             resources.ApplyResources(this.HelpGitHubPage, "HelpGitHubPage");
             this.HelpGitHubPage.Click += new System.EventHandler(this.HelpGitHubPage_Click);
             // 
-            // supportButton
+            // wikiToolStripMenuItem
             // 
-            this.supportButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.boostyToolStripMenuItem,
-            this.donationAlertsToolStripMenuItem});
-            this.supportButton.Name = "supportButton";
-            resources.ApplyResources(this.supportButton, "supportButton");
-            // 
-            // boostyToolStripMenuItem
-            // 
-            this.boostyToolStripMenuItem.Name = "boostyToolStripMenuItem";
-            resources.ApplyResources(this.boostyToolStripMenuItem, "boostyToolStripMenuItem");
-            this.boostyToolStripMenuItem.Click += new System.EventHandler(this.supportBoostyButton_Click);
-            // 
-            // donationAlertsToolStripMenuItem
-            // 
-            this.donationAlertsToolStripMenuItem.Name = "donationAlertsToolStripMenuItem";
-            resources.ApplyResources(this.donationAlertsToolStripMenuItem, "donationAlertsToolStripMenuItem");
-            this.donationAlertsToolStripMenuItem.Click += new System.EventHandler(this.supprotDonationAlertsButton_Click);
+            this.wikiToolStripMenuItem.Name = "wikiToolStripMenuItem";
+            resources.ApplyResources(this.wikiToolStripMenuItem, "wikiToolStripMenuItem");
+            this.wikiToolStripMenuItem.Click += new System.EventHandler(this.wikiToolStripMenuItem_Click);
             // 
             // changeLanguage
             // 
@@ -632,19 +671,128 @@ namespace Lineups_creator
             this.StatusLabel.Name = "StatusLabel";
             resources.ApplyResources(this.StatusLabel, "StatusLabel");
             // 
+            // MainPanel
+            // 
+            resources.ApplyResources(this.MainPanel, "MainPanel");
+            this.MainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MainPanel.Controls.Add(this.TanksPanel);
+            this.MainPanel.Controls.Add(this.ChangeSizeTanksPanelButton);
+            this.MainPanel.Controls.Add(this.PlanesPanel);
+            this.MainPanel.Controls.Add(this.ChangeSizePlanesPanelButton);
+            this.MainPanel.Controls.Add(this.HelicoptersPanel);
+            this.MainPanel.Controls.Add(this.ChangeSizeHelisPanelButton);
+            this.MainPanel.Controls.Add(this.CoastalfleetPanel);
+            this.MainPanel.Controls.Add(this.ChangeSizeCoastalPanelButton);
+            this.MainPanel.Controls.Add(this.BluewaterPanel);
+            this.MainPanel.Controls.Add(this.ChangeSizeBluewaterPanelButton);
+            this.MainPanel.Controls.Add(this.MixedPanel);
+            this.MainPanel.Controls.Add(this.ChangeSizeMixedPanelButton);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Click += new System.EventHandler(this.ChangeSizeMixedPanelButton_Click);
+            // 
+            // ChangeSizePlanesPanelButton
+            // 
+            resources.ApplyResources(this.ChangeSizePlanesPanelButton, "ChangeSizePlanesPanelButton");
+            this.ChangeSizePlanesPanelButton.Name = "ChangeSizePlanesPanelButton";
+            this.ChangeSizePlanesPanelButton.UseVisualStyleBackColor = true;
+            this.ChangeSizePlanesPanelButton.Click += new System.EventHandler(this.ChangeSizePlanesPanelButton_Click);
+            // 
+            // ChangeSizeHelisPanelButton
+            // 
+            resources.ApplyResources(this.ChangeSizeHelisPanelButton, "ChangeSizeHelisPanelButton");
+            this.ChangeSizeHelisPanelButton.Name = "ChangeSizeHelisPanelButton";
+            this.ChangeSizeHelisPanelButton.UseVisualStyleBackColor = true;
+            this.ChangeSizeHelisPanelButton.Click += new System.EventHandler(this.ChangeSizeHelisPanelButton_Click);
+            // 
+            // ChangeSizeCoastalPanelButton
+            // 
+            resources.ApplyResources(this.ChangeSizeCoastalPanelButton, "ChangeSizeCoastalPanelButton");
+            this.ChangeSizeCoastalPanelButton.Name = "ChangeSizeCoastalPanelButton";
+            this.ChangeSizeCoastalPanelButton.UseVisualStyleBackColor = true;
+            this.ChangeSizeCoastalPanelButton.Click += new System.EventHandler(this.ChangeSizeCoastalPanelButton_Click);
+            // 
+            // ChangeSizeBluewaterPanelButton
+            // 
+            resources.ApplyResources(this.ChangeSizeBluewaterPanelButton, "ChangeSizeBluewaterPanelButton");
+            this.ChangeSizeBluewaterPanelButton.Name = "ChangeSizeBluewaterPanelButton";
+            this.ChangeSizeBluewaterPanelButton.UseVisualStyleBackColor = true;
+            this.ChangeSizeBluewaterPanelButton.Click += new System.EventHandler(this.ChangeSizeBluewaterPanelButton_Click);
+            // 
+            // MixedPanel
+            // 
+            this.MixedPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MixedPanel.Controls.Add(this.MixedTableName);
+            this.MixedPanel.Controls.Add(this.MixedTable);
+            resources.ApplyResources(this.MixedPanel, "MixedPanel");
+            this.MixedPanel.Name = "MixedPanel";
+            // 
+            // MixedTableName
+            // 
+            resources.ApplyResources(this.MixedTableName, "MixedTableName");
+            this.MixedTableName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.MixedTableName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MixedTableName.ForeColor = System.Drawing.Color.White;
+            this.MixedTableName.Name = "MixedTableName";
+            // 
+            // MixedTable
+            // 
+            resources.ApplyResources(this.MixedTable, "MixedTable");
+            this.MixedTable.Controls.Add(this.ResizeMixed, 0, 0);
+            this.MixedTable.Name = "MixedTable";
+            // 
+            // ResizeMixed
+            // 
+            resources.ApplyResources(this.ResizeMixed, "ResizeMixed");
+            this.ResizeMixed.Name = "ResizeMixed";
+            this.ResizeMixed.UseVisualStyleBackColor = true;
+            this.ResizeMixed.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ResizeMixed_MouseUp);
+            // 
+            // ChangeSizeMixedPanelButton
+            // 
+            resources.ApplyResources(this.ChangeSizeMixedPanelButton, "ChangeSizeMixedPanelButton");
+            this.ChangeSizeMixedPanelButton.Name = "ChangeSizeMixedPanelButton";
+            this.ChangeSizeMixedPanelButton.UseVisualStyleBackColor = true;
+            this.ChangeSizeMixedPanelButton.Click += new System.EventHandler(this.ChangeSizeMixedPanelButton_Click);
+            // 
+            // SupportLabel
+            // 
+            resources.ApplyResources(this.SupportLabel, "SupportLabel");
+            this.SupportLabel.Name = "SupportLabel";
+            // 
+            // DonationAlertsSupportButton
+            // 
+            resources.ApplyResources(this.DonationAlertsSupportButton, "DonationAlertsSupportButton");
+            this.DonationAlertsSupportButton.BackgroundImage = global::Lineups_creator.Properties.Resources.donationAlerts_logo;
+            this.DonationAlertsSupportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.DonationAlertsSupportButton.Name = "DonationAlertsSupportButton";
+            this.DonationAlertsSupportButton.UseVisualStyleBackColor = true;
+            this.DonationAlertsSupportButton.Click += new System.EventHandler(this.DonationAlertsSupportButton_Click);
+            // 
+            // BoostySupportButton
+            // 
+            resources.ApplyResources(this.BoostySupportButton, "BoostySupportButton");
+            this.BoostySupportButton.BackgroundImage = global::Lineups_creator.Properties.Resources.boosty_logo;
+            this.BoostySupportButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.BoostySupportButton.Name = "BoostySupportButton";
+            this.BoostySupportButton.UseVisualStyleBackColor = true;
+            this.BoostySupportButton.Click += new System.EventHandler(this.BoostySupportButton_Click);
+            // 
             // Lineup_creator
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.Controls.Add(this.SupportLabel);
+            this.Controls.Add(this.DonationAlertsSupportButton);
+            this.Controls.Add(this.BoostySupportButton);
+            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.flagButton);
             this.Controls.Add(this.copyrights);
-            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Lineup_creator";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.MainPanel.ResumeLayout(false);
+            this.SizeChanged += new System.EventHandler(this.Lineup_creator_SizeChanged);
             this.BluewaterPanel.ResumeLayout(false);
             this.BluewaterPanel.PerformLayout();
             this.BluewaterTable.ResumeLayout(false);
@@ -662,13 +810,16 @@ namespace Lineups_creator
             this.TanksTable.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
+            this.MixedPanel.ResumeLayout(false);
+            this.MixedPanel.PerformLayout();
+            this.MixedTable.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Panel TanksPanel;
         private System.Windows.Forms.TableLayoutPanel TanksTable;
         private System.Windows.Forms.Button ResizeTanks;
@@ -712,7 +863,6 @@ namespace Lineups_creator
         private System.Windows.Forms.ToolStripTextBox decorTextTextbox;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem reportButton;
-        private System.Windows.Forms.ToolStripMenuItem supportButton;
         private System.Windows.Forms.ToolStripMenuItem HelpControls;
         private System.Windows.Forms.ToolStripMenuItem HelpGitHubPage;
         private System.Windows.Forms.ToolStripMenuItem HelpEditModeKey;
@@ -736,8 +886,25 @@ namespace Lineups_creator
         private System.Windows.Forms.ToolStripTextBox backgroundColorText;
         private System.Windows.Forms.ToolStripMenuItem backgroundColorPreview;
         private System.Windows.Forms.ToolStripMenuItem changeLanguage;
-        private System.Windows.Forms.ToolStripMenuItem boostyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem donationAlertsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox DecorationColorTextBox;
+        private System.Windows.Forms.ToolStripMenuItem DecorationColorPreview;
+        private System.Windows.Forms.Button ChangeSizeTanksPanelButton;
+        private System.Windows.Forms.FlowLayoutPanel MainPanel;
+        private System.Windows.Forms.Button ChangeSizePlanesPanelButton;
+        private System.Windows.Forms.Button ChangeSizeHelisPanelButton;
+        private System.Windows.Forms.Button ChangeSizeCoastalPanelButton;
+        private System.Windows.Forms.Button ChangeSizeBluewaterPanelButton;
+        private System.Windows.Forms.Panel MixedPanel;
+        private System.Windows.Forms.TableLayoutPanel MixedTable;
+        private System.Windows.Forms.Button ResizeMixed;
+        private System.Windows.Forms.Button ChangeSizeMixedPanelButton;
+        private System.Windows.Forms.ToolStripComboBox comboBoxPos6;
+        private System.Windows.Forms.TextBox MixedTableName;
+        private System.Windows.Forms.Button BoostySupportButton;
+        private System.Windows.Forms.Button DonationAlertsSupportButton;
+        private System.Windows.Forms.Label SupportLabel;
+        private System.Windows.Forms.ToolStripMenuItem cTRLSHIFTMClearMixedTableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wikiToolStripMenuItem;
     }
 }
 

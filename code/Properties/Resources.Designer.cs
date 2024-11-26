@@ -59,5 +59,35 @@ namespace Lineups_creator.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boosty_logo {
+            get {
+                object obj = ResourceManager.GetObject("boosty_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap donationAlerts_logo {
+            get {
+                object obj = ResourceManager.GetObject("donationAlerts_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] Verdana_WT {
+            get {
+                object obj = ResourceManager.GetObject("Verdana_WT", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

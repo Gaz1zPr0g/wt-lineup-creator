@@ -62,13 +62,15 @@ namespace Lineups_creator
             foreach (string name in templates.GetDataByCountry(country).Keys)
             {
                 VehicleData fillData = templates.GetDataByCountry(country)[name];
-                if (fillData.type == type)
+                if (fillData.type == type || type == -1)
                 {
                     VehicleName.Items.Add(name);
                     LinkCombobox.Items.Add(name);
                     WTIDCombobox.Items.Add(fillData.wtID);
                 }
-            }
+            };
+            VehicleTextLable.Font = new Font(lc.pfc.Families[0], VehicleTextLable.Font.Size);
+            VehicleText.Font = new Font(lc.pfc.Families[0], VehicleTextLable.Font.Size);
         }
 
         public VehicleScreen(int countryID, int type, int senderrow, int sendercolumn, Control sender, VehicleData data, Lineup_creator linc)
@@ -100,7 +102,7 @@ namespace Lineups_creator
             foreach (string name in templates.GetDataByCountry(country).Keys)
             {
                 VehicleData fillData = templates.GetDataByCountry(country)[name];
-                if (fillData.type == type)
+                if (fillData.type == type || type == -1)
                 {
                     VehicleName.Items.Add(name);
                     LinkCombobox.Items.Add(name);
@@ -115,6 +117,9 @@ namespace Lineups_creator
             LinkCombobox.SelectedItem = senderData.name;
             unitsNumberInput.Value = data.numberOfUnits;
             WTIDCombobox.SelectedItem = senderData.wtID;
+
+            VehicleTextLable.Font = new Font(lc.pfc.Families[0], VehicleTextLable.Font.Size);
+            VehicleText.Font = new Font(lc.pfc.Families[0], VehicleTextLable.Font.Size);
         }
 
 
@@ -181,7 +186,7 @@ namespace Lineups_creator
             try
             {
                 fontSize = float.Parse(fontSizeInput.Text);
-                VehicleTextLable.Font = new Font("Verdana", fontSize, new FontStyle());
+                VehicleTextLable.Font = new Font(lc.pfc.Families[0], fontSize, new FontStyle());
                 Properties.Settings.Default.FontSize = fontSize;
                 Properties.Settings.Default.Save();
             }
@@ -233,10 +238,9 @@ namespace Lineups_creator
             {
                 Image background = Image.FromFile(lc.backgroundImagesPaths[backgroundindex]);
                 Bitmap bitmap = new Bitmap(background);
-
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
-                    using (Font verdanaFont = new Font("Verdana", fontSize, new FontStyle()))
+                    using (Font verdanaWTFont = new Font(lc.pfc.Families[0], VehicleTextLable.Font.Size))
                     {
                         Image icon = iconPanel.BackgroundImage;
                         if (icon == null)
@@ -251,14 +255,16 @@ namespace Lineups_creator
                         var format = new StringFormat() { Alignment = StringAlignment.Far };
                         var rect = new RectangleF(5, 5, 110, 38);
 
-                        graphics.DrawString(text, verdanaFont, Brushes.White, rect, format);
+                        graphics.DrawString(text, verdanaWTFont, Brushes.White, rect, format);
                     }
                 }
-                bitmap.Save($@"temp\{row}-{column}-{type}.png", System.Drawing.Imaging.ImageFormat.Png);
-                senderData.buttonImage = $@"temp\{row}-{column}-{type}.png";
+                string path = type == -1 ? $@"temp\{row}-{column}-m.png" : $@"temp\{row}-{column}-{type}.png";
+                bitmap.Save(path, System.Drawing.Imaging.ImageFormat.Png);
+                senderData.buttonImage = path;
                 senderData.pos = new int[] { row, column };
                 senderButton.BackgroundImage = bitmap;
                 lc.ChangeData(senderData, type, row, column);
+
 
             }
             catch
