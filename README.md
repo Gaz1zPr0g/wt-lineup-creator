@@ -23,7 +23,7 @@ Lineup creator can generate 5 tables for different vehicle types or one for ever
 Left click on `Add` button adds a new row, right click adds a new column.
 
 To edit cell data, choose nation, enter `Edit mode` (CTRL+E) and left click the cell. It'll open cell editor window, where you can choose pre-made cells or create one by yourself. \
-To delete cell data, enter `Delete mode` and left click the cell.
+To delete cell data, enter `Delete mode` (CTRL+D) and left click the cell.
 
 You can change background color, decorations, decorations color to make your lineup more unique.
 
