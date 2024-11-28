@@ -53,9 +53,17 @@ namespace Lineups_creator
             Text = $"{res.LocalisationRes.tile}[{row},{column}]";
             InitializeComponent();
             fontSizeInput.Text = $"{fontSize}";
-            foreach (string path in linc.backgroundImagesPaths)
+            int i = 0;
+            foreach (string path in linc.backgroundImagePaths)
             {
-                BackgroundCombobox.Items.Add(path.Substring(7));
+                if (i < 3)
+                {
+                    BackgroundCombobox.Items.Add(path);
+                    i++;
+                } else
+                {
+                    BackgroundCombobox.Items.Add(path.Substring(7));
+                }
             }
 
 
@@ -92,7 +100,7 @@ namespace Lineups_creator
 
             Text = $"{res.LocalisationRes.tile}[{row},{column}]";
             InitializeComponent();
-            foreach (string path in linc.backgroundImagesPaths)
+            foreach (string path in linc.backgroundImagePaths)
             {
                 BackgroundCombobox.Items.Add(path.Substring(7));
             }
@@ -132,11 +140,25 @@ namespace Lineups_creator
         private void ChangeBackground()
         {
             senderData.backgroudType = backgroundindex;
+            Image background;
+            switch (backgroundindex)
+            {
+                case 0:
+                    background = Properties.Resources.bg_base;
+                    break;
+                case 1:
+                    background = Properties.Resources.bg_premium;
+                    break;
+                case 2:
+                    background = Properties.Resources.bg_squad;
+                    break;
+                default:
+                    Image backgroundToCopy = Image.FromFile(lc.backgroundImagePaths[backgroundindex]);
 
-            Image backgroundToCopy = Image.FromFile(lc.backgroundImagesPaths[backgroundindex]);
-
-            Image background = new Bitmap(backgroundToCopy);
-            backgroundToCopy.Dispose();
+                    background = new Bitmap(backgroundToCopy);
+                    backgroundToCopy.Dispose();
+                    break;
+            }
             BackgroundCombobox.SelectedIndex = backgroundindex;
             PrevievPanel.BackgroundImage = background;
         }
@@ -236,7 +258,22 @@ namespace Lineups_creator
         {
             try
             {
-                Image background = Image.FromFile(lc.backgroundImagesPaths[backgroundindex]);
+                Image background;
+                switch (backgroundindex)
+                {
+                    case 0:
+                        background = Properties.Resources.bg_base;
+                        break;
+                    case 1:
+                        background = Properties.Resources.bg_premium;
+                        break;
+                    case 2:
+                        background = Properties.Resources.bg_squad;
+                        break;
+                    default:
+                        background = Image.FromFile(lc.backgroundImagePaths[backgroundindex]);
+                        break;
+                }
                 Bitmap bitmap = new Bitmap(background);
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {

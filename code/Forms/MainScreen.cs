@@ -15,18 +15,18 @@ namespace Lineups_creator
     {
         int country = -1;
         string dir = Application.StartupPath;
-        string[] flagsURL =
+        Image[] flags =
         {
-            "https://wiki.warthunder.com/images/thumb/9/9f/USA_flag.png/130px-USA_flag.png",
-            "https://wiki.warthunder.com/images/thumb/4/49/Germany_flag.png/130px-Germany_flag.png",
-            "https://wiki.warthunder.com/images/thumb/f/f9/USSR_flag.png/130px-USSR_flag.png",
-            "https://wiki.warthunder.com/images/thumb/d/d0/Britain_flag.png/130px-Britain_flag.png",
-            "https://wiki.warthunder.com/images/thumb/2/2e/Japan_flag.png/130px-Japan_flag.png",
-            "https://wiki.warthunder.com/images/thumb/a/ac/China_flag.png/130px-China_flag.png",
-            "https://wiki.warthunder.com/images/thumb/e/e9/Italy_flag.png/130px-Italy_flag.png",
-            "https://wiki.warthunder.com/images/thumb/7/73/France_flag.png/130px-France_flag.png",
-            "https://wiki.warthunder.com/images/thumb/c/ca/Sweden_flag.png/130px-Sweden_flag.png",
-            "https://wiki.warthunder.com/images/thumb/f/f9/Israel_flag.png/130px-Israel_flag.png"
+            Properties.Resources.country_usa,
+            Properties.Resources.country_germany,
+            Properties.Resources.country_ussr,
+            Properties.Resources.country_britain,
+            Properties.Resources.country_japan,
+            Properties.Resources.country_china,
+            Properties.Resources.country_italy,
+            Properties.Resources.country_france,
+            Properties.Resources.country_sweden,
+            Properties.Resources.country_israel
         };
         bool deleteMode = false;
         bool flagLocked = false;
@@ -42,7 +42,7 @@ namespace Lineups_creator
         VehicleData[,] bluewaterFleetData;
         VehicleData[,] mixedData;
 
-        public string[] backgroundImagesPaths;
+        public string[] backgroundImagePaths;
 
         public System.Drawing.Text.PrivateFontCollection pfc = new System.Drawing.Text.PrivateFontCollection();
 
@@ -112,42 +112,7 @@ namespace Lineups_creator
             Directory.CreateDirectory($@"{dir}\export");
             Directory.CreateDirectory($@"{dir}\saves");
 
-            if (!Directory.Exists($@"{dir}\config\OWN.png"))
-            {
-                webClient.DownloadFile("https://wiki.warthunder.com/images/3/39/Item_own.png", @"config\OWN.png");
-
-                Image imagetocopy = Image.FromFile(@"config\OWN.png");
-                Image image = new Bitmap(imagetocopy);
-                imagetocopy.Dispose();
-                File.Delete(@"config\OWN.png");
-                image.Save(@"config\OWN.png", System.Drawing.Imaging.ImageFormat.Png);
-                image.Dispose();
-            };
-            if (!Directory.Exists($@"{dir}\config\PREMIUM.png"))
-            {
-                webClient.DownloadFile("https://wiki.warthunder.com/images/1/15/Item_prem.png", @"config\PREMIUM.png");
-
-                Image imagetocopy = Image.FromFile(@"config\PREMIUM.png");
-                Image image = new Bitmap(imagetocopy);
-                imagetocopy.Dispose();
-                File.Delete(@"config\PREMIUM.png");
-                image.Save(@"config\PREMIUM.png", System.Drawing.Imaging.ImageFormat.Png);
-                image.Dispose();
-            }
-            if (!Directory.Exists($@"{dir}\config\SQUAD.png"))
-            {
-                webClient.DownloadFile("https://wiki.warthunder.com/images/7/70/Item_squad.png", @"config\SQUAD.png");
-
-                Image imagetocopy = Image.FromFile(@"config\SQUAD.png");
-                Image image = new Bitmap(imagetocopy);
-                imagetocopy.Dispose();
-                File.Delete(@"config\SQUAD.png");
-                image.Save(@"config\SQUAD.png", System.Drawing.Imaging.ImageFormat.Png);
-                image.Dispose();
-            }
-        
-
-            DirectoryInfo configDirInfo = new DirectoryInfo($@"{ dir }\config");
+            DirectoryInfo configDirInfo = new DirectoryInfo($@"{dir}\config");
             int pngNum = 0;
             foreach (FileInfo fi in configDirInfo.GetFiles())
             {
@@ -157,19 +122,18 @@ namespace Lineups_creator
                 }
             }
 
-            backgroundImagesPaths = new string[configDirInfo.GetFiles().Length];
-
-            backgroundImagesPaths[0] = @"config\OWN.png";
-            backgroundImagesPaths[1] = @"config\PREMIUM.png";
-            backgroundImagesPaths[2] = @"config\SQUAD.png";
+            backgroundImagePaths = new string[3 + configDirInfo.GetFiles().Length];
+            backgroundImagePaths[0] = "Own";
+            backgroundImagePaths[1] = "Premium";
+            backgroundImagePaths[2] = "Squad";
 
 
             int i = 3;
             foreach (FileInfo fi in configDirInfo.GetFiles())
             {
-                if (fi.Name.Contains(".png") && i < pngNum && (!fi.Name.Contains("OWN.png") || !fi.Name.Contains("PREMIUM.png") || !fi.Name.Contains("SQUAD.png")))
+                if (fi.Name.Contains(".png") && i < pngNum)
                 {
-                    backgroundImagesPaths[i] = @"config\" + fi.Name;
+                    backgroundImagePaths[i] = @"config\" + fi.Name;
                     i++;
                 }
             }
@@ -472,7 +436,7 @@ namespace Lineups_creator
                 {
                     StatusChange("Something went wrong", Color.FromArgb(204, 142, 23));
                 }
-                
+
             } else
             {
                 StatusChange("Wrong file name", Color.FromArgb(192, 0, 0));
@@ -488,17 +452,9 @@ namespace Lineups_creator
                 Margin = new Padding(3, 3, 3, 3),
                 FlatStyle = FlatStyle.Flat,
             };
-
-
-
             if (vd.name != null)
             {
                 Image icon = new Bitmap(1, 1);
-                Image[] backgrounds = new Image[backgroundImagesPaths.Length];
-                for (int i = 0; i < backgrounds.Length; i++)
-                {
-                    backgrounds[i] = Image.FromFile(backgroundImagesPaths[i]);
-                }
 
                 if(vd.imageLink != "N/A")
                 {
@@ -518,16 +474,24 @@ namespace Lineups_creator
                     int width = Convert.ToInt32(icon.Width / ratio);
                     icon = new Bitmap(icon, new Size(width, 42));
                 }
-                Bitmap bitmap = new Bitmap(1, 1);
-                if (vd.backgroudType < backgrounds.Length)
-                {
-                    bitmap = (Bitmap)backgrounds[vd.backgroudType];
-                } else
-                {
-                    bitmap = (Bitmap)backgrounds[0];
-                }
-                
 
+                Image background;                               
+                switch (vd.backgroudType)
+                {
+                    case 0:
+                        background = Properties.Resources.bg_base;
+                        break;
+                    case 1:
+                        background = Properties.Resources.bg_premium;
+                        break;
+                    case 2:
+                        background = Properties.Resources.bg_squad;
+                        break;
+                    default:
+                        background = Image.FromFile(backgroundImagePaths[vd.backgroudType]);
+                        break;
+                }
+                Bitmap bitmap = new Bitmap(background);
                 using (Graphics graphics = Graphics.FromImage(bitmap))
                 {
                     using (Font verdanaFont = new Font(pfc.Families[0], 10, new FontStyle()))
@@ -788,7 +752,7 @@ namespace Lineups_creator
                             using (Font textFont = new Font(pfc.Families[0], 12, new FontStyle()))
                             {
                                 Pen pen = new Pen(tableNamesBrush) { Width = 2 };
-                                if (File.Exists(@"temp\flag.png") && country != -1)
+                                if (File.Exists(@"temp\flag.png"))
                                 {
                                     Image flagtocopy = Image.FromFile(@"temp\flag.png");
 
@@ -800,6 +764,10 @@ namespace Lineups_creator
                                     flag = new Bitmap(flag, new Size(width, 40));
                                     graphics.DrawImage(flag, bitmap.Width - flag.Width - 5, 5, flag.Width, flag.Height);
                                     flag.Dispose();
+                                } else
+                                {
+                                    Image flag = flags[country];
+                                    graphics.DrawImage(flag, bitmap.Width - flag.Width - 5, 5, flag.Width, flag.Height);
                                 }
 
 
@@ -1107,17 +1075,11 @@ namespace Lineups_creator
         }
         private void countryCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                country = countryCombo.SelectedIndex;
-                if (!flagLocked)
-                {
-                    DownloadFlag(flagsURL[countryCombo.SelectedIndex]);
-                }
-            } catch
-            {
-
-            }
+            country = countryCombo.SelectedIndex;
+            flagButton.Size = new Size(71, 48);
+            flagButton.Location = new Point(Size.Width - 99, flagButton.Location.Y);
+            flagButton.Text = "";
+            flagButton.BackgroundImage = flags[country];
         }
 
         // background menu
@@ -2289,7 +2251,6 @@ namespace Lineups_creator
             }
         }
 
-
         // Special buttons
         private void flagButton_Click(object sender, EventArgs e)
         {
@@ -2297,26 +2258,6 @@ namespace Lineups_creator
 
             flagEditor.Show();
         }
-        private void DownloadFlag(string link)
-        {
-            WebClient wc = new WebClient();
-            wc.DownloadFile(link, @"temp\flag.png");
-            wc.Dispose();
-            Image flagtocopy = Image.FromFile(@"temp\flag.png");
-
-            Image flag = new Bitmap(flagtocopy);
-            flagtocopy.Dispose();
-
-            float ratio = flag.Height / 48f;
-            int width = Convert.ToInt32(flag.Width / ratio);
-            flag = new Bitmap(flag, new Size(width, 48));
-            flag.Save(@"temp\flag.png", System.Drawing.Imaging.ImageFormat.Png);
-            flag.Dispose();
-
-            OpenFlag();
-
-        }
-
 
         // shortcuts
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -2442,7 +2383,6 @@ namespace Lineups_creator
             StatusLabel.Text = "ok";
             StatusLabel.ForeColor = Color.Black;
         }
-
 
         // misc funcs
         public void OpenFlag()

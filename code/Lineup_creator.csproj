@@ -157,6 +157,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon64x64.ico" />
+    <None Include="Properties\country_ussr.png" />
+    <None Include="Properties\country_usa.png" />
+    <None Include="Properties\country_sweden.png" />
+    <None Include="Properties\country_japan.png" />
+    <None Include="Properties\country_italy.png" />
+    <None Include="Properties\country_israel.png" />
+    <None Include="Properties\country_germany.png" />
+    <None Include="Properties\country_france.png" />
+    <None Include="Properties\country_china.png" />
+    <None Include="Properties\country_britain.png" />
+    <None Include="Properties\bg_squad.png" />
+    <None Include="Properties\bg_premium.png" />
+    <None Include="Properties\bg_base.png" />
     <None Include="Properties\donationAlerts-logo.png" />
     <None Include="Properties\boosty-logo.png" />
   </ItemGroup>
