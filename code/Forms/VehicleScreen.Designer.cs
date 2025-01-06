@@ -87,6 +87,10 @@ namespace Lineups_creator
             resources.ApplyResources(this.BackgroundCombobox, "BackgroundCombobox");
             this.BackgroundCombobox.ForeColor = System.Drawing.Color.White;
             this.BackgroundCombobox.FormattingEnabled = true;
+            this.BackgroundCombobox.Items.AddRange(new object[] {
+            resources.GetString("BackgroundCombobox.Items"),
+            resources.GetString("BackgroundCombobox.Items1"),
+            resources.GetString("BackgroundCombobox.Items2")});
             this.BackgroundCombobox.Name = "BackgroundCombobox";
             this.BackgroundCombobox.SelectedIndexChanged += new System.EventHandler(this.BackgroundCombobox_SelectedIndexChanged);
             // 

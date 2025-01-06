@@ -46,5 +46,17 @@ namespace Lineups_creator.Properties {
                 this["FontSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.0.0")]
+        public string DataVer {
+            get {
+                return ((string)(this["DataVer"]));
+            }
+            set {
+                this["DataVer"] = value;
+            }
+        }
     }
 }

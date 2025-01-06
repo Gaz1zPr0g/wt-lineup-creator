@@ -237,6 +237,15 @@
   <data name="BackgroundCombobox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 9.75pt</value>
   </data>
+  <data name="BackgroundCombobox.Items" xml:space="preserve">
+    <value>OWN</value>
+  </data>
+  <data name="BackgroundCombobox.Items1" xml:space="preserve">
+    <value>PREMIUM</value>
+  </data>
+  <data name="BackgroundCombobox.Items2" xml:space="preserve">
+    <value>SQUAD</value>
+  </data>
   <data name="BackgroundCombobox.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 143</value>
   </data>

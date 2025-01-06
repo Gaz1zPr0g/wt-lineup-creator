@@ -1338,6 +1338,12 @@ For HEX - #hexcol</value>
   <data name="wikiToolStripMenuItem.Text" xml:space="preserve">
     <value>Wiki</value>
   </data>
+  <data name="dataVerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="dataVerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Data ver:</value>
+  </data>
   <data name="toolStripMenuItem1.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Help</value>
   </data>
@@ -2427,6 +2433,12 @@ For HEX - #hexcol</value>
     <value>StatusLabel</value>
   </data>
   <data name="&gt;&gt;StatusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataVerToolStripMenuItem.Name" xml:space="preserve">
+    <value>dataVerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;dataVerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

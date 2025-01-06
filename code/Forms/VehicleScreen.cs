@@ -14,22 +14,8 @@ namespace Lineups_creator
         private VehicleData senderData = new VehicleData();
         private string text;
         private string name;
-        private string[] countries =
-        {
-            "USA", 
-            "Germany", 
-            "USSR",
-            "Great Britain",
-            "Japan",
-            "China",
-            "Italy",
-            "France",
-            "Sweden",
-            "Israel"
-        };
         private float fontSize = Properties.Settings.Default.FontSize;
 
-        private string country;
         private int backgroundindex;
         private int type;
         private int row;
@@ -39,15 +25,14 @@ namespace Lineups_creator
         {
             // 0 - tank | 1 - plane | 2 - heli | 3 - coastal | 4 - bluewater
             senderButton = sender;
-            if (countryID != -1)
-                country = countries[countryID];
+
             this.type = type;
             row = senderrow;
             column = sendercolumn;
             lc = linc;
             senderData = new VehicleData("N/A", type, "N/A", 0, "N/A", 0);
 
-            templates = new Templates(country);
+            templates = new Templates(countryID);
 
             
             Text = $"{res.LocalisationRes.tile}[{row},{column}]";
@@ -56,6 +41,10 @@ namespace Lineups_creator
             int i = 0;
             foreach (string path in linc.backgroundImagePaths)
             {
+                if (path == null || !path.Contains(".png"))
+                {
+                    continue;
+                }
                 if (i < 3)
                 {
                     BackgroundCombobox.Items.Add(path);
@@ -67,9 +56,9 @@ namespace Lineups_creator
             }
 
 
-            foreach (string name in templates.GetDataByCountry(country).Keys)
+            foreach (string name in templates.template.Keys)
             {
-                VehicleData fillData = templates.GetDataByCountry(country)[name];
+                VehicleData fillData = templates.template[name];
                 if (fillData.type == type || type == -1)
                 {
                     VehicleName.Items.Add(name);
@@ -83,8 +72,7 @@ namespace Lineups_creator
 
         public VehicleScreen(int countryID, int type, int senderrow, int sendercolumn, Control sender, VehicleData data, Lineup_creator linc)
         {
-            if (countryID != -1)
-                country = countries[countryID];
+
             this.type = type;
             row = senderrow;
             column = sendercolumn;
@@ -96,7 +84,7 @@ namespace Lineups_creator
             backgroundindex = senderData.backgroudType;
             lc = linc;
             
-            templates = new Templates(country);
+            templates = new Templates(countryID);
 
             Text = $"{res.LocalisationRes.tile}[{row},{column}]";
             InitializeComponent();
@@ -107,9 +95,9 @@ namespace Lineups_creator
             fontSizeInput.Text = $"{fontSize}";
             
 
-            foreach (string name in templates.GetDataByCountry(country).Keys)
+            foreach (string name in templates.template.Keys)
             {
-                VehicleData fillData = templates.GetDataByCountry(country)[name];
+                VehicleData fillData = templates.template[name];
                 if (fillData.type == type || type == -1)
                 {
                     VehicleName.Items.Add(name);
@@ -166,34 +154,35 @@ namespace Lineups_creator
         // Icon
         private void ChangeIcon(string link)
         {
-            if (link != "N/A")
+            if (link == "N/A")
             {
-                WebClient webClient = new WebClient();
-
-                webClient.DownloadFile(link, $@"temp\icon{row}-{column}-{type}.bmp");
-                webClient.Dispose();
-
-                Image icontocopy = Image.FromFile($@"temp\icon{row}-{column}-{type}.bmp");
-
-                Image icon = new Bitmap(icontocopy);
-                icontocopy.Dispose();
-
-                FileInfo file = new FileInfo($@"temp\icon{row}-{column}-{type}.bmp");
-                file.Delete();
-
-                float ratio = icon.Height / 42f;
-                int width = Convert.ToInt32(icon.Width / ratio);
-                icon = new Bitmap(icon, new Size(width, 42));
-
-                iconPanel.BackgroundImage = icon;
-
-                senderData.imageLink = link;
+                return;
             }
-            
+
+            WebClient webClient = new WebClient();
+
+            webClient.DownloadFile(link, $@"temp\icon{row}-{column}-{type}.bmp");
+            webClient.Dispose();
+
+            Image icontocopy = Image.FromFile($@"temp\icon{row}-{column}-{type}.bmp");
+
+            Image icon = new Bitmap(icontocopy);
+            icontocopy.Dispose();
+
+            FileInfo file = new FileInfo($@"temp\icon{row}-{column}-{type}.bmp");
+            file.Delete();
+
+            float ratio = icon.Height / 42f;
+            int width = Convert.ToInt32(icon.Width / ratio);
+            icon = new Bitmap(icon, new Size(width, 42));
+
+            iconPanel.BackgroundImage = icon;
+
+            senderData.imageLink = link;
         }
         private void LinkCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeIcon(templates.GetLinkByName(country, LinkCombobox.SelectedItem.ToString()));
+            ChangeIcon(templates.GetLinkByName(LinkCombobox.SelectedItem.ToString()));
         }
 
         // Text
@@ -232,9 +221,9 @@ namespace Lineups_creator
         private void VehicleName_SelectedIndexChanged(object sender, EventArgs e)
         {
             string key = VehicleName.SelectedItem.ToString();
-            if (templates.GetDataByCountry(country).ContainsKey(key))
+            if (templates.template.ContainsKey(key))
             {
-                VehicleData data = templates.GetDataByCountry(country)[key];
+                VehicleData data = templates.template[key];
                 VehicleText.Text = data.name;
 
                 LinkCombobox.SelectedItem = data.name;
@@ -244,8 +233,6 @@ namespace Lineups_creator
                 ChangeBackground();
 
                 senderData = data;
-
-
             }
         }
         

@@ -115,6 +115,7 @@ namespace Lineups_creator
             this.SupportLabel = new System.Windows.Forms.Label();
             this.DonationAlertsSupportButton = new System.Windows.Forms.Button();
             this.BoostySupportButton = new System.Windows.Forms.Button();
+            this.dataVerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BluewaterPanel.SuspendLayout();
             this.BluewaterTable.SuspendLayout();
             this.CoastalfleetPanel.SuspendLayout();
@@ -527,7 +528,8 @@ namespace Lineups_creator
             this.HelpControls,
             this.reportButton,
             this.HelpGitHubPage,
-            this.wikiToolStripMenuItem});
+            this.wikiToolStripMenuItem,
+            this.dataVerToolStripMenuItem});
             this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
@@ -777,6 +779,11 @@ namespace Lineups_creator
             this.BoostySupportButton.UseVisualStyleBackColor = true;
             this.BoostySupportButton.Click += new System.EventHandler(this.BoostySupportButton_Click);
             // 
+            // dataVerToolStripMenuItem
+            // 
+            this.dataVerToolStripMenuItem.Name = "dataVerToolStripMenuItem";
+            resources.ApplyResources(this.dataVerToolStripMenuItem, "dataVerToolStripMenuItem");
+            // 
             // Lineup_creator
             // 
             resources.ApplyResources(this, "$this");
@@ -905,6 +912,7 @@ namespace Lineups_creator
         private System.Windows.Forms.Label SupportLabel;
         private System.Windows.Forms.ToolStripMenuItem cTRLSHIFTMClearMixedTableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wikiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataVerToolStripMenuItem;
     }
 }
 

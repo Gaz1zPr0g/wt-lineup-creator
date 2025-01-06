@@ -24,7 +24,14 @@ namespace Lineups_creator
                 Directory.Delete($@"{dir}\temp");
             }
             
-            Application.Run(new Lineup_creator());
+            try
+            {
+                Application.Run(new Lineup_creator());
+            } catch
+            {
+                MessageBox.Show(text: "Something caused fatal error", caption: "FATAL ERROR", buttons: MessageBoxButtons.OK);
+            }
+            
 
 
 

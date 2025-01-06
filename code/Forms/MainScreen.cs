@@ -8,9 +8,9 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Net;
 
+
 namespace Lineups_creator
 {
-
     public partial class Lineup_creator : Form
     {
         int country = -1;
@@ -65,50 +65,12 @@ namespace Lineups_creator
 
             Directory.CreateDirectory($@"{dir}\temp");
             Directory.CreateDirectory($@"{dir}\config");
-            WebClient webClient = new WebClient();
 
-            string urlVersion = "https://www.dropbox.com/scl/fi/d2er1hozhboimxe40dsm6/version.txt?rlkey=2rdsq80onzl7iu24y8segjs7x&st=fveasz1g&dl=1";
-            webClient.DownloadFile(new Uri(urlVersion), $@"{dir}\temp\version.txt");
-            webClient.Dispose();
+            Check_Updates();
+            Check_Data_Updates();
 
-            StreamReader sr = new StreamReader(@"temp\version.txt");
-            var newVersionstr = sr.ReadLine();
-            var verData = sr.ReadToEnd();
-            sr.Close();
-            sr.Dispose();
+            dataVerToolStripMenuItem.Text = "Data ver: " + Properties.Settings.Default.DataVer;
 
-            FileInfo verFile = new FileInfo(@"temp\version.txt");
-            verFile.Delete();
-
-
-            var newVersion = newVersionstr;
-            var currentVersion = Application.ProductVersion.ToString();
-            newVersion = newVersion.Replace(".", "");
-            currentVersion = currentVersion.Replace(".", "");
-
-            if (Convert.ToInt32(newVersion) > Convert.ToInt32(currentVersion))
-            {
-                DialogResult dialogResult = MessageBox.Show(text: $"{newVersionstr}\n{verData}\n{res.LocalisationRes.newVersion}", caption: "New version avalibale", buttons: MessageBoxButtons.YesNo);
-
-                if (dialogResult == DialogResult.Yes)
-                {
-                    webClient.DownloadFile(new Uri("https://www.dropbox.com/scl/fi/qqx1fbvl1pz0ync68icii/Setup.zip?rlkey=oy297ynt9xvu1t9vi7zyydgbb&st=6g62t2zh&dl=1"), @"temp\Setup.zip");
-                    webClient.Dispose();
-
-                    ZipFile.ExtractToDirectory(@"temp\Setup.zip", @"temp\");
-                    File.Delete(@"temp\Setup.zip");
-
-                    Process p = new Process();
-                    p.StartInfo.FileName = "msiexec.exe";
-                    p.StartInfo.Arguments = string.Format("/i temp\\Setup.msi");
-                    
-                    p.Start();
-                    Environment.Exit(1);
-                }
-
-            }
-
-            
             Directory.CreateDirectory($@"{dir}\export");
             Directory.CreateDirectory($@"{dir}\saves");
 
@@ -147,6 +109,91 @@ namespace Lineups_creator
             comboBoxPos6.SelectedItem = 5;
         }
 
+        private void Check_Updates()
+        {
+            WebClient webClient = new WebClient();
+
+            string urlVersion = "https://www.dropbox.com/scl/fi/d2er1hozhboimxe40dsm6/version.txt?rlkey=2rdsq80onzl7iu24y8segjs7x&st=fveasz1g&dl=1";
+            webClient.DownloadFile(new Uri(urlVersion), $@"{dir}\temp\version.txt");
+            webClient.Dispose();
+
+            StreamReader sr = new StreamReader(@"temp\version.txt");
+            var newVersionstr = sr.ReadLine();
+            var verData = sr.ReadToEnd();
+            sr.Close();
+            sr.Dispose();
+
+            FileInfo verFile = new FileInfo(@"temp\version.txt");
+            verFile.Delete();
+            
+
+            string currentVersion = Application.ProductVersion.ToString();
+            string[] newver = newVersionstr.Split('.');
+            string[] oldver = currentVersion.Split('.');
+
+            if (Convert.ToInt32(newver[0]) < Convert.ToInt32(oldver[0]) || Convert.ToInt32(newver[1]) < Convert.ToInt32(oldver[1]) || Convert.ToInt32(newver[2]) < Convert.ToInt32(oldver[2]))
+            {
+                return;
+            }
+
+            DialogResult dialogResult = MessageBox.Show(text: $"{newVersionstr}\n{verData}\n{res.LocalisationRes.newVersion}", caption: "New version avalibale", buttons: MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            webClient.DownloadFile(new Uri("https://www.dropbox.com/scl/fi/qqx1fbvl1pz0ync68icii/Setup.zip?rlkey=oy297ynt9xvu1t9vi7zyydgbb&st=6g62t2zh&dl=1"), @"temp\Setup.zip");
+            webClient.Dispose();
+
+            ZipFile.ExtractToDirectory(@"temp\Setup.zip", @"temp\");
+            File.Delete(@"temp\Setup.zip");
+
+            Process p = new Process();
+            p.StartInfo.FileName = "msiexec.exe";
+            p.StartInfo.Arguments = string.Format("/i temp\\Setup.msi");
+
+            p.Start();
+            Environment.Exit(1);
+
+        }
+        private void Check_Data_Updates()
+        {
+            WebClient webClient = new WebClient();
+            string dataVersionURL = "https://www.dropbox.com/scl/fi/yy8l6hcqp72glkrc9pb9i/dataVersion.txt?rlkey=nx7vdkd6yd92wrnk5ibpfrf1k&st=90exb6bt&dl=1";
+            webClient.DownloadFile(new Uri(dataVersionURL), $@"{dir}\temp\dataVersion.txt");
+            webClient.Dispose();
+
+            StreamReader sr = new StreamReader(@"temp\dataVersion.txt");
+            var newVersionstr = sr.ReadLine();
+            sr.Close();
+            sr.Dispose();
+
+            FileInfo verFile = new FileInfo(@"temp\dataVersion.txt");
+            verFile.Delete();
+
+            string curDataVer = Properties.Settings.Default.DataVer;
+
+            
+
+            string[] newver = newVersionstr.Split('.');
+            string[] oldver = curDataVer.Split('.');
+
+            if (Convert.ToInt32(newver[0]) <= Convert.ToInt32(oldver[0]) && Convert.ToInt32(newver[1]) <= Convert.ToInt32(oldver[1]) && Convert.ToInt32(newver[2]) <= Convert.ToInt32(oldver[2]))
+            {
+                return;
+            }
+
+            Properties.Settings.Default.DataVer = newVersionstr;
+            string ENGdataURL = "https://www.dropbox.com/scl/fi/mqwushf71ck1uyzqsha6k/ENG.xlsx?rlkey=mkgdavrfkydkf7xmyhydu9tj4&st=cy88igkm&dl=1";
+            string RUSdataURL = "https://www.dropbox.com/scl/fi/3brc6xow550nd03a8i2ux/RUS.xlsx?rlkey=t5tfni1j1wbzkvsxs1d8vbhs6&st=oeg7zuqh&dl=1";
+
+            webClient.DownloadFile(ENGdataURL, $@"{dir}/config/ENG.xlsx");
+            webClient.Dispose();
+            webClient.DownloadFile(RUSdataURL, $@"{dir}/config/RUS.xlsx");
+            webClient.Dispose();
+        }
+
         // Imports
         private void importButton_Click(object sender, EventArgs e)
         {
@@ -159,12 +206,17 @@ namespace Lineups_creator
 
             string filename = openFileDialog.FileName;
 
-            if (filename != "")
+            if (filename == "")
             {
-                try
+                StatusChange("Wrong file name", Color.FromArgb(192, 0, 0));
+                return;
+
+            }
+
+            try
+            {
+                if (File.Exists(filename))
                 {
-                    if (File.Exists(filename))
-                    {
                         using (StreamReader sr = new StreamReader(filename))
                         {
                             string sizeline = sr.ReadLine();
@@ -436,112 +488,8 @@ namespace Lineups_creator
                 {
                     StatusChange("Something went wrong", Color.FromArgb(204, 142, 23));
                 }
-
-            } else
-            {
-                StatusChange("Wrong file name", Color.FromArgb(192, 0, 0));
-            }
         }
-        private void Create_Button(int row, int col, int type, TableLayoutPanel tlp, VehicleData vd)
-        {
-            Button vehicle = new Button()
-            {
-                Width = 120,
-                Height = 48,
-                Text = "",
-                Margin = new Padding(3, 3, 3, 3),
-                FlatStyle = FlatStyle.Flat,
-            };
-            if (vd.name != null)
-            {
-                Image icon = new Bitmap(1, 1);
-
-                if(vd.imageLink != "N/A")
-                {
-                    WebClient webClient = new WebClient();
-                    webClient.DownloadFile(vd.imageLink, $@"temp\icon{row}-{col}-{type}.bmp");
-                    webClient.Dispose();
-
-                    Image icontocopy = Image.FromFile($@"temp\icon{row}-{col}-{type}.bmp");
-
-                    icon = new Bitmap(icontocopy);
-                    icontocopy.Dispose();
-
-                    FileInfo file = new FileInfo($@"temp\icon{row}-{col}-{type}.bmp");
-                    file.Delete();
-
-                    float ratio = icon.Height / 42f;
-                    int width = Convert.ToInt32(icon.Width / ratio);
-                    icon = new Bitmap(icon, new Size(width, 42));
-                }
-
-                Image background;                               
-                switch (vd.backgroudType)
-                {
-                    case 0:
-                        background = Properties.Resources.bg_base;
-                        break;
-                    case 1:
-                        background = Properties.Resources.bg_premium;
-                        break;
-                    case 2:
-                        background = Properties.Resources.bg_squad;
-                        break;
-                    default:
-                        background = Image.FromFile(backgroundImagePaths[vd.backgroudType]);
-                        break;
-                }
-                Bitmap bitmap = new Bitmap(background);
-                using (Graphics graphics = Graphics.FromImage(bitmap))
-                {
-                    using (Font verdanaFont = new Font(pfc.Families[0], 10, new FontStyle()))
-                    {
-                        if (vd.imageLink != "N/A")
-                        {
-                            graphics.DrawImage(icon, 5, 5, icon.Width, icon.Height);
-                        }
-                        
-                        var format = new StringFormat() { Alignment = StringAlignment.Far };
-                        var rect = new RectangleF(5, 5, 110, 38);
-
-                        graphics.DrawString(vd.name, verdanaFont, Brushes.White, rect, format);
-                    }
-                }
-                vehicle.BackgroundImage = bitmap;
-                bitmap.Save(vd.buttonImage);
-            }
-
-            switch (type)
-            {
-                case 0:
-                    vehicle.Click += TankButton_Click;
-                    break;
-                case 1:
-                    vehicle.Click += PlaneButton_Click;
-                    break;
-                case 2:
-                    vehicle.Click += HeliButton_Click;
-                    break;
-                case 3:
-                    vehicle.Click += CoastalButton_Click;
-                    break;
-                case 4:
-                    vehicle.Click += BluewaterButton_Click;
-                    break;
-                case -1:
-                    vehicle.Click += MixedButton_Click;
-                    break;
-            }
-            if (col > 0)
-            {
-                tlp.Controls.Add(vehicle, col, row);
-            }
-            else
-            {
-                tlp.Controls.Add(vehicle, col, row);
-            }
-
-        }
+        
 
         // Exports
         private void saveButton_Click(object sender, EventArgs e)
@@ -552,9 +500,15 @@ namespace Lineups_creator
             saveFileDialog1.InitialDirectory = $@"{dir}\saves";
             saveFileDialog1.ShowDialog();
 
-            if (saveFileDialog1.FileName != "")
+            if (saveFileDialog1.FileName == "")
             {
-                StatusLabel.ForeColor = Color.FromArgb(204, 142, 23);
+                StatusChange("Wrong file name", Color.FromArgb(192, 0, 0));
+                return;
+            }
+
+            StatusLabel.ForeColor = Color.FromArgb(204, 142, 23);
+            try
+            {
                 using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
                 {
                     string output = JsonConvert.SerializeObject(arrSizes);
@@ -567,9 +521,9 @@ namespace Lineups_creator
                             {
                                 if (tanksData[row, col] != null && tanksData[row, col].name != null)
                                 {
-                                        tanksData[row, col].pos = new int[] { row, col };
-                                        output = JsonConvert.SerializeObject(tanksData[row, col]);
-                                        sw.WriteLine(output);
+                                    tanksData[row, col].pos = new int[] { row, col };
+                                    output = JsonConvert.SerializeObject(tanksData[row, col]);
+                                    sw.WriteLine(output);
                                 }
                             }
                         }
@@ -589,7 +543,7 @@ namespace Lineups_creator
                             }
                         }
 
-                        foreach(VehicleData vd in planesData)
+                        foreach (VehicleData vd in planesData)
                         {
                             if (vd != null)
                             {
@@ -599,7 +553,7 @@ namespace Lineups_creator
                                     sw.WriteLine(output);
                                 }
                             }
-                            
+
                         }
                     }
                     if (helicoptersData != null)
@@ -644,7 +598,7 @@ namespace Lineups_creator
                                     output = JsonConvert.SerializeObject(bluewaterFleetData[row, col]);
                                     sw.WriteLine(output);
                                 }
-                                
+
                             }
                         }
                     }
@@ -654,24 +608,26 @@ namespace Lineups_creator
                         {
                             for (int col = 0; col < arrSizes.mixed.Item2; col++)
                             {
-                                if (mixedData[row,col] != null && mixedData[row, col].name != "none")
+                                if (mixedData[row, col] != null && mixedData[row, col].name != "none")
                                 {
                                     mixedData[row, col].pos = new int[] { row, col };
                                     mixedData[row, col].mixed = true;
                                     output = JsonConvert.SerializeObject(mixedData[row, col]);
                                     sw.WriteLine(output);
                                 }
-                                
+
                             }
                         }
                     }
                 }
                 StatusChange("Saved", Color.FromArgb(0, 192, 0));
-            }
-            else
+            } catch
             {
-                StatusChange("Wrong file name", Color.FromArgb(192, 0, 0));
+                MessageBox.Show(text: "Wrong save file or tables data", caption: "Error", buttons: MessageBoxButtons.OK);
+                StatusChange("Error", Color.FromArgb(192, 0, 0));
             }
+            
+            
         }
         private void exportButton_Click(object sender, EventArgs e)
         {
@@ -683,251 +639,263 @@ namespace Lineups_creator
                 InitialDirectory = $@"{dir}\export",
             };
             saveFileDialog.ShowDialog();
-            if (saveFileDialog.FileName != "" )
+            if (saveFileDialog.FileName == "" )
             {
-                if (saveFileDialog.FilterIndex == 1)
+                StatusChange("Wrong file name!", Color.FromArgb(192, 0, 0));
+                return;
+            }
+
+            // .png file
+            if (saveFileDialog.FilterIndex == 1)
+            {
+                try
                 {
-                    try
+                    StatusLabel.ForeColor = Color.FromArgb(204, 142, 23);
+                    int tsizeX = (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.tanks.Item1 : 0;
+                    int tsizeY = arrSizes.tanks.Item2 >= 1 ? 10 + 124 * arrSizes.tanks.Item2 : 0;
+
+                    bool isBright = imageBackgroundColor.R > 128 || imageBackgroundColor.G > 128 || imageBackgroundColor.B > 128;
+                    SolidBrush tableNamesBrush = isBright ? new SolidBrush(Color.FromArgb(0, 0, 0)) : new SolidBrush(Color.FromArgb(255, 255, 255));
+
+                    int psizeX = (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.planes.Item1 : 0;
+                    int psizeY = arrSizes.planes.Item2 >= 1 ? 10 + 124 * arrSizes.planes.Item2 : 0;
+                    int maxx = Math.Max(tsizeY, psizeY);
+                    int hsizeX = (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.helis.Item1 : 0;
+                    int hsizeY = arrSizes.helis.Item2 >= 1 ? 10 + 124 * arrSizes.helis.Item2 : 0;
+                    maxx = Math.Max(maxx, hsizeY);
+                    int csizeX = (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.coastalFleet.Item1 : 0;
+                    int csizeY = arrSizes.coastalFleet.Item2 >= 1 ? 10 + 124 * arrSizes.coastalFleet.Item2 : 0;
+                    maxx = Math.Max(maxx, csizeY);
+                    int bsizeX = (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.bluewaterFleet.Item1 : 0;
+                    int bsizeY = arrSizes.bluewaterFleet.Item2 >= 1 ? 10 + 124 * arrSizes.bluewaterFleet.Item2 : 0;
+                    maxx = Math.Max(maxx, bsizeY);
+                    int msizeX = (arrSizes.mixed.Item1 >= 1 && arrSizes.mixed.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.mixed.Item1 : 0;
+                    int msizeY = arrSizes.mixed.Item2 >= 1 ? 10 + 124 * arrSizes.mixed.Item2 : 0;
+                    maxx = Math.Max(maxx, msizeY);
+                    Bitmap bitmap = new Bitmap(maxx, tsizeX + psizeX + hsizeX + csizeX + bsizeX + msizeX);
+                    int x; int y;
+                    for (x = 0; x < bitmap.Width; x++)
                     {
-                        StatusLabel.ForeColor = Color.FromArgb(204, 142, 23);
-                        int tsizeX = (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.tanks.Item1 : 0;
-                        int tsizeY = arrSizes.tanks.Item2 >= 1 ? 10 + 124 * arrSizes.tanks.Item2 : 0;
-
-                        bool isBright = imageBackgroundColor.R > 128 || imageBackgroundColor.G > 128 || imageBackgroundColor.B > 128;
-                        SolidBrush tableNamesBrush = isBright ? new SolidBrush(Color.FromArgb(0, 0, 0)) : new SolidBrush(Color.FromArgb(255, 255, 255));
-
-                        int psizeX = (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.planes.Item1 : 0;
-                        int psizeY = arrSizes.planes.Item2 >= 1 ? 10 + 124 * arrSizes.planes.Item2 : 0;
-                        int maxx = Math.Max(tsizeY, psizeY);
-                        int hsizeX = (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.helis.Item1 : 0;
-                        int hsizeY = arrSizes.helis.Item2 >= 1 ? 10 + 124 * arrSizes.helis.Item2 : 0;
-                        maxx = Math.Max(maxx, hsizeY);
-                        int csizeX = (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.coastalFleet.Item1 : 0;
-                        int csizeY = arrSizes.coastalFleet.Item2 >= 1 ? 10 + 124 * arrSizes.coastalFleet.Item2 : 0;
-                        maxx = Math.Max(maxx, csizeY);
-                        int bsizeX = (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.bluewaterFleet.Item1 : 0;
-                        int bsizeY = arrSizes.bluewaterFleet.Item2 >= 1 ? 10 + 124 * arrSizes.bluewaterFleet.Item2 : 0;
-                        maxx = Math.Max(maxx, bsizeY);
-                        int msizeX = (arrSizes.mixed.Item1 >= 1 && arrSizes.mixed.Item2 >= 1) ? 48 + 5 + 52 * arrSizes.mixed.Item1 : 0;
-                        int msizeY = arrSizes.mixed.Item2 >= 1 ? 10 + 124 * arrSizes.mixed.Item2 : 0;
-                        maxx = Math.Max(maxx, msizeY);
-                        Bitmap bitmap = new Bitmap(maxx, tsizeX + psizeX + hsizeX + csizeX + bsizeX + msizeX);
-                        int x; int y;
-                        for (x = 0; x < bitmap.Width; x++)
+                        for (y = 0; y < bitmap.Height; y++)
                         {
-                            for (y = 0; y < bitmap.Height; y++)
-                            {
-                                bitmap.SetPixel(x, y, imageBackgroundColor);
-                            }
+                            bitmap.SetPixel(x, y, imageBackgroundColor);
                         }
-                        using (Graphics graphics = Graphics.FromImage(bitmap))
+                    }
+                    using (Graphics graphics = Graphics.FromImage(bitmap))
+                    {
+                        using (Font backgroundFont = new Font("Verdana", 8, new FontStyle()))
                         {
-                            using (Font backgroundFont = new Font("Verdana", 8, new FontStyle()))
+                            graphics.DrawString("https://github.com/Gaz1zPr0g/wt-lineup-creator", backgroundFont, new SolidBrush(waterMarkColor), 5, 5);
+                            if (drawDecor)
                             {
-                                graphics.DrawString("https://github.com/Gaz1zPr0g/wt-lineup-creator", backgroundFont, new SolidBrush(waterMarkColor), 5, 5);
-                                if (drawDecor)
+                                for (y = 0; y < bitmap.Height; y += 8)
                                 {
-                                    for (y = 0; y < bitmap.Height; y += 8)
+                                    if (y < 16)
                                     {
-                                        if (y < 16)
-                                        {
-                                            x = y == 0 ? 280 : 288;
-                                        }
-                                        else
-                                        {
-                                            x = y % 16 == 0 ? 0 : 8;
-                                        }
-                                        while (x < bitmap.Width)
-                                        {
-                                            graphics.DrawString(decorText, backgroundFont, new SolidBrush(waterMarkColor), x, y);
-                                            x += decorText.Length * 4 + 16;
-                                        }
+                                        x = y == 0 ? 289 : 280;
+                                    }
+                                    else
+                                    {
+                                        x = y % 16 == 0 ? 0 : 8;
+                                    }
+                                    while (x < bitmap.Width)
+                                    {
+                                        graphics.DrawString(decorText, backgroundFont, new SolidBrush(waterMarkColor), x, y);
+                                        x += decorText.Length * 6 + 11;
                                     }
                                 }
                             }
                         }
-                        x = 0; y = 20;
-                        using (Graphics graphics = Graphics.FromImage(bitmap))
+                    }
+                    x = 0; y = 20;
+                    using (Graphics graphics = Graphics.FromImage(bitmap))
+                    {
+                        using (Font textFont = new Font(pfc.Families[0], 12, new FontStyle()))
                         {
-                            using (Font textFont = new Font(pfc.Families[0], 12, new FontStyle()))
+                            Pen pen = new Pen(tableNamesBrush) { Width = 2 };
+                            if (File.Exists(@"temp\flag.png"))
                             {
-                                Pen pen = new Pen(tableNamesBrush) { Width = 2 };
-                                if (File.Exists(@"temp\flag.png"))
-                                {
-                                    Image flagtocopy = Image.FromFile(@"temp\flag.png");
+                                Image flagtocopy = Image.FromFile(@"temp\flag.png");
 
-                                    Image flag = new Bitmap(flagtocopy);
-                                    flagtocopy.Dispose();
+                                Image flag = new Bitmap(flagtocopy);
+                                flagtocopy.Dispose();
 
-                                    float ratio = flag.Height / 40f;
-                                    int width = Convert.ToInt32(flag.Width / ratio);
-                                    flag = new Bitmap(flag, new Size(width, 40));
-                                    graphics.DrawImage(flag, bitmap.Width - flag.Width - 5, 5, flag.Width, flag.Height);
-                                    flag.Dispose();
-                                } else
+                                float ratio = flag.Height / 40f;
+                                int width = Convert.ToInt32(flag.Width / ratio);
+                                flag = new Bitmap(flag, new Size(width, 40));
+                                graphics.DrawImage(flag, bitmap.Width - flag.Width - 5, 5, flag.Width, flag.Height);
+                                flag.Dispose();
+                            }
+                            else
+                            {
+                                if (country != -1)
                                 {
                                     Image flag = flags[country];
                                     graphics.DrawImage(flag, bitmap.Width - flag.Width - 5, 5, flag.Width, flag.Height);
                                 }
+                            }
 
 
-                                for (int index = 0; index < 6; index++)
+                            for (int index = 0; index < 6; index++)
+                            {
+                                if (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1 && generatorIndexes[index] == 0)
                                 {
-                                    if (arrSizes.tanks.Item1 >= 1 && arrSizes.tanks.Item2 >= 1 && generatorIndexes[index] == 0)
+                                    x += 5; y += 10;
+                                    graphics.DrawString(res.LocalisationRes.tanks, textFont, tableNamesBrush, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.tanks.Item1; i++)
                                     {
-                                        x += 5; y += 10;
-                                        graphics.DrawString(res.LocalisationRes.tanks, textFont, tableNamesBrush, x, y);
-                                        y += 19;
-                                        graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                        y += 5;
-                                        for (int i = 0; i < arrSizes.tanks.Item1; i++)
+                                        for (int j = 0; j < arrSizes.tanks.Item2; j++)
                                         {
-                                            for (int j = 0; j < arrSizes.tanks.Item2; j++)
+                                            if (tanksData[i, j].buttonImage != null)
                                             {
-                                                if (tanksData[i, j].buttonImage != null)
-                                                {
-                                                    Image im = Image.FromFile(tanksData[i, j].buttonImage);
-                                                    graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                                    im.Dispose();
-                                                }
+                                                Image im = Image.FromFile(tanksData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
 
-                                                x += 124;
-                                            }
-                                            x = 5;
-                                            y += 52;
+                                            x += 124;
                                         }
-                                    }
-                                    else if (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1 && generatorIndexes[index] == 1)
-                                    {
-                                        x = 5; y += 10;
-                                        graphics.DrawString(res.LocalisationRes.planes, textFont, tableNamesBrush, x, y);
-                                        y += 19;
-                                        graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                        y += 5;
-                                        for (int i = 0; i < arrSizes.planes.Item1; i++)
-                                        {
-                                            for (int j = 0; j < arrSizes.planes.Item2; j++)
-                                            {
-                                                if (planesData[i, j].buttonImage != null)
-                                                {
-                                                    Image im = Image.FromFile(planesData[i, j].buttonImage);
-                                                    graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                                    im.Dispose();
-                                                }
-                                                x += 124;
-                                            }
-                                            x = 5;
-                                            y += 52;
-                                        }
-                                    }
-                                    else if (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1 && generatorIndexes[index] == 2)
-                                    {
-                                        x = 5; y += 10;
-                                        graphics.DrawString(res.LocalisationRes.helicopters, textFont, tableNamesBrush, x, y);
-                                        y += 19;
-                                        graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                        y += 5;
-                                        for (int i = 0; i < arrSizes.helis.Item1; i++)
-                                        {
-                                            for (int j = 0; j < arrSizes.helis.Item2; j++)
-                                            {
-                                                if (helicoptersData[i, j].buttonImage != null)
-                                                {
-                                                    Image im = Image.FromFile(helicoptersData[i, j].buttonImage);
-                                                    graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                                    im.Dispose();
-                                                }
-                                                x += 124;
-                                            }
-                                            x = 5;
-                                            y += 52;
-                                        }
-                                    }
-                                    else if (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1 && generatorIndexes[index] == 3)
-                                    {
-                                        x = 5; y += 10;
-                                        graphics.DrawString(res.LocalisationRes.coastalFleet, textFont, tableNamesBrush, x, y);
-                                        y += 19;
-                                        graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                        y += 5;
-                                        for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
-                                        {
-                                            for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
-                                            {
-                                                if (coastalFleetData[i, j].buttonImage != null)
-                                                {
-                                                    Image im = Image.FromFile(coastalFleetData[i, j].buttonImage);
-                                                    graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                                    im.Dispose();
-                                                }
-                                                x += 124;
-                                            }
-                                            x = 5;
-                                            y += 52;
-                                        }
-                                    }
-                                    else if (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1 && generatorIndexes[index] == 4)
-                                    {
-                                        x = 5; y += 10;
-                                        graphics.DrawString(res.LocalisationRes.bluewaterFleet, textFont, tableNamesBrush, x, y);
-                                        y += 19;
-                                        graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                        y += 5;
-                                        for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
-                                        {
-                                            for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
-                                            {
-                                                if (bluewaterFleetData[i, j].buttonImage != null)
-                                                {
-                                                    Image im = Image.FromFile(bluewaterFleetData[i, j].buttonImage);
-                                                    graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                                    im.Dispose();
-                                                }
-                                                x += 124;
-                                            }
-                                            x = 5;
-                                            y += 52;
-                                        }
-                                    }
-                                    else if (arrSizes.mixed.Item1 >= 1 && arrSizes.mixed.Item2 >= 1 && generatorIndexes[index] == 5)
-                                    {
-                                        x = 5; y += 10;
-                                        graphics.DrawString(MixedTableName.Text, textFont, tableNamesBrush, x, y);
-                                        y += 19;
-                                        graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
-                                        y += 5;
-                                        for (int i = 0; i < arrSizes.mixed.Item1; i++)
-                                        {
-                                            for (int j = 0; j < arrSizes.mixed.Item2; j++)
-                                            {
-                                                if (mixedData[i, j].buttonImage != null)
-                                                {
-                                                    Image im = Image.FromFile(mixedData[i, j].buttonImage);
-                                                    graphics.DrawImage(im, x, y, im.Width, im.Height);
-                                                    im.Dispose();
-                                                }
-                                                x += 124;
-                                            }
-                                            x = 5;
-                                            y += 52;
-                                        }
+                                        x = 5;
+                                        y += 52;
                                     }
                                 }
-
+                                else if (arrSizes.planes.Item1 >= 1 && arrSizes.planes.Item2 >= 1 && generatorIndexes[index] == 1)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString(res.LocalisationRes.planes, textFont, tableNamesBrush, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.planes.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.planes.Item2; j++)
+                                        {
+                                            if (planesData[i, j].buttonImage != null)
+                                            {
+                                                Image im = Image.FromFile(planesData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
+                                else if (arrSizes.helis.Item1 >= 1 && arrSizes.helis.Item2 >= 1 && generatorIndexes[index] == 2)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString(res.LocalisationRes.helicopters, textFont, tableNamesBrush, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.helis.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.helis.Item2; j++)
+                                        {
+                                            if (helicoptersData[i, j].buttonImage != null)
+                                            {
+                                                Image im = Image.FromFile(helicoptersData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
+                                else if (arrSizes.coastalFleet.Item1 >= 1 && arrSizes.coastalFleet.Item2 >= 1 && generatorIndexes[index] == 3)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString(res.LocalisationRes.coastalFleet, textFont, tableNamesBrush, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.coastalFleet.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.coastalFleet.Item2; j++)
+                                        {
+                                            if (coastalFleetData[i, j].buttonImage != null)
+                                            {
+                                                Image im = Image.FromFile(coastalFleetData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
+                                else if (arrSizes.bluewaterFleet.Item1 >= 1 && arrSizes.bluewaterFleet.Item2 >= 1 && generatorIndexes[index] == 4)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString(res.LocalisationRes.bluewaterFleet, textFont, tableNamesBrush, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.bluewaterFleet.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.bluewaterFleet.Item2; j++)
+                                        {
+                                            if (bluewaterFleetData[i, j].buttonImage != null)
+                                            {
+                                                Image im = Image.FromFile(bluewaterFleetData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
+                                else if (arrSizes.mixed.Item1 >= 1 && arrSizes.mixed.Item2 >= 1 && generatorIndexes[index] == 5)
+                                {
+                                    x = 5; y += 10;
+                                    graphics.DrawString(MixedTableName.Text, textFont, tableNamesBrush, x, y);
+                                    y += 19;
+                                    graphics.DrawLine(pen, new Point(x, y), new Point(bitmap.Width - x, y));
+                                    y += 5;
+                                    for (int i = 0; i < arrSizes.mixed.Item1; i++)
+                                    {
+                                        for (int j = 0; j < arrSizes.mixed.Item2; j++)
+                                        {
+                                            if (mixedData[i, j].buttonImage != null)
+                                            {
+                                                Image im = Image.FromFile(mixedData[i, j].buttonImage);
+                                                graphics.DrawImage(im, x, y, im.Width, im.Height);
+                                                im.Dispose();
+                                            }
+                                            x += 124;
+                                        }
+                                        x = 5;
+                                        y += 52;
+                                    }
+                                }
                             }
+
                         }
-                        bitmap.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                        bitmap.Dispose();
-
-                        StatusChange("Export to png completed!", Color.FromArgb(0, 192, 0));
-
                     }
-                    catch
-                    {
-                        StatusChange("Something went wrong!", Color.FromArgb(192, 0, 0));
-                    }
-                } 
-                else if (saveFileDialog.FilterIndex == 2)
+                    bitmap.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                    bitmap.Dispose();
+
+                    StatusChange("Export to png completed!", Color.FromArgb(0, 192, 0));
+
+                }
+                catch
+                {
+                    StatusChange("Something went wrong!", Color.FromArgb(192, 0, 0));
+                }
+            }
+            // .txt file
+            else if (saveFileDialog.FilterIndex == 2)
+            {
+                try
                 {
                     using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
                     {
@@ -1043,13 +1011,13 @@ namespace Lineups_creator
                         sw.WriteLine("}");
                     }
                     StatusChange("Export to txt completed!", Color.FromArgb(0, 192, 0));
+                } catch
+                {
+                    StatusChange("Error", Color.FromArgb(192, 0, 0));
+                    MessageBox.Show(text: "Wrong save file or tables data", caption: "Error", buttons: MessageBoxButtons.OK);
                 }
+                
             }
-            else
-            {
-                StatusChange("Wrong file name!", Color.FromArgb(192, 0, 0));
-            }
-
         }
 
         // Menu buttons
@@ -1251,7 +1219,106 @@ namespace Lineups_creator
             changeIfindexOccuped(5);
         }
 
+        private void Create_Button(int row, int col, int type, TableLayoutPanel tlp, VehicleData vd)
+        {
+            Button vehicle = new Button()
+            {
+                Width = 120,
+                Height = 48,
+                Text = "",
+                Margin = new Padding(3, 3, 3, 3),
+                FlatStyle = FlatStyle.Flat,
+            };
+            if (vd.name != null)
+            {
+                Image icon = new Bitmap(1, 1);
 
+                if (vd.imageLink != "N/A")
+                {
+                    WebClient webClient = new WebClient();
+                    webClient.DownloadFile(vd.imageLink, $@"temp\icon{row}-{col}-{type}.bmp");
+                    webClient.Dispose();
+
+                    Image icontocopy = Image.FromFile($@"temp\icon{row}-{col}-{type}.bmp");
+
+                    icon = new Bitmap(icontocopy);
+                    icontocopy.Dispose();
+
+                    FileInfo file = new FileInfo($@"temp\icon{row}-{col}-{type}.bmp");
+                    file.Delete();
+
+                    float ratio = icon.Height / 42f;
+                    int width = Convert.ToInt32(icon.Width / ratio);
+                    icon = new Bitmap(icon, new Size(width, 42));
+                }
+
+                Image background;
+                switch (vd.backgroudType)
+                {
+                    case 0:
+                        background = Properties.Resources.bg_base;
+                        break;
+                    case 1:
+                        background = Properties.Resources.bg_premium;
+                        break;
+                    case 2:
+                        background = Properties.Resources.bg_squad;
+                        break;
+                    default:
+                        background = Image.FromFile(backgroundImagePaths[vd.backgroudType]);
+                        break;
+                }
+                Bitmap bitmap = new Bitmap(background);
+                using (Graphics graphics = Graphics.FromImage(bitmap))
+                {
+                    using (Font verdanaFont = new Font(pfc.Families[0], 10, new FontStyle()))
+                    {
+                        if (vd.imageLink != "N/A")
+                        {
+                            graphics.DrawImage(icon, 5, 5, icon.Width, icon.Height);
+                        }
+
+                        var format = new StringFormat() { Alignment = StringAlignment.Far };
+                        var rect = new RectangleF(5, 5, 110, 38);
+
+                        graphics.DrawString(vd.name, verdanaFont, Brushes.White, rect, format);
+                    }
+                }
+                vehicle.BackgroundImage = bitmap;
+                bitmap.Save(vd.buttonImage);
+            }
+
+            switch (type)
+            {
+                case 0:
+                    vehicle.Click += TankButton_Click;
+                    break;
+                case 1:
+                    vehicle.Click += PlaneButton_Click;
+                    break;
+                case 2:
+                    vehicle.Click += HeliButton_Click;
+                    break;
+                case 3:
+                    vehicle.Click += CoastalButton_Click;
+                    break;
+                case 4:
+                    vehicle.Click += BluewaterButton_Click;
+                    break;
+                case -1:
+                    vehicle.Click += MixedButton_Click;
+                    break;
+            }
+            if (col > 0)
+            {
+                tlp.Controls.Add(vehicle, col, row);
+            }
+            else
+            {
+                tlp.Controls.Add(vehicle, col, row);
+            }
+
+        }
         // Mixed table id = -1
         private void ResizeMixed_MouseUp(object sender, MouseEventArgs me)
         {
@@ -2420,13 +2487,15 @@ namespace Lineups_creator
 
             DialogResult dialogResult = MessageBox.Show(text: $"Language will be changed. All the data in tables will be deleted.\nЯзык будет изменён, все данные в таблицах будут удалены.", caption: "Restart now?", buttons: MessageBoxButtons.YesNo);
 
-            if (dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.No)
             {
-                Process p = new Process();
-                p.StartInfo.FileName = "Lineup creator.exe";
-                p.Start();
-                Environment.Exit(1);
+                return;
             }
+
+            Process p = new Process();
+            p.StartInfo.FileName = "Lineup creator.exe";
+            p.Start();
+            Environment.Exit(1);
         }
         private void Lineup_creator_SizeChanged(object sender, EventArgs e)
         {
@@ -2467,6 +2536,11 @@ namespace Lineups_creator
                     mixedData[row, column] = senderData;
                     break;
             }
+        }
+
+        private void checkForDataUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Check_Data_Updates();
         }
     }
 
